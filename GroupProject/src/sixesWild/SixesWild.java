@@ -1,6 +1,8 @@
 package sixesWild;
-//do you see me?asldkfj
+
 public class SixesWild {
-	//this is something written by Albert
-	int inttwejfk;
+	
+    String wahtIf_I_mess_up_with_the_code = "e234e";
+	int myint_is_not_four = 4;
+
 }
