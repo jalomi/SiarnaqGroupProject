@@ -1,34 +1,28 @@
 package levelSelectGUI;
 
 import javax.swing.JFrame ;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 public class LevelSelectApplication extends JFrame {
-	private JTextField txtPleaseSelectLevel;
 	public LevelSelectApplication() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 580, 750);
 		getContentPane().setLayout(null);
-		
-		txtPleaseSelectLevel = new JTextField();
-		txtPleaseSelectLevel.setText("Please Select Level");
-		txtPleaseSelectLevel.setBounds(35, 15, 360, 29);
-		getContentPane().add(txtPleaseSelectLevel);
-		txtPleaseSelectLevel.setColumns(10);
 		
 		JButton btnMainMenu = new JButton("Main Menu");
 		btnMainMenu.setBounds(430, 15, 100, 29);
 		getContentPane().add(btnMainMenu);
 		
 		JButton btnNewButton = new JButton("Level 1");
+		btnNewButton.setBounds(35, 55, 100, 100);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(35, 55, 100, 100);
 		getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Level 2");
@@ -40,11 +34,11 @@ public class LevelSelectApplication extends JFrame {
 		getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Level 4");
+		btnNewButton_3.setBounds(430, 55, 100, 100);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_3.setBounds(430, 55, 100, 100);
 		getContentPane().add(btnNewButton_3);
 		
 		JLabel lblNumstars = new JLabel("NumStars");
@@ -158,5 +152,10 @@ public class LevelSelectApplication extends JFrame {
 		JLabel lblNewLabel_12 = new JLabel("NumStars");
 		lblNewLabel_12.setBounds(430, 660, 100, 21);
 		getContentPane().add(lblNewLabel_12);
+		
+		JTextArea txtrPleaseSelectLevel = new JTextArea();
+		txtrPleaseSelectLevel.setText("Please Select Level");
+		txtrPleaseSelectLevel.setBounds(35, 15, 360, 30);
+		getContentPane().add(txtrPleaseSelectLevel);
 	}
 }
