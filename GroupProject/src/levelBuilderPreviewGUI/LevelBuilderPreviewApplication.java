@@ -37,7 +37,6 @@ public class LevelBuilderPreviewApplication extends JFrame {
 	 * Create the frame.
 	 */
 	public LevelBuilderPreviewApplication() {
-		setResizable(false);
 		setTitle("Preview");
 		setBackground(new Color(238, 238, 238));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

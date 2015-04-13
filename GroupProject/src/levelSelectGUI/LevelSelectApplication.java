@@ -10,7 +10,6 @@ import javax.swing.JTextPane;
 
 public class LevelSelectApplication extends JFrame {
 	public LevelSelectApplication() {
-		setResizable(false);
 		setTitle("Level Select");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 580, 750);

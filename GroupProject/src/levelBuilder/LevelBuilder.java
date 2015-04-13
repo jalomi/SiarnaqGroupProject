@@ -5,7 +5,7 @@ import java.sql.Time;
 public class LevelBuilder {
 	int number;
 	int type;
-	boolean[][] tilesActive = new boolean[9][9];
+	boolean[][] tilesActive=new boolean[9][9];
 	boolean allowReset;
 	boolean allowSwap;
 	boolean allowRemove;
@@ -22,7 +22,7 @@ public class LevelBuilder {
 	int threeStarScore;
 	Time time;
 	int moves;
-	boolean[] bucketFor6s = new boolean[9];
+	boolean[] bucketFor6s=new boolean[9];
 	
 	public LevelBuilder()
 	{
