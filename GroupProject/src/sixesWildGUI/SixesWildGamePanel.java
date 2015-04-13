@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 public class SixesWildGamePanel extends JPanel {
-
+ 
 	/**
 	 * Create the panel.
 	 */
