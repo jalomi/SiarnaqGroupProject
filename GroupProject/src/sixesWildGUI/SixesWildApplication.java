@@ -30,6 +30,7 @@ public class SixesWildApplication extends JFrame {
 			}
 		});
 	}
+	
 
 	/**
 	 * Create the frame.
