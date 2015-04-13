@@ -26,10 +26,18 @@ public class Level {
 	boolean[] columnForSixes;
 	
 	public Level(){
+		//counters for initialize variables
+		int i;
+		int j;
 		//variables and data store in level.
 		this.levelNumber = 0;
 		 this.score = 0;
 		this.tileActive = new boolean[9][9];
+		for(i=0;i<9;i++){
+			for(j=0;j<9;j++){
+				this.tileActive[i][j] = false; 
+			}
+		}
 		this.firstStarScore = 0;
 		this.secondStarScore = 0;
 		this.thirdStarScore = 0;
@@ -49,6 +57,9 @@ public class Level {
 		this.allowRemove= false;;
 		//columns that has 6s on the top at the beginning of the game(release only)
 		this.columnForSixes = new boolean [9];
+		for(i=0;i<9;i++){
+			this.columnForSixes[i] = false;
+		}
 		
 	}
 //getter and setter for all the variables(we can change them later) 
@@ -136,5 +147,30 @@ public class Level {
 	 public boolean getAllowSwap(boolean b){
 		 return this.allowRest;
 	 }
-
+	 
+	 public void setAllowRemove(boolean b){
+		 this.allowRest = b;
+	 }
+	 public boolean getAllowRemove(boolean b){
+		 return this.allowRemove;
+	 }
+	 public void setTileActive(int col, int row){
+		 this.tileActive[col][row] = true;
+	 }
+	 public void setTileDeactive(int col, int row){
+		 this.tileActive[col][row] = false;
+	 }
+	 public boolean isTileActive(int col, int row){
+		 return this.tileActive[col][row];
+	 }
+	 
+	 public void activecolumnForSixes(int col){
+		 this.columnForSixes[col] = true;
+	 }
+	 public void deactiveColumnForSixes(int col){
+		 this.columnForSixes[col] = false;
+	 }
+	 public boolean isColumnActive(int col){
+		 return this.columnForSixes[col];
+	 }
 }
