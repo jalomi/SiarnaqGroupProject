@@ -6,9 +6,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 
 public class LevelSelectApplication extends JFrame {
 	public LevelSelectApplication() {
+		setTitle("Level Select");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 580, 750);
 		getContentPane().setLayout(null);
@@ -154,6 +156,7 @@ public class LevelSelectApplication extends JFrame {
 		getContentPane().add(lblNumstars16);
 		
 		JTextArea txtrPleaseSelectLevel = new JTextArea();
+		txtrPleaseSelectLevel.setEditable(false);
 		txtrPleaseSelectLevel.setText("Please Select Level");
 		txtrPleaseSelectLevel.setBounds(35, 15, 360, 30);
 		getContentPane().add(txtrPleaseSelectLevel);

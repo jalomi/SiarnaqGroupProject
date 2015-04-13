@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JToggleButton;
 
 public class MainMenuApplication extends JFrame {
 
@@ -57,5 +58,4 @@ public class MainMenuApplication extends JFrame {
 		lblSixesWild.setBounds(135, 100, 305, 200);
 		contentPane.add(lblSixesWild);
 	}
-
 }
