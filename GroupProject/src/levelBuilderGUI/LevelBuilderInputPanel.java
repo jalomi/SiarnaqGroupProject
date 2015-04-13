@@ -65,11 +65,11 @@ public class LevelBuilderInputPanel extends JPanel {
 		chckbxNewCheckBox.setBounds(0, 178, 150, 25);
 		add(chckbxNewCheckBox);
 		
-		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("New check box");
+		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Allow Swap Tile");
 		chckbxNewCheckBox_1.setBounds(0, 212, 150, 25);
 		add(chckbxNewCheckBox_1);
 		
-		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("New check box");
+		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("Allow Remove Tile");
 		chckbxNewCheckBox_2.setBounds(0, 246, 150, 25);
 		add(chckbxNewCheckBox_2);
 		
