@@ -66,8 +66,8 @@ public class LevelBuilderApplication extends JFrame {
 		contentPane.add(checkBoxPanel);
 		
 		inputPanel = new LevelBuilderInputPanel();
-		panel.setBackground(UIManager.getColor("Panel.background"));
-		panel.setBounds(540, 15, 360, 510);
-		contentPane.add(panel);
+		inputPanel.setBackground(UIManager.getColor("Panel.background"));
+		inputPanel.setBounds(540, 15, 360, 510);
+		contentPane.add(inputPanel);
 	}
 }

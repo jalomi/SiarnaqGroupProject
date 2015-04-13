@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
+import javax.swing.UIManager;
 
 public class SixesWildApplication extends JFrame {
 
@@ -43,10 +44,12 @@ public class SixesWildApplication extends JFrame {
 		contentPane.setLayout(null);
 		
 		gamePanel = new SixesWildGamePanel();
+		gamePanel.setBackground(UIManager.getColor("Panel.background"));
 		gamePanel.setBounds(35, 180, 490, 490);
 		contentPane.add(gamePanel);
 		
 		levelPanel = new SixesWildLevelPanel();
+		levelPanel.setBackground(UIManager.getColor("Panel.background"));
 		levelPanel.setBounds(35, 20, 490, 135);
 		contentPane.add(levelPanel);
 	}
