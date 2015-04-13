@@ -14,7 +14,7 @@ public class SixesWildApplication extends JFrame {
 	private JPanel contentPane;
 	SixesWildGamePanel gamePanel ;
 	SixesWildLevelPanel levelPanel ;
-
+ 
 	/**
 	 * Launch the application.
 	 */
