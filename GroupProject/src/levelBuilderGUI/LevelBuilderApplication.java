@@ -63,7 +63,7 @@ public class LevelBuilderApplication extends JFrame {
 		
 		checkBoxPanel = new LevelBuilderCheckBoxPanel();
 		checkBoxPanel.setBackground(UIManager.getColor("Panel.background"));
-		checkBoxPanel.setBounds(40, 520, 460, 21);
+		checkBoxPanel.setBounds(40, 510, 460, 21);
 		contentPane.add(checkBoxPanel);
 		
 		inputPanel = new LevelBuilderInputPanel();
