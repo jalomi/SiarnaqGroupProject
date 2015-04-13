@@ -6,13 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-<<<<<<< HEAD
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-=======
+
 import java.awt.Color;
 import javax.swing.UIManager;
->>>>>>> branch 'master' of https://github.com/jalomi/SiarnaqGroupProject/
+
 
 public class SixesWildApplication extends JFrame {
 
