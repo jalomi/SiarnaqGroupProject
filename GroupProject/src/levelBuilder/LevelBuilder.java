@@ -24,6 +24,26 @@ public class LevelBuilder {
 	int moves;
 	boolean[] bucketFor6s=new boolean[9];
 	
+	public LevelBuilder()
+	{
+		for(int i=0; i<9; i++)
+		{
+			for(int j=0; j<9; j++)
+			{
+				tilesActive[i][j]=false;
+			}
+		}
+		
+		for(int i=0; i<9; i++)
+		{
+			bucketFor6s[i]=false;
+		}
+		
+		boolean allowReset=false;
+		boolean allowSwap=false;
+		boolean allowRemove=false;
+	}
+	
 	public boolean entriesValid()
 	{
 		return false;
