@@ -1,12 +1,12 @@
 package sixesWild;
 
 public class Lightning extends Level {
-	int movesRemaining;
+	int timeRemaining;
 	
 	public Lightning(int movesRemaining)
 	{
 		super();
-		this.movesRemaining=movesRemaining;
+		this.timeRemaining=movesRemaining;
 	}
 	
 	public boolean hasWon()
