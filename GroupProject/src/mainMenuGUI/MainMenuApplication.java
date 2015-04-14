@@ -13,6 +13,7 @@ import javax.swing.JToggleButton;
 public class MainMenuApplication extends JFrame {
 
 	private JPanel contentPane;
+	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JLabel lblSixesWild;
 
@@ -43,7 +44,7 @@ public class MainMenuApplication extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Level Select");
+		btnNewButton = new JButton("Level Select");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.setBounds(100, 400, 150, 75);
 		contentPane.add(btnNewButton);
@@ -57,5 +58,18 @@ public class MainMenuApplication extends JFrame {
 		lblSixesWild.setFont(new Font("Matura MT Script Capitals", Font.PLAIN, 56));
 		lblSixesWild.setBounds(135, 100, 305, 200);
 		contentPane.add(lblSixesWild);
+		
+		//controllers
+		getLvlsButton().addActionListener(new EnterLevelSelectController(this));
+	}
+	
+	public JButton getLvlsButton()
+	{
+		return this.btnNewButton;
+	}
+	
+	public JButton getQuitButton()
+	{
+		return this.btnNewButton_1;
 	}
 }
