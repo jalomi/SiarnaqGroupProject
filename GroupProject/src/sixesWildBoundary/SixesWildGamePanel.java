@@ -451,7 +451,7 @@ public class SixesWildGamePanel extends JPanel {
 				 */
 				Tile[][] map = board.getMap();
 				//you may want to use if statement to decide which image to feed
-				int value = map[i][j].getSqaure().getValue();
+				//int value = map[i][j].getSqaure().getValue();
 				JLabel b = new JLabel("Test");
 				this.add(b);
 			}
