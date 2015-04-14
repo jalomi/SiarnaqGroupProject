@@ -3,7 +3,7 @@ package sixesWildControllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import sixesWildBoundary.LevelSelectFrame;
+import sixesWildBoundary.LevelSelectApplication;
 import sixesWildBoundary.MainMenuApplication;
 
 public class EnterLevelSelectController implements ActionListener {
@@ -18,7 +18,7 @@ public class EnterLevelSelectController implements ActionListener {
 	{
 		m.setVisible(false);
 		
-		LevelSelectFrame l=new LevelSelectFrame();
+		LevelSelectApplication l=new LevelSelectApplication();
 		l.setVisible(true);
 		
 		l.getMainMenuBtn().addActionListener(new BacktoMainMenuController(m, l));

@@ -45,8 +45,10 @@ public class SixesWildApplication extends JFrame {
 	 * Create the frame.
 	 */
 	public SixesWildApplication(/*Level level*/) {
+		setTitle("Sixes Wild");
 		
 		gamePane = new SixesWildGamePanel();
+		gamePane.setSize(490, 490);
 		gamePane.setLocation(35, 180);
 		levelPane = new SixesWildLevelPanel();
 		levelPane.setLocation(35, 20);
