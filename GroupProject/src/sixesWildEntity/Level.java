@@ -11,7 +11,9 @@ import java.util.UUID;
 public class Level {
 	
 	UUID id;
-	int number;
+	
+	int levelNumber;
+	
 	double percent1;
 	double percent2;
 	double percent3;
@@ -26,7 +28,13 @@ public class Level {
 	double range4;
 	double range5;
 	double range6;
-	//boolean[][] enabledTiles = new boolean[9][9];
+	
+	boolean[][] enabledTiles = new boolean[9][9];
+	
+	int score;
+	int firstStarScore;
+	int secondStarScore;
+	int thirdStarScore;
 	
 	public Level() {
 		
@@ -35,13 +43,13 @@ public class Level {
 	//this contructor is for test now
 	public Level(int number) {
 		this.id = UUID.randomUUID();
-		this.number = number;
+		this.levelNumber = number;
 	}
 	
 	//this contructor should never be called by other Class
 	private Level(int number, double p1, double p2, double p3, double p4, double p5, double p6) {
 		this.id = UUID.randomUUID();
-		this.number = number;
+		this.levelNumber = number;
 		this.percent1 = p1;
 		this.percent2 = p2;
 		this.percent3 = p3;
@@ -104,10 +112,10 @@ public class Level {
 		this.id = id;
 	}
 	public int getNumber() {
-		return number;
+		return levelNumber;
 	}
 	public void setNumber(int number) {
-		this.number = number;
+		this.levelNumber = number;
 	}
 	public double getPercent1() {
 		return percent1;
