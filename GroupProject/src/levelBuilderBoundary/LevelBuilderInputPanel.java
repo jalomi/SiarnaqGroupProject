@@ -24,6 +24,8 @@ public class LevelBuilderInputPanel extends JPanel {
 	private JTextField txtEnterPercentFor_5;
 	private JTextField txtEnterPercentFor_6;
 	private JTextField txtEnterPercentFor_7;
+	private JButton previewBtn ;
+	private JButton exitBtn ;
 
 	/**
 	 * Create the panel.
@@ -95,9 +97,9 @@ public class LevelBuilderInputPanel extends JPanel {
 		btnNewButton.setBounds(0, 415, 150, 40);
 		add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(0, 470, 150, 40);
-		add(btnNewButton_1);
+		exitBtn = new JButton("Exit");
+		exitBtn.setBounds(0, 470, 150, 40);
+		add(exitBtn);
 		
 		txtEnterPercentFor = new JTextField();
 		txtEnterPercentFor.setText("Enter Percent for 1s");
@@ -159,9 +161,9 @@ public class LevelBuilderInputPanel extends JPanel {
 		add(txtEnterPercentFor_7);
 		txtEnterPercentFor_7.setColumns(10);
 		
-		JButton btnNewButton_2 = new JButton("Preview");
-		btnNewButton_2.setBounds(210, 415, 150, 40);
-		add(btnNewButton_2);
+		previewBtn = new JButton("Preview");
+		previewBtn.setBounds(210, 415, 150, 40);
+		add(previewBtn);
 		
 		JButton btnNewButton_3 = new JButton("Undo");
 		btnNewButton_3.setBounds(210, 470, 65, 40);
@@ -170,5 +172,13 @@ public class LevelBuilderInputPanel extends JPanel {
 		JButton btnNewButton_4 = new JButton("Redo");
 		btnNewButton_4.setBounds(295, 470, 65, 40);
 		add(btnNewButton_4);
+	}
+
+	public JButton getPreviewBtn() {
+		return previewBtn;
+	}
+
+	public JButton getExitBtn() {
+		return exitBtn;
 	}
 }

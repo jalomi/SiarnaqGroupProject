@@ -1,23 +1,18 @@
-package sixesWildBoundary;
+package levelBuilderBoundary;
 
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
-import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import sixesWildEntity.Board;
-import sixesWildEntity.Level;
-import sixesWildEntity.Tile;
+public class LevelBuilderPreviewGamePanel extends JPanel {
 
-public class SixesWildGamePanel extends JPanel {
-	
-	private Level level;
-	private Board board;
- 
-	public SixesWildGamePanel(/*Level level*/) {
+	/**
+	 * Create the panel.
+	 */
+	public LevelBuilderPreviewGamePanel(/*Level level*/) {
 		
 		this.setSize(490, 490);
 		
@@ -44,11 +39,12 @@ public class SixesWildGamePanel extends JPanel {
 				//this.add(b);
 				
 				map[i][j] = new JLabel("") ;
-				map[i][j].setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/1-1.png")));
+				map[i][j].setIcon(new ImageIcon(LevelBuilderPreviewGamePanel.class.getResource("/tileIcons/1-1.png")));
 				this.add(map[i][j]) ;
 			}
 		}
 		this.validate();
 		this.setVisible(true);
 	}
+
 }
