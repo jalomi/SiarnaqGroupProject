@@ -24,8 +24,6 @@ public class LevelSelectApplication extends JFrame {
 	
 	private ArrayList<Level> levels = new ArrayList<Level>();
 	
-	private ArrayList<Level> levels = new ArrayList<Level>();
-	
 	/**
 	 * Launch the application.
 	 */
