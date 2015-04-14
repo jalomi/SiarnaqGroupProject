@@ -1,11 +1,17 @@
 package levelBuilderBoundary;
 
 import java.awt.EventQueue;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.Color;
+
 import javax.swing.UIManager;
+
+import levelBuilderControllers.PreviewController;
 
 public class LevelBuilderApplication extends JFrame {
 
@@ -71,5 +77,13 @@ public class LevelBuilderApplication extends JFrame {
 		inputPanel.setBackground(UIManager.getColor("Panel.background"));
 		inputPanel.setBounds(540, 15, 360, 510);
 		contentPane.add(inputPanel);
+		
+		//controllers
+		getPreviewBtn().addActionListener(new PreviewController(this)) ;
 	}
+	
+	public JButton getPreviewBtn(){
+		return inputPanel.getPreviewBtn() ;
+	}
+	
 }
