@@ -1,7 +1,6 @@
 package levelBuilderBoundary;
 
 import java.awt.*;
-
 import javax.swing.*;
 
 public class SplashScreen extends JWindow {
