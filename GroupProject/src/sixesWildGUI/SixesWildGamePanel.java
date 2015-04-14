@@ -3,6 +3,7 @@ package sixesWildGUI;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
 public class SixesWildGamePanel extends JPanel {
  
@@ -13,32 +14,38 @@ public class SixesWildGamePanel extends JPanel {
 		setBounds(0, 0, 490, 490);
 		setLayout(null);
 		
-		JLabel lblTile = new JLabel("tile1");
+		JLabel lblTile = new JLabel("");
+		lblTile.setIcon(new ImageIcon("C:\\Users\\John\\Documents\\WPI\\2-Sophomore\\Software Engineering\\Group Project\\Tile Images\\1-1.png"));
 		lblTile.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTile.setBounds(0, 0, 50, 50);
 		add(lblTile);
 		
-		JLabel lblNewLabel = new JLabel("tile2");
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\John\\Documents\\WPI\\2-Sophomore\\Software Engineering\\Group Project\\Tile Images\\1-1.png"));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(55, 0, 50, 50);
 		add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("tile3");
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\John\\Documents\\WPI\\2-Sophomore\\Software Engineering\\Group Project\\Tile Images\\1-1.png"));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(110, 0, 50, 50);
 		add(lblNewLabel_1);
 		
-		JLabel lblTile_1 = new JLabel("tile4");
+		JLabel lblTile_1 = new JLabel("");
+		lblTile_1.setIcon(new ImageIcon("C:\\Users\\John\\Documents\\WPI\\2-Sophomore\\Software Engineering\\Group Project\\Tile Images\\1-1.png"));
 		lblTile_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTile_1.setBounds(165, 0, 50, 50);
 		add(lblTile_1);
 		
-		JLabel lblTile_2 = new JLabel("tile5");
+		JLabel lblTile_2 = new JLabel("");
+		lblTile_2.setIcon(new ImageIcon("C:\\Users\\John\\Documents\\WPI\\2-Sophomore\\Software Engineering\\Group Project\\Tile Images\\1-1.png"));
 		lblTile_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTile_2.setBounds(220, 0, 50, 50);
 		add(lblTile_2);
 		
-		JLabel lblTile_3 = new JLabel("tile6");
+		JLabel lblTile_3 = new JLabel("");
+		lblTile_3.setIcon(new ImageIcon("C:\\Users\\John\\Documents\\WPI\\2-Sophomore\\Software Engineering\\Group Project\\Tile Images\\1-1.png"));
 		lblTile_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTile_3.setBounds(275, 0, 50, 50);
 		add(lblTile_3);

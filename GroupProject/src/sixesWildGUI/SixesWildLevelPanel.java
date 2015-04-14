@@ -5,6 +5,8 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class SixesWildLevelPanel extends JPanel {
 
@@ -21,7 +23,11 @@ public class SixesWildLevelPanel extends JPanel {
 		txtrLevelNumberHere.setBounds(170, 0, 150, 27);
 		add(txtrLevelNumberHere);
 		
-		JButton btnNewButton = new JButton("Exit Game");
+		JButton btnNewButton = new JButton("Main Menu");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnNewButton.setBounds(0, 40, 100, 40);
 		add(btnNewButton);
 		
