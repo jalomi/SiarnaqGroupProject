@@ -4,12 +4,12 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class SixesWildGamePanel extends JPanel {
+public class Z_SixesWildGamePanel extends JPanel {
  
 	/**
 	 * Create the panel.
 	 */
-	public SixesWildGamePanel() {
+	public Z_SixesWildGamePanel() {
 		setBounds(0, 0, 490, 490);
 		setLayout(null);
 		

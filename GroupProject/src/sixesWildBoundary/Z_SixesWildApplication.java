@@ -11,11 +11,11 @@ import java.awt.Color;
 import javax.swing.UIManager;
 
 
-public class SixesWildApplication extends JFrame {
+public class Z_SixesWildApplication extends JFrame {
 
 	private JPanel contentPane;
-	SixesWildGamePanel gamePanel ;
-	SixesWildLevelPanel levelPanel ;
+	Z_SixesWildGamePanel gamePanel ;
+	Z_SixesWildLevelPanel levelPanel ;
  
 	/**
 	 * Launch the application.
@@ -24,7 +24,7 @@ public class SixesWildApplication extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SixesWildApplication frame = new SixesWildApplication();
+					Z_SixesWildApplication frame = new Z_SixesWildApplication();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,7 @@ public class SixesWildApplication extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SixesWildApplication() {
+	public Z_SixesWildApplication() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 580, 750);
 		contentPane = new JPanel();
@@ -46,12 +46,12 @@ public class SixesWildApplication extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		gamePanel = new SixesWildGamePanel();
+		gamePanel = new Z_SixesWildGamePanel();
 		gamePanel.setBackground(UIManager.getColor("Panel.background"));
 		gamePanel.setBounds(35, 180, 490, 490);
 		contentPane.add(gamePanel);
 		
-		levelPanel = new SixesWildLevelPanel();
+		levelPanel = new Z_SixesWildLevelPanel();
 		levelPanel.setBackground(UIManager.getColor("Panel.background"));
 		levelPanel.setBounds(35, 20, 490, 135);
 		contentPane.add(levelPanel);

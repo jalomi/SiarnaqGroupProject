@@ -1,176 +1,148 @@
 package sixesWildEntity;
 
+import java.util.UUID;
+
+/*
+ * For now I assume that every tile is enabled
+ * 
+ * 
+ */
+
 public class Level {
-	//variables and data store in level.
-	int levelNumber;
-	int score;
-	boolean[][] tileActive;
-	int firstStarScore;
-	int secondStarScore;
-	int thirdStarScore;
-	//chance for each number to appear on each tile.
-	float percent1;
-	float percent2;
-	float percent3;
-	float percent4;
-	float percent5;
-	float percent6;
-	//chance for each multiplier to appear on each tile
-	float percentB2;
-	float percentB3;
-	//special moves
-	boolean allowRest;
-	boolean allowSwap;
-	boolean allowRemove;
-	//columns that has 6s on the top at the beginning of the game(release only)
-	boolean[] columnForSixes;
 	
-	public Level(){
-		//counters for initialize variables
-		int i;
-		int j;
-		//variables and data store in level.
-		this.levelNumber = 0;
-		 this.score = 0;
-		this.tileActive = new boolean[9][9];
-		for(i=0;i<9;i++){
-			for(j=0;j<9;j++){
-				this.tileActive[i][j] = false; 
-			}
-		}
-		this.firstStarScore = 0;
-		this.secondStarScore = 0;
-		this.thirdStarScore = 0;
-		//chance for each number to appear on each tile.
-		this.percent1 = 0;
-		this.percent2 = 0;
-		this.percent3 = 0;
-		this.percent4 = 0;
-		this.percent5 = 0;
-		this.percent6 = 0;
-		//chance for each multiplier to appear on each tile
-		this.percentB2 = 0;
-		this.percentB3 = 0;
-		//special moves
-		this.allowRest = false;
-		this.allowSwap = false;
-		this.allowRemove= false;;
-		//columns that has 6s on the top at the beginning of the game(release only)
-		this.columnForSixes = new boolean [9];
-		for(i=0;i<9;i++){
-			this.columnForSixes[i] = false;
-		}
+	UUID id;
+	int number;
+	double percent1;
+	double percent2;
+	double percent3;
+	double percent4;
+	double percent5;
+	double percent6;
+	
+	//upper bound
+	double range1;
+	double range2;
+	double range3;
+	double range4;
+	double range5;
+	double range6;
+	//boolean[][] enabledTiles = new boolean[9][9];
+	
+	public Level() {
 		
 	}
-//getter and setter for all the variables(we can change them later) 
-	public int getScore(){
-		return this.score;
+	
+	//this contructor is for test now
+	public Level(int number) {
+		this.id = UUID.randomUUID();
+		this.number = number;
 	}
 	
-	public void updateScore(int s){
-		this.score = s;
+	//this contructor should never be called by other Class
+	private Level(int number, double p1, double p2, double p3, double p4, double p5, double p6) {
+		this.id = UUID.randomUUID();
+		this.number = number;
+		this.percent1 = p1;
+		this.percent2 = p2;
+		this.percent3 = p3;
+		this.percent4 = p4;
+		this.percent5 = p5;
+		this.percent6 = p6;
+		
+		range1 = p1;
+		range2 = p2 + range1;
+		range3 = p3 + range2;
+		range4 = p4 + range3;
+		range5 = p5 + range4;
+		range6 = (float) 1.0;
 	}
 	
-	public void setFirstStarScore(int s){
-		this.firstStarScore = s;
+	public static Level newInstance(int number, double d, double e, double f, double g, double h, double i) {
+		if(checkPercentageCorrectness(d,e,f,g,h,i)) {
+			return new Level(number, d, e, f, g, h, i);
+		} else {
+			return null;
+		}
 	}
-	 public int getFirstSarScore(){
-		 return this.firstStarScore;
-	 }
-	 
-	 public void setSecondStarScore(int s){
-		 this.secondStarScore = s;
-	 }
-	 public int getSecondSarScore(){
-		 return this.secondStarScore;
-	 }
-
-	 public void setThirdStarScore(int s){
-		 this.thirdStarScore = s;
-	 }
-	 public int getThirdSarScore(){
-		 return this.thirdStarScore;
-	 }
-	 
-	 public float getPercent1(){
-		 return this.percent1;
-	 }
-	 public void setPercent1(float s){
-		 this.percent1 = s;
-	 }
-
-	 public float getPercent2(){
-		 return this.percent2;
-	 }
-	 public void setPercent2(float s){
-		 this.percent2 = s;
-	 }
-
-	 public float getPercent3(){
-		 return this.percent3;
-	 }
-	 public void setPercent3(float s){
-		 this.percent3 = s;
-	 }
-
-	 public float getPercent4(){
-		 return this.percent4;
-	 }
-	 public void setPercent4(float s){
-		 this.percent4 = s;
-	 }
-
-	 public float getPercent5(){
-		 return this.percent5;
-	 }
-	 public void setPercent5(float s){
-		 this.percent5 = s;
-	 }
-	 
-	 public float getPercent6(){
-		 return this.percent6;
-	 }
-	 public void setPercent6(float s){
-		 this.percent6 = s;
-	 }
-	 
-	 public void setAllowReset(boolean b){
-		 this.allowRest = b;
-	 }
-	 public boolean getAllowReset(boolean b){
-		 return this.allowRest;
-	 }
-	 
-	 public void setAllowSwap(boolean b){
-		 this.allowRest = b;
-	 }
-	 public boolean getAllowSwap(boolean b){
-		 return this.allowRest;
-	 }
-	 
-	 public void setAllowRemove(boolean b){
-		 this.allowRest = b;
-	 }
-	 public boolean getAllowRemove(boolean b){
-		 return this.allowRemove;
-	 }
-	 public void setTileActive(int col, int row){
-		 this.tileActive[col][row] = true;
-	 }
-	 public void setTileDeactive(int col, int row){
-		 this.tileActive[col][row] = false;
-	 }
-	 public boolean isTileActive(int col, int row){
-		 return this.tileActive[col][row];
-	 }
-	 
-	 public void activecolumnForSixes(int col){
-		 this.columnForSixes[col] = true;
-	 }
-	 public void deactiveColumnForSixes(int col){
-		 this.columnForSixes[col] = false;
-	 }
-	 public boolean isColumnActive(int col){
-		 return this.columnForSixes[col];
-	 }
+	
+	//they must add to 1
+	private static boolean checkPercentageCorrectness(double p1, double p2, double p3, double p4, double p5, double p6) {
+		if(p1 + p2 + p3 + p4 + p5 + p6 == 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	Square generateSquare() {
+		int value = 0;
+		double random = Math.random();
+		if(random <= range1) {
+			value = 1;
+		} else if(random <= range2 && random > range1) {
+			value = 2;
+		} else if(random <= range3 && random > range2) {
+			value = 3;
+		} else if(random <= range4 && random > range3) {
+			value = 4;
+		} else if(random <= range5 && random > range4) {
+			value = 5;
+		} else if(random <= range6 && random > range5) {
+			value = 6;
+		}
+		return Square.newInstance(value, 1);
+	}
+	
+	private void initializeEnabledArray() {
+		//for(int i = )
+	}
+	
+	public UUID getId() {
+		return id;
+	}
+	public void setId(UUID id) {
+		this.id = id;
+	}
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
+	}
+	public double getPercent1() {
+		return percent1;
+	}
+	public void setPercent1(double percent1) {
+		this.percent1 = percent1;
+	}
+	public double getPercent2() {
+		return percent2;
+	}
+	public void setPercent2(double percent2) {
+		this.percent2 = percent2;
+	}
+	public double getPercent3() {
+		return percent3;
+	}
+	public void setPercent3(double percent3) {
+		this.percent3 = percent3;
+	}
+	public double getPercent4() {
+		return percent4;
+	}
+	public void setPercent4(double percent4) {
+		this.percent4 = percent4;
+	}
+	public double getPercent5() {
+		return percent5;
+	}
+	public void setPercent5(double percent5) {
+		this.percent5 = percent5;
+	}
+	public double getPercent6() {
+		return percent6;
+	}
+	public void setPercent6(double percent6) {
+		this.percent6 = percent6;
+	}
 }
