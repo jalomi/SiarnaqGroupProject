@@ -26,7 +26,7 @@ public class SixesWildApplication extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SixesWildApplication frame = new SixesWildApplication();
+					SixesWildApplication frame = new SixesWildApplication(new Level());
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,7 +44,7 @@ public class SixesWildApplication extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SixesWildApplication(/*Level level*/) {
+	public SixesWildApplication(Level level) {
 		setTitle("Sixes Wild");
 		
 		gamePane = new SixesWildGamePanel();

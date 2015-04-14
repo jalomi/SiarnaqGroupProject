@@ -8,6 +8,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 public class LevelSelectApplication extends JFrame {
+	
+	JButton btnMainMenu ;
+	
 	public LevelSelectApplication() {
 		setResizable(false);
 		setTitle("Level Select");
@@ -15,7 +18,7 @@ public class LevelSelectApplication extends JFrame {
 		setBounds(100, 100, 580, 750);
 		getContentPane().setLayout(null);
 		
-		JButton btnMainMenu = new JButton("Main Menu");
+		btnMainMenu = new JButton("Main Menu");
 		btnMainMenu.setBounds(430, 15, 100, 29);
 		getContentPane().add(btnMainMenu);
 		
@@ -160,5 +163,9 @@ public class LevelSelectApplication extends JFrame {
 		txtrPleaseSelectLevel.setText("Please Select Level");
 		txtrPleaseSelectLevel.setBounds(35, 15, 360, 30);
 		getContentPane().add(txtrPleaseSelectLevel);
+	}
+
+	public JButton getMainMenuBtn() {
+		return btnMainMenu;
 	}
 }
