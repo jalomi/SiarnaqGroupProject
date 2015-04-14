@@ -47,6 +47,7 @@ public class LevelBuilderApplication extends JFrame {
 	 * Create the frame.
 	 */
 	public LevelBuilderApplication() {
+		setResizable(false);
 		setTitle("Level Builder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 950, 600);
