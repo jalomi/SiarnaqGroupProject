@@ -13,7 +13,15 @@ public class Level {
 	UUID id;
 	
 	int number;
+	boolean enabled;
 	
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 	double percent1;
 	double percent2;
 	double percent3;

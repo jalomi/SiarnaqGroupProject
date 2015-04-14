@@ -1,0 +1,31 @@
+
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+/*
+ * by Albert
+ * This class should be in a new package,
+ * because sixwild and level builder can both use it
+ */
+
+public class LevelSaverLoader implements Serializable {
+	
+	
+	
+	//both functions should throw IO exception
+	/*
+	 * This function will load levels from disk
+	 */
+	public static ArrayList<Level> load() {
+		return null;
+	}
+	
+	//save to disk
+	public static void save() {
+		
+	}
+	
+	//some more helper functions
+	
+}
