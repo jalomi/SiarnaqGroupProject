@@ -1,9 +1,10 @@
-package mainMenuGUI;
+package sixesWildControllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import levelSelectGUI.LevelSelectApplication;
+import mainMenuGUI.MainMenuApplication;
 
 public class EnterLevelSelectController implements ActionListener {
 	MainMenuApplication m;

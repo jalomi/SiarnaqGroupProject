@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JToggleButton;
 
+import sixesWildControllers.EnterLevelSelectController;
+
 public class MainMenuApplication extends JFrame {
 
 	private JPanel contentPane;
