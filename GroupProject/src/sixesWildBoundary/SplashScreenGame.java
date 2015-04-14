@@ -56,6 +56,5 @@ public class SplashScreenGame extends JWindow {
     splash.showSplash();
 	MainMenuApplication frame = new MainMenuApplication();
 	frame.setVisible(true);
-    
   }
 }
