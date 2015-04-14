@@ -22,7 +22,7 @@ public class SixesWildLevelPanel extends JPanel {
 		txtrLevelNumberHere.setBounds(170, 0, 150, 27);
 		add(txtrLevelNumberHere);
 		
-		btnNewButton = new JButton("Exit Game");
+		btnNewButton = new JButton("Main Menu");
 		btnNewButton.setBounds(0, 40, 100, 40);
 		add(btnNewButton);
 		
