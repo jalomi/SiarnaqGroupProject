@@ -12,7 +12,7 @@ public class Level {
 	
 	UUID id;
 	
-	int levelNumber;
+	int number;
 	
 	double percent1;
 	double percent2;
@@ -43,13 +43,13 @@ public class Level {
 	//this contructor is for test now
 	public Level(int number) {
 		this.id = UUID.randomUUID();
-		this.levelNumber = number;
+		this.number = number;
 	}
 	
 	//this contructor should never be called by other Class
 	private Level(int number, double p1, double p2, double p3, double p4, double p5, double p6) {
 		this.id = UUID.randomUUID();
-		this.levelNumber = number;
+		this.number = number;
 		this.percent1 = p1;
 		this.percent2 = p2;
 		this.percent3 = p3;
@@ -112,10 +112,10 @@ public class Level {
 		this.id = id;
 	}
 	public int getNumber() {
-		return levelNumber;
+		return number;
 	}
 	public void setNumber(int number) {
-		this.levelNumber = number;
+		this.number = number;
 	}
 	public double getPercent1() {
 		return percent1;

@@ -1,14 +1,10 @@
 package levelBuilderBoundary;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.SwingConstants;
@@ -16,6 +12,7 @@ import javax.swing.SwingConstants;
 public class LevelBuilderPreviewApplication extends JFrame {
 
 	private JPanel contentPane;
+	private JButton backBtn ;
 
 	/**
 	 * Launch the application.
@@ -47,9 +44,9 @@ public class LevelBuilderPreviewApplication extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnBack = new JButton("Back");
-		btnBack.setBounds(35, 30, 117, 29);
-		contentPane.add(btnBack);
+		backBtn = new JButton("Back");
+		backBtn.setBounds(35, 30, 117, 29);
+		contentPane.add(backBtn);
 		
 		JLabel lblTile = new JLabel("tile1");
 		lblTile.setHorizontalAlignment(SwingConstants.CENTER);
@@ -455,5 +452,9 @@ public class LevelBuilderPreviewApplication extends JFrame {
 		label_23.setHorizontalAlignment(SwingConstants.CENTER);
 		label_23.setBounds(420, 525, 50, 50);
 		contentPane.add(label_23);
+	}
+
+	public JButton getBackBtn() {
+		return backBtn;
 	}
 }

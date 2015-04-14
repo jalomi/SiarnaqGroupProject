@@ -17,8 +17,6 @@ public class SixesWildGamePanel extends JPanel {
 	private Level level;
 	private Board board;
  
-	
-		
 	public SixesWildGamePanel(/*Level level*/) {
 		
 		this.setSize(490, 490);
