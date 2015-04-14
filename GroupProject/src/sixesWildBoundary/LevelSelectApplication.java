@@ -2,8 +2,11 @@ package sixesWildBoundary;
 
 import javax.swing.JFrame ;
 import javax.swing.JButton;
+
+import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
@@ -11,6 +14,22 @@ public class LevelSelectApplication extends JFrame {
 
 	private JButton btnMainMenu;
 	private JButton levelButton1;
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LevelSelectApplication frame = new LevelSelectApplication();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}  
+		});
+	}
 	
 	public LevelSelectApplication() {
 		setResizable(false);
