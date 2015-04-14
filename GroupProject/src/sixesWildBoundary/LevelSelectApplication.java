@@ -24,21 +24,23 @@ public class LevelSelectApplication extends JFrame {
 	
 	private ArrayList<Level> levels = new ArrayList<Level>();
 	
+	private ArrayList<Level> levels = new ArrayList<Level>();
+	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LevelSelectApplication frame = new LevelSelectApplication();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}  
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					LevelSelectApplication frame = new LevelSelectApplication();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}  
+//		});
+//	}
 	
 	
 	public LevelSelectApplication() {

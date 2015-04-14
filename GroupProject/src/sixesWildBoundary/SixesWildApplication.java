@@ -10,18 +10,18 @@ import java.awt.EventQueue;
 @SuppressWarnings("serial")
 public class SixesWildApplication extends JFrame {
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SixesWildApplication frame = new SixesWildApplication(new Level());
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}  
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					SixesWildApplication frame = new SixesWildApplication(new Level());
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}  
+//		});
+//	}
 
 	
 	public static final String TAG = "BoardFrame";
