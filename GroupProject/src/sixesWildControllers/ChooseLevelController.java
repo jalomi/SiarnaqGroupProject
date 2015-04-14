@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import sixesWildBoundary.LevelSelectApplication;
 import sixesWildBoundary.MainMenuApplication;
 import sixesWildBoundary.SixesWildApplication;
+import sixesWildEntity.Level;
 
 public class ChooseLevelController implements ActionListener {
 	private MainMenuApplication main;
@@ -21,7 +22,8 @@ public class ChooseLevelController implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		lvls.setVisible(false);
 		
-		SixesWildApplication level=new SixesWildApplication();
+		//change new Level to be the actual level
+		SixesWildApplication level=new SixesWildApplication(new Level());
 		
 		level.getLevelPanel().getExitButton().addActionListener(new BacktoMainMenuController(main, level));
 	}

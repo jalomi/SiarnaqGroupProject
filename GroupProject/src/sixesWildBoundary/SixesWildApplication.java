@@ -1,6 +1,9 @@
 package sixesWildBoundary;
 
 import javax.swing.JFrame;
+
+import sixesWildEntity.Level;
+
 import java.awt.EventQueue;
 
 
@@ -11,7 +14,7 @@ public class SixesWildApplication extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SixesWildApplication frame = new SixesWildApplication();
+					SixesWildApplication frame = new SixesWildApplication(new Level());
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,9 +33,11 @@ public class SixesWildApplication extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SixesWildApplication(/*Level level*/) {
+	public SixesWildApplication(Level level) {
+		setTitle("Sixes Wild");
 		
 		gamePane = new SixesWildGamePanel();
+		gamePane.setSize(490, 490);
 		gamePane.setLocation(35, 180);
 		levelPane = new SixesWildLevelPanel();
 		levelPane.setLocation(35, 20);
