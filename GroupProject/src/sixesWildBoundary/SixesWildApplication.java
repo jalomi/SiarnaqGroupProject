@@ -46,4 +46,9 @@ public class SixesWildApplication extends JFrame {
 		getContentPane().add(gamePane);
 		this.setVisible(true);
 	}
+	
+	public SixesWildLevelPanel getLevelPanel()
+	{
+		return levelPane;
+	}
 }

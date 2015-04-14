@@ -8,23 +8,26 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 public class LevelSelectApplication extends JFrame {
+	private JButton btnMainMenu;
+	private JButton levelButton1;
+	
 	public LevelSelectApplication() {
 		setTitle("Level Select");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 580, 750);
 		getContentPane().setLayout(null);
 		
-		JButton btnMainMenu = new JButton("Main Menu");
+		btnMainMenu = new JButton("Main Menu");
 		btnMainMenu.setBounds(430, 15, 100, 29);
 		getContentPane().add(btnMainMenu);
 		
-		JButton levelBottun1 = new JButton("Level 1");
-		levelBottun1.setBounds(35, 55, 100, 100);
-		levelBottun1.addActionListener(new ActionListener() {
+		levelButton1 = new JButton("Level 1");
+		levelButton1.setBounds(35, 55, 100, 100);
+		levelButton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		getContentPane().add(levelBottun1);
+		getContentPane().add(levelButton1);
 		
 		JButton levelButton2 = new JButton("Level 2");
 		levelButton2.setBounds(165, 55, 100, 100);
@@ -159,5 +162,15 @@ public class LevelSelectApplication extends JFrame {
 		txtrPleaseSelectLevel.setText("Please Select Level");
 		txtrPleaseSelectLevel.setBounds(35, 15, 360, 30);
 		getContentPane().add(txtrPleaseSelectLevel);
+	}
+	
+	public JButton getMainMenuBtn()
+	{
+		return btnMainMenu;
+	}
+	
+	public JButton getLevel1()
+	{
+		return levelButton1;
 	}
 }

@@ -7,7 +7,8 @@ import java.awt.Font;
 import javax.swing.JLabel;
 
 public class SixesWildLevelPanel extends JPanel {
-
+	private JButton btnNewButton;
+	
 	/**
 	 * Create the panel.
 	 */
@@ -21,7 +22,7 @@ public class SixesWildLevelPanel extends JPanel {
 		txtrLevelNumberHere.setBounds(170, 0, 150, 27);
 		add(txtrLevelNumberHere);
 		
-		JButton btnNewButton = new JButton("Exit Game");
+		btnNewButton = new JButton("Exit Game");
 		btnNewButton.setBounds(0, 40, 100, 40);
 		add(btnNewButton);
 		
@@ -83,5 +84,10 @@ public class SixesWildLevelPanel extends JPanel {
 		txtrMoveRem.setText("Move Rem");
 		txtrMoveRem.setBounds(408, 68, 80, 25);
 		add(txtrMoveRem);
+	}
+	
+	public JButton getExitButton()
+	{
+		return btnNewButton;
 	}
 }
