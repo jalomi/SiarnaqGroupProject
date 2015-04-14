@@ -1,4 +1,4 @@
-package levelBuilder;
+package levelBuilderEntity;
 
 import java.sql.Time;
 

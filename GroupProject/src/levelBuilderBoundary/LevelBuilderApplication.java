@@ -1,4 +1,4 @@
-package levelBuilderGUI;
+package levelBuilderBoundary;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
