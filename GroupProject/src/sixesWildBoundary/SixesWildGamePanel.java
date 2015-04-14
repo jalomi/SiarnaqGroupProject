@@ -458,7 +458,7 @@ public class SixesWildGamePanel extends JPanel {
 				//this.add(b);
 				
 				map[i][j] = new JLabel("") ;
-				map[i][j].setIcon(new ImageIcon("C:\\Users\\John\\Documents\\WPI\\2-Sophomore\\Software Engineering\\Group Project\\Tile Images\\1-1.png"));
+				map[i][j].setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/1-1.png")));
 				this.add(map[i][j]) ;
 			}
 		}
