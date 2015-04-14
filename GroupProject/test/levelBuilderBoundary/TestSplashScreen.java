@@ -3,7 +3,7 @@ package levelBuilderBoundary;
 import junit.framework.TestCase;
 
 public class TestSplashScreen extends TestCase {
-	
+	 
 	SplashScreen splash ;
 	
 	@Override
