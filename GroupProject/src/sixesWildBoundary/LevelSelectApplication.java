@@ -6,14 +6,23 @@ import javax.swing.JButton;
 import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+
+import sixesWildEntity.Elimination;
+import sixesWildEntity.Level;
+import sixesWildEntity.Lightning;
+import sixesWildEntity.Puzzle;
+import sixesWildEntity.Release;
 
 public class LevelSelectApplication extends JFrame {
 
 	private JButton btnMainMenu;
 	private JButton levelButton1;
+	
+	private ArrayList<Level> levels = new ArrayList<Level>();
 	
 	/**
 	 * Launch the application.
@@ -45,10 +54,6 @@ public class LevelSelectApplication extends JFrame {
 		
 		levelButton1 = new JButton("Level 1");
 		levelButton1.setBounds(35, 55, 100, 100);
-		levelButton1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		getContentPane().add(levelButton1);
 		
 		JButton levelButton2 = new JButton("Level 2");
@@ -61,10 +66,6 @@ public class LevelSelectApplication extends JFrame {
 		
 		JButton levelButton4 = new JButton("Level 4");
 		levelButton4.setBounds(430, 55, 100, 100);
-		levelButton4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		getContentPane().add(levelButton4);
 		
 		JLabel lblNumstars1 = new JLabel("NumStars");
@@ -187,6 +188,22 @@ public class LevelSelectApplication extends JFrame {
 	}
 
 	
+	//this function should invoke some outside controller class method in the future
+	//hard coded it right now for test convention
+	private void loadLevelsFromDisk() {
+		for(int i = 0; i < 4; i++) {
+			this.levels.add(new Puzzle(i));
+			this.levels.add(new Lightning(i));
+			this.levels.add(new Release(i));
+			this.levels.add(new Elimination(i));
+		}
+	}
+	
+	private void initializeLevelButtons() {
+		for(Level l : levels) {
+			
+		}
+	}
 	
 	public JButton getMainMenuBtn()
 	{
