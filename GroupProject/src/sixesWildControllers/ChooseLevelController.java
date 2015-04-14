@@ -22,7 +22,6 @@ public class ChooseLevelController implements ActionListener {
 		lvls.setVisible(false);
 		
 		SixesWildApplication level=new SixesWildApplication();
-		level.setVisible(true);
 		
 		level.getLevelPanel().getExitButton().addActionListener(new BacktoMainMenuController(main, level));
 	}
