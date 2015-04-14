@@ -5,10 +5,28 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
+
 import java.awt.Color;
+import java.awt.EventQueue;
 
 public class SplashScreen extends JFrame{
 	int duration;
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					SplashScreen frame = new SplashScreen();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}  
+		});
+	}
 	
 	public SplashScreen() {
 		setTitle("SplashScreen");
