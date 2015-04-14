@@ -1,4 +1,4 @@
-package sixesWild;
+package sixesWildEntity;
 
 public class Level {
 	//variables and data store in level.

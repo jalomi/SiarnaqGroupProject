@@ -1,4 +1,4 @@
-package sixesWild;
+package sixesWildEntity;
 
 public class Square {
 	int value;

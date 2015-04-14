@@ -1,4 +1,4 @@
-package sixesWildGUI;
+package sixesWildBoundary;
 
 import javax.swing.JPanel;
 import javax.swing.JTextArea;

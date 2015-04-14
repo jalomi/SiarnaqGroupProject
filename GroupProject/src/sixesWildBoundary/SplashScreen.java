@@ -1,4 +1,4 @@
-package mainMenuGUI;
+package sixesWildBoundary;
 
 import javax.swing.JFrame;
 import javax.swing.GroupLayout;

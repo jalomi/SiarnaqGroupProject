@@ -1,4 +1,4 @@
-package sixesWild;
+package sixesWildEntity;
 
 public class Lightning extends Level {
 	int timeRemaining;

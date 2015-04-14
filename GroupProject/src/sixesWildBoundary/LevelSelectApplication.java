@@ -1,4 +1,4 @@
-package levelSelectGUI;
+package sixesWildBoundary;
 
 import javax.swing.JFrame ;
 import javax.swing.JButton;

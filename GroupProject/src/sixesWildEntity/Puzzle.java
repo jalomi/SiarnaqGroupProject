@@ -1,9 +1,9 @@
-package sixesWild;
+package sixesWildEntity;
 
-public class Release extends Level {
+public class Puzzle extends Level {
 	int movesRemaining;
 	
-	public Release(int movesRemaining)
+	public Puzzle(int movesRemaining)
 	{
 		super();
 		this.movesRemaining=movesRemaining;
