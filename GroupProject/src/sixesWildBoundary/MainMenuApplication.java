@@ -11,7 +11,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JToggleButton;
 
 import sixesWildControllers.EnterLevelSelectController;
-import sixesWildControllers.ExitController;
 
 public class MainMenuApplication extends JFrame {
 
@@ -66,7 +65,6 @@ public class MainMenuApplication extends JFrame {
 		
 		//controllers
 		getLvlsButton().addActionListener(new EnterLevelSelectController(this));
-		getQuitButton().addActionListener(new ExitController(this));
 	}
 	
 	public JButton getLvlsButton()
