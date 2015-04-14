@@ -25,6 +25,7 @@ public class LevelBuilderInputPanel extends JPanel {
 	private JTextField txtEnterPercentFor_6;
 	private JTextField txtEnterPercentFor_7;
 	private JButton previewBtn ;
+	private JButton exitBtn ;
 
 	/**
 	 * Create the panel.
@@ -96,9 +97,9 @@ public class LevelBuilderInputPanel extends JPanel {
 		btnNewButton.setBounds(0, 415, 150, 40);
 		add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(0, 470, 150, 40);
-		add(btnNewButton_1);
+		exitBtn = new JButton("Exit");
+		exitBtn.setBounds(0, 470, 150, 40);
+		add(exitBtn);
 		
 		txtEnterPercentFor = new JTextField();
 		txtEnterPercentFor.setText("Enter Percent for 1s");
@@ -175,5 +176,9 @@ public class LevelBuilderInputPanel extends JPanel {
 
 	public JButton getPreviewBtn() {
 		return previewBtn;
+	}
+
+	public JButton getExitBtn() {
+		return exitBtn;
 	}
 }

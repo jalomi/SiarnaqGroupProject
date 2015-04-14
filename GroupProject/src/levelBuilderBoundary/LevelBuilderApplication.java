@@ -2,6 +2,7 @@ package levelBuilderBoundary;
 
 import java.awt.EventQueue;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,6 +12,7 @@ import java.awt.Color;
 
 import javax.swing.UIManager;
 
+import levelBuilderControllers.ExitController;
 import levelBuilderControllers.PreviewController;
 
 public class LevelBuilderApplication extends JFrame {
@@ -80,8 +82,13 @@ public class LevelBuilderApplication extends JFrame {
 		
 		//controllers
 		getPreviewBtn().addActionListener(new PreviewController(this)) ;
+		getExitBtn().addActionListener(new ExitController(this)) ;
 	}
 	
+	private JButton getExitBtn() {
+		return inputPanel.getExitBtn();
+	}
+
 	public JButton getPreviewBtn(){
 		return inputPanel.getPreviewBtn() ;
 	}
