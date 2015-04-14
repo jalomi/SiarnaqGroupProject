@@ -36,7 +36,7 @@ public class SplashScreen extends JWindow {
 	lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 20));
 	
 	JLabel lblNewLabel_1 = new JLabel("Sixes Wild");
-	lblNewLabel_1.setBounds(45, 130, 327, 81);
+	lblNewLabel_1.setBounds(65, 82, 365, 119);
 	lblNewLabel_1.setFont(new Font("Matura MT Script Capitals", Font.BOLD, 60));
 	
 	JLabel lblBykevinSpect = new JLabel(" By: John Lomi, Kevin Specht, Kyle Young, Xuanzhe Wang, Yuheng Huo ");
