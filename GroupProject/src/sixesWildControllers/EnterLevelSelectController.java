@@ -20,5 +20,7 @@ public class EnterLevelSelectController implements ActionListener {
 		
 		LevelSelectApplication l=new LevelSelectApplication();
 		l.setVisible(true);
+		
+		l.getMainMenuBtn().addActionListener(new BacktoMainMenuController(m, l));
 	}
 }

@@ -9,13 +9,15 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
 public class LevelSelectApplication extends JFrame {
-	public LevelSelectApplication() {
+	private JButton btnMainMenu;
+	
+	public LevelSelectApplication() {	
 		setTitle("Level Select");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 580, 750);
 		getContentPane().setLayout(null);
 		
-		JButton btnMainMenu = new JButton("Main Menu");
+		btnMainMenu = new JButton("Main Menu");
 		btnMainMenu.setBounds(430, 15, 100, 29);
 		getContentPane().add(btnMainMenu);
 		
@@ -160,5 +162,10 @@ public class LevelSelectApplication extends JFrame {
 		txtrPleaseSelectLevel.setText("Please Select Level");
 		txtrPleaseSelectLevel.setBounds(35, 15, 360, 30);
 		getContentPane().add(txtrPleaseSelectLevel);
+	}
+	
+	public JButton getMainMenuBtn()
+	{
+		return btnMainMenu;
 	}
 }
