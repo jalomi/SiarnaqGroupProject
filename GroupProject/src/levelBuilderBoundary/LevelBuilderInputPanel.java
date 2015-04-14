@@ -146,18 +146,18 @@ public class LevelBuilderInputPanel extends JPanel {
 		JTextArea txtrPercentForx = new JTextArea();
 		txtrPercentForx.setEditable(false);
 		txtrPercentForx.setText("Percent for 1x");
-		txtrPercentForx.setBounds(210, 292, 150, 27);
+		txtrPercentForx.setBounds(210, 257, 150, 27);
 		add(txtrPercentForx);
 		
 		txtEnterPercentFor_6 = new JTextField();
 		txtEnterPercentFor_6.setText("Enter Percent for 2x");
-		txtEnterPercentFor_6.setBounds(210, 327, 150, 27);
+		txtEnterPercentFor_6.setBounds(210, 292, 150, 27);
 		add(txtEnterPercentFor_6);
 		txtEnterPercentFor_6.setColumns(10);
 		
 		txtEnterPercentFor_7 = new JTextField();
 		txtEnterPercentFor_7.setText("Enter Percent for 3x");
-		txtEnterPercentFor_7.setBounds(210, 362, 150, 27);
+		txtEnterPercentFor_7.setBounds(210, 327, 150, 27);
 		add(txtEnterPercentFor_7);
 		txtEnterPercentFor_7.setColumns(10);
 		
@@ -172,6 +172,10 @@ public class LevelBuilderInputPanel extends JPanel {
 		JButton btnNewButton_4 = new JButton("Redo");
 		btnNewButton_4.setBounds(295, 470, 65, 40);
 		add(btnNewButton_4);
+		
+		JButton btnNewButton_1 = new JButton("Edit Level");
+		btnNewButton_1.setBounds(210, 363, 150, 40);
+		add(btnNewButton_1);
 	}
 
 	public JButton getPreviewBtn() {
