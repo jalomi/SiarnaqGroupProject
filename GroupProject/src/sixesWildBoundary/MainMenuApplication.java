@@ -31,7 +31,7 @@ public class MainMenuApplication extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}
+			}  
 		});
 	}
 
