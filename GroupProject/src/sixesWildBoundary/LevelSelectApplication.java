@@ -7,8 +7,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
-public class LevelSelectFrame extends JFrame {
-	public LevelSelectFrame() {
+public class LevelSelectApplication extends JFrame {
+	public LevelSelectApplication() {
 		setTitle("Level Select");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 580, 750);
