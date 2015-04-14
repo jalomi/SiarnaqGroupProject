@@ -14,8 +14,8 @@ import javax.swing.UIManager;
 public class Z_SixesWildApplication extends JFrame {
 
 	private JPanel contentPane;
-	Z_SixesWildGamePanel gamePanel ;
-	Z_SixesWildLevelPanel levelPanel ;
+	SixesWildGamePanel gamePanel ;
+	SixesWildLevelPanel levelPanel ;
  
 	/**
 	 * Launch the application.
@@ -46,12 +46,12 @@ public class Z_SixesWildApplication extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		gamePanel = new Z_SixesWildGamePanel();
+		gamePanel = new SixesWildGamePanel();
 		gamePanel.setBackground(UIManager.getColor("Panel.background"));
 		gamePanel.setBounds(35, 180, 490, 490);
 		contentPane.add(gamePanel);
 		
-		levelPanel = new Z_SixesWildLevelPanel();
+		levelPanel = new SixesWildLevelPanel();
 		levelPanel.setBackground(UIManager.getColor("Panel.background"));
 		levelPanel.setBounds(35, 20, 490, 135);
 		contentPane.add(levelPanel);

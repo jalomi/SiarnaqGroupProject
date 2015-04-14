@@ -6,12 +6,12 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
 
-public class Z_SixesWildLevelPanel extends JPanel {
+public class SixesWildLevelPanel extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public Z_SixesWildLevelPanel() {
+	public SixesWildLevelPanel() {
 		setBounds(0, 0, 490, 135);
 		setLayout(null);
 		

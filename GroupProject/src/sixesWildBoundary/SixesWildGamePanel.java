@@ -1,15 +1,26 @@
 package sixesWildBoundary;
 
+import java.awt.GridLayout;
+
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
-public class Z_SixesWildGamePanel extends JPanel {
+import sixesWildEntity.Board;
+import sixesWildEntity.Level;
+import sixesWildEntity.Tile;
+
+public class SixesWildGamePanel extends JPanel {
+	
+	private Level level;
+	private Board board;
  
 	/**
 	 * Create the panel.
 	 */
-	public Z_SixesWildGamePanel() {
+	/*
+	public SixesWildGamePanel() {
 		setBounds(0, 0, 490, 490);
 		setLayout(null);
 		
@@ -417,5 +428,35 @@ public class Z_SixesWildGamePanel extends JPanel {
 		label_23.setHorizontalAlignment(SwingConstants.CENTER);
 		label_23.setBounds(385, 440, 50, 50);
 		add(label_23);
+	}
+	*/
+	public SixesWildGamePanel(/*Level level*/) {
+		
+		this.setSize(490, 490);
+		
+		//this.level = level;
+		
+		this.setLayout(new GridLayout(9,9));
+		this.setBorder(new EmptyBorder(10,10,10,10));
+		
+		this.level = Level.newInstance(1, 0.2, 0.1, 0.3, .15, 0.1, 0.15);
+		this.board = new Board(level);
+		
+		for(int i = 0; i < 9; i++) {
+			for(int j = 0; j < 9; j++) {
+				/*
+				 * Here is the place to add image
+				 * 
+				 * 
+				 */
+				Tile[][] map = board.getMap();
+				//you may want to use if statement to decide which image to feed
+				int value = map[i][j].getSqaure().getValue();
+				JLabel b = new JLabel("Test");
+				this.add(b);
+			}
+		}
+		this.validate();
+		this.setVisible(true);
 	}
 }

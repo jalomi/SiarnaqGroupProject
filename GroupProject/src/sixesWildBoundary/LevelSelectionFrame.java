@@ -48,7 +48,7 @@ public class LevelSelectionFrame extends JFrame {
 					if(LevelSelectionFrame.this != null) {
 						LevelSelectionFrame.this.dispose();
 					}
-					new BoardFrame(level);
+					new SixesWildApplication(level);
 				}
 			}
 		});
