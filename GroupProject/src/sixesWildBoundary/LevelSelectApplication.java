@@ -52,19 +52,23 @@ public class LevelSelectApplication extends JFrame {
 		btnMainMenu.setBounds(430, 15, 100, 29);
 		getContentPane().add(btnMainMenu);
 		
-		levelButton1 = new JButton("Level 1");
+		levelButton1 = new JButton("Puzzle 1");
 		levelButton1.setBounds(35, 55, 100, 100);
 		getContentPane().add(levelButton1);
 		
-		JButton levelButton2 = new JButton("Level 2");
+		JButton levelButton2 = new JButton("Lightning 1");
 		levelButton2.setBounds(165, 55, 100, 100);
 		getContentPane().add(levelButton2);
 		
-		JButton levelBottum3 = new JButton("Level 3");
+		JButton levelBottum3 = new JButton("Elim. 1");
+		levelBottum3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		levelBottum3.setBounds(295, 55, 100, 100);
 		getContentPane().add(levelBottum3);
 		
-		JButton levelButton4 = new JButton("Level 4");
+		JButton levelButton4 = new JButton("Release 1");
 		levelButton4.setBounds(430, 55, 100, 100);
 		getContentPane().add(levelButton4);
 		
@@ -80,11 +84,15 @@ public class LevelSelectApplication extends JFrame {
 		lblNumstars3.setBounds(295, 165, 100, 21);
 		getContentPane().add(lblNumstars3);
 		
-		JButton levelButton5 = new JButton("Level 5");
+		JButton levelButton5 = new JButton("Puzzle 2");
+		levelButton5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		levelButton5.setBounds(35, 220, 100, 100);
 		getContentPane().add(levelButton5);
 		
-		JButton levelButton6 = new JButton("Level 6");
+		JButton levelButton6 = new JButton("Lightning 2");
 		levelButton6.setBounds(165, 220, 100, 100);
 		getContentPane().add(levelButton6);
 		
@@ -92,11 +100,11 @@ public class LevelSelectApplication extends JFrame {
 		lblNumstars4.setBounds(430, 165, 100, 21);
 		getContentPane().add(lblNumstars4);
 		
-		JButton levelButton7 = new JButton("Level 7");
+		JButton levelButton7 = new JButton("Elim. 2");
 		levelButton7.setBounds(295, 220, 100, 100);
 		getContentPane().add(levelButton7);
 		
-		JButton levelButton8 = new JButton("Level 8");
+		JButton levelButton8 = new JButton("Release 2");
 		levelButton8.setBounds(430, 220, 100, 100);
 		getContentPane().add(levelButton8);
 		
@@ -116,19 +124,19 @@ public class LevelSelectApplication extends JFrame {
 		lblNumstars8.setBounds(430, 330, 100, 21);
 		getContentPane().add(lblNumstars8);
 		
-		JButton levelButton9 = new JButton("Level 9");
+		JButton levelButton9 = new JButton("Puzzle 3");
 		levelButton9.setBounds(35, 385, 100, 100);
 		getContentPane().add(levelButton9);
 		
-		JButton levelButton10 = new JButton("Level 10");
+		JButton levelButton10 = new JButton("Lightning 3");
 		levelButton10.setBounds(165, 385, 100, 100);
 		getContentPane().add(levelButton10);
 		
-		JButton levelButton11 = new JButton("Level 11");
+		JButton levelButton11 = new JButton("Elim. 3");
 		levelButton11.setBounds(295, 385, 100, 100);
 		getContentPane().add(levelButton11);
 		
-		JButton levelButton12 = new JButton("Level 12");
+		JButton levelButton12 = new JButton("Release 3");
 		levelButton12.setBounds(430, 385, 100, 100);
 		getContentPane().add(levelButton12);
 		
@@ -148,19 +156,19 @@ public class LevelSelectApplication extends JFrame {
 		lblNumstars12.setBounds(430, 495, 100, 21);
 		getContentPane().add(lblNumstars12);
 		
-		JButton levelButton13 = new JButton("Level 13");
+		JButton levelButton13 = new JButton("Puzzle 4");
 		levelButton13.setBounds(35, 550, 100, 100);
 		getContentPane().add(levelButton13);
 		
-		JButton Levelbutton14 = new JButton("Level 14");
+		JButton Levelbutton14 = new JButton("Lightning 4");
 		Levelbutton14.setBounds(165, 550, 100, 100);
 		getContentPane().add(Levelbutton14);
 		
-		JButton levelButton15 = new JButton("Level 15");
+		JButton levelButton15 = new JButton("Elim. 4");
 		levelButton15.setBounds(295, 550, 100, 100);
 		getContentPane().add(levelButton15);
 		
-		JButton levelButton16 = new JButton("Level 16");
+		JButton levelButton16 = new JButton("Release 4");
 		levelButton16.setBounds(430, 550, 100, 100);
 		getContentPane().add(levelButton16);
 		
