@@ -76,11 +76,13 @@ public class SixesWildLevelPanel extends JPanel {
 		add(txtrPts_1);
 		
 		JTextArea txtrPts_2 = new JTextArea();
+		txtrPts_2.setEditable(false);
 		txtrPts_2.setText("3* Pts");
 		txtrPts_2.setBounds(396, 108, 62, 27);
 		add(txtrPts_2);
 		
 		JTextArea txtrMoveRem = new JTextArea();
+		txtrMoveRem.setEditable(false);
 		txtrMoveRem.setText("Move Rem");
 		txtrMoveRem.setBounds(408, 68, 80, 25);
 		add(txtrMoveRem);
