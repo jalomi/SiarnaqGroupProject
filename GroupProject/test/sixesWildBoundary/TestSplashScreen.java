@@ -4,25 +4,24 @@ import junit.framework.TestCase;
 import sixesWildBoundary.SplashScreenGame;
 
 public class TestSplashScreen extends TestCase {
+
+	SplashScreenGame sg;
 	
-	SplashScreenGame splash ;
-	
-	@Override
-	protected void setUp(){
-		splash = new SplashScreenGame(1000) ;
-		splash.showSplash();
-		splash.setVisible(true) ;
+	protected void setUp()
+	{
+		sg=new SplashScreenGame(1000);
+		sg.showSplash();
+		sg.setVisible(true);
 	}
 	
-	@Override
 	protected void tearDown(){
-		if(splash != null){
-			splash.dispose() ;
+		if(sg != null){
+			sg.dispose() ;
 		}
 	}
 	
-	public void test(){
-		 System.out.println("Sample SplashScreen") ;
+	public void testSplashScreenGame()
+	{
+		System.out.println("Sample Splash Screen");
 	}
-
 }
