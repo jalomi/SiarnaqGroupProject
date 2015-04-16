@@ -5,11 +5,13 @@ import junit.framework.TestCase;
 public class TestLevelBuilderPreviewApplication extends TestCase {
 	LevelBuilderPreviewApplication prev;
 	
+	@Override
 	protected void setUp()
 	{
 		prev=new LevelBuilderPreviewApplication();
 	}
 	
+	@Override
 	protected void tearDown() {
 		if (prev != null) {
 			prev.dispose();

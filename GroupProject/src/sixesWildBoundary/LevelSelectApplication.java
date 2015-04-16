@@ -3,7 +3,6 @@ package sixesWildBoundary;
 import javax.swing.JFrame ;
 import javax.swing.JButton;
 
-import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -11,11 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
-import sixesWildEntity.Elimination;
 import sixesWildEntity.Level;
-import sixesWildEntity.Lightning;
-import sixesWildEntity.Puzzle;
-import sixesWildEntity.Release;
 
 public class LevelSelectApplication extends JFrame {
 
@@ -62,6 +57,7 @@ public class LevelSelectApplication extends JFrame {
 		
 		JButton levelBottum3 = new JButton("Elim. 1");
 		levelBottum3.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
@@ -86,6 +82,7 @@ public class LevelSelectApplication extends JFrame {
 		
 		JButton levelButton5 = new JButton("Puzzle 2");
 		levelButton5.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 			}
 		});

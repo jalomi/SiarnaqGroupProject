@@ -4,8 +4,6 @@ import javax.swing.JFrame;
 
 import sixesWildEntity.Level;
 
-import java.awt.EventQueue;
-
 
 @SuppressWarnings("serial")
 public class SixesWildApplication extends JFrame {

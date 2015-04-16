@@ -7,6 +7,7 @@ public class TestSixesWildApplication extends TestCase {
 	SixesWildApplication s;
 	Level l;
 	
+	@Override
 	protected void setUp()
 	{
 		l=new Level(1);

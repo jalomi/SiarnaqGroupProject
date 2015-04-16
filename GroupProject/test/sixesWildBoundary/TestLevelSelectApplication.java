@@ -5,6 +5,7 @@ import junit.framework.TestCase;
 public class TestLevelSelectApplication extends TestCase {
 	LevelSelectApplication l;
 	
+	@Override
 	protected void setUp()
 	{
 		l=new LevelSelectApplication();

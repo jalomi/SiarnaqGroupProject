@@ -1,9 +1,6 @@
 package levelBuilderBoundary;
 
 import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JTextArea;
-import java.awt.Font;
 import javax.swing.JToggleButton;
 
 public class LevelBuilderGamePanel extends JPanel {

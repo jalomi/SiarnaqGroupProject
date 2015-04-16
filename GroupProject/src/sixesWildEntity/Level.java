@@ -2,6 +2,9 @@ package sixesWildEntity;
 
 import java.util.UUID;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /*
  * For now I assume that every tile is enabled
  * 
@@ -42,7 +45,7 @@ public class Level {
 	double rangeM3;
 	
 	int score;
-	int startNumber;
+	int starNumber;
 	int firstStarScore;
 	int secondStarScore;
 	int thirdStarScore;
@@ -75,7 +78,7 @@ public class Level {
 		secondStarScore = 20;
 		thirdStarScore = 30;
 		score = 0;
-		startNumber = 0;
+		starNumber = 0;
 		
 		swapEnabled = false;
 		resetEnabled = false;
@@ -124,7 +127,7 @@ public class Level {
 			secondStarScore = second;
 			thirdStarScore = third;
 			score = 0;
-			startNumber = 0;
+			starNumber = 0;
 			
 			swapEnabled = swap;
 			resetEnabled = reset;
@@ -142,6 +145,48 @@ public class Level {
 			  double m1, double m2, double m3) {
 		
 	}
+	
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put("id", id);
+        json.put("levelNumber", levelNumber);
+        
+        json.put("enabled", enabled);
+        json.put("enabledTiles", enabledTiles); //!
+        json.put("columnForSixes", columnForSixes); //!
+        
+        json.put("percent1", percent1);
+        json.put("percent2", percent2);
+        json.put("percent3", percent3);
+        json.put("percent4", percent4);
+        json.put("percent5", percent5);
+        json.put("percent6", percent6);
+        
+        json.put("range1", range1);
+        json.put("range2", range2);
+        json.put("range3", range3);
+        json.put("range4", range4);
+        json.put("range5", range5);
+        json.put("range6", range6);
+        
+        json.put("percentM1", percentM1);
+        json.put("percentM2", percentM2);
+        json.put("percentM3", percentM3);
+        json.put("rangeM1", rangeM1);
+        json.put("rangeM2", rangeM2);
+        json.put("rangeM3", rangeM3);
+        
+        json.put("score", score); //score may not be need to store
+        json.put("starNumber", starNumber);
+        json.put("firstStarScore", firstStarScore);
+        json.put("secondStarScore", secondStarScore);
+        json.put("thirdStarScore", thirdStarScore);
+        
+        json.put("swapEnabled", swapEnabled);
+        json.put("resetEnabled", resetEnabled);
+        json.put("removeEnabled", removeEnabled);
+        return json;
+    }
 	
 	public int getLevelNumber() {
 		return levelNumber;
@@ -184,11 +229,11 @@ public class Level {
 	}
 
 	public int getStartNumber() {
-		return startNumber;
+		return starNumber;
 	}
 
 	public void setStartNumber(int startNumber) {
-		this.startNumber = startNumber;
+		this.starNumber = startNumber;
 	}
 
 	public boolean isSwapEnabled() {

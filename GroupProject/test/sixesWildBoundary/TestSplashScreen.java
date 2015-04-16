@@ -7,6 +7,7 @@ public class TestSplashScreen extends TestCase {
 
 	SplashScreenGame sg;
 	
+	@Override
 	protected void setUp()
 	{
 		sg=new SplashScreenGame(1000);
@@ -14,6 +15,7 @@ public class TestSplashScreen extends TestCase {
 		sg.setVisible(true);
 	}
 	
+	@Override
 	protected void tearDown(){
 		if(sg != null){
 			sg.dispose() ;
