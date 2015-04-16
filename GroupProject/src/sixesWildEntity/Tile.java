@@ -1,23 +1,24 @@
 package sixesWildEntity;
 
 public class Tile {
-	private Square sqaure;
+	private Square square;
 	private boolean marked;
 	private boolean selected;
 	private boolean enabled;
 	
+	//this constructor should not be called
 	public Tile() {
 		enabled = true;
 		marked = false;
 		selected = false;
-		sqaure = null;
+		square = null;
 	}
 	
 	public Tile(Square s) {
 		enabled = true;
 		marked = false;
 		selected = false;
-		sqaure = s;
+		square = s;
 	}
 
 	public boolean isMarked() {
@@ -44,11 +45,11 @@ public class Tile {
 		this.enabled = enabled;
 	}
 
-	public Square getSqaure() {
-		return sqaure;
+	public Square getSquare() {
+		return square;
 	}
 
 	public void setSqaure(Square sqaure) {
-		this.sqaure = sqaure;
+		this.square = sqaure;
 	}
 }

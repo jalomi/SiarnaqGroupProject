@@ -63,7 +63,7 @@ public class SplashScreenGame extends JWindow {
 
   public static void main(String[] args) {
     // Throw a nice little title page up on the screen first
-    SplashScreenGame splash = new SplashScreenGame(5000);
+    SplashScreenGame splash = new SplashScreenGame(1000);
     splash.showSplash();
 	MainMenuApplication frame = new MainMenuApplication();
 	frame.setVisible(true);

@@ -12,23 +12,16 @@ public class Level {
 	
 	UUID id;
 	
-	int number;
+	int levelNumber;
 	boolean enabled;
-	
-	public boolean isEnabled() {
-		return enabled;
-	}
+	boolean[][] enabledTiles = new boolean[9][9];
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
 	double percent1;
 	double percent2;
 	double percent3;
 	double percent4;
 	double percent5;
 	double percent6;
-	
 	//upper bound
 	double range1;
 	double range2;
@@ -37,16 +30,170 @@ public class Level {
 	double range5;
 	double range6;
 	
-	boolean[][] enabledTiles = new boolean[9][9];
+	//chance for each multiplier to appear on each tile
+	double percentM1;
+	double percentM2;
+	double percentM3;
+	double rangeM1;
+	double rangeM2;
+	double rangeM3;
 	
 	int score;
+	int startNumber;
 	int firstStarScore;
 	int secondStarScore;
 	int thirdStarScore;
 	
-	//chance for each multiplier to appear on each tile
-	float percentB2;
-	float percentB3;
+	boolean swapEnabled;
+	boolean resetEnabled;
+	boolean removeEnabled;
+	
+	//this contructor is for test now
+	public Level(int number) {
+		this.id = UUID.randomUUID();
+		this.levelNumber = number;
+		
+		range1 = 0.1;
+		range2 = 0.2;
+		range3 = 0.3;
+		range4 = 0.4;
+		range5 = 0.5;
+		range6 = 1.0;
+		rangeM1 = 0.1;
+		rangeM2 = 0.2;
+		rangeM3 = 1.0;
+		
+		firstStarScore = 10;
+		secondStarScore = 20;
+		thirdStarScore = 30;
+		
+		score = 0;
+		startNumber = 0;
+	}
+	
+	//this contructor
+	//is not finished yet
+	public Level(int number, 
+				  double p1, double p2, double p3, double p4, double p5, double p6,
+				  double m1, double m2, double m3) throws Exception {
+		if(this.checkPercentageCorrectnes(p1, p2, p3, p4, p5, p6, m1, m2, m3)) {
+			this.id = UUID.randomUUID();
+			
+			this.levelNumber = number;
+			this.percent1 = p1;
+			this.percent2 = p2;
+			this.percent3 = p3;
+			this.percent4 = p4;
+			this.percent5 = p5;
+			this.percent6 = p6;
+			
+			range1 = p1;
+			range2 = p2 + range1;
+			range3 = p3 + range2;
+			range4 = p4 + range3;
+			range5 = p5 + range4;
+			range6 = 1.0;
+			
+			this.percentM1 = m1;
+			this.percentM1 = m1;
+			this.percentM1 = m1;
+			rangeM1 = m1;
+			rangeM2 = m2 + rangeM1;
+			rangeM3 = 1.0;
+			
+			firstStarScore = 10;
+			secondStarScore = 20;
+			thirdStarScore = 30;
+			
+			score = 0;
+			startNumber = 0;
+		} else {
+			System.out.print("The percentage is not correct");
+			throw new Exception();
+		}
+
+		
+	}
+	
+	public int getLevelNumber() {
+		return levelNumber;
+	}
+
+	public void setLevelNumber(int levelNumber) {
+		this.levelNumber = levelNumber;
+	}
+
+	public double getPercentB1() {
+		return percentM1;
+	}
+
+	public void setPercentB1(double percentB1) {
+		this.percentM1 = percentB1;
+	}
+
+	public double getRangeB1() {
+		return rangeM1;
+	}
+
+	public void setRangeB1(double rangeB1) {
+		this.rangeM1 = rangeB1;
+	}
+
+	public double getRangeB2() {
+		return rangeM2;
+	}
+
+	public void setRangeB2(double rangeB2) {
+		this.rangeM2 = rangeB2;
+	}
+
+	public double getRangeB3() {
+		return rangeM3;
+	}
+
+	public void setRangeB3(double rangeB3) {
+		this.rangeM3 = rangeB3;
+	}
+
+	public int getStartNumber() {
+		return startNumber;
+	}
+
+	public void setStartNumber(int startNumber) {
+		this.startNumber = startNumber;
+	}
+
+	public boolean isSwapEnabled() {
+		return swapEnabled;
+	}
+
+	public void setSwapEnabled(boolean swapEnabled) {
+		this.swapEnabled = swapEnabled;
+	}
+
+	public boolean isResetEnabled() {
+		return resetEnabled;
+	}
+
+	public void setResetEnabled(boolean resetEnabled) {
+		this.resetEnabled = resetEnabled;
+	}
+
+	public boolean isRemoveEnabled() {
+		return removeEnabled;
+	}
+
+	public void setRemoveEnabled(boolean removeEnabled) {
+		this.removeEnabled = removeEnabled;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 	
 	public double getRange1() {
 		return range1;
@@ -136,20 +283,20 @@ public class Level {
 		this.thirdStarScore = thirdStarScore;
 	}
 
-	public float getPercentB2() {
-		return percentB2;
+	public double getPercentB2() {
+		return percentM2;
 	}
 
-	public void setPercentB2(float percentB2) {
-		this.percentB2 = percentB2;
+	public void setPercentB2(double percentB2) {
+		this.percentM2 = percentB2;
 	}
 
-	public float getPercentB3() {
-		return percentB3;
+	public double getPercentB3() {
+		return percentM3;
 	}
 
-	public void setPercentB3(float percentB3) {
-		this.percentB3 = percentB3;
+	public void setPercentB3(double percentB3) {
+		this.percentM3 = percentB3;
 	}
 
 	public boolean[] getColumnForSixes() {
@@ -166,42 +313,11 @@ public class Level {
 		
 	}
 	
-	//this contructor is for test now
-	public Level(int number) {
-		this.id = UUID.randomUUID();
-		this.number = number;
-	}
-	
-	//this contructor should never be called by other Class
-	private Level(int number, double p1, double p2, double p3, double p4, double p5, double p6) {
-		this.id = UUID.randomUUID();
-		this.number = number;
-		this.percent1 = p1;
-		this.percent2 = p2;
-		this.percent3 = p3;
-		this.percent4 = p4;
-		this.percent5 = p5;
-		this.percent6 = p6;
-		
-		range1 = p1;
-		range2 = p2 + range1;
-		range3 = p3 + range2;
-		range4 = p4 + range3;
-		range5 = p5 + range4;
-		range6 = (float) 1.0;
-	}
-	
-	public static Level newInstance(int number, double d, double e, double f, double g, double h, double i) {
-		if(checkPercentageCorrectness(d,e,f,g,h,i)) {
-			return new Level(number, d, e, f, g, h, i);
-		} else {
-			return null;
-		}
-	}
-	
 	//they must add to 1
-	private static boolean checkPercentageCorrectness(double p1, double p2, double p3, double p4, double p5, double p6) {
-		if(p1 + p2 + p3 + p4 + p5 + p6 == 1) {
+	private boolean checkPercentageCorrectnes (
+			double p1, double p2, double p3, double p4, double p5, double p6,
+			double m1, double m2, double m3){
+		if(p1 + p2 + p3 + p4 + p5 + p6 == 1 && m1 + m2 + m3 == 1) {
 			return true;
 		} else {
 			return false;
@@ -210,6 +326,7 @@ public class Level {
 	
 	Square generateSquare() {
 		int value = 0;
+		int multi = 0;
 		double random = Math.random();
 		if(random <= range1) {
 			value = 1;
@@ -224,11 +341,16 @@ public class Level {
 		} else if(random <= range6 && random > range5) {
 			value = 6;
 		}
-		return Square.newInstance(value, 1);
-	}
-	
-	private void initializeEnabledArray() {
-		//for(int i = )
+		
+		if(random < rangeM1) {
+			multi = 1;
+		} else if(random <= rangeM2 && random > rangeM1) {
+			multi = 2;
+		} else {
+			multi = 3;
+		}
+		
+		return new Square(value, multi);
 	}
 	
 	public UUID getId() {
@@ -238,10 +360,10 @@ public class Level {
 		this.id = id;
 	}
 	public int getNumber() {
-		return number;
+		return levelNumber;
 	}
 	public void setNumber(int number) {
-		this.number = number;
+		this.levelNumber = number;
 	}
 	public double getPercent1() {
 		return percent1;

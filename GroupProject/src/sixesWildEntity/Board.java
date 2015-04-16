@@ -5,26 +5,28 @@ public class Board {
 	public static final String TAG = "Board";
 	
 	private Tile[][] map = new Tile[9][9];
+	private Level level;
 	
-	Board() {
-		
+	public Board() {
+		this.level = new Level(1);
+		this.populateBoard();
 	}
 	
 	public Board(Level l) {
-		populateBoard(l);
+		this.level = l;
+		this.populateBoard();
 	}
 	
-	private void populateBoard(Level l) {
+	private void populateBoard() {
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
-				map[i][j] = new Tile(generateSquare(l));
+				map[i][j] = new Tile(generateSquare());
 			}
 		}
 	}
 	
-	private Square generateSquare(Level l) {
-		return null;
-		//return l.generateSquare();
+	private Square generateSquare() {
+		return this.level.generateSquare();
 	}
 
 	public Tile[][] getMap() {
@@ -33,5 +35,13 @@ public class Board {
 
 	public void setMap(Tile[][] map) {
 		this.map = map;
+	}
+	
+	public Tile getTile(int col, int row) {
+		return map[col][row];
+	}
+	
+	public Square getSquare(int col, int row) {
+		return getTile(col, row).getSquare();
 	}
 }
