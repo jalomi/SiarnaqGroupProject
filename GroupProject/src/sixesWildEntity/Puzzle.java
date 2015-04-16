@@ -3,9 +3,9 @@ package sixesWildEntity;
 public class Puzzle extends Level {
 	int movesRemaining;
 	
-	public Puzzle(int movesRemaining)
+	public Puzzle(int number, int movesRemaining)
 	{
-		super();
+		super(number);
 		this.movesRemaining=movesRemaining;
 	}
 	

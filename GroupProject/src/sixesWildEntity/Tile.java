@@ -8,7 +8,7 @@ public class Tile {
 	
 	//this constructor should not be called
 	public Tile() {
-		enabled = true;
+		enabled = false;
 		marked = false;
 		selected = false;
 		square = null;

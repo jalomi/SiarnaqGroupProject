@@ -194,24 +194,6 @@ public class LevelSelectApplication extends JFrame {
 		txtrPleaseSelectLevel.setBounds(35, 15, 360, 30);
 		getContentPane().add(txtrPleaseSelectLevel);
 	}
-
-	
-	//this function should invoke some outside controller class method in the future
-	//hard coded it right now for test convention
-	private void loadLevelsFromDisk() {
-		for(int i = 0; i < 4; i++) {
-			this.levels.add(new Puzzle(i));
-			this.levels.add(new Lightning(i));
-			this.levels.add(new Release(i));
-			this.levels.add(new Elimination(i));
-		}
-	}
-	
-	private void initializeLevelButtons() {
-		for(Level l : levels) {
-			
-		}
-	}
 	
 	public JButton getMainMenuBtn()
 	{

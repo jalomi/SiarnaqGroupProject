@@ -17,8 +17,8 @@ public class SixesWildGamePanel extends JPanel {
 	private Board board;
 	JLabel[][] map = new JLabel[9][9] ;
  
-	public SixesWildGamePanel() {
-		this.board = new Board();//should change board to singleton later
+	public SixesWildGamePanel(Level l) {
+		this.board = new Board(l);//should change board to singleton later
 		
 		this.setSize(490, 490);
 		this.setLayout(new GridLayout(9,9));
@@ -34,10 +34,16 @@ public class SixesWildGamePanel extends JPanel {
 	}
 	
 	private void initLabel(int col, int row) {
-		int value = board.getSquare(col, row).getValue();
-		int multi = board.getSquare(col, row).getMultiplier();
-		
 		map[col][row] = new JLabel("");
+		
+		Tile tile = board.getTile(col, row);
+		if(tile.isEnabled() == false) {
+			return;
+		}
+		
+		tile.getSquare();
+		int value = tile.getSquare().getValue();
+		int multi = tile.getSquare().getMultiplier();
 		
 		if(value == 1 && multi == 1) {
 			map[col][row].setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/1-1.png")));

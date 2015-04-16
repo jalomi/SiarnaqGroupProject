@@ -9,12 +9,15 @@ import java.util.UUID;
  */
 
 public class Level {
+	public static final String TAG = "Level";
 	
 	UUID id;
-	
 	int levelNumber;
+	
 	boolean enabled;
 	boolean[][] enabledTiles = new boolean[9][9];
+	//columns that has 6s on the top at the beginning of the game(release only)
+	boolean[] columnForSixes;
 
 	double percent1;
 	double percent2;
@@ -48,45 +51,61 @@ public class Level {
 	boolean resetEnabled;
 	boolean removeEnabled;
 	
+	public Level() throws Exception {
+		System.out.println("The default constructor should never be called");
+		throw new Exception();
+	}
+	
 	//this contructor is for test now
 	public Level(int number) {
 		this.id = UUID.randomUUID();
 		this.levelNumber = number;
 		
-		range1 = 0.1;
-		range2 = 0.2;
-		range3 = 0.3;
-		range4 = 0.4;
-		range5 = 0.5;
+		range1 = 0.2;
+		range2 = 0.4;
+		range3 = 0.6;
+		range4 = 0.8;
+		range5 = 0.9;
 		range6 = 1.0;
-		rangeM1 = 0.1;
-		rangeM2 = 0.2;
+		rangeM1 = 0.5;
+		rangeM2 = 0.8;
 		rangeM3 = 1.0;
 		
 		firstStarScore = 10;
 		secondStarScore = 20;
 		thirdStarScore = 30;
-		
 		score = 0;
 		startNumber = 0;
+		
+		swapEnabled = false;
+		resetEnabled = false;
+		removeEnabled = false;
+		
+		for(int i = 0; i < 9; i++) {
+			for(int j = 0; j < 9; j++) {
+				enabledTiles[i][j] = true;
+			}
+		}
 	}
 	
 	//this contructor
 	//is not finished yet
 	public Level(int number, 
 				  double p1, double p2, double p3, double p4, double p5, double p6,
-				  double m1, double m2, double m3) throws Exception {
+				  double m1, double m2, double m3,
+				  int first, int second, int third,
+				  boolean swap, boolean reset, boolean remove,
+				  boolean[][] enabledTiles) throws Exception {
 		if(this.checkPercentageCorrectnes(p1, p2, p3, p4, p5, p6, m1, m2, m3)) {
 			this.id = UUID.randomUUID();
-			
 			this.levelNumber = number;
+			
 			this.percent1 = p1;
 			this.percent2 = p2;
 			this.percent3 = p3;
 			this.percent4 = p4;
 			this.percent5 = p5;
 			this.percent6 = p6;
-			
 			range1 = p1;
 			range2 = p2 + range1;
 			range3 = p3 + range2;
@@ -94,24 +113,33 @@ public class Level {
 			range5 = p5 + range4;
 			range6 = 1.0;
 			
-			this.percentM1 = m1;
-			this.percentM1 = m1;
-			this.percentM1 = m1;
+			percentM1 = m1;
+			percentM1 = m1;
+			percentM1 = m1;
 			rangeM1 = m1;
 			rangeM2 = m2 + rangeM1;
 			rangeM3 = 1.0;
 			
-			firstStarScore = 10;
-			secondStarScore = 20;
-			thirdStarScore = 30;
-			
+			firstStarScore = first;
+			secondStarScore = second;
+			thirdStarScore = third;
 			score = 0;
 			startNumber = 0;
+			
+			swapEnabled = swap;
+			resetEnabled = reset;
+			removeEnabled = remove;
+			
+			this.enabledTiles = enabledTiles;
 		} else {
 			System.out.print("The percentage is not correct");
 			throw new Exception();
 		}
-
+	}
+	
+	public void resetLevelConfig(int number, 
+			  double p1, double p2, double p3, double p4, double p5, double p6,
+			  double m1, double m2, double m3) {
 		
 	}
 	
@@ -305,12 +333,6 @@ public class Level {
 
 	public void setColumnForSixes(boolean[] columnForSixes) {
 		this.columnForSixes = columnForSixes;
-	}
-	//columns that has 6s on the top at the beginning of the game(release only)
-	boolean[] columnForSixes;
-	
-	public Level() {
-		
 	}
 	
 	//they must add to 1

@@ -3,9 +3,9 @@ package sixesWildEntity;
 public class Lightning extends Level {
 	int timeRemaining;
 	
-	public Lightning(int movesRemaining)
+	public Lightning(int number, int movesRemaining)
 	{
-		super();
+		super(number);
 		this.timeRemaining=movesRemaining;
 	}
 	

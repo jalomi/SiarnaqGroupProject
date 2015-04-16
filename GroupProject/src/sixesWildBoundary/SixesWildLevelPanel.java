@@ -3,16 +3,23 @@ package sixesWildBoundary;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+
 import java.awt.Font;
+
 import javax.swing.JLabel;
+
+import sixesWildEntity.Level;
 
 public class SixesWildLevelPanel extends JPanel {
 	private JButton btnNewButton;
+	private Level level;
 	
 	/**
 	 * Create the panel.
 	 */
-	public SixesWildLevelPanel() {
+	public SixesWildLevelPanel(Level l) {
+		level = l;
+		
 		setBounds(0, 0, 490, 135);
 		setLayout(null);
 		

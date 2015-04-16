@@ -20,7 +20,11 @@ public class Board {
 	private void populateBoard() {
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
-				map[i][j] = new Tile(generateSquare());
+				if(level.getEnabledTiles()[i][j]) {
+					map[i][j] = new Tile(generateSquare());
+				} else {
+					map[i][j] = new Tile();
+				}
 			}
 		}
 	}
