@@ -11,7 +11,7 @@ public class JSONTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		LevelJSONSerializer j = new LevelJSONSerializer("levels");
+		LevelJSONSerializer j = new LevelJSONSerializer("levels.json");
 		ArrayList<Level> levels = new ArrayList<Level>();
 		for(int i = 0; i < 10; i++) {
 			levels.add(new Level(i));
