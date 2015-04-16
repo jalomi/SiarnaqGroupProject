@@ -20,7 +20,7 @@ public class Level {
 	boolean enabled;
 	boolean[][] enabledTiles = new boolean[9][9];
 	//columns that has 6s on the top at the beginning of the game(release only)
-	boolean[] columnForSixes;
+	boolean[] columnForSixes = new boolean[9];
 
 	double percent1;
 	double percent2;
@@ -57,6 +57,49 @@ public class Level {
 	public Level() throws Exception {
 		System.out.println("The default constructor should never be called");
 		throw new Exception();
+	}
+	
+	public Level(JSONObject json) throws JSONException {
+        id = UUID.fromString(json.getString("id"));
+        levelNumber = json.getInt("levelNumber");
+        
+        enabled = json.getBoolean("enabled");
+        for(int i = 0; i < 9; i++) {
+        	for(int j = 0; j < 9; j++) {
+        		enabledTiles[i][j] = json.getJSONArray("enabledTiles").getJSONArray(i).getBoolean(j); //!
+        	}
+        	columnForSixes[i] = json.getJSONArray("columnForSixes").getBoolean(i);
+        }
+        
+        percent1 = json.getDouble("percent1");
+        percent2 = json.getDouble("percent2");
+        percent3 = json.getDouble("percent3");
+        percent4 = json.getDouble("percent4");
+        percent5 = json.getDouble("percent5");
+        percent6 = json.getDouble("percent6");
+        range1 = json.getDouble("range1");
+        range2 = json.getDouble("range2");
+        range3 = json.getDouble("range3");
+        range4 = json.getDouble("range4");
+        range5 = json.getDouble("range5");
+        range6 = json.getDouble("range6");
+        
+        percentM1 = json.getDouble("percentM1");
+        percentM2 = json.getDouble("percentM2");
+        percentM3 = json.getDouble("percentM3");
+        rangeM1 = json.getDouble("rangeM1");
+        rangeM1 = json.getDouble("rangeM1");
+        rangeM1 = json.getDouble("rangeM1");
+        
+        score = json.getInt("score"); //score may not be need to store
+        starNumber = json.getInt("starNumber");
+        firstStarScore = json.getInt("firstStarScore");
+        secondStarScore = json.getInt("secondStarScore");
+        thirdStarScore = json.getInt("thirdStarScore");
+        
+        swapEnabled = json.getBoolean("swapEnabled");
+        resetEnabled = json.getBoolean("resetEnabled");
+        removeEnabled = json.getBoolean("removeEnabled");
 	}
 	
 	//this contructor is for test now
@@ -148,7 +191,7 @@ public class Level {
 	
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
-        json.put("id", id);
+        json.put("id", id.toString());
         json.put("levelNumber", levelNumber);
         
         json.put("enabled", enabled);

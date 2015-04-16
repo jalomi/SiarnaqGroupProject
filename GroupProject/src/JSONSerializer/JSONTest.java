@@ -19,10 +19,15 @@ public class JSONTest {
 		
 		try {
 			j.saveLevels(levels);
+			ArrayList<Level> newLevels = j.loadLevels();
+			/*
+			 * newLevels is exact same as levels
+			 */
 		} catch (JSONException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	
+	
 
 }
