@@ -53,7 +53,7 @@ public class LevelBuilderApplication extends JFrame {
 		setResizable(false);
 		setTitle("Level Builder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 950, 600);
+		setBounds(5, 5, 950, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(UIManager.getColor("Panel.background"));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

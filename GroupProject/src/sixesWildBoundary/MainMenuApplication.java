@@ -40,7 +40,7 @@ public class MainMenuApplication extends JFrame {
 		setResizable(false);
 		setTitle("Sixes Wild");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 580, 750);
+		setBounds(5, 5, 580, 750);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

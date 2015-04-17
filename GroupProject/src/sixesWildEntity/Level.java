@@ -85,9 +85,9 @@ public class Level {
 		percent[4] = .1 ;
 		percent[5] = .1 ;
 		
-		percentM[0] = .4 ;
-		percentM[1] = .4 ;
-		percentM[2] = .2 ;		
+		percentM[0] = .89 ;
+		percentM[1] = .1 ;
+		percentM[2] = .01 ;		
 		
 		firstStarScore = 10;
 		secondStarScore = 20;

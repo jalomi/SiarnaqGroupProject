@@ -40,7 +40,7 @@ public class LevelSelectApplication extends JFrame {
 		setResizable(false);
 		setTitle("Level Select");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 580, 750);
+		setBounds(5, 5, 580, 750);
 		getContentPane().setLayout(null);
 		
 		btnMainMenu = new JButton("Main Menu");
