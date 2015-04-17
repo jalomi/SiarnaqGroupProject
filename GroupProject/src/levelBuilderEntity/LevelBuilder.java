@@ -9,14 +9,8 @@ public class LevelBuilder {
 	boolean allowReset;
 	boolean allowSwap;
 	boolean allowRemove;
-	float percent1;
-	float percent2;
-	float percent3;
-	float percent4;
-	float percent5;
-	float percent6;
-	float percentB2;
-	float percentB3;
+    double percents[] = new double[7];
+	double percentM[] = new double[3];
 	int oneStarScore;
 	int twoStarScore;
 	int threeStarScore;
@@ -30,20 +24,49 @@ public class LevelBuilder {
 		{
 			for(int j=0; j<9; j++)
 			{
-				tilesActive[i][j]=false;
+				this.tilesActive[i][j]=false;
 			}
 		}
 		
 		for(int i=0; i<9; i++)
 		{
-			bucketFor6s[i]=false;
+			this.bucketFor6s[i]=false;
 		}
 		
-		boolean allowReset=false;
-		boolean allowSwap=false;
-		boolean allowRemove=false;
+		for(int i=1;i<=7;i++){
+			this.percents[i] = 0;
+		}
+		
+		for(int i=1;i<=2;i++){
+			this.percentM[i] = 0;
+		}
+		
+		this.oneStarScore = 0;
+		this.twoStarScore = 0;
+		this.threeStarScore = 0;
+		
+		this.allowReset=false;
+		this.allowSwap=false;
+		this.allowRemove=false;
 	}
 	
+	public void setTileActive(int row, int col){
+		tilesActive[row][col] = true;
+	}
+	
+	public void setTileDeactive(int row, int col){
+		tilesActive[row][col] = false;
+	}
+	
+	public void setBucketFor6sActive(int col){
+		bucketFor6s[col]=true;
+	}
+	
+	public void setBuckerFor6sDeactvie(int col){
+		bucketFor6s[col] = false;
+	}
+	
+	 
 	public boolean entriesValid()
 	{
 		return false;
