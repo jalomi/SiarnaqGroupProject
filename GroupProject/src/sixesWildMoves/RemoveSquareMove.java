@@ -8,7 +8,7 @@ public class RemoveSquareMove extends Move{
 
 	public RemoveSquareMove(Board board, Square s) {
 		super(board);
-		this.square=square;
+		this.square = s;
 	}
 
 	@Override

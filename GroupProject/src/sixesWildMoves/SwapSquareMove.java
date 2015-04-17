@@ -9,8 +9,8 @@ public class SwapSquareMove extends Move{
 	
 	public SwapSquareMove(Board board, Square s1, Square s2) {
 		super(board);
-		this.s1=s1;
-		this.s2=s2;
+		this.s1 = s1;
+		this.s2 = s2;
 	}
 
 	@Override

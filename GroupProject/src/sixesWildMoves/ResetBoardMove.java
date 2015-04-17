@@ -10,7 +10,7 @@ public class ResetBoardMove extends Move{
 	
 	public ResetBoardMove(Board board, ArrayList<Square> squares) {
 		super(board);
-		this.squares=squares;
+		this.squares = squares;
 	}
 
 	@Override

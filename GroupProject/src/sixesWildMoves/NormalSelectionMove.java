@@ -10,7 +10,7 @@ public class NormalSelectionMove extends Move {
 	
 	public NormalSelectionMove(Board board, ArrayList<Tile> tiles) {
 		super(board);
-		this.tiles=tiles;
+		this.tiles = tiles;
 	}
 
 	@Override
