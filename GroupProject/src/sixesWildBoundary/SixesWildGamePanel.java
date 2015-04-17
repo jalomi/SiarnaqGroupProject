@@ -62,7 +62,7 @@ public class SixesWildGamePanel extends JPanel {
 		} else if(value == 2 && multi == 3) {
 			map[col][row].setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/2-3.png")));
 		
-		} else if(value == 2 && multi == 1) {
+		} else if(value == 3 && multi == 1) {
 			map[col][row].setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/3-1.png")));
 		
 		} else if(value == 3 && multi == 2) {
@@ -71,7 +71,7 @@ public class SixesWildGamePanel extends JPanel {
 		} else if(value == 3 && multi == 3) {
 			map[col][row].setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/3-3.png")));
 		
-		} else if(value == 3 && multi == 1) {
+		} else if(value == 4 && multi == 1) {
 			map[col][row].setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/4-1.png")));
 		
 		} else if(value == 4 && multi == 2) {
@@ -80,7 +80,7 @@ public class SixesWildGamePanel extends JPanel {
 		} else if(value == 4 && multi == 3) {
 			map[col][row].setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/4-3.png")));
 		
-		} else if(value == 4 && multi == 1) {
+		} else if(value == 5 && multi == 1) {
 			map[col][row].setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/5-1.png")));
 		
 		} else if(value == 5 && multi == 2) {
