@@ -33,8 +33,7 @@ public class LevelSelectApplication extends JFrame {
 //				}
 //			}  
 //		});
-//	}
-	
+//	}	
 	
 	public LevelSelectApplication() {
 		setResizable(false);
