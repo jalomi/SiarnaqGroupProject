@@ -33,7 +33,7 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 	}
 	
 	private void initLabel(int col, int row) {
-		board = new LevelBuilder(1) ;
+		board = new LevelBuilder() ;
 		map[col][row] = new JLabel("");
 		
 		boolean tile = board.getTileActiveAt(col, row);
