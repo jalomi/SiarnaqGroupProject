@@ -1,6 +1,7 @@
 package sixesWildMoves;
 
 import sixesWildEntity.Board;
+import sixesWildEntity.SixesWild;
 
 public abstract class Move {
 	Board thePlayBoard;

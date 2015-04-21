@@ -22,7 +22,8 @@ public class Board {
 			for(int j = 0; j < 9; j++) {
 				if(level.getEnabledTiles()[i][j]) {
 					map[i][j] = new Tile(generateSquare());
-				} else {
+				} 
+				else {
 					map[i][j] = new Tile();
 				}
 			}
