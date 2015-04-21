@@ -19,6 +19,7 @@ public class LevelBuilder {
 	int moves;
 	boolean[] bucketFor6s=new boolean[9];
 	
+	
 	//CONSTRUCTOR 
 	public LevelBuilder(){
 		for(int i=0; i<9; i++)
