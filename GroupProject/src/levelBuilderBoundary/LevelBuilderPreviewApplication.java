@@ -41,7 +41,7 @@ public class LevelBuilderPreviewApplication extends JFrame {
 		setTitle("Preview");
 		setBackground(new Color(238, 238, 238));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 580, 650);
+		setBounds(5, 5, 580, 650);
 		contentPane = new JPanel();
 		contentPane.setBackground(UIManager.getColor("Panel.background"));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -1,7 +1,9 @@
 package sixesWildBoundary;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -34,7 +36,7 @@ public class SixesWildGamePanel extends JPanel {
 	
 	private void initLabel(int col, int row) {
 		map[col][row] = new JLabel("");
-		
+
 		Tile tile = board.getTile(col, row);
 		if(tile.isEnabled() == false) {
 			return;

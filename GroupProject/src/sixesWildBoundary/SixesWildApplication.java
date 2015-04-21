@@ -40,9 +40,8 @@ public class SixesWildApplication extends JFrame {
 		levelPane = new SixesWildLevelPanel(l);
 		levelPane.setLocation(35, 20);
 		
-		this.setSize(580, 730);
+		setBounds(5, 5, 580, 750);
 		this.setResizable(false);
-		this.setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 
 		getContentPane().add(levelPane);
