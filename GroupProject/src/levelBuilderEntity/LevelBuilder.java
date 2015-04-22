@@ -82,11 +82,11 @@ public class LevelBuilder {
 		bucketFor6s[col]=true;
 	}
 	
-	public void setBuckerFor6sDeactvie(int col){
+	public void setBucketFor6sDeactive(int col){
 		bucketFor6s[col] = false;
 	}
 	
-	public void allowSpcials(int i){
+	public void allowSpecials(int i){
 		//1: allow reset, 2:allow swap, 3: allow remove.
 		if(i==1){
 			allowReset = true;			
@@ -100,7 +100,7 @@ public class LevelBuilder {
 		
 	}
 	
-	public void disallowSpcials(int i){
+	public void disallowSpecials(int i){
 		//1: disallow reset, 2:disallow swap, 3: disallow remove.
 		if(i==1){
 			allowReset = false;			
@@ -177,27 +177,27 @@ public class LevelBuilder {
 		return percentM[i] ;
 	}
 	
-	public int getLevelNumber(int l){
+	public int getLevelNumber(){
 		return number;
 	}
 	
-	public int getLevelType(int t){
-		return type = t; 
+	public int getLevelType(){
+		return type; 
 	}
 	
 	public int getMoves(){
 		return moves;
 	}
 	
-	public int getOneStarScore(int s){
+	public int getOneStarScore(){
 		return oneStarScore;
 	}
 	
-	public int setTwoStarScore(int s){
+	public int getTwoStarScore(){
 		return twoStarScore;
 	}
 	
-	public int setThreeStarScore(int s){
+	public int getThreeStarScore(){
 		return threeStarScore; 
 	}
 }

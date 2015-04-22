@@ -8,6 +8,7 @@ import javax.swing.UIManager;
 
 import levelBuilderControllers.ExitController;
 import levelBuilderControllers.PreviewController;
+import levelBuilderControllers.Select1StarScoreController;
 import levelBuilderControllers.SelectMoveNumberController;
 import levelBuilderEntity.LevelBuilder;
 
@@ -81,6 +82,7 @@ public class LevelBuilderApplication extends JFrame {
 		getPreviewBtn().addActionListener(new PreviewController(this)) ;
 		getExitBtn().addActionListener(new ExitController(this)) ;
 		getInputPanel().getMaxMoves().addActionListener(new SelectMoveNumberController (model, this));
+		getInputPanel().getScore1().addActionListener(new Select1StarScoreController (model, this));
 	}
 	
 	private JButton getExitBtn() {
