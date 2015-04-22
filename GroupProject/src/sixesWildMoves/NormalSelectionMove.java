@@ -7,9 +7,9 @@ import sixesWildEntity.Tile;
 public class NormalSelectionMove extends Move {
 	ArrayList<Tile> tiles;
 	
-	public NormalSelectionMove(Board board, ArrayList<Tile> tiles) {
+	public NormalSelectionMove(Board board) {
 		super(board);
-		this.tiles = tiles;
+		this.tiles = board.getSelected();
 	}
 
 	@Override
@@ -28,6 +28,7 @@ public class NormalSelectionMove extends Move {
 			return false ;
 		}
 		
+		//TODO
 		
 		return true ;
 	}

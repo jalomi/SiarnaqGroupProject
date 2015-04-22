@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import sixesWildBoundary.SixesWildApplication;
 import sixesWildEntity.SixesWild;
 import sixesWildEntity.Tile;
+import sixesWildMoves.Move;
+import sixesWildMoves.NormalSelectionMove;
 
 public class TileSelectionController extends MouseAdapter{
 	SixesWildApplication application;
@@ -24,5 +26,20 @@ public class TileSelectionController extends MouseAdapter{
 		
 		sel.add(src) ;		
 	}
+	
+	public void mouseEntered(MouseEvent me){
+		ArrayList<Tile> sel = model.getBoard().getSelected() ;
+		
+		sel.add(src) ;
+	}
+	
+	public void mouseReleased(MouseEvent me){
+		Move move = new NormalSelectionMove(model.getBoard()) ;
+		
+		if(move.doMove()){
+			//do the move code
+			//model.pushMove(move) ;
+		}
+	}		
 	
 }
