@@ -185,4 +185,9 @@ public class LevelBuilderInputPanel extends JPanel {
 	public JButton getExitBtn() {
 		return exitBtn;
 	}
+	
+	public JTextField getMaxMoves()
+	{
+		return txtEnterMaxMoves;
+	}
 }
