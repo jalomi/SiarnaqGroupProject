@@ -1,11 +1,12 @@
 package levelBuilderEntity;
 
 import java.sql.Time;
+import java.util.HashMap ;
 
 public class LevelBuilder {
 	int number;
 	int type;
-	boolean[][] tilesActive=new boolean[9][9];
+	HashMap<Integer, Boolean> tilesActive = new HashMap<Integer, Boolean>() ;
 	boolean allowReset;
 	boolean allowSwap;
 	boolean allowRemove;
@@ -22,13 +23,9 @@ public class LevelBuilder {
 	
 	//CONSTRUCTOR 
 	public LevelBuilder(){
-		for(int i=0; i<9; i++)
-		{
-			for(int j=0; j<9; j++)
-			{
-				this.tilesActive[i][j]=true;
-
-			}
+		for(int i = 11; i <= 99; i++)
+			if(i % 10 != 0){
+				tilesActive.put(i, true) ;
 		}
 		
 		for(int i=0; i<9; i++)
@@ -72,11 +69,13 @@ public class LevelBuilder {
 
 	
 	public void setTileActive(int row, int col){
-		tilesActive[row][col] = true;
+		int key = col*10+row ;
+		tilesActive.put(key, true) ;
 	}
 	
 	public void setTileDeactive(int row, int col){
-		tilesActive[row][col] = false;
+		int key = col*10+row ;
+		tilesActive.put(key, false) ;
 	}
 	
 	public void setBucketFor6sActive(int col){
@@ -166,7 +165,8 @@ public class LevelBuilder {
 
 
 	public boolean getTileActiveAt(int col, int row) {
-		return tilesActive[col][row];
+		int key = col*10+row ;
+		return tilesActive.get(key) ;
 	}
 	
 	public double getPercent(int i){
@@ -200,8 +200,5 @@ public class LevelBuilder {
 	public int setThreeStarScore(int s){
 		return threeStarScore; 
 	}
-	
-	
-	
 }
 

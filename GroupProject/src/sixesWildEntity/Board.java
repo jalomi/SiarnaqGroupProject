@@ -1,12 +1,13 @@
 package sixesWildEntity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Board {
 	
 	public static final String TAG = "Board";
 	
-	private Tile[][] map = new Tile[9][9];
+	private HashMap<Integer, Tile> map = new HashMap<Integer, Tile>() ;
 	private Level level;
 	private ArrayList<Tile> selected ;
 	
@@ -22,13 +23,13 @@ public class Board {
 	}
 	
 	private void populateBoard() {
-		for(int i = 0; i < 9; i++) {
-			for(int j = 0; j < 9; j++) {
-				if(level.getEnabledTiles()[i][j]) {
-					map[i][j] = new Tile(generateSquare());
+		for(int i = 11; i <= 99; i++) {
+			if(i % 10 != 0) {
+				if(level.getEnabledTiles().get(i)) {
+					map.put(i, new Tile(generateSquare()));
 				} 
 				else {
-					map[i][j] = new Tile();
+					map.put(i, new Tile()) ;
 				}
 			}
 		}
@@ -38,16 +39,17 @@ public class Board {
 		return this.level.generateSquare();
 	}
 
-	public Tile[][] getMap() {
+	public HashMap<Integer, Tile> getMap() {
 		return map;
 	}
 
-	public void setMap(Tile[][] map) {
+	public void setMap(HashMap<Integer, Tile> map) {
 		this.map = map;
 	}
 	
 	public Tile getTile(int col, int row) {
-		return map[col][row];
+		int key = col*10+row ;
+		return map.get(key) ;
 	}
 	
 	public Square getSquare(int col, int row) {

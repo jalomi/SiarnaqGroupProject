@@ -1,5 +1,6 @@
 package sixesWildEntity;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 import org.json.JSONException;
@@ -18,7 +19,8 @@ public class Level {
 	int levelNumber;
 	
 	boolean enabled;
-	boolean[][] enabledTiles = new boolean[9][9];
+	//boolean[][] enabledTiles = new boolean[9][9];
+	HashMap<Integer, Boolean> enabledTiles = new HashMap<Integer, Boolean>() ;
 	//columns that has 6s on the top at the beginning of the game(release only)
 	boolean[] columnForSixes = new boolean[9];
 
@@ -46,9 +48,9 @@ public class Level {
         levelNumber = json.getInt("levelNumber");
         
         enabled = json.getBoolean("enabled");
-        for(int i = 0; i < 9; i++) {
-        	for(int j = 0; j < 9; j++) {
-        		enabledTiles[i][j] = json.getJSONArray("enabledTiles").getJSONArray(i).getBoolean(j); //!
+        for(int i = 11; i <= 99; i++) {
+        	if(i % 10 != 0){
+        		//enabledTiles. = json.getJSONArray("enabledTiles").getJSONArray(i).getBoolean(j); //!
         	}
         	columnForSixes[i] = json.getJSONArray("columnForSixes").getBoolean(i);
         }
@@ -99,10 +101,9 @@ public class Level {
 		resetEnabled = false;
 		removeEnabled = false;
 		
-		for(int i = 0; i < 9; i++) {
-			for(int j = 0; j < 9; j++) {
-				enabledTiles[i][j] = true;
-			}
+		for(int i = 11; i <= 99; i++)
+			if(i % 10 != 0){
+				enabledTiles.put(i, true) ;
 		}
 	}
 	
@@ -111,7 +112,7 @@ public class Level {
 				  double m1, double m2, double m3,
 				  int first, int second, int third,
 				  boolean swap, boolean reset, boolean remove,
-				  boolean[][] enabledTiles) throws Exception {
+				  HashMap<Integer, Boolean> enabledTiles) throws Exception {
 		if(this.checkPercentageCorrectnes(p1, p2, p3, p4, p5, p6, m1, m2, m3)) {
 			this.id = UUID.randomUUID();
 			this.levelNumber = number;
@@ -220,7 +221,7 @@ public class Level {
 		this.id = id;
 	}
 
-	public boolean[][] getEnabledTiles() {
+	public HashMap<Integer, Boolean> getEnabledTiles() {
 		return enabledTiles;
 	}
 	
