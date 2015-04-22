@@ -27,8 +27,12 @@ public class NormalSelectionMove extends Move {
 
 	@Override
 	public boolean doMove() {
+		if(!isValid()){
+			return false ;
+		}
 		
-		return false ;
+		
+		return true ;
 	}
 
 	@Override
