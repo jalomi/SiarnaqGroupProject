@@ -4,11 +4,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import javax.swing.UIManager;
 
 import levelBuilderControllers.ExitController;
 import levelBuilderControllers.PreviewController;
+import levelBuilderControllers.SelectMoveNumberController;
+import levelBuilderEntity.LevelBuilder;
 
 public class LevelBuilderApplication extends JFrame {
 
@@ -17,6 +18,7 @@ public class LevelBuilderApplication extends JFrame {
 	LevelBuilderInputPanel inputPanel ;
 	LevelBuilderCheckBoxPanel checkBoxPanel ;
 	private JPanel panel;
+	private LevelBuilder model;
 	
 	public LevelBuilderGamePanel getGamePanel(){
 		return gamePanel ;
@@ -78,6 +80,7 @@ public class LevelBuilderApplication extends JFrame {
 		//controllers
 		getPreviewBtn().addActionListener(new PreviewController(this)) ;
 		getExitBtn().addActionListener(new ExitController(this)) ;
+		getInputPanel().getMaxMoves().addActionListener(new SelectMoveNumberController (model, this));
 	}
 	
 	private JButton getExitBtn() {

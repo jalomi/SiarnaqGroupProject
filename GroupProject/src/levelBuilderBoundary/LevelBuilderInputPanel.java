@@ -8,6 +8,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 
+import levelBuilderEntity.LevelBuilder;
+
+
 public class LevelBuilderInputPanel extends JPanel {
 	private JTextField txtLevelNumber;
 	private JTextField txtEnterMaxMoves;

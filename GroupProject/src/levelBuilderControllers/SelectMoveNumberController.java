@@ -1,7 +1,10 @@
 package levelBuilderControllers;
 
+import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JTextField;
 
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
@@ -18,10 +21,21 @@ public class SelectMoveNumberController implements ActionListener{
 	
 	public void actionPerformed(ActionEvent ae)
 	{
-		String s=application.getInputPanel().getMaxMoves().getText();
-		int number=Integer.parseInt(s);
-		model.setMoves(number);
-		application.getInputPanel().getMaxMoves().setText(""+s);
+		JTextField tf=(JTextField)ae.getSource();
+		String s=tf.getText();
+		update(tf, s);
+	}
+	
+	public void update(JTextField tf, String s)
+	{
+		try{
+			int num = Integer.valueOf(tf.getText());
+			model.setMoves(num);
+			application.getInputPanel().getMaxMoves().setText(""+tf.getText());
+		} catch (Exception e) {
+			tf.setText(s);
+		}
+		
 	}
 
 }
