@@ -193,4 +193,9 @@ public class LevelBuilderInputPanel extends JPanel {
 	{
 		return txtEnterMaxMoves;
 	}
+	
+	public JTextField getScore1()
+	{
+		return txtEnterScore;
+	}
 }
