@@ -1,7 +1,10 @@
 package sixesWildBoundary;
 
 import java.awt.*;
+
 import javax.swing.*;
+
+import sixesWildEntity.SixesWild;
 
 public class SplashScreenGame extends JWindow {
   private int duration;
@@ -67,5 +70,8 @@ public class SplashScreenGame extends JWindow {
     splash.showSplash();
 	MainMenuApplication frame = new MainMenuApplication();
 	frame.setVisible(true);
+	
+	SixesWild game = new SixesWild() ;
+	game.initialize() ;
   }
 }

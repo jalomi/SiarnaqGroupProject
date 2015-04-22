@@ -10,10 +10,9 @@ public class SixesWild implements Iterable<Level>{
 	private Board board;
 	private SixesWildApplication app ;
 	
-	public SixesWild(ArrayList<Level> l, Board b)
-	{
-		this.levels = l;
-		this.board = b;
+	public SixesWild(){
+		//get levels from JSON
+		//TODO
 	}
 
 	@Override
@@ -27,7 +26,7 @@ public class SixesWild implements Iterable<Level>{
 	}
 	
 	
-	public void intialize(){
+	public void initialize(){
 		//initialize the game
 		initializeModel() ;
 		initializeView() ;
