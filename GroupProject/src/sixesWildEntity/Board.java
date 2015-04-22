@@ -1,15 +1,19 @@
 package sixesWildEntity;
 
+import java.util.ArrayList;
+
 public class Board {
 	
 	public static final String TAG = "Board";
 	
 	private Tile[][] map = new Tile[9][9];
 	private Level level;
+	private ArrayList<Tile> selected ;
 	
 	public Board() {
 		this.level = new Level(1);
 		this.populateBoard();
+		this.selected = new ArrayList<Tile>() ;
 	}
 	
 	public Board(Level l) {
@@ -48,5 +52,9 @@ public class Board {
 	
 	public Square getSquare(int col, int row) {
 		return getTile(col, row).getSquare();
+	}
+
+	public ArrayList<Tile> getSelected() {
+		return selected;
 	}
 }

@@ -1,10 +1,7 @@
 package sixesWildMoves;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
 import sixesWildEntity.Board;
-import sixesWildEntity.SixesWild;
 import sixesWildEntity.Tile;
 
 public class NormalSelectionMove extends Move {
@@ -17,12 +14,12 @@ public class NormalSelectionMove extends Move {
 
 	@Override
 	public boolean isValid() {
-		int sum=0;
-		for(int i=0; i<tiles.size(); i++)
+		int sum = 0;
+		for(int i = 0; i < tiles.size(); i++)
 		{
-			sum+=tiles.get(i).getSquare().getValue();
+			sum += tiles.get(i).getSquare().getValue();
 		}
-		return sum==6;
+		return sum == 6;
 	}
 
 	@Override

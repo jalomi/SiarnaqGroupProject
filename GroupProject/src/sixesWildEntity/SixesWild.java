@@ -5,12 +5,12 @@ import java.util.Iterator;
 
 public class SixesWild implements Iterable<Level>{
 	private ArrayList<Level> levels;
-	private Board thePlayBoard;
+	private Board board;
 	
 	public SixesWild(ArrayList<Level> l, Board b)
 	{
 		this.levels=l;
-		this.thePlayBoard=b;
+		this.board=b;
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class SixesWild implements Iterable<Level>{
 	
 	public Board getBoard()
 	{
-		return thePlayBoard;
+		return board;
 	}
 	
 }
