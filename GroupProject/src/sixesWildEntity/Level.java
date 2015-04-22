@@ -22,8 +22,8 @@ public class Level {
 	//columns that has 6s on the top at the beginning of the game(release only)
 	boolean[] columnForSixes = new boolean[9];
 
-	double percent[] = new double[6] ;
-	double percentM[] = new double[3] ;
+	double percent[] = new double[7] ;
+	double percentM[] = new double[4] ;
 		
 	int score;
 	int starNumber;
@@ -78,16 +78,16 @@ public class Level {
 		this.levelNumber = number;
 		
 		//bad dummy values
-		percent[0] = .2 ;
 		percent[1] = .2 ;
 		percent[2] = .2 ;
 		percent[3] = .2 ;
-		percent[4] = .1 ;
+		percent[4] = .2 ;
 		percent[5] = .1 ;
+		percent[6] = .1 ;
 		
-		percentM[0] = .89 ;
-		percentM[1] = .1 ;
-		percentM[2] = .01 ;		
+		percentM[1] = .89 ;
+		percentM[2] = .1 ;
+		percentM[3] = .01 ;		
 		
 		firstStarScore = 10;
 		secondStarScore = 20;

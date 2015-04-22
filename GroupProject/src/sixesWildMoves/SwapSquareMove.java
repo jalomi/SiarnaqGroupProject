@@ -21,8 +21,12 @@ public class SwapSquareMove extends Move{
 
 	@Override
 	public boolean doMove() {
-		// TODO Auto-generated method stub
-		return false;
+		if(!isValid()){
+			return false ;
+		}
+		
+		
+		return true ;
 	}
 
 	@Override

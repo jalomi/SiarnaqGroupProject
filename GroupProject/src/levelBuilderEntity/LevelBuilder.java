@@ -11,7 +11,7 @@ public class LevelBuilder {
 	boolean allowRemove;
     double percents[] = new double[7];
 
-	double percentM[] = new double[3];
+	double percentM[] = new double[4];
 	int oneStarScore;
 	int twoStarScore;
 	int threeStarScore;
@@ -26,7 +26,7 @@ public class LevelBuilder {
 		{
 			for(int j=0; j<9; j++)
 			{
-				this.tilesActive[i][j]=false;
+				this.tilesActive[i][j]=true;
 
 			}
 		}
@@ -36,11 +36,11 @@ public class LevelBuilder {
 			this.bucketFor6s[i]=false;
 		}
 		
-		for(int i=1;i<=7;i++){
+		for(int i=1;i<=6;i++){
 			this.percents[i] = 0;
 		}
 		
-		for(int i=1;i<=2;i++){
+		for(int i=1;i<=3;i++){
 			this.percentM[i] = 0;
 		}
 		
@@ -51,18 +51,18 @@ public class LevelBuilder {
 		this.allowReset=false;
 		this.allowSwap=false;
 		this.allowRemove=false;
-//
-//		//bad dummy values
-//		percent[0] = .2 ;
-//		percent[1] = .2 ;
-//		percent[2] = .2 ;
-//		percent[3] = .2 ;
-//		percent[4] = .1 ;
-//		percent[5] = .1 ;
-//		
-//		percentM[0] = .7 ;
-//		percentM[1] = .2 ;
-//		percentM[2] = .1 ;
+
+		//bad dummy values
+		percents[1] = .2 ;
+		percents[2] = .2 ;
+		percents[3] = .2 ;
+		percents[4] = .2 ;
+		percents[5] = .1 ;
+		percents[6] = .1 ;
+		
+		percentM[1] = .89 ;
+		percentM[2] = .1 ;
+		percentM[3] = .01 ;
 		
 		this.allowReset = false;
 		this.allowSwap = false;
