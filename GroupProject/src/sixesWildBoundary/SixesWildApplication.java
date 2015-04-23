@@ -2,28 +2,20 @@ package sixesWildBoundary;
 
 import javax.swing.JFrame;
 
+import sixesWildControllers.GamePanelController;
 import sixesWildEntity.Level;
+import sixesWildEntity.SixesWild;
 
 
 @SuppressWarnings("serial")
 public class SixesWildApplication extends JFrame {
 	
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					SixesWildApplication frame = new SixesWildApplication(new Level());
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}  
-//		});
-//	}
+	public static final String TAG = "SixesWildApplication";
 
+	//Models
+	private SixesWild model;
 	
-	public static final String TAG = "BoardFrame";
-
+	//Boundaries
 	private SixesWildLevelPanel levelPane;
 	private SixesWildGamePanel gamePane;
 	
@@ -33,7 +25,25 @@ public class SixesWildApplication extends JFrame {
 	 */
 	public SixesWildApplication(Level l) {
 		setTitle("Sixes Wild");
+		initModels();
+		initBoundaries(l);
+		initControllers();
+	}
+	
+	public SixesWildLevelPanel getLevelPanel() {
+		return levelPane;
+	}
+	
+	/**
+	 * This method should init including load levels from disk
+	 * @author albert
+	 * 
+	 */
+	private void initModels() {
 		
+	}
+	
+	private void initBoundaries(Level l) {
 		gamePane = new SixesWildGamePanel(l);
 		gamePane.setSize(490, 490);
 		gamePane.setLocation(35, 180);
@@ -49,8 +59,10 @@ public class SixesWildApplication extends JFrame {
 		this.setVisible(true);
 	}
 	
-	public SixesWildLevelPanel getLevelPanel()
-	{
-		return levelPane;
+	private void initControllers() {
+		GamePanelController c = new GamePanelController(gamePane);
+		//gamePane.addMouseListener(c);
+		//gamePane.addMouseMotionListener(c);
+		gamePane.initControllers(c);
 	}
 }
