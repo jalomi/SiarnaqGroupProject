@@ -41,10 +41,10 @@ public class Board {
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
 				if(level.getEnabledTiles().get(new Position(i, j))) {
-					map.put(new Position(i, j), new Tile(generateSquare()));
+					map.put(new Position(i, j), new Tile(generateSquare(), new Position(i, j)));
 				} 
 				else {
-					map.put(new Position(i, j), new Tile()) ;
+					map.put(new Position(i, j), new Tile(new Position(i, j))) ;
 				}
 			}
 		}
@@ -74,5 +74,52 @@ public class Board {
 	
 	public Square getSquare(int col, int row) {
 		return getTile(col, row).getSquare();
+	}
+	
+//	public void removeSquares(ArrayList<Tile> tiles) {
+//		
+//	}
+	
+	public void refillEmptyTile(Tile t) {
+		while(t.getSquare() == null) {
+			int col = t.getPos().col;
+			int row = t.getPos().row;
+			for(int i = row; i >= 0; i--) {
+				try {
+					Tile above = map.get(map.get(new Position(col, row)));
+					if(above.getSquare() == null) {
+						continue;
+					} else {
+						t.setSquare(above.getSquare());
+						above.setSquare(null);
+						continue;
+					}
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					t.setSquare(this.generateSquare());
+				}
+			}
+		}
+	}
+	
+	public Level getLevel() {
+		return level;
+	}
+
+	public void setLevel(Level level) {
+		this.level = level;
+	}
+
+	/**
+	 * assume that tiles are empty
+	 * @author albert
+	 */
+	public void refillEmptyTiles(ArrayList<Tile> tiles) {
+		//first we want to find all the squares above empty tiles
+		for(Tile t : tiles) {
+			//check position above this pos
+			refillEmptyTile(t);
+		}
 	}
 }

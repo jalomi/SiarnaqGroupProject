@@ -2,7 +2,7 @@ package sixesWildBoundary;
 
 import javax.swing.JFrame;
 
-import sixesWildControllers.GamePanelController;
+import sixesWildEntity.Board;
 import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
 
@@ -23,15 +23,29 @@ public class SixesWildApplication extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SixesWildApplication(Level l) {
+	public SixesWildApplication() {
 		setTitle("Sixes Wild");
 		initModels();
-		initBoundaries(l);
+		initBoundaries();
 		initControllers();
 	}
 	
 	public SixesWildLevelPanel getLevelPanel() {
 		return levelPane;
+	}
+	
+	public SixesWildGamePanel getGamePanel() {
+		return gamePane;
+	}
+	
+	
+	public SixesWild getModel() {
+		return model;
+	}
+	
+	public void updateScore(int score) {
+		//we should have some function like this one
+		//SixesWild.updateScore(score);
 	}
 	
 	/**
@@ -40,14 +54,15 @@ public class SixesWildApplication extends JFrame {
 	 * 
 	 */
 	private void initModels() {
-		
+		model = new SixesWild();
+		model.setBoard(new Board());
 	}
 	
-	private void initBoundaries(Level l) {
-		gamePane = new SixesWildGamePanel(l);
+	private void initBoundaries() {
+		gamePane = new SixesWildGamePanel(model.getBoard().getLevel());
 		gamePane.setSize(490, 490);
 		gamePane.setLocation(35, 180);
-		levelPane = new SixesWildLevelPanel(l);
+		levelPane = new SixesWildLevelPanel(model.getBoard().getLevel());
 		levelPane.setLocation(35, 20);
 		
 		setBounds(5, 5, 580, 750);
@@ -60,9 +75,6 @@ public class SixesWildApplication extends JFrame {
 	}
 	
 	private void initControllers() {
-		GamePanelController c = new GamePanelController(gamePane);
-		//gamePane.addMouseListener(c);
-		//gamePane.addMouseMotionListener(c);
-		gamePane.initControllers(c);
+		gamePane.initControllers(this, model);
 	}
 }

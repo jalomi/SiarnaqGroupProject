@@ -9,7 +9,7 @@ public class Position {
 	
 	public Position(int c, int r) throws Exception{
 		if(c >= 9 || c < 0 || r >= 9 || r < 0) {
-			throw new Exception(TAG + " :: constructor out of bound");
+			throw new Exception(TAG + " :: constructor out of bound " + c + "," + r);
 		}
 		this.col = c ;
 		this.row = r ;
@@ -33,7 +33,12 @@ public class Position {
 	@Override
 	public int hashCode() {
 		//multiplying by 9 or bigger guarantees the hash code to be unique in each position;
-		return (9 * col) + row;
+		return (17 * col) + row;
+	}
+	
+	@Override
+	public String toString() {
+		return new String(col + "," + row);
 	}
 
 }

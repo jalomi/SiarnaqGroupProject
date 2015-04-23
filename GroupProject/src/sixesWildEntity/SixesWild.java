@@ -5,49 +5,25 @@ import java.util.Iterator;
 
 import sixesWildBoundary.SixesWildApplication;
 
-public class SixesWild implements Iterable<Level>{
+public class SixesWild {
 	private ArrayList<Level> levels;
 	private Board board;
-	private SixesWildApplication app ;
 	
 	public SixesWild(){
 		//get levels from JSON
 		//TODO
 	}
+	
 
-	@Override
-	public Iterator<Level> iterator() {
-		// TODO Auto-generated method stub
-		
-		//don't know if this is how we should do it:
-		//SixesWildApplication app = new SixesWildApplication(Level) ;
-		
-		return null;
-	}
-	
-	
-	public void initialize(){
-		//initialize the game
-		initializeModel() ;
-		initializeView() ;
-		initializeControllers() ;
-	}
-	
-	
-	private void initializeModel() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	private void initializeView() {
-		// TODO Auto-generated method stub
-		
+	public void setLevels(ArrayList<Level> levels) {
+		this.levels = levels;
 	}
 
-	private void initializeControllers() {
-		// TODO Auto-generated method stub
-		
+
+	public void setBoard(Board board) {
+		this.board = board;
 	}
+
 
 	public ArrayList<Level> getLevels(){
 		return levels;

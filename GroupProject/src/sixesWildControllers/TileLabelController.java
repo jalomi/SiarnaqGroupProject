@@ -13,28 +13,30 @@ import javax.swing.JPanel;
 
 import sixesWildBoundary.SixesWildApplication;
 import sixesWildBoundary.SixesWildGamePanel;
+import sixesWildBoundary.TileLabel;
+import sixesWildEntity.SixesWild;
+import sixesWildMoves.IMove;
+import sixesWildMoves.NormalSelectionMove;
 
-public class JLabelController extends MouseAdapter {
+public class TileLabelController extends MouseAdapter {
 	public static final String TAG = "JLabelController";
 	
-	SixesWildApplication application;
-	SixesWildGamePanel src;
-	ArrayList<JLabel> selectedLabels;
+	SixesWildApplication theGame;
 	
+	ArrayList<TileLabel> selectedLabels;
 	boolean havePressed;
 	
-	public JLabelController(SixesWildGamePanel gamePanel)
+	public TileLabelController(SixesWildApplication app, SixesWild model)
 	{
-		//this.application = application;
-		this.src = gamePanel;
-		this.selectedLabels = new ArrayList<JLabel>();
+		this.theGame = app;
+		this.selectedLabels = new ArrayList<TileLabel>();
 		havePressed = false;
 	}
 	
 	public void mousePressed(MouseEvent me) {
 		Component c = me.getComponent();
-		JLabel label = (JLabel) c;
-		label.setIcon(null);
+		TileLabel label = (TileLabel) c;
+		label.setIconSelected();
 		selectedLabels.add(label);
 		havePressed = true;
 	}
@@ -44,16 +46,15 @@ public class JLabelController extends MouseAdapter {
 		if(havePressed) {
 			//System.out.println(TAG + " mouseEntered pressed");
 			Component c = me.getComponent();
-			JLabel label = (JLabel) c;
+			TileLabel label = (TileLabel) c;
 			if(!selectedLabels.contains(label)) {
-				System.out.println(TAG + " mouseEntered add");
-				label.setIcon(null);
+				//System.out.println(TAG + " mouseEntered add");
+				label.setIconSelected();
 				selectedLabels.add(label);
-//				havePressed = true;
 			} else {
 				int index = selectedLabels.indexOf(label);
 				for(int i = selectedLabels.size() - 1; i > index; i--) {
-					selectedLabels.get(i).setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/1-1.png")));
+					selectedLabels.get(i).setIconUnselected();
 					selectedLabels.remove(i);
 				}
 			}
@@ -62,10 +63,19 @@ public class JLabelController extends MouseAdapter {
 	
 	public void mouseReleased(MouseEvent me) {
 		Component c = me.getComponent();
-		for(JLabel label : selectedLabels) {
-			label.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/1-1.png")));
+		for(TileLabel label : selectedLabels) {
+			label.setIconUnselected();
+		}
+		havePressed = false;
+		
+		IMove m = new NormalSelectionMove(selectedLabels, theGame.getModel().getBoard());
+		
+		if(m.doMove(theGame)) {
+			theGame.getGamePanel().refreshBoard();
+			System.out.println(TAG + "NormalSelectionMove suceeded");
+		} else {
+			System.out.println(TAG + "NormalSelectionMove failed");
 		}
 		selectedLabels.removeAll(selectedLabels);
-		havePressed = false;
 	}
 }

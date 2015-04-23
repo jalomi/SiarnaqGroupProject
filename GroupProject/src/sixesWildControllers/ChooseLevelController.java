@@ -22,7 +22,7 @@ public class ChooseLevelController implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		lvls.setVisible(false);
 		
-		SixesWildApplication level= new SixesWildApplication(new Level(1));
+		SixesWildApplication level= new SixesWildApplication();//need to change later
 		level.getLevelPanel().getExitButton().addActionListener(new BacktoMainMenuController(main, level));
 	}
 	

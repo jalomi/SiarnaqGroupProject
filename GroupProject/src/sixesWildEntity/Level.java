@@ -80,16 +80,16 @@ public class Level {
 		this.levelNumber = number;
 		
 		//bad dummy values
+		percent[0] = .2 ;
 		percent[1] = .2 ;
 		percent[2] = .2 ;
 		percent[3] = .2 ;
-		percent[4] = .2 ;
+		percent[4] = .1 ;
 		percent[5] = .1 ;
-		percent[6] = .1 ;
 		
-		percentM[1] = .89 ;
-		percentM[2] = .1 ;
-		percentM[3] = .01 ;		
+		percentM[0] = .7 ;
+		percentM[1] = .2 ;
+		percentM[2] = .1 ;		
 		
 		firstStarScore = 10;
 		secondStarScore = 20;

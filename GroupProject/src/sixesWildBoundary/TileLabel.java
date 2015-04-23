@@ -7,6 +7,14 @@ import javax.swing.JLabel;
 import sixesWildEntity.Tile;
 
 public class TileLabel extends JLabel {
+	
+	public static final String TAG = "TileLabel";
+	
+	public static final int UNSELECTED = 1;
+	public static final int SELECTED = 2;
+	public static final int MARKED = 3;
+	public static final int MARKED_SELECTED = 4;
+	
 	Tile model;
 	Icon numberImage;
 	
@@ -18,6 +26,34 @@ public class TileLabel extends JLabel {
 	
 	public Tile getModel() {
 		return model;
+	}
+	
+	public void setModel(Tile t) {
+		this.model = t;
+	}
+	
+	public void refresh(Tile t) {
+		setModel(t);
+		setRightIcon(1); //for now, need change later
+	}
+	
+	public void setRightIcon(int state) {
+		switch(state) {
+		case UNSELECTED:
+			setIconUnselected();
+			break;
+		case SELECTED:
+			setIconSelected();
+			break;
+		case MARKED:
+			setIconMarked();
+			break;
+		case MARKED_SELECTED:
+			setIconMarkerSelected();
+			break;
+		default:
+			setIcon(null); //which should not be used
+		}
 	}
 	
 	public void setIconUnselected() {
