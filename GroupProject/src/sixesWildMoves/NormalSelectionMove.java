@@ -24,6 +24,10 @@ public class NormalSelectionMove implements IMove{
 
 	@Override
 	public boolean isValid(SixesWildApplication theGame) {
+		if(selectedLabels.size() <= 1){
+			return false ;
+		}
+		
 		for(TileLabel tl : selectedLabels) {
 			Tile t = tl.getModel();
 			sum += t.getSquare().getValue();
