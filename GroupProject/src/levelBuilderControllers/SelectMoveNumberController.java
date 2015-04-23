@@ -21,7 +21,6 @@ public class SelectMoveNumberController implements ActionListener{
 	
 	public void actionPerformed(ActionEvent ae)
 	{
-		model.setMoves(0);
 		System.out.println(model.getMoves());
 		JTextField tf=(JTextField)ae.getSource();
 		String s=tf.getText();

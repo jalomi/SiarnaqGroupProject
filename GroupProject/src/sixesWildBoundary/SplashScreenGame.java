@@ -4,6 +4,7 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import sixesWildEntity.Position;
 import sixesWildEntity.SixesWild;
 
 public class SplashScreenGame extends JWindow {
@@ -64,14 +65,14 @@ public class SplashScreenGame extends JWindow {
     System.exit(0);
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     // Throw a nice little title page up on the screen first
     SplashScreenGame splash = new SplashScreenGame(1000);
     splash.showSplash();
 	MainMenuApplication frame = new MainMenuApplication();
 	frame.setVisible(true);
 	
-	SixesWild game = new SixesWild() ;
-	game.initialize() ;
+//	SixesWildApplication game = new SixesWildApplication() ;
+//	game.initialize() ;
   }
 }

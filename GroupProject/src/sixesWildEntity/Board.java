@@ -7,29 +7,44 @@ public class Board {
 	
 	public static final String TAG = "Board";
 	
-	private HashMap<Integer, Tile> map = new HashMap<Integer, Tile>() ;
+	private HashMap<Position, Tile> map = new HashMap<Position, Tile>();
 	private Level level;
-	private ArrayList<Tile> selected ;
+	
+	//this attribute should not exit here!!!
+	//Selections are UI event, which is not the concern of entities
+	//UI event will eventually changes entities
+	//but entities should never keep track of any data of UI events
+	//delete this after you read this comment
+	//private ArrayList<Tile> selected;
 	
 	public Board() {
 		this.level = new Level(1);
-		this.populateBoard();
-		this.selected = new ArrayList<Tile>() ;
+		try {
+			this.populateBoard();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public Board(Level l) {
 		this.level = l;
-		this.populateBoard();
+		try {
+			this.populateBoard();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	private void populateBoard() {
-		for(int i = 11; i <= 99; i++) {
-			if(i % 10 != 0) {
-				if(level.getEnabledTiles().get(i)) {
-					map.put(i, new Tile(generateSquare()));
+	private void populateBoard() throws Exception {
+		for(int i = 0; i < 9; i++) {
+			for(int j = 0; j < 9; j++) {
+				if(level.getEnabledTiles().get(new Position(i, j))) {
+					map.put(new Position(i, j), new Tile(generateSquare(), new Position(i, j)));
 				} 
 				else {
-					map.put(i, new Tile()) ;
+					map.put(new Position(i, j), new Tile(new Position(i, j))) ;
 				}
 			}
 		}
@@ -39,24 +54,72 @@ public class Board {
 		return this.level.generateSquare();
 	}
 
-	public HashMap<Integer, Tile> getMap() {
+	public HashMap<Position, Tile> getMap() {
 		return map;
 	}
 
-	public void setMap(HashMap<Integer, Tile> map) {
+	public void setMap(HashMap<Position, Tile> map) {
 		this.map = map;
 	}
 	
 	public Tile getTile(int col, int row) {
-		int key = col*10+row ;
-		return map.get(key) ;
+		try {
+			return map.get(new Position(col, row)) ;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	public Square getSquare(int col, int row) {
 		return getTile(col, row).getSquare();
 	}
+	
+//	public void removeSquares(ArrayList<Tile> tiles) {
+//		
+//	}
+	
+	public void refillEmptyTile(Tile t) {
+		while(t.getSquare() == null) {
+			int col = t.getPos().col;
+			int row = t.getPos().row;
+			for(int i = row; i >= 0; i--) {
+				try {
+					Tile above = map.get(map.get(new Position(col, row)));
+					if(above.getSquare() == null) {
+						continue;
+					} else {
+						t.setSquare(above.getSquare());
+						above.setSquare(null);
+						continue;
+					}
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					t.setSquare(this.generateSquare());
+				}
+			}
+		}
+	}
+	
+	public Level getLevel() {
+		return level;
+	}
 
-	public ArrayList<Tile> getSelected() {
-		return selected;
+	public void setLevel(Level level) {
+		this.level = level;
+	}
+
+	/**
+	 * assume that tiles are empty
+	 * @author albert
+	 */
+	public void refillEmptyTiles(ArrayList<Tile> tiles) {
+		//first we want to find all the squares above empty tiles
+		for(Tile t : tiles) {
+			//check position above this pos
+			refillEmptyTile(t);
+		}
 	}
 }

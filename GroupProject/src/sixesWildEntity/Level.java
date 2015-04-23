@@ -20,7 +20,7 @@ public class Level {
 	
 	boolean enabled;
 	//boolean[][] enabledTiles = new boolean[9][9];
-	HashMap<Integer, Boolean> enabledTiles = new HashMap<Integer, Boolean>() ;
+	HashMap<Position, Boolean> enabledTiles = new HashMap<Position, Boolean>() ;
 	//columns that has 6s on the top at the beginning of the game(release only)
 	boolean[] columnForSixes = new boolean[9];
 
@@ -80,16 +80,16 @@ public class Level {
 		this.levelNumber = number;
 		
 		//bad dummy values
+		percent[0] = .2 ;
 		percent[1] = .2 ;
 		percent[2] = .2 ;
 		percent[3] = .2 ;
-		percent[4] = .2 ;
+		percent[4] = .1 ;
 		percent[5] = .1 ;
-		percent[6] = .1 ;
 		
-		percentM[1] = .89 ;
-		percentM[2] = .1 ;
-		percentM[3] = .01 ;		
+		percentM[0] = .7 ;
+		percentM[1] = .2 ;
+		percentM[2] = .1 ;		
 		
 		firstStarScore = 10;
 		secondStarScore = 20;
@@ -101,9 +101,13 @@ public class Level {
 		resetEnabled = false;
 		removeEnabled = false;
 		
-		for(int i = 11; i <= 99; i++)
-			if(i % 10 != 0){
-				enabledTiles.put(i, true) ;
+		for(int i = 0; i < 9; i++)
+			for(int j = 0; j < 9; j++){
+				try {
+					enabledTiles.put(new Position(i, j), true) ;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 		}
 	}
 	
@@ -112,7 +116,7 @@ public class Level {
 				  double m1, double m2, double m3,
 				  int first, int second, int third,
 				  boolean swap, boolean reset, boolean remove,
-				  HashMap<Integer, Boolean> enabledTiles) throws Exception {
+				  HashMap<Position, Boolean> enabledTiles) throws Exception {
 		if(this.checkPercentageCorrectnes(p1, p2, p3, p4, p5, p6, m1, m2, m3)) {
 			this.id = UUID.randomUUID();
 			this.levelNumber = number;
@@ -221,7 +225,7 @@ public class Level {
 		this.id = id;
 	}
 
-	public HashMap<Integer, Boolean> getEnabledTiles() {
+	public HashMap<Position, Boolean> getEnabledTiles() {
 		return enabledTiles;
 	}
 	

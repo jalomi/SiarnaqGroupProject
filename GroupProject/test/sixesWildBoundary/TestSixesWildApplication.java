@@ -11,7 +11,7 @@ public class TestSixesWildApplication extends TestCase {
 	protected void setUp()
 	{
 		l=new Level(1);
-		s=new SixesWildApplication(l);
+		s=new SixesWildApplication();
 	}
 	
 	public void testSixesWildApplication()
