@@ -21,7 +21,6 @@ public class SelectMoveNumberController implements ActionListener{
 	
 	public void actionPerformed(ActionEvent ae)
 	{
-		System.out.println(model.getMoves());
 		JTextField tf=(JTextField)ae.getSource();
 		String s=tf.getText();
 		update(tf, s);
@@ -32,10 +31,10 @@ public class SelectMoveNumberController implements ActionListener{
 		try{
 			int num = Integer.valueOf(tf.getText());
 			model.setMoves(num);
-			System.out.println(model.getMoves());
+			System.out.println("Number of Moves: "+model.getMoves());
 			application.getInputPanel().getMaxMoves().setText(""+tf.getText());
 		} catch (Exception e) {
-			tf.setText(s);
+			tf.setText(""+model.getMoves());
 		}
 		
 	}
