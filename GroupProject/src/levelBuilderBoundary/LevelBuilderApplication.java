@@ -19,7 +19,7 @@ public class LevelBuilderApplication extends JFrame {
 	LevelBuilderInputPanel inputPanel ;
 	LevelBuilderCheckBoxPanel checkBoxPanel ;
 	private JPanel panel;
-	private LevelBuilder model;
+	private LevelBuilder model=new LevelBuilder();
 	
 	public LevelBuilderGamePanel getGamePanel(){
 		return gamePanel ;
