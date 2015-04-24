@@ -80,26 +80,41 @@ public class Board {
 //		
 //	}
 	
-	public void refillEmptyTile(Tile t) {
-		while(t.getSquare() == null) {
-			int col = t.getPos().col;
-			int row = t.getPos().row;
-			for(int i = row; i >= 0; i--) {
-				try {
-					Tile above = map.get(map.get(new Position(col, row)));
-					if(above.getSquare() == null) {
-						continue;
-					} else {
-						t.setSquare(above.getSquare());
-						above.setSquare(null);
-						continue;
-					}
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					t.setSquare(this.generateSquare());
-				}
-			}
+	public void fall(Tile t){
+//		while(t.getSquare() == null) {
+//			int col = t.getPos().col;
+//			int row = t.getPos().row;
+//			for(int i = row; i >= 0; i--) {
+//				try {
+//					Tile above = map.get(map.get(new Position(col, row)));
+//					if(above.getSquare() != null) {
+//						t.setSquare(above.getSquare());
+//						above.setSquare(null);
+//					}
+//				} catch (Exception e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//					t.setSquare(this.generateSquare());
+//				}
+//			}
+//		}
+		
+		int colAbove = t.getPos().col ;
+		int rowAbove = t.getPos().row - 1;
+		
+		System.out.println(colAbove + " " + rowAbove) ;
+		
+		if(rowAbove > 0){
+			Position abovePosn = new Position(colAbove, rowAbove) ;
+			
+			Tile aboveTile = map.get(abovePosn) ;
+						
+			t.setSquare(aboveTile.getSquare()) ;
+			
+			fall(aboveTile) ;	
+		}
+		else{
+			t.setSquare(this.generateSquare()) ;			
 		}
 	}
 	
@@ -115,11 +130,20 @@ public class Board {
 	 * assume that tiles are empty
 	 * @author albert
 	 */
-	public void refillEmptyTiles(ArrayList<Tile> tiles) {
+	public void fall(ArrayList<Tile> tiles) {
 		//first we want to find all the squares above empty tiles
 		for(Tile t : tiles) {
 			//check position above this pos
-			refillEmptyTile(t);
+			fall(t);
+			
+			int colAbove = t.getPos().col ;
+			int rowAbove = t.getPos().row - 1;
+			
+			Position abovePosn = new Position(colAbove, rowAbove) ;
+			
+			Tile aboveTile = map.get(abovePosn) ;
+			
+			System.out.println("Above: " + aboveTile.getSquare().getValue()) ;
 		}
 	}
 }

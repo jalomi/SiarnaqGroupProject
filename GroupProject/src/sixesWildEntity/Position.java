@@ -7,12 +7,14 @@ public class Position {
 	int col ;
 	int row ;
 	
-	public Position(int c, int r) throws Exception{
+	public Position(int c, int r) {
 		if(c >= 9 || c < 0 || r >= 9 || r < 0) {
-			throw new Exception(TAG + " :: constructor out of bound " + c + "," + r);
+			System.out.println("Invalid Position") ;
 		}
-		this.col = c ;
-		this.row = r ;
+		else{
+			this.col = c ;
+			this.row = r ;
+		}
 	}
 	
 	@Override

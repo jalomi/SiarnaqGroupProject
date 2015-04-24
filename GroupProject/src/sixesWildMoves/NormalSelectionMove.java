@@ -56,7 +56,7 @@ public class NormalSelectionMove implements IMove{
 			//it might be a good idea to implement #1 in Board class instead of in this Move class
 			//I will leave this for you to discuss
 			//board.removeSquares(tiles);
-			board.refillEmptyTiles(tiles);
+			board.fall(tiles);
 			theGame.updateScore(score);
 			return true;
 		}

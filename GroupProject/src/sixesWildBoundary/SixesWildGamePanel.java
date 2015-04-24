@@ -52,7 +52,7 @@ public class SixesWildGamePanel extends JPanel {
 	}
 	
 	private void initLabel(int col, int row) {
-		map[col][row] = new TileLabel("Label", board.getTile(col, row));
+		map[col][row] = new TileLabel("", board.getTile(col, row));
 		this.add(map[col][row]) ;
 	}
 	
