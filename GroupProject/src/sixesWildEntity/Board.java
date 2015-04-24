@@ -7,7 +7,7 @@ public class Board {
 	
 	public static final String TAG = "Board";
 	
-	private HashMap<Position, Tile> map = new HashMap<Position, Tile>();
+	private Tile[][] map = new Tile[9][9] ;
 	private Level level;
 	
 	//this attribute should not exit here!!!
@@ -40,11 +40,11 @@ public class Board {
 	private void populateBoard() throws Exception {
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
-				if(level.getEnabledTiles().get(new Position(i, j))) {
-					map.put(new Position(i, j), new Tile(generateSquare(), new Position(i, j)));
+				if(level.getEnabledTiles()[i][j]) {
+					map[i][j] = new Tile(generateSquare(), new Position(i, j)) ;
 				} 
 				else {
-					map.put(new Position(i, j), new Tile(new Position(i, j))) ;
+					map[i][j] = new Tile(new Position(i, j)) ;
 				}
 			}
 		}
@@ -54,17 +54,17 @@ public class Board {
 		return this.level.generateSquare();
 	}
 
-	public HashMap<Position, Tile> getMap() {
+	public Tile[][] getMap() {
 		return map;
 	}
 
-	public void setMap(HashMap<Position, Tile> map) {
+	public void setMap(Tile[][] map) {
 		this.map = map;
 	}
 	
 	public Tile getTile(int col, int row) {
 		try {
-			return map.get(new Position(col, row)) ;
+			return map[col][row] ;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
