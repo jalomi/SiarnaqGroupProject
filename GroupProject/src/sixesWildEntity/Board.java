@@ -10,7 +10,7 @@ public class Board {
 	private Tile[][] map = new Tile[9][9] ;
 	private Level level;
 	
-	//this attribute should not exit here!!!
+	//this attribute should not exit here!!! 
 	//Selections are UI event, which is not the concern of entities
 	//UI event will eventually changes entities
 	//but entities should never keep track of any data of UI events

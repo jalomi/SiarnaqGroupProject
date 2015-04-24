@@ -16,7 +16,7 @@ public class LevelBuilder {
 	int oneStarScore;
 	int twoStarScore;
 	int threeStarScore;
-	int minutes;
+	int minutes; 
 	int seconds;
 	int moves;
 	boolean[] bucketFor6s=new boolean[9];

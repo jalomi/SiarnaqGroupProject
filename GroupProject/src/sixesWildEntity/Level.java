@@ -18,7 +18,7 @@ public class Level {
 	UUID id;
 	int levelNumber;
 	
-	boolean enabled;
+	boolean enabled; 
 	boolean[][] enabledTiles = new boolean[9][9];
 	//columns that has 6s on the top at the beginning of the game(release only)
 	boolean[] columnForSixes = new boolean[9];
