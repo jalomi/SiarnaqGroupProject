@@ -11,27 +11,24 @@ public class NormalSelectionMove implements IMove{
 	
 	public static final String TAG = "NormalSelectionMove";
 	
-	ArrayList<TileLabel> selectedLabels;
 	ArrayList<Tile> tiles = new ArrayList<Tile>();
 	Board board;
 	int sum = 0;
 	int score = 0;
 	
-	public NormalSelectionMove(ArrayList<TileLabel> selectedLabels, Board board) {
-		this.selectedLabels = selectedLabels;
+	public NormalSelectionMove(ArrayList<Tile> selectedTiles, Board board) {
+		this.tiles = selectedTiles;
 		this.board = board;
 	}
 
 	@Override
 	public boolean isValid(SixesWildApplication theGame) {
-		if(selectedLabels.size() <= 1){
+		if(tiles.size() <= 1){
 			return false ;
 		}
 		
-		for(TileLabel tl : selectedLabels) {
-			Tile t = tl.getModel();
+		for(Tile t : tiles) {
 			sum += t.getSquare().getValue();
-			tiles.add(t);
 		}
 		System.out.println(TAG + "sum:" + sum);
 		

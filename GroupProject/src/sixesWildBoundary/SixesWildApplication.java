@@ -55,7 +55,7 @@ public class SixesWildApplication extends JFrame {
 	 */
 	private void initModels() {
 		model = new SixesWild();
-		model.setBoard(new Board());
+		model.setBoard(Board.newInstance(new Level(1)));
 	}
 	
 	private void initBoundaries() {

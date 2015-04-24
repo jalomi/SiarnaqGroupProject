@@ -24,7 +24,7 @@ public class SixesWildGamePanel extends JPanel {
 	public SixesWildGamePanel(Level l) {
 		
 		
-		this.board = new Board(l);//should change board to singleton later
+		this.board = Board.newInstance(l);//should change board to singleton later
 		
 		this.setSize(490, 490);
 		this.setLayout(new GridLayout(9,9));
@@ -38,6 +38,9 @@ public class SixesWildGamePanel extends JPanel {
 		this.validate();
 		
 		this.setVisible(true);
+		
+		System.out.println("First: (0,0):  " + board.getSquare(0,0).getValue() + 
+				"   (0,1): " + board.getSquare(0,0).getValue()) ;
 
 	}
 	
@@ -59,7 +62,7 @@ public class SixesWildGamePanel extends JPanel {
 	public void refreshBoard() {
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
-				map[i][j].refresh(board.getTile(i, j));
+				map[i][j].refresh();
 			}
 		}
 	}

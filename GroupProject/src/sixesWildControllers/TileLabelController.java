@@ -15,6 +15,7 @@ import sixesWildBoundary.SixesWildApplication;
 import sixesWildBoundary.SixesWildGamePanel;
 import sixesWildBoundary.TileLabel;
 import sixesWildEntity.SixesWild;
+import sixesWildEntity.Tile;
 import sixesWildMoves.IMove;
 import sixesWildMoves.NormalSelectionMove;
 
@@ -62,13 +63,20 @@ public class TileLabelController extends MouseAdapter {
 	}
 	
 	public void mouseReleased(MouseEvent me) {
-		Component c = me.getComponent();
+		
 		for(TileLabel label : selectedLabels) {
 			label.setIconUnselected();
 		}
 		havePressed = false;
 		
-		IMove m = new NormalSelectionMove(selectedLabels, theGame.getModel().getBoard());
+		ArrayList<Tile> tiles = new ArrayList<Tile>();
+		for(TileLabel tl : selectedLabels) {
+			tiles.add(tl.getModel());
+		}
+		IMove m = new NormalSelectionMove(tiles, theGame.getModel().getBoard());
+		
+		System.out.println("Before: (0,0):  " + theGame.getModel().getBoard().getSquare(0,0).getValue() + 
+				"   (0,1): " + theGame.getModel().getBoard().getSquare(0,0).getValue()) ;
 		
 		if(m.doMove(theGame)) {
 			theGame.getGamePanel().refreshBoard();

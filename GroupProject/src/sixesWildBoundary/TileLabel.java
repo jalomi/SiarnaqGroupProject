@@ -4,6 +4,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import sixesWildEntity.Square;
 import sixesWildEntity.Tile;
 
 public class TileLabel extends JLabel {
@@ -32,27 +33,29 @@ public class TileLabel extends JLabel {
 		this.model = t;
 	}
 	
-	public void refresh(Tile t) {
-		setModel(t);
+	public void refresh() {
 		setRightIcon(1); //for now, need change later
 	}
 	
 	public void setRightIcon(int state) {
+		if(model.getSquare() == null){
+			setIcon(null) ;
+			return ;
+		}
+		
 		switch(state) {
-		case UNSELECTED:
-			setIconUnselected();
-			break;
-		case SELECTED:
-			setIconSelected();
-			break;
-		case MARKED:
-			setIconMarked();
-			break;
-		case MARKED_SELECTED:
-			setIconMarkerSelected();
-			break;
-		default:
-			setIcon(null); //which should not be used
+			case UNSELECTED:
+				setIconUnselected();
+				break;
+			case SELECTED:
+				setIconSelected();
+				break;
+			case MARKED:
+				setIconMarked();
+				break;
+			case MARKED_SELECTED:
+				setIconMarkerSelected();
+				break;
 		}
 	}
 	

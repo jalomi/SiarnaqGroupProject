@@ -7,6 +7,8 @@ public class Board {
 	
 	public static final String TAG = "Board";
 	
+	private static Board board;
+	
 	private Tile[][] map = new Tile[9][9] ;
 	private Level level;
 	
@@ -17,14 +19,13 @@ public class Board {
 	//delete this after you read this comment
 	//private ArrayList<Tile> selected;
 	
-	public Board() {
-		this.level = new Level(1);
-		try {
-			this.populateBoard();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	
+	public static Board newInstance(Level l) {
+		if(board == null) {
+			board = new Board(l);
 		}
+		
+		return board ;
 	}
 	
 	public Board(Level l) {
@@ -80,42 +81,22 @@ public class Board {
 //		
 //	}
 	
-	public void fall(Tile t){
-//		while(t.getSquare() == null) {
-//			int col = t.getPos().col;
-//			int row = t.getPos().row;
-//			for(int i = row; i >= 0; i--) {
-//				try {
-//					Tile above = map.get(map.get(new Position(col, row)));
-//					if(above.getSquare() != null) {
-//						t.setSquare(above.getSquare());
-//						above.setSquare(null);
-//					}
-//				} catch (Exception e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//					t.setSquare(this.generateSquare());
-//				}
-//			}
+	public void fall(Tile t){	
+//		int colAbove = t.getPos().col ;
+//		int rowAbove = t.getPos().row - 1;
+//		
+//		System.out.println(colAbove + " " + rowAbove) ;
+//		
+//		if(rowAbove > 0){			
+//			Tile aboveTile = map[colAbove][rowAbove] ;
+//						
+//			t.setSquare(aboveTile.getSquare()) ;
+//			
+//			fall(aboveTile) ;	
 //		}
-		
-		int colAbove = t.getPos().col ;
-		int rowAbove = t.getPos().row - 1;
-		
-		System.out.println(colAbove + " " + rowAbove) ;
-		
-		if(rowAbove > 0){
-			Position abovePosn = new Position(colAbove, rowAbove) ;
-			
-			Tile aboveTile = map.get(abovePosn) ;
-						
-			t.setSquare(aboveTile.getSquare()) ;
-			
-			fall(aboveTile) ;	
-		}
-		else{
-			t.setSquare(this.generateSquare()) ;			
-		}
+//		else{
+//			t.setSquare(this.generateSquare()) ;			
+//		}
 	}
 	
 	public Level getLevel() {
@@ -135,15 +116,8 @@ public class Board {
 		for(Tile t : tiles) {
 			//check position above this pos
 			fall(t);
-			
-			int colAbove = t.getPos().col ;
-			int rowAbove = t.getPos().row - 1;
-			
-			Position abovePosn = new Position(colAbove, rowAbove) ;
-			
-			Tile aboveTile = map.get(abovePosn) ;
-			
-			System.out.println("Above: " + aboveTile.getSquare().getValue()) ;
 		}
+		
+		System.out.println("(0,0): " + getSquare(0,0).getValue() + "   (0,1): " + getSquare(0,1).getValue()) ;
 	}
 }
