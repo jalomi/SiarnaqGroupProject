@@ -11,7 +11,9 @@ import levelBuilderControllers.PreviewController;
 import levelBuilderControllers.Select1StarScoreController;
 import levelBuilderControllers.Select2StarScoreController;
 import levelBuilderControllers.Select3StarScoreController;
+import levelBuilderControllers.SelectMinutesController;
 import levelBuilderControllers.SelectMoveNumberController;
+import levelBuilderControllers.SelectSecondsController;
 import levelBuilderEntity.LevelBuilder;
 
 public class LevelBuilderApplication extends JFrame {
@@ -87,6 +89,8 @@ public class LevelBuilderApplication extends JFrame {
 		getInputPanel().getScore1().addActionListener(new Select1StarScoreController (model, this));
 		getInputPanel().getScore2().addActionListener(new Select2StarScoreController (model, this));
 		getInputPanel().getScore3().addActionListener(new Select3StarScoreController (model, this));
+		getInputPanel().getMinutes().addActionListener(new SelectMinutesController (model, this));
+		getInputPanel().getSeconds().addActionListener(new SelectSecondsController (model, this));
 	}
 	
 	private JButton getExitBtn() {
