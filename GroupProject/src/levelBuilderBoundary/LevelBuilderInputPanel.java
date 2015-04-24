@@ -218,4 +218,9 @@ public class LevelBuilderInputPanel extends JPanel {
 		// TODO Auto-generated method stub
 		return txtEnterMaxSeconds;
 	}
+
+	public JTextField getLevel() {
+		// TODO Auto-generated method stub
+		return txtLevelNumber;
+	}
 }
