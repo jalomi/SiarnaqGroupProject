@@ -18,14 +18,13 @@ public class Level {
 	UUID id;
 	int levelNumber;
 	
-	boolean enabled;
-	//boolean[][] enabledTiles = new boolean[9][9];
-	HashMap<Position, Boolean> enabledTiles = new HashMap<Position, Boolean>() ;
+	boolean enabled; 
+	boolean[][] enabledTiles = new boolean[9][9];
 	//columns that has 6s on the top at the beginning of the game(release only)
 	boolean[] columnForSixes = new boolean[9];
 
-	double percent[] = new double[7] ;
-	double percentM[] = new double[4] ;
+	double percent[] = new double[6] ;
+	double percentM[] = new double[3] ;
 		
 	int score;
 	int starNumber;
@@ -33,6 +32,7 @@ public class Level {
 	int secondStarScore;
 	int thirdStarScore;
 	
+	boolean unlocked ;
 	boolean swapEnabled;
 	boolean resetEnabled;
 	boolean removeEnabled;
@@ -48,9 +48,9 @@ public class Level {
         levelNumber = json.getInt("levelNumber");
         
         enabled = json.getBoolean("enabled");
-        for(int i = 11; i <= 99; i++) {
-        	if(i % 10 != 0){
-        		//enabledTiles. = json.getJSONArray("enabledTiles").getJSONArray(i).getBoolean(j); //!
+        for(int i = 0; i < 9; i++) {
+        	for(int j = 0; j < 9; j++){
+        		enabledTiles[i][j] = json.getJSONArray("enabledTiles").getJSONArray(i).getBoolean(j); //!
         	}
         	columnForSixes[i] = json.getJSONArray("columnForSixes").getBoolean(i);
         }
@@ -69,6 +69,7 @@ public class Level {
         secondStarScore = json.getInt("secondStarScore");
         thirdStarScore = json.getInt("thirdStarScore");
         
+        unlocked = json.getBoolean("unlocked") ;
         swapEnabled = json.getBoolean("swapEnabled");
         resetEnabled = json.getBoolean("resetEnabled");
         removeEnabled = json.getBoolean("removeEnabled");
@@ -97,6 +98,7 @@ public class Level {
 		score = 0;
 		starNumber = 0;
 		
+		unlocked = true ;
 		swapEnabled = false;
 		resetEnabled = false;
 		removeEnabled = false;
@@ -104,7 +106,7 @@ public class Level {
 		for(int i = 0; i < 9; i++)
 			for(int j = 0; j < 9; j++){
 				try {
-					enabledTiles.put(new Position(i, j), true) ;
+					enabledTiles[i][j] = true ;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -115,8 +117,8 @@ public class Level {
 				  double p1, double p2, double p3, double p4, double p5, double p6,
 				  double m1, double m2, double m3,
 				  int first, int second, int third,
-				  boolean swap, boolean reset, boolean remove,
-				  HashMap<Position, Boolean> enabledTiles) throws Exception {
+				  boolean unlocked, boolean swap, boolean reset, boolean remove,
+				  boolean[][] enabledTiles) throws Exception {
 		if(this.checkPercentageCorrectnes(p1, p2, p3, p4, p5, p6, m1, m2, m3)) {
 			this.id = UUID.randomUUID();
 			this.levelNumber = number;
@@ -138,6 +140,7 @@ public class Level {
 			this.score = 0;
 			this.starNumber = 0;
 			
+			this.unlocked = unlocked ;
 			this.swapEnabled = swap;
 			this.resetEnabled = reset;
 			this.removeEnabled = remove;
@@ -170,6 +173,7 @@ public class Level {
         json.put("secondStarScore", secondStarScore);
         json.put("thirdStarScore", thirdStarScore);
         
+        json.put("unlocked", unlocked) ;
         json.put("swapEnabled", swapEnabled);
         json.put("resetEnabled", resetEnabled);
         json.put("removeEnabled", removeEnabled);
@@ -225,7 +229,7 @@ public class Level {
 		this.id = id;
 	}
 
-	public HashMap<Position, Boolean> getEnabledTiles() {
+	public boolean[][] getEnabledTiles() {
 		return enabledTiles;
 	}
 	

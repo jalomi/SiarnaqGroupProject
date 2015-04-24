@@ -22,11 +22,10 @@ public class SelectMoveNumberController implements ActionListener{
 	public void actionPerformed(ActionEvent ae)
 	{
 		JTextField tf=(JTextField)ae.getSource();
-		String s=tf.getText();
-		update(tf, s);
+		update(tf);
 	}
 	
-	public void update(JTextField tf, String s)
+	public void update(JTextField tf)
 	{
 		try{
 			int num = Integer.valueOf(tf.getText());

@@ -8,11 +8,11 @@ import javax.swing.JTextField;
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
 
-public class Select1StarScoreController implements ActionListener {
+public class Select2StarScoreController implements ActionListener{
 	LevelBuilder model;
 	LevelBuilderApplication application;
 	
-	public Select1StarScoreController(LevelBuilder m, LevelBuilderApplication a)
+	public Select2StarScoreController(LevelBuilder m, LevelBuilderApplication a)
 	{
 		this.model=m;
 		this.application=a;
@@ -28,11 +28,11 @@ public class Select1StarScoreController implements ActionListener {
 	{
 		try{
 			int num = Integer.valueOf(tf.getText());
-			model.setStarScore(1,num);
-			application.getInputPanel().getScore1().setText(""+tf.getText());
-			System.out.println("One Star Score: "+model.getOneStarScore());
+			model.setStarScore(2,num);
+			application.getInputPanel().getScore2().setText(""+tf.getText());
+			System.out.println("Two Star Score: "+model.getTwoStarScore());
 		} catch (Exception e) {
-			tf.setText(""+model.getOneStarScore());
+			tf.setText(""+model.getTwoStarScore());
 		}
 		
 	}

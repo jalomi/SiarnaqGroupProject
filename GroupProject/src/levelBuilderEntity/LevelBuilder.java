@@ -1,31 +1,33 @@
 package levelBuilderEntity;
 
 import java.sql.Time;
-import java.util.HashMap ;
 
 public class LevelBuilder {
 	int number;
 	int type;
-	HashMap<Integer, Boolean> tilesActive = new HashMap<Integer, Boolean>() ;
+	boolean [][] tilesActive = new boolean[9][9] ;
+	//HashMap<Integer, Boolean> tilesActive = new HashMap<Integer, Boolean>() ;
 	boolean allowReset;
 	boolean allowSwap;
 	boolean allowRemove;
-    double percents[] = new double[7];
+    double percents[] = new double[6];
 
-	double percentM[] = new double[4];
+	double percentM[] = new double[3];
 	int oneStarScore;
 	int twoStarScore;
 	int threeStarScore;
-	Time time;
+	int minutes; 
+	int seconds;
 	int moves;
 	boolean[] bucketFor6s=new boolean[9];
 	
 	
 	//CONSTRUCTOR 
 	public LevelBuilder(){
-		for(int i = 11; i <= 99; i++)
-			if(i % 10 != 0){
-				tilesActive.put(i, true) ;
+		for(int i = 0; i < 9; i++){
+			for(int j = 0; j < 9; j++){
+				tilesActive[i][j] = true ;
+			}
 		}
 		
 		for(int i=0; i<9; i++)
@@ -33,11 +35,11 @@ public class LevelBuilder {
 			this.bucketFor6s[i]=false;
 		}
 		
-		for(int i=1;i<=6;i++){
+		for(int i=0;i<6;i++){
 			this.percents[i] = 0;
 		}
 		
-		for(int i=1;i<=3;i++){
+		for(int i=0;i<3;i++){
 			this.percentM[i] = 0;
 		}
 		
@@ -50,16 +52,16 @@ public class LevelBuilder {
 		this.allowRemove=false;
 
 		//bad dummy values
+		percents[0] = .2 ;
 		percents[1] = .2 ;
 		percents[2] = .2 ;
 		percents[3] = .2 ;
-		percents[4] = .2 ;
+		percents[4] = .1 ;
 		percents[5] = .1 ;
-		percents[6] = .1 ;
 		
-		percentM[1] = .89 ;
-		percentM[2] = .1 ;
-		percentM[3] = .01 ;
+		percentM[0] = .89 ;
+		percentM[1] = .1 ;
+		percentM[2] = .01 ;
 		
 		this.allowReset = false;
 		this.allowSwap = false;
@@ -69,13 +71,11 @@ public class LevelBuilder {
 
 	
 	public void setTileActive(int row, int col){
-		int key = col*10+row ;
-		tilesActive.put(key, true) ;
+		tilesActive[col][row] = true ;
 	}
 	
 	public void setTileDeactive(int row, int col){
-		int key = col*10+row ;
-		tilesActive.put(key, false) ;
+		tilesActive[col][row] = false ;
 	}
 	
 	public void setBucketFor6sActive(int col){
@@ -148,6 +148,14 @@ public class LevelBuilder {
 		moves = n;
 	}
 	
+	public void setMinutes(int n){
+		minutes=n;
+	}
+	
+	public void setSeconds(int n){
+		seconds=n;
+	}
+	
 	public boolean entriesValid()
 	{
 		return false;
@@ -165,8 +173,7 @@ public class LevelBuilder {
 
 
 	public boolean getTileActiveAt(int col, int row) {
-		int key = col*10+row ;
-		return tilesActive.get(key) ;
+		return tilesActive[col][row] ;
 	}
 	
 	public double getPercent(int i){
@@ -199,6 +206,16 @@ public class LevelBuilder {
 	
 	public int getThreeStarScore(){
 		return threeStarScore; 
+	}
+	
+	public int getMinutes()
+	{
+		return minutes;
+	}
+	
+	public int getSeconds()
+	{
+		return seconds;
 	}
 }
 

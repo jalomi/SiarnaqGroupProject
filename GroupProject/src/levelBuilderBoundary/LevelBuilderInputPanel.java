@@ -7,6 +7,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import javax.swing.text.JTextComponent;
 
 import levelBuilderEntity.LevelBuilder;
 
@@ -197,5 +198,24 @@ public class LevelBuilderInputPanel extends JPanel {
 	public JTextField getScore1()
 	{
 		return txtEnterScore;
+	}
+
+	public JTextField getScore2() {
+		// TODO Auto-generated method stub
+		return txtEnterScore_1;
+	}
+
+	public JTextField getScore3() {
+		// TODO Auto-generated method stub
+		return txtEnterScore_2;
+	}
+	
+	public JTextField getMinutes(){
+		return txtEnterMaxMinutes;
+	}
+
+	public JTextField getSeconds() {
+		// TODO Auto-generated method stub
+		return txtEnterMaxSeconds;
 	}
 }
