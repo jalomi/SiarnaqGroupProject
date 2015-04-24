@@ -9,6 +9,8 @@ import javax.swing.UIManager;
 import levelBuilderControllers.ExitController;
 import levelBuilderControllers.PreviewController;
 import levelBuilderControllers.Select1StarScoreController;
+import levelBuilderControllers.Select2StarScoreController;
+import levelBuilderControllers.Select3StarScoreController;
 import levelBuilderControllers.SelectMoveNumberController;
 import levelBuilderEntity.LevelBuilder;
 
@@ -83,6 +85,8 @@ public class LevelBuilderApplication extends JFrame {
 		getExitBtn().addActionListener(new ExitController(this)) ;
 		getInputPanel().getMaxMoves().addActionListener(new SelectMoveNumberController (model, this));
 		getInputPanel().getScore1().addActionListener(new Select1StarScoreController (model, this));
+		getInputPanel().getScore2().addActionListener(new Select2StarScoreController (model, this));
+		getInputPanel().getScore3().addActionListener(new Select3StarScoreController (model, this));
 	}
 	
 	private JButton getExitBtn() {
