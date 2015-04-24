@@ -16,7 +16,8 @@ public class LevelBuilder {
 	int oneStarScore;
 	int twoStarScore;
 	int threeStarScore;
-	Time time;
+	int minutes;
+	int seconds;
 	int moves;
 	boolean[] bucketFor6s=new boolean[9];
 	
@@ -147,6 +148,14 @@ public class LevelBuilder {
 		moves = n;
 	}
 	
+	public void setMinutes(int n){
+		minutes=n;
+	}
+	
+	public void setSeconds(int n){
+		seconds=n;
+	}
+	
 	public boolean entriesValid()
 	{
 		return false;
@@ -197,6 +206,16 @@ public class LevelBuilder {
 	
 	public int getThreeStarScore(){
 		return threeStarScore; 
+	}
+	
+	public int getMinutes()
+	{
+		return minutes;
+	}
+	
+	public int getSeconds()
+	{
+		return seconds;
 	}
 }
 
