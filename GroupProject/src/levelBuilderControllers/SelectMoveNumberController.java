@@ -15,15 +15,16 @@ public class SelectMoveNumberController implements ActionListener{
 	LevelBuilderApplication application;
 	int oldValue;
 	
-	public SelectMoveNumberController(LevelBuilder m, LevelBuilderApplication a)
+	public SelectMoveNumberController(LevelBuilder m, LevelBuilderApplication a, int oldValue)
 	{
 		this.model=m;
 		this.application=a;
-		this.oldValue=model.getMoves();
+		this.oldValue=oldValue;
 	}
 	
 	public void actionPerformed(ActionEvent ae)
 	{
+		System.out.println(model.getMoves());
 		JTextField tf=(JTextField)ae.getSource();
 		update(tf);
 	}
@@ -32,11 +33,11 @@ public class SelectMoveNumberController implements ActionListener{
 	{
 		try{
 			int num = Integer.valueOf(tf.getText());
-			SetMoveNumberMove m=new SetMoveNumberMove(model, num, oldValue);
+			SetMoveNumberMove m=new SetMoveNumberMove(model, num, oldValue, application.getInputPanel().getMaxMoves());;
 			if(m.doMove())
 			{
 				System.out.println("Number of Moves: "+model.getMoves());
-				application.getInputPanel().getMaxMoves().setText(""+tf.getText());
+				model.recordMove(m);
 			}
 		} catch (Exception e) {
 			tf.setText(""+model.getMoves());

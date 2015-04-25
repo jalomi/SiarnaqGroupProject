@@ -1,6 +1,9 @@
 package levelBuilderEntity;
 
 import java.sql.Time;
+import java.util.Stack;
+
+import levelBuilderMoves.Move;
 
 public class LevelBuilder {
 	int number;
@@ -21,6 +24,8 @@ public class LevelBuilder {
 	int moves;
 	boolean[] bucketFor6s=new boolean[9];
 	
+	Stack<Move> moveStack = new Stack<Move>();
+	Stack<Move> redoStack = new Stack<Move>();
 	
 	//CONSTRUCTOR 
 	public LevelBuilder(){
@@ -68,8 +73,53 @@ public class LevelBuilder {
 		this.allowRemove = false;
 	}
 	
-
+	/**
+	 * Record the move which can be undone in the future.
+	 * 
+	 * These are all "normal" moves, which mean that they invalidate any "undone" moves
+	 * that might be currently on the redoStack, so that must be cleared.
+	 * 
+	 * @param move
+	 */
+	public void recordMove(Move move) {
+		moveStack.add(move);
+		redoStack.clear();
+	}
 	
+	/** 
+	 * Add this as a future move to be redone.
+	 * 
+	 * @param move
+	 */
+	public void recordRedoableMove(Move move) {
+		redoStack.push(move);
+	}
+	
+	/**
+	 * If any moves have been undone, then they can be redone.
+	 */
+	public Move removeRedoMove() {
+		if (redoStack.isEmpty()) { return null; }
+		return redoStack.pop();
+	}
+	
+	/**
+	 * Redo Controller has executed a move that had previously been undone.
+	 * This can go onto the move stack so it can be undone in future
+	 * @param m
+	 */
+	public void recordRedoneMove(Move m) {
+		moveStack.push(m);
+	}
+	
+	/**
+	 * Prepare for undo by getting last move.
+	 */
+	public Move removeLastMove() {
+		if (moveStack.isEmpty()) { return null; }
+		return moveStack.pop();
+	}
+
 	public void setTileActive(int row, int col){
 		tilesActive[col][row] = true ;
 	}
