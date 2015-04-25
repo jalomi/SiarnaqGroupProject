@@ -69,10 +69,10 @@ public class SplashScreenGame extends JWindow {
     // Throw a nice little title page up on the screen first
     SplashScreenGame splash = new SplashScreenGame(1000);
     splash.showSplash();
+    
+	SixesWild theGame = new SixesWild();
+    
 	MainMenuApplication frame = new MainMenuApplication();
 	frame.setVisible(true);
-	
-//	SixesWildApplication game = new SixesWildApplication() ;
-//	game.initialize() ;
   }
 }

@@ -13,25 +13,9 @@ import sixesWildControllers.ExitController;
 public class MainMenuApplication extends JFrame {
 
 	private JPanel contentPane;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
+	private JButton levelSelectButton;
+	private JButton quitButton;
 	private JLabel lblSixesWild;
-
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					MainMenuApplication frame = new MainMenuApplication();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}  
-//		});
-//	}
 
 	/**
 	 * Create the frame.
@@ -46,33 +30,21 @@ public class MainMenuApplication extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		btnNewButton = new JButton("Level Select");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.setBounds(100, 400, 150, 75);
-		contentPane.add(btnNewButton);
+		levelSelectButton = new JButton("Level Select");
+		levelSelectButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		levelSelectButton.setBounds(100, 400, 150, 75);
+		levelSelectButton.addActionListener(new EnterLevelSelectController(this));
+		contentPane.add(levelSelectButton);
 
-		btnNewButton_1 = new JButton("Quit Game");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(330, 400, 150, 75);
-		contentPane.add(btnNewButton_1);
+		quitButton = new JButton("Quit Game");
+		quitButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		quitButton.setBounds(330, 400, 150, 75);
+		quitButton.addActionListener(new ExitController(this));
+		contentPane.add(quitButton);
 
 		lblSixesWild = new JLabel("Sixes Wild");
 		lblSixesWild.setFont(new Font("Matura MT Script Capitals", Font.PLAIN, 56));
 		lblSixesWild.setBounds(135, 100, 305, 200);
 		contentPane.add(lblSixesWild);
-		
-		//controllers
-		getLvlsButton().addActionListener(new EnterLevelSelectController(this));
-		getQuitButton().addActionListener(new ExitController(this));
-	}
-	
-	public JButton getLvlsButton()
-	{
-		return this.btnNewButton;
-	}
-	
-	public JButton getQuitButton()
-	{
-		return this.btnNewButton_1;
 	}
 }

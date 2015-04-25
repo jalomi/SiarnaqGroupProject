@@ -6,12 +6,25 @@ import java.util.Iterator;
 import sixesWildBoundary.SixesWildApplication;
 
 public class SixesWild {
-	private ArrayList<Level> levels;
+	private ArrayList<Level> levels = new ArrayList<Level>();
+	
 	private Board board;
+	public static SixesWild theGame;
+	
+	
+	public static SixesWild newInstance() {
+		if(theGame == null) {
+			theGame = new SixesWild();
+		}
+		return theGame;
+	}
 	
 	public SixesWild(){
-		//get levels from JSON
-		//TODO
+		//should load levels from disk by using LevelJSONSerializer
+		//since LevelBuilder is not ready
+		//make a default list of levels of size 1
+		levels.add(new Level(1));
+		board = Board.newInstance();
 	}
 	
 

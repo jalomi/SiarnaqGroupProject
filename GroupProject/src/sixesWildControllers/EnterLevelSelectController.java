@@ -5,25 +5,20 @@ import java.awt.event.ActionListener;
 
 import sixesWildBoundary.LevelSelectApplication;
 import sixesWildBoundary.MainMenuApplication;
+import sixesWildEntity.SixesWild;
 
 public class EnterLevelSelectController implements ActionListener {
 	MainMenuApplication m;
 	
-	public EnterLevelSelectController(MainMenuApplication menu)
-	{
-		this.m=menu;
+	public EnterLevelSelectController(MainMenuApplication menu) {
+		this.m = menu;
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		m.setVisible(false);
-		
-		LevelSelectApplication l=new LevelSelectApplication();
-		l.setVisible(true);
-		
-		l.getMainMenuBtn().addActionListener(new BacktoMainMenuController(m, l));
-		l.getLevel1().addActionListener(new ChooseLevelController(m, l));
-		
+		LevelSelectApplication levelSelectApp = new LevelSelectApplication(SixesWild.newInstance());
+		levelSelectApp.setVisible(true);	
 	}  
 }

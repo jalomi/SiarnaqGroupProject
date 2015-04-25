@@ -20,22 +20,16 @@ public class Board {
 	//private ArrayList<Tile> selected;
 	
 	
-	public static Board newInstance(Level l) {
+	public static Board newInstance() {
 		if(board == null) {
-			board = new Board(l);
+			board = new Board();
 		}
 		
 		return board ;
 	}
 	
-	public Board(Level l) {
-		this.level = l;
-		try {
-			this.populateBoard();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public Board() {
+		this.level = null;
 	}
 	
 	private void populateBoard() throws Exception {
@@ -77,26 +71,22 @@ public class Board {
 		return getTile(col, row).getSquare();
 	}
 	
-//	public void removeSquares(ArrayList<Tile> tiles) {
-//		
-//	}
-	
 	public void fall(Tile t){	
-//		int colAbove = t.getPos().col ;
-//		int rowAbove = t.getPos().row - 1;
-//		
-//		System.out.println(colAbove + " " + rowAbove) ;
-//		
-//		if(rowAbove > 0){			
-//			Tile aboveTile = map[colAbove][rowAbove] ;
-//						
-//			t.setSquare(aboveTile.getSquare()) ;
-//			
-//			fall(aboveTile) ;	
-//		}
-//		else{
-//			t.setSquare(this.generateSquare()) ;			
-//		}
+		int colAbove = t.getPos().col ;
+		int rowAbove = t.getPos().row - 1;
+		
+		System.out.println(colAbove + " " + rowAbove) ;
+		
+		if(rowAbove > 0){			
+			Tile aboveTile = map[colAbove][rowAbove] ;
+						
+			t.setSquare(aboveTile.getSquare()) ;
+			
+			fall(aboveTile) ;	
+		}
+		else{
+			t.setSquare(this.generateSquare()) ;			
+		}
 	}
 	
 	public Level getLevel() {
@@ -105,6 +95,11 @@ public class Board {
 
 	public void setLevel(Level level) {
 		this.level = level;
+		try {
+			this.populateBoard();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -116,8 +111,6 @@ public class Board {
 		for(Tile t : tiles) {
 			//check position above this pos
 			fall(t);
-		}
-		
-		System.out.println("(0,0): " + getSquare(0,0).getValue() + "   (0,1): " + getSquare(0,1).getValue()) ;
+		}		
 	}
 }

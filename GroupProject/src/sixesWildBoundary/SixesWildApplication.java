@@ -23,10 +23,10 @@ public class SixesWildApplication extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SixesWildApplication() {
+	public SixesWildApplication(SixesWild game, Level l) {
 		setTitle("Sixes Wild");
-		initModels();
-		initBoundaries();
+		initModels(game);
+		initBoundaries(l);
 		initControllers();
 	}
 	
@@ -53,16 +53,16 @@ public class SixesWildApplication extends JFrame {
 	 * @author albert
 	 * 
 	 */
-	private void initModels() {
-		model = new SixesWild();
-		model.setBoard(Board.newInstance(new Level(1)));
+	private void initModels(SixesWild game) {
+		model = game;
+		model.setBoard(Board.newInstance());
 	}
 	
-	private void initBoundaries() {
-		gamePane = new SixesWildGamePanel(model.getBoard().getLevel());
+	private void initBoundaries(Level l) {
+		gamePane = new SixesWildGamePanel(l);
 		gamePane.setSize(490, 490);
 		gamePane.setLocation(35, 180);
-		levelPane = new SixesWildLevelPanel(model.getBoard().getLevel());
+		levelPane = new SixesWildLevelPanel(l);
 		levelPane.setLocation(35, 20);
 		
 		setBounds(5, 5, 580, 750);

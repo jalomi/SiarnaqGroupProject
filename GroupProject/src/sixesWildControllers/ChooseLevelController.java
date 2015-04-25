@@ -7,23 +7,28 @@ import sixesWildBoundary.LevelSelectApplication;
 import sixesWildBoundary.MainMenuApplication;
 import sixesWildBoundary.SixesWildApplication;
 import sixesWildEntity.Level;
+import sixesWildEntity.SixesWild;
 
 public class ChooseLevelController implements ActionListener {
-	private MainMenuApplication main;
-	private LevelSelectApplication lvls;
+	//private MainMenuApplication main;
+	private LevelSelectApplication levelSelectApplication;
+	private SixesWild theGame;
+	private int buttonIndex;
 	
-	public ChooseLevelController(MainMenuApplication m, LevelSelectApplication l)
+	public ChooseLevelController(LevelSelectApplication app, SixesWild game, int index)
 	{
-		this.main=m;
-		this.lvls=l;
+		this.levelSelectApplication = app;
+		this.theGame = game;
+		this.buttonIndex = index;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		lvls.setVisible(false);
+		levelSelectApplication.setVisible(false);
 		
-		SixesWildApplication level= new SixesWildApplication();//need to change later
-		level.getLevelPanel().getExitButton().addActionListener(new BacktoMainMenuController(main, level));
+		Level levelClicked = theGame.getLevels().get(buttonIndex);
+		SixesWildApplication newLevelToPlay = new SixesWildApplication(theGame, levelClicked);
+		//level.getLevelPanel().getExitButton().addActionListener(new BacktoMainMenuController(main, level));
 	}
 	
 	
