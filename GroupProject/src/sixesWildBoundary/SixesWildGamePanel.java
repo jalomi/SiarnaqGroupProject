@@ -3,15 +3,12 @@ package sixesWildBoundary;
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
-import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 
 import sixesWildControllers.TileLabelController;
 import sixesWildEntity.Board;
 import sixesWildEntity.Level;
-import sixesWildEntity.Position;
 import sixesWildEntity.SixesWild;
-import sixesWildEntity.Tile;
 
 public class SixesWildGamePanel extends JPanel {
 	

@@ -4,12 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import sixesWildBoundary.LevelSelectApplication;
-import sixesWildBoundary.MainMenuApplication;
 import sixesWildBoundary.SixesWildApplication;
 import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
 
 public class ChooseLevelController implements ActionListener {
+	
+	public static final String TAG = "ChooseLevelController";
+	
 	//private MainMenuApplication main;
 	private LevelSelectApplication levelSelectApplication;
 	private SixesWild theGame;
@@ -24,11 +26,17 @@ public class ChooseLevelController implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		levelSelectApplication.setVisible(false);
+		System.out.println(TAG);
 		
-		Level levelClicked = theGame.getLevels().get(buttonIndex);
-		SixesWildApplication newLevelToPlay = new SixesWildApplication(theGame, levelClicked);
-		//level.getLevelPanel().getExitButton().addActionListener(new BacktoMainMenuController(main, level));
+		if(theGame.getLevels().size() > buttonIndex) {
+			levelSelectApplication.dispose();
+			Level levelClicked = theGame.getLevels().get(buttonIndex);
+			SixesWildApplication newLevelToPlay = new SixesWildApplication(theGame, levelClicked);
+			newLevelToPlay.setVisible(true);
+		} else {
+			System.err.println("We don't have level " + buttonIndex + " yet!");
+		}
+
 	}
 	
 	

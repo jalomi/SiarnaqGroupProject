@@ -7,9 +7,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
-import javax.swing.text.JTextComponent;
-
-import levelBuilderEntity.LevelBuilder;
 
 
 public class LevelBuilderInputPanel extends JPanel {

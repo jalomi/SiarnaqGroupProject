@@ -1,18 +1,11 @@
 package sixesWildControllers;
 
-import java.awt.Color;
 import java.awt.Component;
-import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 import sixesWildBoundary.SixesWildApplication;
-import sixesWildBoundary.SixesWildGamePanel;
 import sixesWildBoundary.TileLabel;
 import sixesWildEntity.SixesWild;
 import sixesWildEntity.Tile;
@@ -34,6 +27,7 @@ public class TileLabelController extends MouseAdapter {
 		havePressed = false;
 	}
 	
+	@Override
 	public void mousePressed(MouseEvent me) {
 		Component c = me.getComponent();
 		TileLabel label = (TileLabel) c;
@@ -42,6 +36,7 @@ public class TileLabelController extends MouseAdapter {
 		havePressed = true;
 	}
 	
+	@Override
 	public void mouseEntered(MouseEvent me) {
 		//System.out.println(TAG + " mouseEntered" + havePressed);
 		if(havePressed) {
@@ -62,6 +57,7 @@ public class TileLabelController extends MouseAdapter {
 		}
 	}
 	
+	@Override
 	public void mouseReleased(MouseEvent me) {
 		
 		for(TileLabel label : selectedLabels) {

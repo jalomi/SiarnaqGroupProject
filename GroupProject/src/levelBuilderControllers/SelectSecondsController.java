@@ -18,6 +18,7 @@ public class SelectSecondsController implements ActionListener{
 		this.application=a;
 	}
 	
+	@Override
 	public void actionPerformed(ActionEvent ae)
 	{
 		JTextField tf=(JTextField)ae.getSource();

@@ -8,6 +8,9 @@ import sixesWildBoundary.MainMenuApplication;
 import sixesWildEntity.SixesWild;
 
 public class EnterLevelSelectController implements ActionListener {
+	
+	public static final String TAG = "EnterLevelSelectController";
+	
 	MainMenuApplication m;
 	
 	public EnterLevelSelectController(MainMenuApplication menu) {
@@ -15,9 +18,10 @@ public class EnterLevelSelectController implements ActionListener {
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent e)
-	{
-		m.setVisible(false);
+	public void actionPerformed(ActionEvent e) {
+		System.out.println(TAG);
+		
+		m.dispose();
 		LevelSelectApplication levelSelectApp = new LevelSelectApplication(SixesWild.newInstance());
 		levelSelectApp.setVisible(true);	
 	}  

@@ -8,18 +8,22 @@ import javax.swing.JFrame;
 import sixesWildBoundary.MainMenuApplication;
 
 public class BacktoMainMenuController implements ActionListener {
-	MainMenuApplication menu;
+	
+	public static final String TAG = "BacktoMainMenuController";
+	
 	JFrame current;
 	
-	public BacktoMainMenuController(MainMenuApplication menu, JFrame current)
+	public BacktoMainMenuController(JFrame current)
 	{
-		this.menu=menu;
 		this.current=current;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		System.out.println(TAG);
+		
 		current.setVisible(false);
-		menu.setVisible(true);
+		MainMenuApplication main = new MainMenuApplication();
+		main.setVisible(true);
 	}
 }

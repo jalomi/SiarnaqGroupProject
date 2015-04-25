@@ -4,7 +4,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import sixesWildEntity.Square;
 import sixesWildEntity.Tile;
 
 public class TileLabel extends JLabel {

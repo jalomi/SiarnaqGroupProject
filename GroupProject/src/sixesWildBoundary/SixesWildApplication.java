@@ -76,5 +76,6 @@ public class SixesWildApplication extends JFrame {
 	
 	private void initControllers() {
 		gamePane.initControllers(this, model);
+		levelPane.initControllers(this, model);
 	}
 }

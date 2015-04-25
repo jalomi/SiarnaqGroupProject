@@ -1,6 +1,5 @@
 package sixesWildEntity;
 
-import java.util.HashMap;
 import java.util.UUID;
 
 import org.json.JSONException;

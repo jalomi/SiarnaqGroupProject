@@ -1,9 +1,6 @@
 package sixesWildEntity;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
-import sixesWildBoundary.SixesWildApplication;
 
 public class SixesWild {
 	private ArrayList<Level> levels = new ArrayList<Level>();

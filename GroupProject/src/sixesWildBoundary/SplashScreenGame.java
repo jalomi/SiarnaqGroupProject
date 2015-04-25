@@ -4,7 +4,6 @@ import java.awt.*;
 
 import javax.swing.*;
 
-import sixesWildEntity.Position;
 import sixesWildEntity.SixesWild;
 
 public class SplashScreenGame extends JWindow {
