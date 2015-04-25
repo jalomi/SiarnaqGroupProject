@@ -38,6 +38,7 @@ public class SelectMoveNumberController implements ActionListener{
 			{
 				System.out.println("Number of Moves: "+model.getMoves());
 				model.recordMove(m);
+				oldValue=model.getMoves();
 			}
 		} catch (Exception e) {
 			tf.setText(""+model.getMoves());
