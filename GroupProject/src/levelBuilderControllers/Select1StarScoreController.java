@@ -7,15 +7,19 @@ import javax.swing.JTextField;
 
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
+import levelBuilderMoves.Set1StarScoreMove;
+import levelBuilderMoves.SetMoveNumberMove;
 
 public class Select1StarScoreController implements ActionListener {
 	LevelBuilder model;
 	LevelBuilderApplication application;
+	int oldValue;
 	
-	public Select1StarScoreController(LevelBuilder m, LevelBuilderApplication a)
+	public Select1StarScoreController(LevelBuilder m, LevelBuilderApplication a, int oldValue)
 	{
 		this.model=m;
 		this.application=a;
+		this.oldValue=oldValue;
 	}
 	
 	public void actionPerformed(ActionEvent ae)
@@ -28,9 +32,13 @@ public class Select1StarScoreController implements ActionListener {
 	{
 		try{
 			int num = Integer.valueOf(tf.getText());
-			model.setStarScore(1,num);
-			application.getInputPanel().getScore1().setText(""+tf.getText());
-			System.out.println("One Star Score: "+model.getOneStarScore());
+			Set1StarScoreMove m=new Set1StarScoreMove(model, num, oldValue, application.getInputPanel().getScore1());;
+			if(m.doMove())
+			{
+				System.out.println("One Star Score: "+model.getOneStarScore());
+				model.recordMove(m);
+				oldValue=model.getOneStarScore();
+			}
 		} catch (Exception e) {
 			tf.setText(""+model.getOneStarScore());
 		}
