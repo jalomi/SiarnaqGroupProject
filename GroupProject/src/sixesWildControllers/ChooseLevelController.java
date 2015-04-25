@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import sixesWildBoundary.LevelSelectApplication;
 import sixesWildBoundary.SixesWildApplication;
+import sixesWildEntity.Board;
 import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
 
@@ -30,8 +31,16 @@ public class ChooseLevelController implements ActionListener {
 		
 		if(theGame.getLevels().size() > buttonIndex) {
 			levelSelectApplication.dispose();
+			
+			/* Comments By Albert
+			 * Let controller to set entity classes here,
+			 * because boundaries don't have to know any entity class but (SixesWild theGame).
+			 * Since SixesWild and Board are both singletons,
+			 * we have the static access to them globally.
+			 */
 			Level levelClicked = theGame.getLevels().get(buttonIndex);
-			SixesWildApplication newLevelToPlay = new SixesWildApplication(theGame, levelClicked);
+			Board.newInstance().setLevel(levelClicked);
+			SixesWildApplication newLevelToPlay = new SixesWildApplication(theGame);
 			newLevelToPlay.setVisible(true);
 		} else {
 			System.err.println("We don't have level " + buttonIndex + " yet!");

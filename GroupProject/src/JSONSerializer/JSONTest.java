@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.json.JSONException;
 
 import sixesWildEntity.Level;
+import sixesWildEntity.Puzzle;
 
 public class JSONTest {
 
@@ -13,7 +14,7 @@ public class JSONTest {
 		LevelJSONSerializer j = new LevelJSONSerializer("levels.json");
 		ArrayList<Level> levels = new ArrayList<Level>();
 		for(int i = 0; i < 10; i++) {
-			levels.add(new Level(i));
+			levels.add(new Puzzle(i, 20));
 		}
 		
 		try {

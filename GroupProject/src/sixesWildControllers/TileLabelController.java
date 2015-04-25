@@ -15,14 +15,14 @@ import sixesWildMoves.NormalSelectionMove;
 public class TileLabelController extends MouseAdapter {
 	public static final String TAG = "JLabelController";
 	
-	SixesWildApplication theGame;
+	SixesWildApplication sixesWildApp;
 	
 	ArrayList<TileLabel> selectedLabels;
 	boolean havePressed;
 	
 	public TileLabelController(SixesWildApplication app, SixesWild model)
 	{
-		this.theGame = app;
+		this.sixesWildApp = app;
 		this.selectedLabels = new ArrayList<TileLabel>();
 		havePressed = false;
 	}
@@ -69,13 +69,11 @@ public class TileLabelController extends MouseAdapter {
 		for(TileLabel tl : selectedLabels) {
 			tiles.add(tl.getModel());
 		}
-		IMove m = new NormalSelectionMove(tiles, theGame.getModel().getBoard());
+		IMove m = new NormalSelectionMove(tiles, sixesWildApp.getModel().getBoard());
 		
-		System.out.println("Before: (0,0):  " + theGame.getModel().getBoard().getSquare(0,0).getValue() + 
-				"   (0,1): " + theGame.getModel().getBoard().getSquare(0,0).getValue()) ;
-		
-		if(m.doMove(theGame)) {
-			theGame.getGamePanel().refreshBoard();
+		if(m.doMove(sixesWildApp)) {
+			sixesWildApp.getGamePanel().refreshBoard();
+			sixesWildApp.getLevelPanel().refresh();
 			System.out.println(TAG + "NormalSelectionMove suceeded");
 		} else {
 			System.out.println(TAG + "NormalSelectionMove failed");

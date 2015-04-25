@@ -50,29 +50,21 @@ public class Board {
 	public void fall(Tile t){	
 		int colAbove = t.getPos().col ;
 		int rowAbove = t.getPos().row - 1;
-		
-		System.out.println(colAbove + " " + rowAbove) ;
-		 
+		//System.out.println(colAbove + " " + rowAbove) ;
 		if(rowAbove >= 0){			
-			Tile aboveTile = map[colAbove][rowAbove] ;
-						
+			Tile aboveTile = map[colAbove][rowAbove] ;	
 			t.setSquare(aboveTile.getSquare()) ;
-			
 			fall(aboveTile) ;	
-		}
-		else{
+		} else {
 			t.setSquare(this.generateSquare()) ;			
 		}
 	}
 
 	/**
-	 * assume that tiles are empty
-	 * @author albert
+	 * assume that tiles in the argument are empty
 	 */
 	public void fall(ArrayList<Tile> tiles) {
-		//first we want to find all the squares above empty tiles
 		for(Tile t : tiles) {
-			//check position above this pos
 			fall(t);
 		}		
 	}

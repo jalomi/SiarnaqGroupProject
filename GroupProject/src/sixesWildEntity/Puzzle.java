@@ -13,4 +13,12 @@ public class Puzzle extends Level {
 	{
 		return false;
 	}
+	
+	public String getMovesRemainingString() {
+		return String.valueOf(movesRemaining);
+	}
+	
+	public String getTimeRemainingString() {
+		return "Unlimited";
+	}
 }

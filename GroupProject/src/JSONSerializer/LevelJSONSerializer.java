@@ -17,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONTokener;
 
 import sixesWildEntity.Level;
+import sixesWildEntity.Puzzle;
 
 public class LevelJSONSerializer {
 
@@ -62,7 +63,7 @@ public class LevelJSONSerializer {
             JSONArray array = (JSONArray) new JSONTokener(jsonString.toString()).nextValue();
             // build the array of levels from JSONObjects
             for (int i = 0; i < array.length(); i++) {
-            	levels.add(new Level(array.getJSONObject(i)));
+            	//levels.add(new Puzzle(array.getJSONObject(i));
             }
         } catch (FileNotFoundException e) {
             //ignore this one, since it happens when we start fresh
