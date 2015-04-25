@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
 import levelBuilderMoves.Move;
+import levelBuilderMoves.SetMoveNumberMove;
 
 public class UndoController implements ActionListener{
 	LevelBuilder model;
@@ -29,6 +30,8 @@ public class UndoController implements ActionListener{
 	
 		if (m.undo()) {
 			model.recordRedoableMove(m);
+			/*if(m instanceof SetMoveNumberMove)
+				((SetMoveNumberMove)m).setOldValue(model.getMoves());*/
 		}
 	
 		application.repaint();

@@ -13,13 +13,11 @@ import levelBuilderMoves.SetMoveNumberMove;
 public class SelectMoveNumberController implements ActionListener{
 	LevelBuilder model;
 	LevelBuilderApplication application;
-	int oldValue;
 	
-	public SelectMoveNumberController(LevelBuilder m, LevelBuilderApplication a, int oldValue)
+	public SelectMoveNumberController(LevelBuilder m, LevelBuilderApplication a)
 	{
 		this.model=m;
 		this.application=a;
-		this.oldValue=oldValue;
 	}
 	
 	public void actionPerformed(ActionEvent ae)
@@ -33,12 +31,11 @@ public class SelectMoveNumberController implements ActionListener{
 	{
 		try{
 			int num = Integer.valueOf(tf.getText());
-			SetMoveNumberMove m=new SetMoveNumberMove(model, num, oldValue, application.getInputPanel().getMaxMoves());;
+			SetMoveNumberMove m=new SetMoveNumberMove(model, num, application.getInputPanel().getMaxMoves());
 			if(m.doMove())
 			{
 				System.out.println("Number of Moves: "+model.getMoves());
 				model.recordMove(m);
-				oldValue=model.getMoves();
 			}
 		} catch (Exception e) {
 			tf.setText(""+model.getMoves());
