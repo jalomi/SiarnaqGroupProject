@@ -10,11 +10,11 @@ public class SetMoveNumberMove extends Move{
 	int oldValue;
 	JTextField tf;
 	
-	public SetMoveNumberMove(LevelBuilder model, int newValue, int oldValue, JTextField tf)
+	public SetMoveNumberMove(LevelBuilder model, int newValue, JTextField tf)
 	{
 		this.model=model;
 		this.newValue=newValue;
-		this.oldValue=oldValue;
+		this.oldValue=model.getMoves();
 		this.tf=tf;
 	}
 
@@ -38,6 +38,11 @@ public class SetMoveNumberMove extends Move{
 		model.setMoves(oldValue);
 		tf.setText(""+model.getMoves());
 		return true;
+	}
+	
+	public void setOldValue(int n)
+	{
+		oldValue=n;
 	}
 	
 }

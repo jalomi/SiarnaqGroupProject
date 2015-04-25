@@ -10,11 +10,11 @@ public class Set2StarScoreMove extends Move{
 	int oldValue;
 	JTextField tf;
 	
-	public Set2StarScoreMove(LevelBuilder model, int newValue, int oldValue, JTextField tf)
+	public Set2StarScoreMove(LevelBuilder model, int newValue, JTextField tf)
 	{
 		this.model=model;
 		this.newValue=newValue;
-		this.oldValue=oldValue;
+		this.oldValue=model.getTwoStarScore();
 		this.tf=tf;
 	}
 
