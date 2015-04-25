@@ -19,4 +19,9 @@ public class Release extends Level {
 	public String getTimeRemainingString() {
 		return "Unlimited";
 	}
+	
+	public void updateMovesLeft(int m){
+		movesRemaining += m ;
+	}
+	
 }

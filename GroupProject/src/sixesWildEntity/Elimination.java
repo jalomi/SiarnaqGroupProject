@@ -19,4 +19,9 @@ public class Elimination extends Level {
 	public String getTimeRemainingString() {
 		return "No Time";
 	}
+	
+	public void updateMovesLeft(int m){
+		movesRemaining += m ;
+	}
+	
 }

@@ -45,7 +45,13 @@ public class SixesWildApplication extends JFrame {
 	public void updateScore(int score) {
 		//we should have some function like this one
 		//SixesWild.updateScore(score);
+		theGame.getLevel().updateScore(score) ;
 	}
+	
+	public void updateMovesLeft(int i) {
+		theGame.getLevel().updateMovesLeft(i) ;
+	}
+	
 	
 	/**
 	 * This method should init including load levels from disk
@@ -77,4 +83,6 @@ public class SixesWildApplication extends JFrame {
 		gamePane.initControllers(this, theGame);
 		levelPane.initControllers(this, theGame);
 	}
+
+		
 }

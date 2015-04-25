@@ -54,6 +54,7 @@ public class NormalSelectionMove implements IMove{
 			//board.removeSquares(tiles);
 			board.fall(tiles);
 			theGame.updateScore(score);
+			theGame.updateMovesLeft(-1) ;
 			return true;
 		}
 		return false;

@@ -9,7 +9,7 @@ public class Lightning extends Level {
 	
 	public Lightning(int number, int movesRemaining) {
 		super(number);
-		this.timeRemaining=movesRemaining;
+		this.timeRemaining = movesRemaining;
 	}
 	
 	public boolean hasWon() {
@@ -22,5 +22,9 @@ public class Lightning extends Level {
 	
 	public String getTimeRemainingString() {
 		return "Unlimited";
+	}
+	
+	public void updateMovesLeft(int m){
+		
 	}
 }

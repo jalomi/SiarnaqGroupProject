@@ -232,6 +232,12 @@ public abstract class Level {
 		return this.thirdStarScore;
 	}
 	
+	public void updateScore(int s) {
+		score = score + s ;
+	}
+	
 	public abstract String getMovesRemainingString();
 	public abstract String getTimeRemainingString();
+	public abstract void updateMovesLeft(int m) ;
+
 }

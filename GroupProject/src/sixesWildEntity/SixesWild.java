@@ -42,5 +42,9 @@ public class SixesWild {
 	public Board getBoard(){
 		return board;
 	}
+
+	public Level getLevel() {
+		return board.getLevel();
+	}
 	
 }
