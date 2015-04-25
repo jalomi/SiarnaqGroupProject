@@ -89,9 +89,9 @@ public class LevelBuilderApplication extends JFrame {
 		getExitBtn().addActionListener(new ExitController(this)) ;
 		getInputPanel().getUndoBtn().addActionListener(new UndoController(model, this));
 		getInputPanel().getMaxMoves().addActionListener(new SelectMoveNumberController (model, this));
-		getInputPanel().getScore1().addActionListener(new Select1StarScoreController (model, this, model.getOneStarScore()));
-		getInputPanel().getScore2().addActionListener(new Select2StarScoreController (model, this, model.getTwoStarScore()));
-		getInputPanel().getScore3().addActionListener(new Select3StarScoreController (model, this, model.getThreeStarScore()));
+		getInputPanel().getScore1().addActionListener(new Select1StarScoreController (model, this));
+		getInputPanel().getScore2().addActionListener(new Select2StarScoreController (model, this));
+		getInputPanel().getScore3().addActionListener(new Select3StarScoreController (model, this));
 		getInputPanel().getMinutes().addActionListener(new SelectMinutesController (model, this));
 		getInputPanel().getSeconds().addActionListener(new SelectSecondsController (model, this));
 		getInputPanel().getLevel().addActionListener(new SelectLevelNumberController (model, this));

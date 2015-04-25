@@ -12,13 +12,11 @@ import levelBuilderMoves.Set2StarScoreMove;
 public class Select2StarScoreController implements ActionListener{
 	LevelBuilder model;
 	LevelBuilderApplication application;
-	int oldValue;
 	
-	public Select2StarScoreController(LevelBuilder m, LevelBuilderApplication a, int oldValue)
+	public Select2StarScoreController(LevelBuilder m, LevelBuilderApplication a)
 	{
 		this.model=m;
 		this.application=a;
-		this.oldValue=oldValue;
 	}
 	
 	@Override
@@ -32,12 +30,11 @@ public class Select2StarScoreController implements ActionListener{
 	{
 		try{
 			int num = Integer.valueOf(tf.getText());
-			Set2StarScoreMove m=new Set2StarScoreMove(model, num, oldValue, application.getInputPanel().getScore2());;
+			Set2StarScoreMove m=new Set2StarScoreMove(model, num, application.getInputPanel().getScore2());;
 			if(m.doMove())
 			{
 				System.out.println("Two Star Score: "+model.getTwoStarScore());
 				model.recordMove(m);
-				oldValue=model.getTwoStarScore();
 			}
 		} catch (Exception e) {
 			tf.setText(""+model.getTwoStarScore());
