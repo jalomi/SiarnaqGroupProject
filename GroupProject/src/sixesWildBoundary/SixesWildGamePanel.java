@@ -3,15 +3,12 @@ package sixesWildBoundary;
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
-import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 
 import sixesWildControllers.TileLabelController;
 import sixesWildEntity.Board;
 import sixesWildEntity.Level;
-import sixesWildEntity.Position;
 import sixesWildEntity.SixesWild;
-import sixesWildEntity.Tile;
 
 public class SixesWildGamePanel extends JPanel {
 	
@@ -21,11 +18,10 @@ public class SixesWildGamePanel extends JPanel {
 	TileLabel[][] map = new TileLabel[9][9] ;
 	TileLabelController controller;
  
-	public SixesWildGamePanel(Level l) {
+	public SixesWildGamePanel() {
 		
 		
 		this.board = Board.newInstance();//should change board to singleton later
-		board.setLevel(l);
 		
 		this.setSize(490, 490);
 		this.setLayout(new GridLayout(9,9));

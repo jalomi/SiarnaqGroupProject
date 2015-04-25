@@ -8,95 +8,141 @@ import java.awt.Font;
 
 import javax.swing.JLabel;
 
+import sixesWildControllers.BacktoMainMenuController;
+import sixesWildEntity.Board;
 import sixesWildEntity.Level;
+import sixesWildEntity.SixesWild;
 
 public class SixesWildLevelPanel extends JPanel {
-	private JButton btnNewButton;
+	public static final String TAG = "SixesWildLevelPanel";
+	
+	/* Boundaries */
+	JButton backToMainManuButton;
+	JButton deleteSquareButton;
+	JButton swapSquareButton;
+	JButton resetBoardButton;
+	
+	JTextArea textScore;
+	JTextArea text1stStarScore;
+	JTextArea text2ndStarScore;
+	JTextArea text3rdStarScore;
+	
+	JTextArea txtrTime;
+	JTextArea txtrMoveRem;
+	
+	/* Entities */
 	private Level level;
 	
 	/**
-	 * Create the panel.
+	 * SixesWildLevelPanel should always be created after SixesWildGamePanel,
+	 * because it uses GamePane's (Board board) to set its (Level level).
 	 */
-	public SixesWildLevelPanel(Level l) {
-		level = l;
+	public SixesWildLevelPanel() {
+		level = Board.newInstance().getLevel();
+		if(level == null) {
+			System.err.println(TAG + " current board has null level inside! Error!");
+		}
 		
 		setBounds(0, 0, 490, 135);
 		setLayout(null);
 		
+		initBoundaries();
+	}
+	
+	public void initBoundaries() {
 		JTextArea txtrLevelNumberHere = new JTextArea();
 		txtrLevelNumberHere.setEditable(false);
 		txtrLevelNumberHere.setText("Level Number Here");
 		txtrLevelNumberHere.setBounds(170, 0, 150, 27);
 		add(txtrLevelNumberHere);
 		
-		btnNewButton = new JButton("Main Menu");
-		btnNewButton.setBounds(0, 40, 100, 40);
-		add(btnNewButton);
+		backToMainManuButton = new JButton("Main Menu");
+		backToMainManuButton.setBounds(0, 40, 100, 40);
+		add(backToMainManuButton);
 		
-		JButton btnNewButton_1 = new JButton("Delete Tile");
-		btnNewButton_1.setBounds(0, 95, 100, 40);
-		add(btnNewButton_1);
+		deleteSquareButton = new JButton("Delete Squares");
+		deleteSquareButton.setBounds(0, 95, 100, 40);
+		add(deleteSquareButton);
 		
-		JButton btnNewButton_2 = new JButton("Swap Tiles");
-		btnNewButton_2.setBounds(115, 40, 100, 40);
-		add(btnNewButton_2);
+		swapSquareButton = new JButton("Swap Squares");
+		swapSquareButton.setBounds(115, 40, 100, 40);
+		add(swapSquareButton);
 		
-		JButton btnNewButton_3 = new JButton("Reset Board");
-		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnNewButton_3.setBounds(115, 95, 100, 40);
-		add(btnNewButton_3);
+		resetBoardButton = new JButton("Reset Board");
+		resetBoardButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		resetBoardButton.setBounds(115, 95, 100, 40);
+		add(resetBoardButton);
 		
-		JLabel lblNewLabel = new JLabel("Score");
-		lblNewLabel.setBounds(245, 40, 35, 21);
-		add(lblNewLabel);
+		JLabel scoreLabel = new JLabel("Score");
+		scoreLabel.setBounds(245, 40, 50, 21);
+		add(scoreLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Time Left");
-		lblNewLabel_1.setBounds(319, 40, 58, 21);
-		add(lblNewLabel_1);
+		JLabel timeLeftLabel = new JLabel("Time Left");
+		timeLeftLabel.setBounds(319, 40, 80, 21);
+		add(timeLeftLabel);
 		
-		JLabel lblNewLabel_2 = new JLabel("Moves Left");
-		lblNewLabel_2.setBounds(408, 40, 66, 21);
-		add(lblNewLabel_2);
+		JLabel moveLeftLabel = new JLabel("Moves Left");
+		moveLeftLabel.setBounds(408, 40, 80, 21);
+		add(moveLeftLabel);
 		
-		JTextArea txtrScore = new JTextArea();
-		txtrScore.setEditable(false);
-		txtrScore.setText("Score");
-		txtrScore.setBounds(245, 68, 57, 27);
-		add(txtrScore);
+		textScore = new JTextArea();
+		textScore.setEditable(false);
+		textScore.setText("Score");
+		textScore.setBounds(245, 68, 57, 27);
+		add(textScore);
 		
-		JTextArea txtrPts = new JTextArea();
-		txtrPts.setEditable(false);
-		txtrPts.setText("1* Pts");
-		txtrPts.setBounds(245, 108, 60, 27);
-		add(txtrPts);
+		text1stStarScore = new JTextArea();
+		text1stStarScore.setEditable(false);
+		text1stStarScore.setText(String.valueOf(level.getFirstStarScore()));
+		text1stStarScore.setBounds(245, 108, 60, 27);
+		add(text1stStarScore);
 		
-		JTextArea txtrTime = new JTextArea();
+		text2ndStarScore = new JTextArea();
+		text2ndStarScore.setEditable(false);
+		text2ndStarScore.setText(String.valueOf(level.getSecondStarScore()));
+		text2ndStarScore.setBounds(319, 108, 63, 27);
+		add(text2ndStarScore);
+		
+		text3rdStarScore = new JTextArea();
+		text3rdStarScore.setEditable(false);
+		text3rdStarScore.setText(String.valueOf(level.getThirdStarScore()));
+		text3rdStarScore.setBounds(396, 108, 62, 27);
+		add(text3rdStarScore);
+		
+		txtrTime = new JTextArea();
 		txtrTime.setEditable(false);
-		txtrTime.setText("Time Rem");
+		txtrTime.setText(level.getTimeRemainingString());
 		txtrTime.setBounds(319, 68, 72, 27);
 		add(txtrTime);
 		
-		JTextArea txtrPts_1 = new JTextArea();
-		txtrPts_1.setEditable(false);
-		txtrPts_1.setText("2* Pts");
-		txtrPts_1.setBounds(319, 108, 63, 27);
-		add(txtrPts_1);
-		
-		JTextArea txtrPts_2 = new JTextArea();
-		txtrPts_2.setEditable(false);
-		txtrPts_2.setText("3* Pts");
-		txtrPts_2.setBounds(396, 108, 62, 27);
-		add(txtrPts_2);
-		
-		JTextArea txtrMoveRem = new JTextArea();
+		txtrMoveRem = new JTextArea();
 		txtrMoveRem.setEditable(false);
-		txtrMoveRem.setText("Move Rem");
+		txtrMoveRem.setText(level.getMovesRemainingString());
 		txtrMoveRem.setBounds(408, 68, 80, 25);
 		add(txtrMoveRem);
 	}
 	
-	public JButton getExitButton()
-	{
-		return btnNewButton;
+	public void initControllers(SixesWildApplication app, SixesWild theGame) {
+		this.backToMainManuButton.addActionListener(new BacktoMainMenuController(app));
+	}
+	
+	public void refresh() {
+		
+	}
+	
+	public JButton getBackToMainManuButton() {
+		return backToMainManuButton;
+	}
+
+	public void setBackToMainManuButton(JButton backToMainManuButton) {
+		this.backToMainManuButton = backToMainManuButton;
+	}
+
+	public Level getLevel() {
+		return level;
+	}
+
+	public void setLevel(Level level) {
+		this.level = level;
 	}
 }

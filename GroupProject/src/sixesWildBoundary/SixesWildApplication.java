@@ -11,22 +11,21 @@ import sixesWildEntity.SixesWild;
 public class SixesWildApplication extends JFrame {
 	
 	public static final String TAG = "SixesWildApplication";
-
-	//Models
-	private SixesWild model;
 	
 	//Boundaries
 	private SixesWildLevelPanel levelPane;
 	private SixesWildGamePanel gamePane;
 	
-
+	//Models
+	private SixesWild theGame;
+	
 	/**
 	 * Create the frame.
 	 */
-	public SixesWildApplication(SixesWild game, Level l) {
+	public SixesWildApplication(SixesWild game) {
 		setTitle("Sixes Wild");
 		initModels(game);
-		initBoundaries(l);
+		initBoundaries();
 		initControllers();
 	}
 	
@@ -40,7 +39,7 @@ public class SixesWildApplication extends JFrame {
 	
 	
 	public SixesWild getModel() {
-		return model;
+		return theGame;
 	}
 	
 	public void updateScore(int score) {
@@ -54,15 +53,15 @@ public class SixesWildApplication extends JFrame {
 	 * 
 	 */
 	private void initModels(SixesWild game) {
-		model = game;
-		model.setBoard(Board.newInstance());
+		theGame = game;
+		theGame.setBoard(Board.newInstance());
 	}
 	
-	private void initBoundaries(Level l) {
-		gamePane = new SixesWildGamePanel(l);
+	private void initBoundaries() {
+		gamePane = new SixesWildGamePanel();
 		gamePane.setSize(490, 490);
 		gamePane.setLocation(35, 180);
-		levelPane = new SixesWildLevelPanel(l);
+		levelPane = new SixesWildLevelPanel();
 		levelPane.setLocation(35, 20);
 		
 		setBounds(5, 5, 580, 750);
@@ -75,6 +74,7 @@ public class SixesWildApplication extends JFrame {
 	}
 	
 	private void initControllers() {
-		gamePane.initControllers(this, model);
+		gamePane.initControllers(this, theGame);
+		levelPane.initControllers(this, theGame);
 	}
 }

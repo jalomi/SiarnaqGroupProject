@@ -3,15 +3,11 @@ package sixesWildBoundary;
 import javax.swing.JFrame ;
 import javax.swing.JButton;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import sixesWildControllers.BacktoMainMenuController;
 import sixesWildControllers.ChooseLevelController;
-import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
 
 public class LevelSelectApplication extends JFrame {
@@ -23,6 +19,8 @@ public class LevelSelectApplication extends JFrame {
 	private SixesWild theGame;
 	
 	public LevelSelectApplication(SixesWild theGame) {
+		
+		System.out.println("LevelSelectApplication contructor");
 		
 		this.theGame = theGame;
 		
@@ -166,20 +164,20 @@ public class LevelSelectApplication extends JFrame {
 //		lblNumstars16.setBounds(430, 660, 100, 21);
 //		getContentPane().add(lblNumstars16);
 		
-		initControllers();
-		
 		JTextArea txtrPleaseSelectLevel = new JTextArea();
 		txtrPleaseSelectLevel.setEditable(false);
 		txtrPleaseSelectLevel.setText("Please Select Level");
 		txtrPleaseSelectLevel.setBounds(35, 15, 360, 30);
 		
-		
+		initControllers(theGame);
 		
 		
 		getContentPane().add(txtrPleaseSelectLevel);
 	}
 	
-	private void initControllers() {
+	public void initControllers(SixesWild theGame) {
+		backToMainManuButton.addActionListener(new BacktoMainMenuController(this));
+		
 		for(int i = 0; i < 16; i++) {
 			levelButton[i].addActionListener(new ChooseLevelController(this, theGame, i));
 		}

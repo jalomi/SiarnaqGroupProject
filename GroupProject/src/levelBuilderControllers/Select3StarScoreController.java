@@ -7,7 +7,6 @@ import javax.swing.JTextField;
 
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
-import levelBuilderMoves.Set2StarScoreMove;
 import levelBuilderMoves.Set3StarScoreMove;
 
 public class Select3StarScoreController implements ActionListener{
@@ -22,6 +21,7 @@ public class Select3StarScoreController implements ActionListener{
 		this.oldValue=oldValue;
 	}
 	
+	@Override
 	public void actionPerformed(ActionEvent ae)
 	{
 		JTextField tf=(JTextField)ae.getSource();

@@ -1,6 +1,5 @@
 package sixesWildEntity;
 
-import java.util.HashMap;
 import java.util.UUID;
 
 import org.json.JSONException;
@@ -12,10 +11,9 @@ import org.json.JSONObject;
  * 
  */
 
-public class Level {
+public abstract class Level {
 	public static final String TAG = "Level";
 	
-	UUID id;
 	int levelNumber;
 	
 	boolean enabled; 
@@ -38,13 +36,8 @@ public class Level {
 	boolean removeEnabled;
 	
 	//CONSTRUCTORS
-	public Level() throws Exception {
-		System.out.println("The default constructor should never be called");
-		throw new Exception();
-	}
-	
 	public Level(JSONObject json) throws JSONException {
-        id = UUID.fromString(json.getString("id"));
+       // id = UUID.fromString(json.getString("id"));
         levelNumber = json.getInt("levelNumber");
         
         enabled = json.getBoolean("enabled");
@@ -77,7 +70,7 @@ public class Level {
 	
 	//constructor for testing *******
 	public Level(int number) {
-		this.id = UUID.randomUUID();
+		//this.id = UUID.randomUUID();
 		this.levelNumber = number;
 		
 		//bad dummy values
@@ -120,7 +113,7 @@ public class Level {
 				  boolean unlocked, boolean swap, boolean reset, boolean remove,
 				  boolean[][] enabledTiles) throws Exception {
 		if(this.checkPercentageCorrectnes(p1, p2, p3, p4, p5, p6, m1, m2, m3)) {
-			this.id = UUID.randomUUID();
+			//this.id = UUID.randomUUID();
 			this.levelNumber = number;
 			
 			this.percent[0] = p1;
@@ -157,7 +150,7 @@ public class Level {
 	
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
-        json.put("id", id.toString());
+        //json.put("id", id.toString());
         json.put("levelNumber", levelNumber);
         
         json.put("enabled", enabled);
@@ -221,16 +214,24 @@ public class Level {
 		
 		return new Square(value, multi);
 	}
-	
-	public UUID getId() {
-		return id;
-	}
-	public void setId(UUID id) {
-		this.id = id;
-	}
 
 	public boolean[][] getEnabledTiles() {
 		return enabledTiles;
 	}
 	
+	public int getFirstStarScore() {
+		return this.firstStarScore;
+	}
+	
+	public int getSecondStarScore() {
+		return this.secondStarScore;
+	}
+	
+	
+	public int getThirdStarScore() {
+		return this.thirdStarScore;
+	}
+	
+	public abstract String getMovesRemainingString();
+	public abstract String getTimeRemainingString();
 }

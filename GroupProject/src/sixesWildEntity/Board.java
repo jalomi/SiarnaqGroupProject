@@ -1,7 +1,6 @@
 package sixesWildEntity;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Board {
 	
@@ -24,7 +23,6 @@ public class Board {
 		if(board == null) {
 			board = new Board();
 		}
-		
 		return board ;
 	}
 	
@@ -48,7 +46,42 @@ public class Board {
 	private Square generateSquare() {
 		return this.level.generateSquare();
 	}
+	
+	public void fall(Tile t){	
+		int colAbove = t.getPos().col ;
+		int rowAbove = t.getPos().row - 1;
+		//System.out.println(colAbove + " " + rowAbove) ;
+		if(rowAbove >= 0){			
+			Tile aboveTile = map[colAbove][rowAbove] ;	
+			t.setSquare(aboveTile.getSquare()) ;
+			fall(aboveTile) ;	
+		} else {
+			t.setSquare(this.generateSquare()) ;			
+		}
+	}
 
+	/**
+	 * assume that tiles in the argument are empty
+	 */
+	public void fall(ArrayList<Tile> tiles) {
+		for(Tile t : tiles) {
+			fall(t);
+		}		
+	}
+	
+	public Level getLevel() {
+		return level;
+	}
+
+	public void setLevel(Level level) {
+		this.level = level;
+		try {
+			this.populateBoard();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public Tile[][] getMap() {
 		return map;
 	}
@@ -69,48 +102,5 @@ public class Board {
 	
 	public Square getSquare(int col, int row) {
 		return getTile(col, row).getSquare();
-	}
-	
-	public void fall(Tile t){	
-		int colAbove = t.getPos().col ;
-		int rowAbove = t.getPos().row - 1;
-		
-		System.out.println(colAbove + " " + rowAbove) ;
-		
-		if(rowAbove > 0){			
-			Tile aboveTile = map[colAbove][rowAbove] ;
-						
-			t.setSquare(aboveTile.getSquare()) ;
-			
-			fall(aboveTile) ;	
-		}
-		else{
-			t.setSquare(this.generateSquare()) ;			
-		}
-	}
-	
-	public Level getLevel() {
-		return level;
-	}
-
-	public void setLevel(Level level) {
-		this.level = level;
-		try {
-			this.populateBoard();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * assume that tiles are empty
-	 * @author albert
-	 */
-	public void fall(ArrayList<Tile> tiles) {
-		//first we want to find all the squares above empty tiles
-		for(Tile t : tiles) {
-			//check position above this pos
-			fall(t);
-		}		
 	}
 }

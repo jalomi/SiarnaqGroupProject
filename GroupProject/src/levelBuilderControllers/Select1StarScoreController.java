@@ -8,7 +8,6 @@ import javax.swing.JTextField;
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
 import levelBuilderMoves.Set1StarScoreMove;
-import levelBuilderMoves.SetMoveNumberMove;
 
 public class Select1StarScoreController implements ActionListener {
 	LevelBuilder model;
@@ -22,6 +21,7 @@ public class Select1StarScoreController implements ActionListener {
 		this.oldValue=oldValue;
 	}
 	
+	@Override
 	public void actionPerformed(ActionEvent ae)
 	{
 		JTextField tf=(JTextField)ae.getSource();

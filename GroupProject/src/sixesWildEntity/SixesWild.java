@@ -1,9 +1,6 @@
 package sixesWildEntity;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
-import sixesWildBoundary.SixesWildApplication;
 
 public class SixesWild {
 	private ArrayList<Level> levels = new ArrayList<Level>();
@@ -23,7 +20,7 @@ public class SixesWild {
 		//should load levels from disk by using LevelJSONSerializer
 		//since LevelBuilder is not ready
 		//make a default list of levels of size 1
-		levels.add(new Level(1));
+		levels.add(new Puzzle(1, 20));
 		board = Board.newInstance();
 	}
 	

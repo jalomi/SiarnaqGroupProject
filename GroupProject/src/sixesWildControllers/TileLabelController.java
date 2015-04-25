@@ -1,18 +1,11 @@
 package sixesWildControllers;
 
-import java.awt.Color;
 import java.awt.Component;
-import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 import sixesWildBoundary.SixesWildApplication;
-import sixesWildBoundary.SixesWildGamePanel;
 import sixesWildBoundary.TileLabel;
 import sixesWildEntity.SixesWild;
 import sixesWildEntity.Tile;
@@ -22,18 +15,19 @@ import sixesWildMoves.NormalSelectionMove;
 public class TileLabelController extends MouseAdapter {
 	public static final String TAG = "JLabelController";
 	
-	SixesWildApplication theGame;
+	SixesWildApplication sixesWildApp;
 	
 	ArrayList<TileLabel> selectedLabels;
 	boolean havePressed;
 	
 	public TileLabelController(SixesWildApplication app, SixesWild model)
 	{
-		this.theGame = app;
+		this.sixesWildApp = app;
 		this.selectedLabels = new ArrayList<TileLabel>();
 		havePressed = false;
 	}
 	
+	@Override
 	public void mousePressed(MouseEvent me) {
 		Component c = me.getComponent();
 		TileLabel label = (TileLabel) c;
@@ -42,6 +36,7 @@ public class TileLabelController extends MouseAdapter {
 		havePressed = true;
 	}
 	
+	@Override
 	public void mouseEntered(MouseEvent me) {
 		//System.out.println(TAG + " mouseEntered" + havePressed);
 		if(havePressed) {
@@ -62,6 +57,7 @@ public class TileLabelController extends MouseAdapter {
 		}
 	}
 	
+	@Override
 	public void mouseReleased(MouseEvent me) {
 		
 		for(TileLabel label : selectedLabels) {
@@ -73,13 +69,11 @@ public class TileLabelController extends MouseAdapter {
 		for(TileLabel tl : selectedLabels) {
 			tiles.add(tl.getModel());
 		}
-		IMove m = new NormalSelectionMove(tiles, theGame.getModel().getBoard());
+		IMove m = new NormalSelectionMove(tiles, sixesWildApp.getModel().getBoard());
 		
-		System.out.println("Before: (0,0):  " + theGame.getModel().getBoard().getSquare(0,0).getValue() + 
-				"   (0,1): " + theGame.getModel().getBoard().getSquare(0,0).getValue()) ;
-		
-		if(m.doMove(theGame)) {
-			theGame.getGamePanel().refreshBoard();
+		if(m.doMove(sixesWildApp)) {
+			sixesWildApp.getGamePanel().refreshBoard();
+			sixesWildApp.getLevelPanel().refresh();
 			System.out.println(TAG + "NormalSelectionMove suceeded");
 		} else {
 			System.out.println(TAG + "NormalSelectionMove failed");
