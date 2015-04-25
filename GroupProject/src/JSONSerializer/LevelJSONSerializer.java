@@ -73,4 +73,12 @@ public class LevelJSONSerializer {
         }
 		return levels;
     }
+    
+    public void saveSingleLevel(Level level) {
+    	
+    }
+    
+    public Level loadSingelLevel() {
+    	return null;
+    }
 }

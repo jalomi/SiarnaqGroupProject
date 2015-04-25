@@ -20,7 +20,7 @@ public class NormalSelectionMove implements IMove{
 		this.board = board;
 	}
 
-	@Override
+	@Override 
 	public boolean isValid(SixesWildApplication theGame) {
 		if(tiles.size() <= 1){
 			return false ;
