@@ -1,5 +1,8 @@
 package sixesWildEntity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Elimination extends Level {
 	int movesRemaining;
 	
@@ -8,6 +11,11 @@ public class Elimination extends Level {
 		this.movesRemaining=movesRemaining;
 	}
 	
+	public Elimination(JSONObject json) throws JSONException {
+		super(json);
+		//add more later
+	}
+
 	public boolean hasWon() {
 		return false;
 	}
