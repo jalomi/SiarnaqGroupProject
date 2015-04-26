@@ -7,6 +7,7 @@ import javax.swing.JTextField;
 
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
+import levelBuilderMoves.SetMinutesMove;
 
 public class SelectMinutesController implements ActionListener{
 	LevelBuilder model;
@@ -29,9 +30,12 @@ public class SelectMinutesController implements ActionListener{
 	{
 		try{
 			int num = Integer.valueOf(tf.getText());
-			model.setMinutes(num);
-			application.getInputPanel().getMinutes().setText(""+tf.getText());
-			System.out.println("Number of Minutes: "+model.getMinutes());
+			SetMinutesMove m=new SetMinutesMove(model, num, tf);
+			if(m.doMove())
+			{
+				System.out.println("Number of Minutes: "+model.getMinutes());
+				model.recordMove(m);
+			}
 		} catch (Exception e) {
 			tf.setText(""+model.getMinutes());
 		}
