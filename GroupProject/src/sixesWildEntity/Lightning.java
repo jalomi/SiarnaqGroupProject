@@ -28,7 +28,7 @@ public class Lightning extends Level {
 	}
 	
 	public String getTimeRemainingString() {
-		return "Unlimited";
+		return Integer.toString(timeRemaining);
 	}
 	
 	public void updateMovesLeft(int m){

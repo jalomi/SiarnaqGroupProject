@@ -25,7 +25,7 @@ public class Elimination extends Level {
 	}
 	
 	public String getTimeRemainingString() {
-		return "No Time";
+		return "Unlimited";
 	}
 	
 	public void updateMovesLeft(int m){

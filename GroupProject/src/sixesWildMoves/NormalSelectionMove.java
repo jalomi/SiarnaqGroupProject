@@ -13,6 +13,8 @@ public class NormalSelectionMove implements IMove{
 	ArrayList<Tile> tiles = new ArrayList<Tile>();
 	Board board;
 	int sum = 0;
+	int mult = 1 ;
+	int tileNum = 0 ;
 	int score = 0;
 	
 	public NormalSelectionMove(ArrayList<Tile> selectedTiles, Board board) {
@@ -28,6 +30,8 @@ public class NormalSelectionMove implements IMove{
 		
 		for(Tile t : tiles) {
 			sum += t.getSquare().getValue();
+			mult *= t.getSquare().getMultiplier();
+			tileNum++ ;
 		}
 		System.out.println(TAG + "sum:" + sum);
 		
@@ -43,15 +47,12 @@ public class NormalSelectionMove implements IMove{
 		if(isValid(theGame)) {
 			//update the score
 			for(Tile t : tiles) {
-				score += t.getSquare().getValue() * t.getSquare().getMultiplier();
 				//remove the square data from tile since we already get the score
 				t.setSquare(null); //#1
 			}
 			
-			//ALbert
-			//it might be a good idea to implement #1 in Board class instead of in this Move class
-			//I will leave this for you to discuss
-			//board.removeSquares(tiles);
+			score += tileNum * 10 * mult ;
+
 			board.fall(tiles);
 			theGame.updateScore(score);
 			theGame.updateMovesLeft(-1) ;

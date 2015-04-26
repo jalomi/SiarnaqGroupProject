@@ -64,6 +64,24 @@ public class Board {
 	 * assume that tiles in the argument are empty
 	 */
 	public void fall(ArrayList<Tile> tiles) {
+		int numbTiles = tiles.size() ;
+		boolean swapped = true ;
+		int j = 0 ;
+		Tile tmp ;
+		while(swapped){
+			swapped = false;
+			j++ ;
+			for(int i = 0; i < numbTiles - j; i++){
+				if(tiles.get(i).getPos().row > tiles.get(i+1).getPos().row){
+					tmp = tiles.get(i) ;
+					tiles.set(i, tiles.get(i+1)) ;
+					tiles.set(i+1, tmp) ;
+					swapped = true ;
+					
+				}
+			}
+		}
+		
 		for(Tile t : tiles) {
 			fall(t);
 		}		
