@@ -93,19 +93,19 @@ public class SixesWildLevelPanel extends JPanel {
 		
 		text1stStarScore = new JTextArea();
 		text1stStarScore.setEditable(false);
-		text1stStarScore.setText(String.valueOf(level.getFirstStarScore()));
+		text1stStarScore.setText("1*: " + String.valueOf(level.getFirstStarScore()));
 		text1stStarScore.setBounds(245, 108, 60, 27);
 		add(text1stStarScore);
 		
 		text2ndStarScore = new JTextArea();
 		text2ndStarScore.setEditable(false);
-		text2ndStarScore.setText(String.valueOf(level.getSecondStarScore()));
+		text2ndStarScore.setText("2*: " + String.valueOf(level.getSecondStarScore()));
 		text2ndStarScore.setBounds(319, 108, 63, 27);
 		add(text2ndStarScore);
 		
 		text3rdStarScore = new JTextArea();
 		text3rdStarScore.setEditable(false);
-		text3rdStarScore.setText(String.valueOf(level.getThirdStarScore()));
+		text3rdStarScore.setText("3*: " + String.valueOf(level.getThirdStarScore()));
 		text3rdStarScore.setBounds(396, 108, 62, 27);
 		add(text3rdStarScore);
 		
