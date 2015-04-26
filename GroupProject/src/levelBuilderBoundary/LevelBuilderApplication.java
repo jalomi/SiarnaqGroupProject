@@ -17,6 +17,7 @@ import levelBuilderControllers.SelectLevelNumberController;
 import levelBuilderControllers.SelectMinutesController;
 import levelBuilderControllers.SelectMoveNumberController;
 import levelBuilderControllers.SelectSecondsController;
+import levelBuilderControllers.SelectSquarePercentController;
 import levelBuilderControllers.UndoController;
 import levelBuilderEntity.LevelBuilder;
 
@@ -99,6 +100,12 @@ public class LevelBuilderApplication extends JFrame {
 		getInputPanel().getMinutes().addActionListener(new SelectMinutesController (model, this));
 		getInputPanel().getSeconds().addActionListener(new SelectSecondsController (model, this));
 		getInputPanel().getLevel().addActionListener(new SelectLevelNumberController (model, this));
+		getInputPanel().getPercent1().addActionListener(new SelectSquarePercentController(model, this, 0));
+		getInputPanel().getPercent2().addActionListener(new SelectSquarePercentController(model, this, 1));
+		getInputPanel().getPercent3().addActionListener(new SelectSquarePercentController(model, this, 2));
+		getInputPanel().getPercent4().addActionListener(new SelectSquarePercentController(model, this, 3));
+		getInputPanel().getPercent5().addActionListener(new SelectSquarePercentController(model, this, 4));
+		getInputPanel().getPercent6().addActionListener(new SelectSquarePercentController(model, this, 5));
 	}
 	
 	private JButton getExitBtn() {

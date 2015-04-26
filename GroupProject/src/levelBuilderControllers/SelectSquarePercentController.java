@@ -8,15 +8,18 @@ import javax.swing.JTextField;
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
 import levelBuilderMoves.SetLevelNumberMove;
+import levelBuilderMoves.SetSquarePercentMove;
 
-public class SelectLevelNumberController implements ActionListener{
+public class SelectSquarePercentController implements ActionListener{
 	LevelBuilder model;
 	LevelBuilderApplication application;
+	int percent;
 	
-	public SelectLevelNumberController(LevelBuilder m, LevelBuilderApplication a)
+	public SelectSquarePercentController(LevelBuilder m, LevelBuilderApplication a, int percent)
 	{
 		this.model=m;
 		this.application=a;
+		this.percent=percent;
 	}
 	
 	@Override
@@ -29,15 +32,15 @@ public class SelectLevelNumberController implements ActionListener{
 	public void update(JTextField tf)
 	{
 		try{
-			int num = Integer.valueOf(tf.getText());
-			SetLevelNumberMove m=new SetLevelNumberMove(model, num, tf);
+			double num = Double.parseDouble(tf.getText());
+			SetSquarePercentMove m=new SetSquarePercentMove(model, num, tf, percent);
 			if(m.doMove())
 			{
-				System.out.println("Number of Level: "+model.getLevelNumber());
+				System.out.println("Percentage of "+(percent+1)+"s: "+model.getPercent(percent));
 				model.recordMove(m);
 			}
 		} catch (Exception e) {
-			tf.setText(""+model.getLevelNumber());
+			tf.setText(""+model.getPercent(percent));
 		}
 		
 	}

@@ -237,4 +237,34 @@ public class LevelBuilderInputPanel extends JPanel {
 	public JButton getGenerateLevelBtn(){
 		return generateLevelBtn ;
 	}
+	
+	public JTextField getPercent1()
+	{
+		return txtEnterPercentFor;
+	}
+	
+	public JTextField getPercent2()
+	{
+		return txtEnterPercentFor_1;
+	}
+	
+	public JTextField getPercent3()
+	{
+		return txtEnterPercentFor_2;
+	}
+	
+	public JTextField getPercent4()
+	{
+		return txtEnterPercentFor_3;
+	}
+	
+	public JTextField getPercent5()
+	{
+		return txtEnterPercentFor_4;
+	}
+	
+	public JTextField getPercent6()
+	{
+		return txtEnterPercentFor_5;
+	}
 }
