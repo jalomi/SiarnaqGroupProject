@@ -51,19 +51,19 @@ public class LevelSelectApplication extends JFrame {
 		levelButton[3].setBounds(430, 55, 100, 100);
 		getContentPane().add(levelButton[3]);
 		
-		numStars[0] = new JLabel("0 Stars");
+		numStars[0] = new JLabel(theGame.getStarNum(0) + " Stars");
 		numStars[0].setBounds(35, 165, 100, 21);
 		getContentPane().add(numStars[0]);
 		
-		numStars[1] = new JLabel("0 Stars");
+		numStars[1] = new JLabel(theGame.getStarNum(1) + " Stars");
 		numStars[1].setBounds(165, 165, 100, 21);
 		getContentPane().add(numStars[1]);
 		
-		numStars[2] = new JLabel("0 Stars");
+		numStars[2] = new JLabel(theGame.getStarNum(2) + " Stars");
 		numStars[2].setBounds(295, 165, 100, 21);
 		getContentPane().add(numStars[2]);
 		
-		numStars[3] = new JLabel("0 Stars");
+		numStars[3] = new JLabel(theGame.getStarNum(3) + " Stars");
 		numStars[3].setBounds(430, 165, 100, 21);
 		getContentPane().add(numStars[3]);
 		
@@ -84,19 +84,19 @@ public class LevelSelectApplication extends JFrame {
 		levelButton[7].setBounds(430, 220, 100, 100);
 		getContentPane().add(levelButton[7]);
 		
-		numStars[4] = new JLabel("0 Stars");
+		numStars[4] = new JLabel(theGame.getStarNum(4) + " Stars");
 		numStars[4].setBounds(35, 330, 100, 21);
 		getContentPane().add(numStars[4]);
 		
-		numStars[5] = new JLabel("0 Stars");
+		numStars[5] = new JLabel(theGame.getStarNum(5) + " Stars");
 		numStars[5].setBounds(165, 330, 100, 21);
 		getContentPane().add(numStars[5]);
 		
-		numStars[6] = new JLabel("0 Stars");
+		numStars[6] = new JLabel(theGame.getStarNum(6) + " Stars");
 		numStars[6].setBounds(295, 330, 100, 21);
 		getContentPane().add(numStars[6]);
 		
-		numStars[7] = new JLabel("0 Stars");
+		numStars[7] = new JLabel(theGame.getStarNum(7) + " Stars");
 		numStars[7].setBounds(430, 330, 100, 21);
 		getContentPane().add(numStars[7]);
 		
@@ -116,19 +116,19 @@ public class LevelSelectApplication extends JFrame {
 		levelButton[11].setBounds(430, 385, 100, 100);
 		getContentPane().add(levelButton[11]);
 		
-		numStars[8] = new JLabel("0 Stars");
+		numStars[8] = new JLabel(theGame.getStarNum(8) + " Stars");
 		numStars[8].setBounds(35, 495, 100, 21);
 		getContentPane().add(numStars[8]);
 		
-		numStars[9] = new JLabel("0 Stars");
+		numStars[9] = new JLabel(theGame.getStarNum(9) + " Stars");
 		numStars[9].setBounds(165, 495, 100, 21);
 		getContentPane().add(numStars[9]);
 		
-		numStars[10] = new JLabel("0 Stars");
+		numStars[10] = new JLabel(theGame.getStarNum(10) + " Stars");
 		numStars[10].setBounds(295, 495, 100, 21);
 		getContentPane().add(numStars[10]);
 		
-		numStars[11] = new JLabel("0 Stars");
+		numStars[11] = new JLabel(theGame.getStarNum(11) + " Stars");
 		numStars[11].setBounds(430, 495, 100, 21);
 		getContentPane().add(numStars[11]);
 		
@@ -148,19 +148,19 @@ public class LevelSelectApplication extends JFrame {
 		levelButton[15].setBounds(430, 550, 100, 100);
 		getContentPane().add(levelButton[15]);
 		
-		numStars[12] = new JLabel("0 Stars");
+		numStars[12] = new JLabel(theGame.getStarNum(12) + " Stars");
 		numStars[12].setBounds(35, 660, 100, 21);
 		getContentPane().add(numStars[12]);
 		
-		numStars[13] = new JLabel("0 Stars");
+		numStars[13] = new JLabel(theGame.getStarNum(13) + " Stars");
 		numStars[13].setBounds(165, 660, 100, 21);
 		getContentPane().add(numStars[13]);
 		
-		numStars[14] = new JLabel("0 Stars");
+		numStars[14] = new JLabel(theGame.getStarNum(14) + " Stars");
 		numStars[14].setBounds(295, 660, 100, 21);
 		getContentPane().add(numStars[14]);
 		
-		numStars[15] = new JLabel("0 Stars");
+		numStars[15] = new JLabel(theGame.getStarNum(15) + " Stars");
 		numStars[15].setBounds(430, 660, 100, 21);
 		getContentPane().add(numStars[15]);
 		

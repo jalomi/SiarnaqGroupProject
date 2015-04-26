@@ -27,7 +27,7 @@ public abstract class Level {
 	double percentM[] = new double[3] ;
 		
 	int score;
-	int starNumber;
+	int starNumber = 0;
 	int oneStarScore;
 	int twoStarScore;
 	int threeStarScore;
@@ -76,20 +76,20 @@ public abstract class Level {
 		this.levelNumber = number;
 		
 		//bad dummy values
-		percent[0] = .2 ;
-		percent[1] = .2 ;
-		percent[2] = .2 ;
-		percent[3] = .2 ;
+		percent[0] = .3 ;
+		percent[1] = .3 ;
+		percent[2] = .15 ;
+		percent[3] = .1 ;
 		percent[4] = .1 ;
-		percent[5] = .1 ;
+		percent[5] = .05 ;
 		
 		percentM[0] = .7 ;
 		percentM[1] = .2 ;
 		percentM[2] = .1 ;		
 		
-		oneStarScore = 10;
-		twoStarScore = 20;
-		threeStarScore = 30;
+		oneStarScore = 1000;
+		twoStarScore = 4000;
+		threeStarScore = 9000;
 		score = 0;
 		starNumber = 0;
 		

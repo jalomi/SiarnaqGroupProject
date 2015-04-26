@@ -2,6 +2,7 @@ package sixesWildMoves;
 
 import java.util.ArrayList;
 
+import sixesWildBoundary.MainMenuApplication;
 import sixesWildBoundary.SixesWildApplication;
 import sixesWildEntity.Board;
 import sixesWildEntity.Tile;
@@ -58,8 +59,11 @@ public class NormalSelectionMove implements IMove{
 			theGame.updateMovesLeft(-1) ;
 			
 			if(board.getLevel().hasWon()){
-				//TODO 
-				//what happens when the level has won?
+				//close the frame and return to level select
+				theGame.setVisible(false) ;
+				theGame.getModel().updateScores() ;
+				MainMenuApplication main = new MainMenuApplication();
+				main.setVisible(true);
 			}
 			
 			return true;
