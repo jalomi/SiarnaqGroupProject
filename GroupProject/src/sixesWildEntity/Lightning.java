@@ -12,10 +12,6 @@ public class Lightning extends Level {
 		this.timeRemaining = movesRemaining;
 	}
 	
-	public boolean hasWon() {
-		return false;
-	}
-	
 	public String getMovesRemainingString() {
 		return "Unlimited";
 	}
@@ -27,4 +23,25 @@ public class Lightning extends Level {
 	public void updateMovesLeft(int m){
 		
 	}
+	
+	public boolean hasWon(){
+		if(timeRemaining == 0){
+			if(score >= oneStarScore){
+				if(score >= threeStarScore){
+					starNumber = 3 ;
+				}
+				else if(score >= twoStarScore){
+					starNumber = 2 ;
+				}
+				else{
+					starNumber = 1 ;
+				}			
+				
+				return true ;
+			}
+		}
+		
+		return false ;
+	}
+	
 }

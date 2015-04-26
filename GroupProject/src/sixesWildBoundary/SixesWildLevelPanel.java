@@ -73,7 +73,7 @@ public class SixesWildLevelPanel extends JPanel {
 		resetBoardButton.setBounds(115, 95, 100, 40);
 		add(resetBoardButton);
 		
-		JLabel scoreLabel = new JLabel("Score");
+		JLabel scoreLabel = new JLabel("0");
 		scoreLabel.setBounds(245, 40, 50, 21);
 		add(scoreLabel);
 		

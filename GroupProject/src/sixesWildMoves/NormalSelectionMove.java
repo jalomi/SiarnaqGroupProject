@@ -56,6 +56,12 @@ public class NormalSelectionMove implements IMove{
 			board.fall(tiles);
 			theGame.updateScore(score);
 			theGame.updateMovesLeft(-1) ;
+			
+			if(board.getLevel().hasWon()){
+				//TODO 
+				//what happens when the level has won?
+			}
+			
 			return true;
 		}
 		return false;

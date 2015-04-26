@@ -20,7 +20,7 @@ public class SixesWild {
 		//should load levels from disk by using LevelJSONSerializer
 		//since LevelBuilder is not ready
 		//make a default list of levels of size 1
-		levels.add(new Puzzle(1, 20));
+		levels.add(new Puzzle(1, 30));
 		board = Board.newInstance();
 	}
 	

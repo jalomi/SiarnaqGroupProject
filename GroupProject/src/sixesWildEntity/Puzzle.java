@@ -8,12 +8,7 @@ public class Puzzle extends Level {
 		super(number);
 		this.movesRemaining=movesRemaining;
 	}
-	
-	public boolean hasWon()
-	{
-		return false;
-	}
-	
+		
 	public String getMovesRemainingString() {
 		return String.valueOf(movesRemaining);
 	}
@@ -25,5 +20,26 @@ public class Puzzle extends Level {
 	public void updateMovesLeft(int m){
 		movesRemaining += m ;
 	}
+	
+	public boolean hasWon(){
+		if(movesRemaining == 0){
+			if(score >= oneStarScore){
+				if(score >= threeStarScore){
+					starNumber = 3 ;
+				}
+				else if(score >= twoStarScore){
+					starNumber = 2 ;
+				}
+				else{
+					starNumber = 1 ;
+				}			
+				
+				return true ;
+			}
+		}
+		
+		return false ;
+	}
+	
 	
 }

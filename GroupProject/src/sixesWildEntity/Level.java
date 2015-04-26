@@ -28,9 +28,9 @@ public abstract class Level {
 		
 	int score;
 	int starNumber;
-	int firstStarScore;
-	int secondStarScore;
-	int thirdStarScore;
+	int oneStarScore;
+	int twoStarScore;
+	int threeStarScore;
 	
 	boolean unlocked ;
 	boolean swapEnabled;
@@ -60,9 +60,9 @@ public abstract class Level {
         
         score = json.getInt("score"); //score may not be need to store
         starNumber = json.getInt("starNumber");
-        firstStarScore = json.getInt("firstStarScore");
-        secondStarScore = json.getInt("secondStarScore");
-        thirdStarScore = json.getInt("thirdStarScore");
+        oneStarScore = json.getInt("firstStarScore");
+        twoStarScore = json.getInt("secondStarScore");
+        threeStarScore = json.getInt("thirdStarScore");
         
         unlocked = json.getBoolean("unlocked") ;
         swapEnabled = json.getBoolean("swapEnabled");
@@ -87,9 +87,9 @@ public abstract class Level {
 		percentM[1] = .2 ;
 		percentM[2] = .1 ;		
 		
-		firstStarScore = 10;
-		secondStarScore = 20;
-		thirdStarScore = 30;
+		oneStarScore = 10;
+		twoStarScore = 20;
+		threeStarScore = 30;
 		score = 0;
 		starNumber = 0;
 		
@@ -129,9 +129,9 @@ public abstract class Level {
 			this.percentM[1] = m1;
 			this.percentM[2] = m1;
 			
-			this.firstStarScore = first;
-			this.secondStarScore = second;
-			this.thirdStarScore = third;
+			this.oneStarScore = first;
+			this.twoStarScore = second;
+			this.threeStarScore = third;
 			this.score = 0;
 			this.starNumber = 0;
 			
@@ -164,9 +164,9 @@ public abstract class Level {
         
         json.put("score", score); //score may not be need to store
         json.put("starNumber", starNumber);
-        json.put("firstStarScore", firstStarScore);
-        json.put("secondStarScore", secondStarScore);
-        json.put("thirdStarScore", thirdStarScore);
+        json.put("firstStarScore", oneStarScore);
+        json.put("secondStarScore", twoStarScore);
+        json.put("thirdStarScore", threeStarScore);
         
         json.put("unlocked", unlocked) ;
         json.put("swapEnabled", swapEnabled);
@@ -216,22 +216,22 @@ public abstract class Level {
 		
 		return new Square(value, multi);
 	}
-
+	
 	public boolean[][] getEnabledTiles() {
 		return enabledTiles;
 	}
 	
 	public int getFirstStarScore() {
-		return this.firstStarScore;
+		return this.oneStarScore;
 	}
 	
 	public int getSecondStarScore() {
-		return this.secondStarScore;
+		return this.twoStarScore;
 	}
 	
 	
 	public int getThirdStarScore() {
-		return this.thirdStarScore;
+		return this.threeStarScore;
 	}
 	
 	public void updateScore(int s) {
@@ -245,5 +245,6 @@ public abstract class Level {
 	public abstract String getMovesRemainingString();
 	public abstract String getTimeRemainingString();
 	public abstract void updateMovesLeft(int m) ;
+	public abstract boolean hasWon() ;
 	
 }
