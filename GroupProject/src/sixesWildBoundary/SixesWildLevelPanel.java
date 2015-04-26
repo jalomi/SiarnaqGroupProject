@@ -27,8 +27,8 @@ public class SixesWildLevelPanel extends JPanel {
 	JTextArea text2ndStarScore;
 	JTextArea text3rdStarScore;
 	
-	JTextArea txtrTime;
-	JTextArea txtrMoveRem;
+	JTextArea textTime;
+	JTextArea textMoveRem;
 	
 	/* Entities */
 	private Level level;
@@ -109,17 +109,17 @@ public class SixesWildLevelPanel extends JPanel {
 		text3rdStarScore.setBounds(396, 108, 62, 27);
 		add(text3rdStarScore);
 		
-		txtrTime = new JTextArea();
-		txtrTime.setEditable(false);
-		txtrTime.setText(level.getTimeRemainingString());
-		txtrTime.setBounds(319, 68, 72, 27);
-		add(txtrTime);
+		textTime = new JTextArea();
+		textTime.setEditable(false);
+		textTime.setText(level.getTimeRemainingString());
+		textTime.setBounds(319, 68, 72, 27);
+		add(textTime);
 		
-		txtrMoveRem = new JTextArea();
-		txtrMoveRem.setEditable(false);
-		txtrMoveRem.setText(level.getMovesRemainingString());
-		txtrMoveRem.setBounds(408, 68, 80, 25);
-		add(txtrMoveRem);
+		textMoveRem = new JTextArea();
+		textMoveRem.setEditable(false);
+		textMoveRem.setText(level.getMovesRemainingString());
+		textMoveRem.setBounds(408, 68, 80, 25);
+		add(textMoveRem);
 	}
 	
 	public void initControllers(SixesWildApplication app, SixesWild theGame) {
@@ -127,7 +127,9 @@ public class SixesWildLevelPanel extends JPanel {
 	}
 	
 	public void refresh() {
-		
+		textScore.setText(Integer.toString(level.getScore())) ;
+		textTime.setText(level.getTimeRemainingString()) ;
+		textMoveRem.setText(level.getMovesRemainingString()) ;		
 	}
 	
 	public JButton getBackToMainManuButton() {
