@@ -25,6 +25,7 @@ public class LevelBuilderInputPanel extends JPanel {
 	private JTextField txtEnterPercentFor_5;
 	private JTextField txtEnterPercentFor_6;
 	private JTextField txtEnterPercentFor_7;
+	private JButton generateLevelBtn ;
 	private JButton previewBtn ;
 	private JButton exitBtn ;
 	private JButton undoBtn;
@@ -96,9 +97,9 @@ public class LevelBuilderInputPanel extends JPanel {
 		add(txtEnterScore_2);
 		txtEnterScore_2.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Generate Level");
-		btnNewButton.setBounds(0, 415, 150, 40);
-		add(btnNewButton);
+		generateLevelBtn = new JButton("Generate Level");
+		generateLevelBtn.setBounds(0, 415, 150, 40);
+		add(generateLevelBtn);
 		
 		exitBtn = new JButton("Exit");
 		exitBtn.setBounds(0, 470, 150, 40);
@@ -231,5 +232,9 @@ public class LevelBuilderInputPanel extends JPanel {
 	public JTextField getLevel() {
 		// TODO Auto-generated method stub
 		return txtLevelNumber;
+	}
+	
+	public JButton getGenerateLevelBtn(){
+		return generateLevelBtn ;
 	}
 }

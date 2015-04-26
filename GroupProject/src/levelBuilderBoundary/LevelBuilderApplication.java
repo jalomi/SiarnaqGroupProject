@@ -7,6 +7,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.UIManager;
 
 import levelBuilderControllers.ExitController;
+import levelBuilderControllers.GenerateLevelController;
 import levelBuilderControllers.PreviewController;
 import levelBuilderControllers.RedoController;
 import levelBuilderControllers.Select1StarScoreController;
@@ -86,6 +87,7 @@ public class LevelBuilderApplication extends JFrame {
 		contentPane.add(inputPanel);
 		
 		//controllers
+		getGenerateBtn().addActionListener(new GenerateLevelController(this)) ;
 		getPreviewBtn().addActionListener(new PreviewController(this)) ;
 		getExitBtn().addActionListener(new ExitController(this)) ;
 		getInputPanel().getUndoBtn().addActionListener(new UndoController(model, this));
@@ -102,9 +104,13 @@ public class LevelBuilderApplication extends JFrame {
 	private JButton getExitBtn() {
 		return inputPanel.getExitBtn();
 	}
-
+	
 	public JButton getPreviewBtn(){
 		return inputPanel.getPreviewBtn() ;
+	}
+	
+	public JButton getGenerateBtn(){
+		return inputPanel.getGenerateLevelBtn() ;
 	}
 	
 }
