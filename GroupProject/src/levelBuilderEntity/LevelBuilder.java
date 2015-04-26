@@ -70,6 +70,7 @@ public class LevelBuilder {
 		this.allowReset = false;
 		this.allowSwap = false;
 		this.allowRemove = false;
+		this.type=1;
 	}
 	
 	/**

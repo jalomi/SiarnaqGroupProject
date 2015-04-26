@@ -32,6 +32,7 @@ public class LevelBuilderInputPanel extends JPanel {
 	private JButton exitBtn ;
 	private JButton undoBtn;
 	private JButton redoBtn;
+	private JComboBox<String> comboBox;
 
 	/**
 	 * Create the panel.
@@ -46,7 +47,7 @@ public class LevelBuilderInputPanel extends JPanel {
 		add(txtLevelNumber);
 		txtLevelNumber.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox<String>();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Puzzle", "Lightning", "Elimination", "Release"}));
 		comboBox.setBounds(0, 35, 150, 24);
 		add(comboBox);
@@ -288,5 +289,10 @@ public class LevelBuilderInputPanel extends JPanel {
 	public JTextArea getPercentx1() {
 		// TODO Auto-generated method stub
 		return txtrPercentForx;
+	}
+	
+	public JComboBox getType()
+	{
+		return comboBox;
 	}
 }
