@@ -7,6 +7,7 @@ import javax.swing.JTextField;
 
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
+import levelBuilderMoves.SetSecondsMove;
 
 public class SelectSecondsController implements ActionListener{
 	LevelBuilder model;
@@ -29,9 +30,12 @@ public class SelectSecondsController implements ActionListener{
 	{
 		try{
 			int num = Integer.valueOf(tf.getText());
-			model.setSeconds(num);
-			application.getInputPanel().getSeconds().setText(""+tf.getText());
-			System.out.println("Number of Seconds: "+model.getSeconds());
+			SetSecondsMove m=new SetSecondsMove(model, num, tf);
+			if(m.doMove())
+			{
+				System.out.println("Number of Seconds: "+model.getSeconds());
+				model.recordMove(m);
+			}
 		} catch (Exception e) {
 			tf.setText(""+model.getSeconds());
 		}

@@ -14,12 +14,18 @@ import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import sixesWildEntity.Elimination;
 import sixesWildEntity.Level;
+import sixesWildEntity.Lightning;
 import sixesWildEntity.Puzzle;
+import sixesWildEntity.Release;
 
 public class LevelJSONSerializer {
+	
+	public static final String TAG = "LevelJSONSerializer";
 
     private String fileName;
 
@@ -75,11 +81,52 @@ public class LevelJSONSerializer {
 		return levels;
     }
     
-    public void saveSingleLevel(Level level) {
-    	
+    public void saveSingleLevel(Level level) throws JSONException, IOException {
+        JSONObject json = level.toJSON();
+        Writer writer = null;
+        try {
+            OutputStream out = new FileOutputStream(fileName);
+            writer = new OutputStreamWriter(out);
+            writer.write(json.toString());
+        } finally {
+            if (writer != null)
+                writer.close();
+        }
     }
     
-    public Level loadSingelLevel() {
-    	return null;
+    public Level loadSingleLevel(String type) throws IOException, JSONException {
+        Level level = null;
+        BufferedReader reader = null;
+        try {
+            // open and read the file into a StringBuilder
+            InputStream in = new FileInputStream(fileName);
+            reader = new BufferedReader(new InputStreamReader(in));
+            StringBuilder jsonString = new StringBuilder();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                jsonString.append(line);
+            }
+            
+            // parse the JSON using JSONTokener
+            JSONObject json = (JSONObject) new JSONTokener(jsonString.toString()).nextValue();
+            
+            if(type.equals("Elimination")) {
+            	level = new Elimination(json);
+            } else if(type.equals("Lightning")) {
+            	level = new Lightning(json);
+            } else if(type.equals("Puzzle")) {
+            	level = new Puzzle(json);
+            } else if(type.equals("Release")) {
+            	level = new Release(json);
+            }
+            
+        } catch (FileNotFoundException e) {
+            System.err.println(TAG + " not such a file: " + fileName);
+        } finally {
+            if (reader != null)
+                reader.close();
+        }
+        
+		return level;
     }
 }

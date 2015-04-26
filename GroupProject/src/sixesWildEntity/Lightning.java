@@ -2,6 +2,9 @@ package sixesWildEntity;
 
 import java.sql.Time;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Lightning extends Level {
 	int timeRemaining;
 	//a real countdown timer should be implemented later
@@ -12,6 +15,10 @@ public class Lightning extends Level {
 		this.timeRemaining = movesRemaining;
 	}
 	
+	public Lightning(JSONObject json) throws JSONException {
+		super(json);
+	}
+
 	public String getMovesRemainingString() {
 		return "Unlimited";
 	}

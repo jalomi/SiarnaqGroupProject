@@ -1,5 +1,8 @@
 package sixesWildEntity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Release extends Level {
 	int movesRemaining;
 	
@@ -8,6 +11,11 @@ public class Release extends Level {
 		this.movesRemaining=movesRemaining;
 	}
 	
+	public Release(JSONObject json) throws JSONException {
+		super(json);
+		//
+	}
+
 	public String getMovesRemainingString() {
 		return String.valueOf(movesRemaining);
 	}
