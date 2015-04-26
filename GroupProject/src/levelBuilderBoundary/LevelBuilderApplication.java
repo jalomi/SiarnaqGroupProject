@@ -8,6 +8,7 @@ import javax.swing.UIManager;
 
 import levelBuilderControllers.ExitController;
 import levelBuilderControllers.PreviewController;
+import levelBuilderControllers.RedoController;
 import levelBuilderControllers.Select1StarScoreController;
 import levelBuilderControllers.Select2StarScoreController;
 import levelBuilderControllers.Select3StarScoreController;
@@ -88,6 +89,7 @@ public class LevelBuilderApplication extends JFrame {
 		getPreviewBtn().addActionListener(new PreviewController(this)) ;
 		getExitBtn().addActionListener(new ExitController(this)) ;
 		getInputPanel().getUndoBtn().addActionListener(new UndoController(model, this));
+		getInputPanel().getRedoBtn().addActionListener(new RedoController(model, this));
 		getInputPanel().getMaxMoves().addActionListener(new SelectMoveNumberController (model, this));
 		getInputPanel().getScore1().addActionListener(new Select1StarScoreController (model, this));
 		getInputPanel().getScore2().addActionListener(new Select2StarScoreController (model, this));
