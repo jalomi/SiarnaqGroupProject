@@ -36,7 +36,7 @@ public class Puzzle extends Level {
 	}
 	
 	public boolean hasWon(){
-		if(movesRemaining == 0){
+		if(movesRemaining <= 0){
 			if(score >= oneStarScore){
 				if(score >= threeStarScore){
 					starNumber = 3 ;

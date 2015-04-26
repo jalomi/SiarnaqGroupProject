@@ -241,6 +241,10 @@ public abstract class Level {
 	public int getScore() {
 		return score;
 	}
+	
+	public int getLevelNumber() {
+		return levelNumber;
+	}
 		
 	public abstract String getMovesRemainingString();
 	public abstract String getTimeRemainingString();

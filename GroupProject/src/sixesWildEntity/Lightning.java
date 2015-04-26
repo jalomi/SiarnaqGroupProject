@@ -32,7 +32,7 @@ public class Lightning extends Level {
 	}
 	
 	public boolean hasWon(){
-		if(timeRemaining == 0){
+		if(timeRemaining <= 0){
 			if(score >= oneStarScore){
 				if(score >= threeStarScore){
 					starNumber = 3 ;

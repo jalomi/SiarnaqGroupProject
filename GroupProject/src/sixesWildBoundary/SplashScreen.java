@@ -6,13 +6,13 @@ import javax.swing.*;
 
 import sixesWildEntity.SixesWild;
 
-public class SplashScreenGame extends JWindow {
+public class SplashScreen extends JWindow {
   private int duration;
   /**
    * constructor 
    * @param d input int for how long you want for splash screen to stay in ms.
    */
-  public SplashScreenGame(int d) {
+  public SplashScreen(int d) {
     this.duration = d;
   }
 
@@ -66,7 +66,7 @@ public class SplashScreenGame extends JWindow {
 
   public static void main(String[] args) throws Exception {
     // Throw a nice little title page up on the screen first
-    SplashScreenGame splash = new SplashScreenGame(1000);
+    SplashScreen splash = new SplashScreen(1000);
     splash.showSplash();
     
 	SixesWild theGame = new SixesWild();

@@ -1,16 +1,16 @@
 package sixesWildBoundary;
 
 import junit.framework.TestCase;
-import sixesWildBoundary.SplashScreenGame;
+import sixesWildBoundary.SplashScreen;
 
 public class TestSplashScreen extends TestCase {
 
-	SplashScreenGame sg;
+	SplashScreen sg;
 	
 	@Override
 	protected void setUp()
 	{
-		sg=new SplashScreenGame(1000);
+		sg=new SplashScreen(1000);
 		sg.showSplash();
 		sg.setVisible(true);
 	}

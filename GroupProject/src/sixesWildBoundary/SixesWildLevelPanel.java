@@ -52,7 +52,7 @@ public class SixesWildLevelPanel extends JPanel {
 	public void initBoundaries() {
 		JTextArea txtrLevelNumberHere = new JTextArea();
 		txtrLevelNumberHere.setEditable(false);
-		txtrLevelNumberHere.setText("Level Number Here");
+		txtrLevelNumberHere.setText("Level Number: " + level.getLevelNumber());
 		txtrLevelNumberHere.setBounds(170, 0, 150, 27);
 		add(txtrLevelNumberHere);
 		

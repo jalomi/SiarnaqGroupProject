@@ -1,35 +1,46 @@
 package sixesWildMoves;
 
+import sixesWildBoundary.SixesWildApplication;
 import sixesWildEntity.Board;
 import sixesWildEntity.Square;
+import sixesWildEntity.Tile;
 
-public class RemoveSquareMove extends Move{
-	Square square;
+public class RemoveSquareMove implements IMove{
+	Tile tile;
+	Board board ;
 
-	public RemoveSquareMove(Board board, Square s) {
-		super(board);
-		this.square = s;
+	public RemoveSquareMove(Board board, Tile t) {
+		this.board = board ;
+		this.tile = t;
 	}
 
 	@Override
-	public boolean isValid() {
-		// TODO Auto-generated method stub
+	public boolean isValid(SixesWildApplication theGame) {
+		if(tile.getSquare().getValue() != 6){
+			return true ;
+		}
+		
 		return false;
 	}
 
 	@Override
-	public boolean doMove() {
-		if(!isValid()){
-			return false ;
+	public boolean doMove(SixesWildApplication theGame) {
+		if(isValid(theGame)){
+			tile.setSquare(board.generateSquare()) ;
+			
+			//make sure a 6 isn't generated
+			while(tile.getSquare().getValue() == 6){
+				tile.setSquare(board.generateSquare()) ;
+			}
+			
+			return true ;
 		}
-		
-		
-		return true ;
+		return false ;
 	}
 
 	@Override
-	public int getScore() {
+	public void undoMove(SixesWildApplication theGame) {
 		// TODO Auto-generated method stub
-		return 0;
+		
 	}
 }

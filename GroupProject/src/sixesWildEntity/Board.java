@@ -43,7 +43,7 @@ public class Board {
 		}
 	}
 	
-	private Square generateSquare() {
+	public Square generateSquare() {
 		return this.level.generateSquare();
 	}
 	
