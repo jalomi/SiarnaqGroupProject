@@ -1,5 +1,6 @@
 package levelBuilderMoves;
 
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import levelBuilderEntity.LevelBuilder;
@@ -9,37 +10,51 @@ public class SetSquarePercentMove extends Move{
 	double newValue;
 	double oldValue;
 	JTextField tf;
-	int percent;
+	int squareNum;
+	JTextArea ta;
 	
-	public SetSquarePercentMove(LevelBuilder model, double newValue, JTextField tf, int percent)
+	public SetSquarePercentMove(LevelBuilder model, double newValue, JTextField tf, int squareNum, JTextArea ta)
 	{
 		this.model=model;
 		this.newValue=newValue;
-		this.oldValue=model.getPercent(percent);
+		this.oldValue=model.getPercent(squareNum);
 		this.tf=tf;
-		this.percent=percent;
+		this.squareNum=squareNum;
+		this.ta=ta;
 	}
 
 	@Override
 	public boolean isValid() {
-		return newValue>=0 /*&& (model.getPercent(0)+model.getPercent(1)+model.getPercent(2)
-				+model.getPercent(3)+model.getPercent(4)+model.getPercent(5))==100*/;
+		return newValue>=0 && newValue<=100; /*&& (model.getPercent(0)+model.getPercent(1)+model.getPercent(2)
+				+model.getPercent(3)+model.getPercent(4)+model.getPercent(5))==100*/
 	}
 
 	@Override
 	public boolean doMove() {
 		// TODO Auto-generated method stub
+		int sum=0;
 		if(!isValid()){return false;}
-		model.setPercents(percent, newValue);
-		tf.setText(""+model.getPercent(percent));
+		model.setPercents(squareNum, newValue);
+		tf.setText(""+model.getPercent(squareNum));
+		for(int i=0; i<6; i++)
+		{
+			sum+=model.getPercent(i);
+		}
+		ta.setText(""+sum);
 		return true;
 	}
 
 	@Override
 	public boolean undo() {
 		// TODO Auto-generated method stub
-		model.setPercents(percent, oldValue);
-		tf.setText(""+model.getPercent(percent));
+		int sum=0;
+		model.setPercents(squareNum, oldValue);
+		tf.setText(""+model.getPercent(squareNum));
+		for(int i=0; i<6; i++)
+		{
+			sum+=model.getPercent(i);
+		}
+		ta.setText(""+sum);
 		return true;
 	}
 }

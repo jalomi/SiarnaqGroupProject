@@ -25,6 +25,8 @@ public class LevelBuilderInputPanel extends JPanel {
 	private JTextField txtEnterPercentFor_5;
 	private JTextField txtEnterPercentFor_6;
 	private JTextField txtEnterPercentFor_7;
+	private JTextArea txtrTotalPercent;
+	private JTextArea txtrPercentForx;
 	private JButton generateLevelBtn ;
 	private JButton previewBtn ;
 	private JButton exitBtn ;
@@ -141,13 +143,13 @@ public class LevelBuilderInputPanel extends JPanel {
 		add(txtEnterPercentFor_5);
 		txtEnterPercentFor_5.setColumns(10);
 		
-		JTextArea txtrTotalPercent = new JTextArea();
+		txtrTotalPercent = new JTextArea();
 		txtrTotalPercent.setText("Total Percent");
 		txtrTotalPercent.setEditable(false);
 		txtrTotalPercent.setBounds(210, 210, 150, 27);
 		add(txtrTotalPercent);
 		
-		JTextArea txtrPercentForx = new JTextArea();
+		txtrPercentForx = new JTextArea();
 		txtrPercentForx.setEditable(false);
 		txtrPercentForx.setText("Percent for 1x");
 		txtrPercentForx.setBounds(210, 257, 150, 27);
@@ -266,5 +268,25 @@ public class LevelBuilderInputPanel extends JPanel {
 	public JTextField getPercent6()
 	{
 		return txtEnterPercentFor_5;
+	}
+	
+	public JTextField getPercentx2()
+	{
+		return txtEnterPercentFor_6;
+	}
+	
+	public JTextField getPercentx3()
+	{
+		return txtEnterPercentFor_7;
+	}
+	
+	public JTextArea getTotalPercent()
+	{
+		return txtrTotalPercent;
+	}
+
+	public JTextArea getPercentx1() {
+		// TODO Auto-generated method stub
+		return txtrPercentForx;
 	}
 }

@@ -166,7 +166,7 @@ public class LevelBuilder {
 		percents[n] = p;
 	}
 	
-	public void setPercentM(int m, int p){
+	public void setPercentM(int m, double p){
 		percentM[m] = p;
 	}
 	

@@ -7,19 +7,18 @@ import javax.swing.JTextField;
 
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
-import levelBuilderMoves.SetLevelNumberMove;
-import levelBuilderMoves.SetSquarePercentMove;
+import levelBuilderMoves.SetMultiplierPercentMove;
 
-public class SelectSquarePercentController implements ActionListener{
+public class SelectMultiplierPercentController implements ActionListener{
 	LevelBuilder model;
 	LevelBuilderApplication application;
-	int square;
+	int multiplier;
 	
-	public SelectSquarePercentController(LevelBuilder m, LevelBuilderApplication a, int square)
+	public SelectMultiplierPercentController(LevelBuilder m, LevelBuilderApplication a, int multiplier)
 	{
 		this.model=m;
 		this.application=a;
-		this.square=square;
+		this.multiplier=multiplier;
 	}
 	
 	@Override
@@ -33,14 +32,14 @@ public class SelectSquarePercentController implements ActionListener{
 	{
 		try{
 			double num = Double.parseDouble(tf.getText());
-			SetSquarePercentMove m=new SetSquarePercentMove(model, num, tf, square, application.getInputPanel().getTotalPercent());
+			SetMultiplierPercentMove m=new SetMultiplierPercentMove(model, num, tf, multiplier, application.getInputPanel().getPercentx1());
 			if(m.doMove())
 			{
-				System.out.println("Percentage of "+(square+1)+"s: "+model.getPercent(square));
+				System.out.println("Percentage of x"+(multiplier+1)+"s: "+model.getPercentM(multiplier));
 				model.recordMove(m);
 			}
 		} catch (Exception e) {
-			tf.setText(""+model.getPercent(square));
+			tf.setText(""+model.getPercentM(multiplier));
 		}
 		
 	}
