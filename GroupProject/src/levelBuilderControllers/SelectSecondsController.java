@@ -10,6 +10,9 @@ import levelBuilderEntity.LevelBuilder;
 import levelBuilderMoves.SetSecondsMove;
 
 public class SelectSecondsController implements ActionListener{
+	/*This controller should be either removed or rewritten
+	 * We only need one SetTimeController!!!*/
+	
 	LevelBuilder model;
 	LevelBuilderApplication application;
 	
@@ -28,17 +31,17 @@ public class SelectSecondsController implements ActionListener{
 	
 	public void update(JTextField tf)
 	{
-		try{
-			int num = Integer.valueOf(tf.getText());
-			SetSecondsMove m=new SetSecondsMove(model, num, tf);
-			if(m.doMove())
-			{
-				System.out.println("Number of Seconds: "+model.getSeconds());
-				model.recordMove(m);
-			}
-		} catch (Exception e) {
-			tf.setText(""+model.getSeconds());
-		}
+//		try{
+//			int num = Integer.valueOf(tf.getText());
+//			SetSecondsMove m=new SetSecondsMove(model, num, tf);
+//			if(m.doMove())
+//			{
+//				System.out.println("Number of Seconds: "+model.getSeconds());
+//				model.recordMove(m);
+//			}
+//		} catch (Exception e) {
+//			tf.setText(""+model.getSeconds());
+//		}
 		
 	}
 }

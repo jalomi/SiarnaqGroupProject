@@ -10,30 +10,39 @@ public class LevelBuilder {
 	
 	public static final String TAG = "LevelBuilder";
 	
+	
+	/*    The Configuration of a Level    */
 	int number;
-	/**!!!Important!!!
-	 * Please change type to String
-	 */
 	String type;
+	
 	boolean unlocked;
-	boolean [][] tilesActive = new boolean[9][9] ;
-	//HashMap<Integer, Boolean> tilesActive = new HashMap<Integer, Boolean>() ;
 	boolean allowReset;
 	boolean allowSwap;
 	boolean allowRemove;
+	boolean [][] tilesActive = new boolean[9][9];
+	boolean[] bucketFor6s=new boolean[9]; //Haven't been added to the constructor yet!
+	
     double percents[] = new double[6];
-
 	double percentM[] = new double[3];
+	
 	int oneStarScore;
 	int twoStarScore;
 	int threeStarScore;
-	int minutes; 
-	int seconds;
-	int moves;
-	boolean[] bucketFor6s=new boolean[9];
 	
+	int millisecond; //millisecond is the unit which java real time uses
+	int moves;
+	/*    End The Configuration of a Level    */
+	
+	/*    Current Editing Level    */
+	//Must do cast after you do type checking!!!
+	Level level;
+	/*    End Current Editing Level    */
+	
+	
+	/*    The info LevelBuilder keeps for itself    */
 	Stack<Move> moveStack = new Stack<Move>();
 	Stack<Move> redoStack = new Stack<Move>();
+	/*    End The info LevelBuilder keeps for itself    */
 	
 	//CONSTRUCTOR 
 	public LevelBuilder(){
@@ -83,9 +92,7 @@ public class LevelBuilder {
 	}
 	
 	/**
-	 * Very very important!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	 * Please add (boolean unlocked)
-	 * @return
+	 * @return Level
 	 * @throws Exception 
 	 */
 	public Level generateLevel(String type) throws Exception {
@@ -256,14 +263,6 @@ public class LevelBuilder {
 		moves = n;
 	}
 	
-	public void setMinutes(int n){
-		minutes=n;
-	}
-	
-	public void setSeconds(int n){
-		seconds=n;
-	}
-	
 	public boolean entriesValid()
 	{
 		return false;
@@ -314,16 +313,6 @@ public class LevelBuilder {
 	
 	public int getThreeStarScore(){
 		return threeStarScore; 
-	}
-	
-	public int getMinutes()
-	{
-		return minutes;
-	}
-	
-	public int getSeconds()
-	{
-		return seconds;
 	}
 	
 	public boolean getEnabled(int i)

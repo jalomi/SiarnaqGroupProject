@@ -75,30 +75,30 @@ public class SetLevelTypeMove extends Move{
 		// TODO Auto-generated method stub
 		switch(oldValue)
 		{
-			case 1:
-				model.setLevelType(1);
-				cb.removeActionListener(controller);
-				cb.setSelectedItem("Puzzle");
-				cb.addActionListener(controller);
-				break;
-			case 2:
-				model.setLevelType(2);
-				cb.removeActionListener(controller);
-				cb.setSelectedItem("Lightning");
-				cb.addActionListener(controller);
-				break;
-			case 3:
-				model.setLevelType(3);
-				cb.removeActionListener(controller);
-				cb.setSelectedItem("Elimination");
-				cb.addActionListener(controller);
-				break;
-			case 4:
-				model.setLevelType(4);
-				cb.removeActionListener(controller);
-				cb.setSelectedItem("Release");
-				cb.addActionListener(controller);
-				break;
+//			case 1:
+//				model.setLevelType(1);
+//				cb.removeActionListener(controller);
+//				cb.setSelectedItem("Puzzle");
+//				cb.addActionListener(controller);
+//				break;
+//			case 2:
+//				model.setLevelType(2);
+//				cb.removeActionListener(controller);
+//				cb.setSelectedItem("Lightning");
+//				cb.addActionListener(controller);
+//				break;
+//			case 3:
+//				model.setLevelType(3);
+//				cb.removeActionListener(controller);
+//				cb.setSelectedItem("Elimination");
+//				cb.addActionListener(controller);
+//				break;
+//			case 4:
+//				model.setLevelType(4);
+//				cb.removeActionListener(controller);
+//				cb.setSelectedItem("Release");
+//				cb.addActionListener(controller);
+//				break;
 		}
 		return true;
 	}

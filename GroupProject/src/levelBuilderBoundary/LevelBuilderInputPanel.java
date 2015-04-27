@@ -176,9 +176,14 @@ public class LevelBuilderInputPanel extends JPanel {
 		redoBtn.setBounds(295, 470, 65, 40);
 		add(redoBtn);
 		
-		JButton btnNewButton_1 = new JButton("Edit Level");
-		btnNewButton_1.setBounds(210, 363, 150, 40);
-		add(btnNewButton_1);
+		//this view should be dynamically loaded in the run time
+		//change later
+		JComboBox<String> choosingLevelBox = 
+			new JComboBox<String>(
+				new DefaultComboBoxModel(
+					new String[] {"Puzzle 1"}));
+		choosingLevelBox.setBounds(210, 363, 150, 40);
+		add(choosingLevelBox);
 	}
 
 	public JButton getUndoBtn()
