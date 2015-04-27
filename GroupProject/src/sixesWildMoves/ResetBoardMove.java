@@ -7,10 +7,10 @@ import sixesWildEntity.Board;
 import sixesWildEntity.Square;
 
 public class ResetBoardMove implements IMove{
-	ArrayList<Square> squares;
+	Board board ;
 	
-	public ResetBoardMove(Board board, ArrayList<Square> squares) {
-		this.squares = squares;
+	public ResetBoardMove(Board board) {
+		this.board = board;
 	}
 
 	@Override

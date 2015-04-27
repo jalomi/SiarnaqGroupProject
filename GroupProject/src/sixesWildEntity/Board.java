@@ -13,7 +13,6 @@ public class Board {
 	
 	boolean removeMove;
 	boolean swapMove;
-	boolean resetMove;
 	
 	public static Board newInstance() {
 		if(board == null) {
@@ -26,7 +25,6 @@ public class Board {
 		this.level = null;
 		removeMove = false ;
 		swapMove = false ;
-		resetMove = false ;
 	}
 	
 	private void populateBoard() throws Exception {

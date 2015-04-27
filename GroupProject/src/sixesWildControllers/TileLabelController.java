@@ -101,9 +101,9 @@ public class TileLabelController extends MouseAdapter {
 				if(m.doMove(sixesWildApp)){
 					sixesWildApp.getGamePanel().refreshBoard();
 					sixesWildApp.getLevelPanel().refresh();
-					System.out.println(TAG + "RemoveSquareMove suceeded");
+					System.out.println(TAG + "SwapSquareMove suceeded");
 				} else {
-					System.out.println(TAG + "RemoveSquareMove failed");
+					System.out.println(TAG + "SwapSquareMove failed");
 				}
 				selectedLabels.removeAll(selectedLabels);				
 			}
