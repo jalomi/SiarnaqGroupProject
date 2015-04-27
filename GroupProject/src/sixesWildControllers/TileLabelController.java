@@ -11,6 +11,7 @@ import sixesWildEntity.SixesWild;
 import sixesWildEntity.Tile;
 import sixesWildMoves.IMove;
 import sixesWildMoves.NormalSelectionMove;
+import sixesWildMoves.RemoveSquareMove;
 
 public class TileLabelController extends MouseAdapter {
 	public static final String TAG = "JLabelController";
@@ -28,7 +29,7 @@ public class TileLabelController extends MouseAdapter {
 	}
 	
 	@Override
-	public void mousePressed(MouseEvent me) {
+	public void mousePressed(MouseEvent me) {		
 		Component c = me.getComponent();
 		TileLabel label = (TileLabel) c;
 		label.setIconSelected();
@@ -59,25 +60,48 @@ public class TileLabelController extends MouseAdapter {
 	
 	@Override
 	public void mouseReleased(MouseEvent me) {
-		
-		for(TileLabel label : selectedLabels) {
-			label.setIconUnselected();
+		if(sixesWildApp.getModel().getBoard().getRemoveMove()){
+			//Remove tile move
+			for(TileLabel label : selectedLabels) {
+				label.setIconUnselected();
+			}
+			havePressed = false;
+			
+			if(selectedLabels.size() == 1){
+				Tile tile = selectedLabels.get(0).getModel() ;
+				IMove m = new RemoveSquareMove(sixesWildApp.getModel().getBoard(), tile) ;
+				
+				if(m.doMove(sixesWildApp)){
+					sixesWildApp.getGamePanel().refreshBoard();
+					sixesWildApp.getLevelPanel().refresh();
+					System.out.println(TAG + "RemoveSquareMove suceeded");
+				} else {
+					System.out.println(TAG + "RemoveSquareMove failed");
+				}
+				selectedLabels.removeAll(selectedLabels);
+			}
 		}
-		havePressed = false;
-		
-		ArrayList<Tile> tiles = new ArrayList<Tile>();
-		for(TileLabel tl : selectedLabels) {
-			tiles.add(tl.getModel());
+		else{
+			//Normal move
+			for(TileLabel label : selectedLabels) {
+				label.setIconUnselected();
+			}
+			havePressed = false;
+			
+			ArrayList<Tile> tiles = new ArrayList<Tile>();
+			for(TileLabel tl : selectedLabels) {
+				tiles.add(tl.getModel());
+			}
+			IMove m = new NormalSelectionMove(tiles, sixesWildApp.getModel().getBoard());
+			
+			if(m.doMove(sixesWildApp)) {
+				sixesWildApp.getGamePanel().refreshBoard();
+				sixesWildApp.getLevelPanel().refresh();
+				System.out.println(TAG + "NormalSelectionMove suceeded");
+			} else {
+				System.out.println(TAG + "NormalSelectionMove failed");
+			}
+			selectedLabels.removeAll(selectedLabels);
 		}
-		IMove m = new NormalSelectionMove(tiles, sixesWildApp.getModel().getBoard());
-		
-		if(m.doMove(sixesWildApp)) {
-			sixesWildApp.getGamePanel().refreshBoard();
-			sixesWildApp.getLevelPanel().refresh();
-			System.out.println(TAG + "NormalSelectionMove suceeded");
-		} else {
-			System.out.println(TAG + "NormalSelectionMove failed");
-		}
-		selectedLabels.removeAll(selectedLabels);
 	}
 }

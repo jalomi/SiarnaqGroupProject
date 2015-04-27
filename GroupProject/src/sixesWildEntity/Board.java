@@ -11,9 +11,9 @@ public class Board {
 	private Tile[][] map = new Tile[9][9] ;
 	private Level level;
 	
-	boolean removeMove = false;
-	boolean swapMove = false;
-	boolean resetMove = false;
+	boolean removeMove;
+	boolean swapMove;
+	boolean resetMove;
 	
 	public static Board newInstance() {
 		if(board == null) {
@@ -24,6 +24,9 @@ public class Board {
 	
 	public Board() {
 		this.level = null;
+		removeMove = false ;
+		swapMove = false ;
+		resetMove = false ;
 	}
 	
 	private void populateBoard() throws Exception {
@@ -120,5 +123,9 @@ public class Board {
 
 	public void setRemoveMove(boolean b) {
 		removeMove = b ;
+	}
+	
+	public boolean getRemoveMove() {
+		return removeMove;
 	}
 }
