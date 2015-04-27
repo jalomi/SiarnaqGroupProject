@@ -26,12 +26,8 @@ public class RemoveSquareMove implements IMove{
 	@Override
 	public boolean doMove(SixesWildApplication theGame) {
 		if(isValid(theGame)){
-			tile.setSquare(board.generateSquare()) ;
-			
-			//make sure a 6 isn't generated
-			while(tile.getSquare().getValue() == 6){
-				tile.setSquare(board.generateSquare()) ;
-			}
+			tile.setSquare(null) ;
+			board.fall(tile) ;
 			
 			board.setRemoveMove(false) ;
 			theGame.updateMovesLeft(-1) ;
