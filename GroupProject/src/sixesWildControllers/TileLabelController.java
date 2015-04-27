@@ -81,6 +81,10 @@ public class TileLabelController extends MouseAdapter {
 				}
 				selectedLabels.removeAll(selectedLabels);
 			}
+			else{
+				sixesWildApp.getModel().getBoard().setRemoveMove(false) ;
+				selectedLabels.removeAll(selectedLabels);				
+			}
 		}
 		else if(sixesWildApp.getModel().getBoard().getSwapMove()){
 			//Swap tile move
