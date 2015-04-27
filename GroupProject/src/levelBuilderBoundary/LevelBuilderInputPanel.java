@@ -32,6 +32,9 @@ public class LevelBuilderInputPanel extends JPanel {
 	private JButton undoBtn;
 	private JButton redoBtn;
 	private JComboBox<String> comboBox;
+	private JCheckBox chckbxNewCheckBox;
+	private JCheckBox chckbxNewCheckBox_1;
+	private JCheckBox chckbxNewCheckBox_2;
 
 	/**
 	 * Create the panel.
@@ -69,15 +72,15 @@ public class LevelBuilderInputPanel extends JPanel {
 		add(txtEnterMaxSeconds);
 		txtEnterMaxSeconds.setColumns(10);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Allow Reset Board");
+		chckbxNewCheckBox = new JCheckBox("Allow Reset Board");
 		chckbxNewCheckBox.setBounds(0, 178, 150, 25);
 		add(chckbxNewCheckBox);
 		
-		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Allow Swap Tile");
+		chckbxNewCheckBox_1 = new JCheckBox("Allow Swap Tile");
 		chckbxNewCheckBox_1.setBounds(0, 212, 150, 25);
 		add(chckbxNewCheckBox_1);
 		
-		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("Allow Remove Tile");
+		chckbxNewCheckBox_2 = new JCheckBox("Allow Remove Tile");
 		chckbxNewCheckBox_2.setBounds(0, 246, 150, 25);
 		add(chckbxNewCheckBox_2);
 		
@@ -282,5 +285,20 @@ public class LevelBuilderInputPanel extends JPanel {
 	public JComboBox getType()
 	{
 		return comboBox;
+	}
+	
+	public JCheckBox getResetEnabled()
+	{
+		return chckbxNewCheckBox;
+	}
+	
+	public JCheckBox getSwapEnabled()
+	{
+		return chckbxNewCheckBox_1;
+	}
+	
+	public JCheckBox getRemoveEnabled()
+	{
+		return chckbxNewCheckBox_2;
 	}
 }

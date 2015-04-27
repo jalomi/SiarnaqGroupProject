@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.UIManager;
 
+import levelBuilderControllers.ActivateSpecialMoveController;
 import levelBuilderControllers.ExitController;
 import levelBuilderControllers.GenerateLevelController;
 import levelBuilderControllers.PreviewController;
@@ -110,6 +111,9 @@ public class LevelBuilderApplication extends JFrame {
 		getInputPanel().getPercentx2().addActionListener(new SelectMultiplierPercentController(model, this, 1));
 		getInputPanel().getPercentx3().addActionListener(new SelectMultiplierPercentController(model, this, 2));
 		getInputPanel().getType().addActionListener(new SelectLevelTypeController(model, this));
+		getInputPanel().getSwapEnabled().addActionListener(new ActivateSpecialMoveController(model, this, 2));
+		getInputPanel().getResetEnabled().addActionListener(new ActivateSpecialMoveController(model, this, 1));
+		getInputPanel().getRemoveEnabled().addActionListener(new ActivateSpecialMoveController(model, this, 3));
 	}
 	
 	private JButton getExitBtn() {

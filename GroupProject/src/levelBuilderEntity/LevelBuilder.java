@@ -267,5 +267,25 @@ public class LevelBuilder {
 	{
 		return seconds;
 	}
+	
+	public boolean getEnabled(int i)
+	{
+		if(i==1)
+			return allowReset;
+		else if(i==2)
+			return allowSwap;
+		else
+			return allowRemove;
+	}
+
+	public void setEnabled(int i, boolean enabled) {
+		// TODO Auto-generated method stub
+		if(i==1)
+			allowReset=enabled;
+		else if(i==2)
+			allowSwap=enabled;
+		else
+			allowRemove=enabled;
+	}
 }
 
