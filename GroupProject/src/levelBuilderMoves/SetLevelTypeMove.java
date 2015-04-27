@@ -6,9 +6,14 @@ import levelBuilderControllers.SelectLevelTypeController;
 import levelBuilderEntity.LevelBuilder;
 
 public class SetLevelTypeMove extends Move{
+	/**
+	 * Please change all the types to String
+	 * Then you don't need switch cases!!!
+	 * It's a bad idea to use int since you're doing the int-String matching anyway!!
+	 */
 	LevelBuilder model;
 	String newValue;
-	int oldValue;
+	String oldValue;
 	JComboBox<String> cb;
 	SelectLevelTypeController controller;
 	
@@ -35,28 +40,28 @@ public class SetLevelTypeMove extends Move{
 		{
 			case "Puzzle":
 				System.out.println("Level Type: Puzzle");
-				model.setLevelType(1);
+				model.setLevelType(newValue);
 				cb.removeActionListener(controller);
 				cb.setSelectedItem("Puzzle");
 				cb.addActionListener(controller);
 				break;
 			case "Lightning":
 				System.out.println("Level Type: Lightning");
-				model.setLevelType(2);
+				model.setLevelType(newValue);
 				cb.removeActionListener(controller);
 				cb.setSelectedItem("Lightning");
 				cb.addActionListener(controller);
 				break;
 			case "Elimination":
 				System.out.println("Level Type: Elimination");
-				model.setLevelType(3);
+				model.setLevelType(newValue);
 				cb.removeActionListener(controller);
 				cb.setSelectedItem("Elimination");
 				cb.addActionListener(controller);
 				break;
 			case "Release":
 				System.out.println("Level Type: Release");
-				model.setLevelType(4);
+				model.setLevelType(newValue);
 				cb.removeActionListener(controller);
 				cb.setSelectedItem("Release");
 				cb.addActionListener(controller);

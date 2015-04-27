@@ -2,11 +2,20 @@ package levelBuilderEntity;
 
 import java.util.Stack;
 
+import sixesWildEntity.Elimination;
+import sixesWildEntity.Level;
 import levelBuilderMoves.Move;
 
 public class LevelBuilder {
+	
+	public static final String TAG = "LevelBuilder";
+	
 	int number;
-	int type;
+	/**!!!Important!!!
+	 * Please change type to String
+	 */
+	String type;
+	boolean unlocked;
 	boolean [][] tilesActive = new boolean[9][9] ;
 	//HashMap<Integer, Boolean> tilesActive = new HashMap<Integer, Boolean>() ;
 	boolean allowReset;
@@ -70,8 +79,57 @@ public class LevelBuilder {
 		this.allowReset = false;
 		this.allowSwap = false;
 		this.allowRemove = false;
-		this.type=1;
+		this.type= "Level";
 	}
+	
+	/**
+	 * Very very important!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	 * Please add (boolean unlocked)
+	 * @return
+	 * @throws Exception 
+	 */
+	public Level generateLevel(String type) throws Exception {
+		if(type.equals("Elimination")) {
+			return new Elimination(this.getLevelNumber(), this.moves,
+					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
+					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
+					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
+					  this.getOneStarScore(), this.getTwoStarScore(), this.getThreeStarScore(),
+					  this.unlocked, 
+					  this.allowSwap, this.allowReset, this.allowRemove,
+					  this.tilesActive);
+		} else if(type.equals("Lightning")) {
+			return new Elimination(this.getLevelNumber(), this.moves,
+					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
+					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
+					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
+					  this.getOneStarScore(), this.getTwoStarScore(), this.getThreeStarScore(),
+					  this.unlocked, 
+					  this.allowSwap, this.allowReset, this.allowRemove,
+					  this.tilesActive);
+		} else if(type.equals("Puzzle")) {
+			return new Elimination(this.getLevelNumber(), this.moves,
+					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
+					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
+					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
+					  this.getOneStarScore(), this.getTwoStarScore(), this.getThreeStarScore(),
+					  this.unlocked, 
+					  this.allowSwap, this.allowReset, this.allowRemove,
+					  this.tilesActive);
+		} else if(type.equals("Release")) {
+			return new Elimination(this.getLevelNumber(), this.moves,
+					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
+					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
+					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
+					  this.getOneStarScore(), this.getTwoStarScore(), this.getThreeStarScore(),
+					  this.unlocked, 
+					  this.allowSwap, this.allowReset, this.allowRemove,
+					  this.tilesActive);
+		} else {
+			throw new Exception(TAG + " :: Wrong Level Type!");
+		}
+	}
+	
 	
 	/**
 	 * Record the move which can be undone in the future.
@@ -190,7 +248,7 @@ public class LevelBuilder {
 		number = l;
 	}
 	
-	public void setLevelType(int t){
+	public void setLevelType(String t){
 		type = t; 
 	}
 	
@@ -211,7 +269,7 @@ public class LevelBuilder {
 		return false;
 	}
 	
-	void generateLevel()
+	public void generateLevel()
 	{
 		System.out.println("hi");
 	}
@@ -238,7 +296,7 @@ public class LevelBuilder {
 		return number;
 	}
 	
-	public int getLevelType(){
+	public String getLevelType(){
 		return type; 
 	}
 	
