@@ -128,4 +128,13 @@ public class Board {
 	public boolean getRemoveMove() {
 		return removeMove;
 	}
+
+	public void setSwapMove(boolean b) {
+		swapMove = b ;
+	}
+	
+	public boolean getSwapMove(){
+		return swapMove ;
+	}
+	
 }

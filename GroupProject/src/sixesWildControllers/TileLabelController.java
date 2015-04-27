@@ -12,6 +12,7 @@ import sixesWildEntity.Tile;
 import sixesWildMoves.IMove;
 import sixesWildMoves.NormalSelectionMove;
 import sixesWildMoves.RemoveSquareMove;
+import sixesWildMoves.SwapSquareMove;
 
 public class TileLabelController extends MouseAdapter {
 	public static final String TAG = "JLabelController";
@@ -79,6 +80,28 @@ public class TileLabelController extends MouseAdapter {
 					System.out.println(TAG + "RemoveSquareMove failed");
 				}
 				selectedLabels.removeAll(selectedLabels);
+			}
+		}
+		else if(sixesWildApp.getModel().getBoard().getSwapMove()){
+			//Swap tile move
+			for(TileLabel label : selectedLabels) {
+				label.setIconUnselected();
+			}
+			havePressed = false;
+			
+			if(selectedLabels.size() == 2){
+				Tile t1 = selectedLabels.get(0).getModel() ;
+				Tile t2 = selectedLabels.get(1).getModel() ;
+				IMove m = new SwapSquareMove(sixesWildApp.getModel().getBoard(), t1, t2) ;
+				
+				if(m.doMove(sixesWildApp)){
+					sixesWildApp.getGamePanel().refreshBoard();
+					sixesWildApp.getLevelPanel().refresh();
+					System.out.println(TAG + "RemoveSquareMove suceeded");
+				} else {
+					System.out.println(TAG + "RemoveSquareMove failed");
+				}
+				selectedLabels.removeAll(selectedLabels);				
 			}
 		}
 		else{

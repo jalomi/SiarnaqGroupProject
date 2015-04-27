@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 
 import sixesWildControllers.BacktoMainMenuController;
 import sixesWildControllers.RemoveSquareButtonController;
+import sixesWildControllers.SwapSquareButtonController;
 import sixesWildEntity.Board;
 import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
@@ -60,18 +61,19 @@ public class SixesWildLevelPanel extends JPanel {
 		add(txtrLevelNumberHere);
 		
 		backToMainManuButton = new JButton("Main Menu");
+		backToMainManuButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		backToMainManuButton.setBounds(0, 40, 100, 40);
 		add(backToMainManuButton);
 		
-		deleteSquareButton = new JButton("Delete Squares");
+		deleteSquareButton = new JButton("Remove");
 		deleteSquareButton.setBounds(0, 95, 100, 40);
 		add(deleteSquareButton);
 		
-		swapSquareButton = new JButton("Swap Squares");
+		swapSquareButton = new JButton("Swap");
 		swapSquareButton.setBounds(115, 40, 100, 40);
 		add(swapSquareButton);
 		
-		resetBoardButton = new JButton("Reset Board");
+		resetBoardButton = new JButton("Shuffle");
 		resetBoardButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		resetBoardButton.setBounds(115, 95, 100, 40);
 		add(resetBoardButton);
@@ -128,6 +130,7 @@ public class SixesWildLevelPanel extends JPanel {
 	public void initControllers(SixesWildApplication app, SixesWild theGame) {
 		this.backToMainManuButton.addActionListener(new BacktoMainMenuController(app));
 		this.deleteSquareButton.addActionListener(new RemoveSquareButtonController(app, board));
+		this.swapSquareButton.addActionListener(new SwapSquareButtonController(app, board)) ;
 	}
 	
 	public void refresh() {
