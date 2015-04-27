@@ -4,17 +4,17 @@ import javax.swing.JTextField;
 
 import levelBuilderEntity.LevelBuilder;
 
-public class SetMinutesMove extends Move{
+public class SetTimeMove extends Move{
 	LevelBuilder model;
 	int newValue;
 	int oldValue;
 	JTextField tf;
 	
-	public SetMinutesMove(LevelBuilder model, int newValue, JTextField tf)
+	public SetTimeMove(LevelBuilder model, int newValue, JTextField tf)
 	{
 		this.model=model;
 		this.newValue=newValue;
-		this.oldValue=model.getMinutes();
+		//this.oldValue=model.getMs();
 		this.tf=tf;
 	}
 
@@ -27,16 +27,16 @@ public class SetMinutesMove extends Move{
 	public boolean doMove() {
 		// TODO Auto-generated method stub
 		if(!isValid()){return false;}
-		model.setMinutes(newValue);
-		tf.setText(""+model.getMinutes());
+		//model.setMinutes(newValue);
+		//tf.setText(""+model.getMinutes());
 		return true;
 	}
 
 	@Override
 	public boolean undo() {
 		// TODO Auto-generated method stub
-		model.setMinutes(oldValue);
-		tf.setText(""+model.getMinutes());
+		//model.setMinutes(oldValue);
+		//tf.setText(""+model.getMinutes());
 		return true;
 	}
 }

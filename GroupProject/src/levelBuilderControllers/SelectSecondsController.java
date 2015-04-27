@@ -2,12 +2,9 @@ package levelBuilderControllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JTextField;
-
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
-import levelBuilderMoves.SetSecondsMove;
 
 public class SelectSecondsController implements ActionListener{
 	/*This controller should be either removed or rewritten
