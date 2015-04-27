@@ -22,10 +22,9 @@ public class LevelBuilderInputPanel extends JPanel {
 	private JTextField txtEnterPercentFor_2;
 	private JTextField txtEnterPercentFor_3;
 	private JTextField txtEnterPercentFor_4;
-	private JTextField txtEnterPercentFor_5;
+	private JTextArea txtEnterPercentFor_5;
 	private JTextField txtEnterPercentFor_6;
 	private JTextField txtEnterPercentFor_7;
-	private JTextArea txtrTotalPercent;
 	private JTextArea txtrPercentForx;
 	private JButton generateLevelBtn ;
 	private JButton previewBtn ;
@@ -138,17 +137,11 @@ public class LevelBuilderInputPanel extends JPanel {
 		add(txtEnterPercentFor_4);
 		txtEnterPercentFor_4.setColumns(10);
 		
-		txtEnterPercentFor_5 = new JTextField();
-		txtEnterPercentFor_5.setText("Enter Percent for 6s");
+		txtEnterPercentFor_5 = new JTextArea();
+		txtEnterPercentFor_5.setText("Percent for 6s");
 		txtEnterPercentFor_5.setBounds(210, 175, 150, 27);
 		add(txtEnterPercentFor_5);
 		txtEnterPercentFor_5.setColumns(10);
-		
-		txtrTotalPercent = new JTextArea();
-		txtrTotalPercent.setText("Total Percent");
-		txtrTotalPercent.setEditable(false);
-		txtrTotalPercent.setBounds(210, 210, 150, 27);
-		add(txtrTotalPercent);
 		
 		txtrPercentForx = new JTextArea();
 		txtrPercentForx.setEditable(false);
@@ -266,7 +259,7 @@ public class LevelBuilderInputPanel extends JPanel {
 		return txtEnterPercentFor_4;
 	}
 	
-	public JTextField getPercent6()
+	public JTextArea getPercent6()
 	{
 		return txtEnterPercentFor_5;
 	}
@@ -279,11 +272,6 @@ public class LevelBuilderInputPanel extends JPanel {
 	public JTextField getPercentx3()
 	{
 		return txtEnterPercentFor_7;
-	}
-	
-	public JTextArea getTotalPercent()
-	{
-		return txtrTotalPercent;
 	}
 
 	public JTextArea getPercentx1() {

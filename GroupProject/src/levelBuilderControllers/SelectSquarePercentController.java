@@ -33,7 +33,7 @@ public class SelectSquarePercentController implements ActionListener{
 	{
 		try{
 			double num = Double.parseDouble(tf.getText());
-			SetSquarePercentMove m=new SetSquarePercentMove(model, num, tf, square, application.getInputPanel().getTotalPercent());
+			SetSquarePercentMove m=new SetSquarePercentMove(model, num, tf, square, application.getInputPanel().getPercent6());
 			if(m.doMove())
 			{
 				System.out.println("Percentage of "+(square+1)+"s: "+model.getPercent(square));

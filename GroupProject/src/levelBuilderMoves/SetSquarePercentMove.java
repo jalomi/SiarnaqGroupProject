@@ -32,29 +32,31 @@ public class SetSquarePercentMove extends Move{
 	@Override
 	public boolean doMove() {
 		// TODO Auto-generated method stub
-		int sum=0;
+		double sum=0;
 		if(!isValid()){return false;}
 		model.setPercents(squareNum, newValue);
 		tf.setText(""+model.getPercent(squareNum));
-		for(int i=0; i<6; i++)
+		for(int i=0; i<5; i++)
 		{
 			sum+=model.getPercent(i);
 		}
-		ta.setText(""+sum);
+		model.setPercents(5, 100-sum);
+		ta.setText(""+model.getPercent(5));
 		return true;
 	}
 
 	@Override
 	public boolean undo() {
 		// TODO Auto-generated method stub
-		int sum=0;
+		double sum=0;
 		model.setPercents(squareNum, oldValue);
 		tf.setText(""+model.getPercent(squareNum));
-		for(int i=0; i<6; i++)
+		for(int i=0; i<5; i++)
 		{
 			sum+=model.getPercent(i);
 		}
-		ta.setText(""+sum);
+		model.setPercents(5, 100-sum);
+		ta.setText(""+model.getPercent(5));
 		return true;
 	}
 }

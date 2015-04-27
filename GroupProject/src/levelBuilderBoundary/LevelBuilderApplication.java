@@ -107,7 +107,6 @@ public class LevelBuilderApplication extends JFrame {
 		getInputPanel().getPercent3().addActionListener(new SelectSquarePercentController(model, this, 2));
 		getInputPanel().getPercent4().addActionListener(new SelectSquarePercentController(model, this, 3));
 		getInputPanel().getPercent5().addActionListener(new SelectSquarePercentController(model, this, 4));
-		getInputPanel().getPercent6().addActionListener(new SelectSquarePercentController(model, this, 5));
 		getInputPanel().getPercentx2().addActionListener(new SelectMultiplierPercentController(model, this, 1));
 		getInputPanel().getPercentx3().addActionListener(new SelectMultiplierPercentController(model, this, 2));
 		getInputPanel().getType().addActionListener(new SelectLevelTypeController(model, this));

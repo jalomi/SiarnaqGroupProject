@@ -34,7 +34,7 @@ public class SetMultiplierPercentMove extends Move{
 		@Override
 		public boolean doMove() {
 			// TODO Auto-generated method stub
-			int sum=0;
+			double sum=0;
 			if(!isValid()){return false;}
 			model.setPercentM(multiplierNum, newValue);
 			tf.setText(""+model.getPercentM(multiplierNum));
@@ -50,7 +50,7 @@ public class SetMultiplierPercentMove extends Move{
 		@Override
 		public boolean undo() {
 			// TODO Auto-generated method stub
-			int sum=0;
+			double sum=0;
 			model.setPercentM(multiplierNum, oldValue);
 			tf.setText(""+model.getPercentM(multiplierNum));
 			for(int i=1; i<3; i++)
