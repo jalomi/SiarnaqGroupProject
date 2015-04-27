@@ -36,18 +36,30 @@ public class SetLevelTypeMove extends Move{
 			case "Puzzle":
 				System.out.println("Level Type: Puzzle");
 				model.setLevelType(1);
+				cb.removeActionListener(controller);
+				cb.setSelectedItem("Puzzle");
+				cb.addActionListener(controller);
 				break;
 			case "Lightning":
 				System.out.println("Level Type: Lightning");
 				model.setLevelType(2);
+				cb.removeActionListener(controller);
+				cb.setSelectedItem("Lightning");
+				cb.addActionListener(controller);
 				break;
 			case "Elimination":
 				System.out.println("Level Type: Elimination");
 				model.setLevelType(3);
+				cb.removeActionListener(controller);
+				cb.setSelectedItem("Elimination");
+				cb.addActionListener(controller);
 				break;
 			case "Release":
 				System.out.println("Level Type: Release");
 				model.setLevelType(4);
+				cb.removeActionListener(controller);
+				cb.setSelectedItem("Release");
+				cb.addActionListener(controller);
 				break;
 		}
 		return true;
