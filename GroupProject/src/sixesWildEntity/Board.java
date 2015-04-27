@@ -11,13 +11,9 @@ public class Board {
 	private Tile[][] map = new Tile[9][9] ;
 	private Level level;
 	
-	//this attribute should not exit here!!! 
-	//Selections are UI event, which is not the concern of entities
-	//UI event will eventually changes entities
-	//but entities should never keep track of any data of UI events
-	//delete this after you read this comment
-	//private ArrayList<Tile> selected;
-	
+	boolean removeMove = false;
+	boolean swapMove = false;
+	boolean resetMove = false;
 	
 	public static Board newInstance() {
 		if(board == null) {
@@ -120,5 +116,9 @@ public class Board {
 	
 	public Square getSquare(int col, int row) {
 		return getTile(col, row).getSquare();
+	}
+
+	public void setRemoveMove(boolean b) {
+		removeMove = b ;
 	}
 }

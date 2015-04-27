@@ -33,6 +33,9 @@ public class RemoveSquareMove implements IMove{
 				tile.setSquare(board.generateSquare()) ;
 			}
 			
+			board.setRemoveMove(false) ;
+			theGame.updateMovesLeft(-1) ;
+			
 			return true ;
 		}
 		return false ;

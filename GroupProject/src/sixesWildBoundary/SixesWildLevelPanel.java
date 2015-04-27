@@ -9,6 +9,7 @@ import java.awt.Font;
 import javax.swing.JLabel;
 
 import sixesWildControllers.BacktoMainMenuController;
+import sixesWildControllers.RemoveSquareButtonController;
 import sixesWildEntity.Board;
 import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
@@ -32,12 +33,14 @@ public class SixesWildLevelPanel extends JPanel {
 	
 	/* Entities */
 	private Level level;
+	private Board board ;
 	
 	/**
 	 * SixesWildLevelPanel should always be created after SixesWildGamePanel,
 	 * because it uses GamePane's (Board board) to set its (Level level).
 	 */
 	public SixesWildLevelPanel() {
+		board = Board.newInstance() ;
 		level = Board.newInstance().getLevel();
 		if(level == null) {
 			System.err.println(TAG + " current board has null level inside! Error!");
@@ -124,6 +127,7 @@ public class SixesWildLevelPanel extends JPanel {
 	
 	public void initControllers(SixesWildApplication app, SixesWild theGame) {
 		this.backToMainManuButton.addActionListener(new BacktoMainMenuController(app));
+		this.deleteSquareButton.addActionListener(new RemoveSquareButtonController(app, board));
 	}
 	
 	public void refresh() {
