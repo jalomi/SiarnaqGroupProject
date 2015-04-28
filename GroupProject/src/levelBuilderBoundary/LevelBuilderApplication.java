@@ -45,7 +45,7 @@ public class LevelBuilderApplication extends JFrame {
 	 * @throws IOException 
 	 */
 	public LevelBuilderApplication() throws IOException, JSONException {
-		model= new LevelBuilder();
+		model= LevelBuilder.newInstance();
 		
 		setResizable(false);
 		setTitle("Level Builder");
