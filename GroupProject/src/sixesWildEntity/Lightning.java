@@ -8,9 +8,9 @@ public class Lightning extends Level {
 	//a real countdown timer should be implemented later
 	//check out Scanner, Timer, and TimerTask
 	
-	public Lightning(int number, int movesRemaining) {
+	public Lightning(int number, int time) {
 		super(number);
-		this.timeRemaining = movesRemaining;
+		this.timeRemaining = time;
 	}
 	
 	public Lightning(int number, int timeRemaining, 
