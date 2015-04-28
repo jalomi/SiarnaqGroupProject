@@ -48,7 +48,7 @@ public class LevelBuilder {
 	public LevelBuilder(){
 		for(int i = 0; i < 9; i++){
 			for(int j = 0; j < 9; j++){
-				tilesActive[i][j] = true ;
+				tilesActive[i][j] = false ;
 			}
 		}
 		
@@ -315,7 +315,7 @@ public class LevelBuilder {
 		return threeStarScore; 
 	}
 	
-	public boolean getEnabled(int i)
+	public boolean getSpecialEnabled(int i)
 	{
 		if(i==1)
 			return allowReset;
@@ -325,7 +325,7 @@ public class LevelBuilder {
 			return allowRemove;
 	}
 
-	public void setEnabled(int i, boolean enabled) {
+	public void setSpecialEnabled(int i, boolean enabled) {
 		// TODO Auto-generated method stub
 		if(i==1)
 			allowReset=enabled;
@@ -333,6 +333,16 @@ public class LevelBuilder {
 			allowSwap=enabled;
 		else
 			allowRemove=enabled;
+	}
+	
+	public boolean getBucketEnabled(int i)
+	{
+		return bucketFor6s[i];
+	}
+	
+	public void setBucketEnabled(int i, boolean b)
+	{
+		bucketFor6s[i]=b;
 	}
 }
 
