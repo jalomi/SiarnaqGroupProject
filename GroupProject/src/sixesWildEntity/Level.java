@@ -254,5 +254,9 @@ public abstract class Level {
 	public abstract String getTimeRemainingString();
 	public abstract void updateMovesLeft(int m) ;
 	public abstract boolean gameOver() ;
+
+	public void setUnlocked(boolean unlocked) {
+		this.unlocked = unlocked ;
+	}
 	
 }
