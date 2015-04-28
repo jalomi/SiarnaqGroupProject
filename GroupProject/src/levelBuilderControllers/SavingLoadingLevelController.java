@@ -39,7 +39,11 @@ public class SavingLoadingLevelController implements ActionListener{
 		try {
 			System.out.println("!!!----!!!");
 			json.saveSingleLevel(model.generateLevel(model.getLevelType()));
-			//if(LevelBuilder.getLevelList().contains(o));
+			for(String s : LevelBuilder.getLevelList()) {
+				if(s.equals(fileName)) {
+					return;
+				}
+			}
 			LevelBuilder.getLevelList().add(fileName);
 		} catch (Exception e) {
 			System.out.println("!!!-22-!!!");
