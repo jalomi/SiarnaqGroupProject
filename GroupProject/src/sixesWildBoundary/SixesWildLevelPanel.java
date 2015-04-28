@@ -10,11 +10,14 @@ import javax.swing.JLabel;
 
 import sixesWildControllers.BacktoMainMenuController;
 import sixesWildControllers.RemoveSquareButtonController;
+import sixesWildControllers.ResetBoardButtonController;
 import sixesWildControllers.SwapSquareButtonController;
 import sixesWildEntity.Board;
 import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
+
 import java.awt.Color;
+
 import javax.swing.UIManager;
 
 public class SixesWildLevelPanel extends JPanel {
@@ -137,6 +140,7 @@ public class SixesWildLevelPanel extends JPanel {
 		this.backToMainManuButton.addActionListener(new BacktoMainMenuController(app));
 		this.deleteSquareButton.addActionListener(new RemoveSquareButtonController(app, board));
 		this.swapSquareButton.addActionListener(new SwapSquareButtonController(app, board)) ;
+		this.resetBoardButton.addActionListener(new ResetBoardButtonController(app, board, app)) ;
 	}
 	
 	public void refresh() {

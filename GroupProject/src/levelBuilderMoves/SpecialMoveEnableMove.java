@@ -33,9 +33,15 @@ public class SpecialMoveEnableMove extends Move{
 		if(!isValid()){return false;}
 		
 		if(state==true)
+		{
 			model.allowSpecials(moveID);
+			ch.setSelected(true);
+		}
 		else
+		{
 			model.disallowSpecials(moveID);
+			ch.setSelected(false);
+		}
 			
 		return true;
 	}
