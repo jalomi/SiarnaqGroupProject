@@ -1,9 +1,12 @@
 package sixesWildMoves;
 
 import java.util.ArrayList;
+
+import sixesWildBoundary.LevelCompleteApplication;
 import sixesWildBoundary.SixesWildApplication;
 import sixesWildEntity.Board;
 import sixesWildEntity.Square;
+
 import java.util.Random ;
 
 public class ResetBoardMove implements IMove{
@@ -51,15 +54,15 @@ public class ResetBoardMove implements IMove{
 		
 		theGame.updateMovesLeft(-1) ;
 		
+		if(board.getLevel().gameOver()){
+			//close the frame and show level complete screen
+			theGame.setVisible(false) ;
+			theGame.getModel().updateScores() ;
+			LevelCompleteApplication completeScreen = new LevelCompleteApplication();
+			completeScreen.setVisible(true);
+		}
+		
 		return true ;
 	}
-
-	@Override
-	public void undoMove(SixesWildApplication theGame) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 
 }

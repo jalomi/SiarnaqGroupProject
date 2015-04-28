@@ -249,6 +249,6 @@ public abstract class Level {
 	public abstract String getMovesRemainingString();
 	public abstract String getTimeRemainingString();
 	public abstract void updateMovesLeft(int m) ;
-	public abstract boolean hasWon() ;
+	public abstract boolean gameOver() ;
 	
 }

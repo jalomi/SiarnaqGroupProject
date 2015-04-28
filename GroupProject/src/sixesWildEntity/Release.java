@@ -39,7 +39,7 @@ public class Release extends Level {
 		movesRemaining += m ;
 	}
 	
-	public boolean hasWon(){
+	public boolean gameOver(){
 //		if(movesRemaining == 0){
 //			if(score >= oneStarScore){
 //				if(score >= threeStarScore){
@@ -51,9 +51,8 @@ public class Release extends Level {
 //				else{
 //					starNumber = 1 ;
 //				}			
-//				
-//				return true ;
 //			}
+//			return true ;
 //		}
 //		
 //		return false ;
