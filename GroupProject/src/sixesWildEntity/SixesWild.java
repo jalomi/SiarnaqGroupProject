@@ -24,9 +24,11 @@ public class SixesWild {
 		//make a default list of levels of size 1
 		levels.add(new Puzzle(1, 30));
 		
+		levels.add(new Lightning(2, 120)) ;
+		
 		//add empty levels for testing
-		for(int i = 0; i < 15; i++){
-			levels.add(new Puzzle(i+1, 30)) ;
+		for(int i = 0; i < 14; i++){
+			levels.add(new Puzzle(i+2, 30)) ;
 		}
 		
 		

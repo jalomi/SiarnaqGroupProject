@@ -27,8 +27,22 @@ public class SetMultiplierPercentMove extends Move{
 
 		@Override
 		public boolean isValid() {
-			return newValue>=0 && newValue<=100; /*&& (model.getPercent(0)+model.getPercent(1)+model.getPercent(2)
-					+model.getPercent(3)+model.getPercent(4)+model.getPercent(5))==100*/
+			double sum=newValue/100;
+			for(int i=1; i<3; i++)
+			{
+				sum+=model.getPercentM(i);
+			}
+			sum-=model.getPercentM(multiplierNum);
+			
+			try
+			{
+				if(sum>1)
+					throw new IllegalArgumentException("percent for x1s negative");
+			} catch(IllegalArgumentException iae){
+				tf.setText(""+(model.getPercentM(multiplierNum)*100));
+			}
+			
+			return newValue>=0 && newValue<=100 && sum<=1;
 		}
 
 		@Override
@@ -37,13 +51,13 @@ public class SetMultiplierPercentMove extends Move{
 			double sum=0;
 			if(!isValid()){return false;}
 			model.setPercentM(multiplierNum, newValue);
-			tf.setText(""+model.getPercentM(multiplierNum));
+			tf.setText(""+(model.getPercentM(multiplierNum)*100));
 			for(int i=1; i<3; i++)
 			{
 				sum+=model.getPercentM(i);
 			}
-			model.setPercentM(0, 100-sum);
-			ta.setText(""+model.getPercentM(0));
+			model.setPercentM(0, (1-sum)*100);
+			ta.setText(""+(model.getPercentM(0)*100));
 			return true;
 		}
 
@@ -52,13 +66,13 @@ public class SetMultiplierPercentMove extends Move{
 			// TODO Auto-generated method stub
 			double sum=0;
 			model.setPercentM(multiplierNum, oldValue);
-			tf.setText(""+model.getPercentM(multiplierNum));
+			tf.setText(""+(model.getPercentM(multiplierNum)*100));
 			for(int i=1; i<3; i++)
 			{
 				sum+=model.getPercentM(i);
 			}
-			model.setPercentM(0, 100-sum);
-			ta.setText(""+model.getPercentM(0));
+			model.setPercentM(0, (1-sum)*100);
+			ta.setText(""+(model.getPercentM(0)*100));
 			return true;
 		}
 }
