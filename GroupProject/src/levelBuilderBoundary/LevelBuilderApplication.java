@@ -10,6 +10,7 @@ import javax.swing.UIManager;
 
 import org.json.JSONException;
 
+import levelBuilderControllers.ActivateBucketforSixesController;
 import levelBuilderControllers.ActivateSpecialMoveController;
 import levelBuilderControllers.ExitController;
 import levelBuilderControllers.GenerateLevelController;
@@ -93,6 +94,15 @@ public class LevelBuilderApplication extends JFrame {
 		getInputPanel().getSwapEnabled().addActionListener(new ActivateSpecialMoveController(model, this, 2));
 		getInputPanel().getResetEnabled().addActionListener(new ActivateSpecialMoveController(model, this, 1));
 		getInputPanel().getRemoveEnabled().addActionListener(new ActivateSpecialMoveController(model, this, 3));
+		getCheckBoxPanel().getCheckBox1().addActionListener(new ActivateBucketforSixesController(model, this, 0));
+		getCheckBoxPanel().getCheckBox2().addActionListener(new ActivateBucketforSixesController(model, this, 1));
+		getCheckBoxPanel().getCheckBox3().addActionListener(new ActivateBucketforSixesController(model, this, 2));
+		getCheckBoxPanel().getCheckBox4().addActionListener(new ActivateBucketforSixesController(model, this, 3));
+		getCheckBoxPanel().getCheckBox5().addActionListener(new ActivateBucketforSixesController(model, this, 4));
+		getCheckBoxPanel().getCheckBox6().addActionListener(new ActivateBucketforSixesController(model, this, 5));
+		getCheckBoxPanel().getCheckBox7().addActionListener(new ActivateBucketforSixesController(model, this, 6));
+		getCheckBoxPanel().getCheckBox8().addActionListener(new ActivateBucketforSixesController(model, this, 7));
+		getCheckBoxPanel().getCheckBox9().addActionListener(new ActivateBucketforSixesController(model, this, 8));
 	}
 	
 	private JButton getExitBtn() {

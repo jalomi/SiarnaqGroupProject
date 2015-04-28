@@ -62,7 +62,7 @@ public class LevelBuilder {
 		
 		for(int i = 0; i < 9; i++){
 			for(int j = 0; j < 9; j++){
-				tilesActive[i][j] = true ;
+				tilesActive[i][j] = false ;
 			}
 		}
 		
@@ -245,11 +245,11 @@ public class LevelBuilder {
 	}
 	
 	public void setPercents(int n, double p){
-		percents[n] = p;
+		percents[n] = p/100;
 	}
 	
 	public void setPercentM(int m, double p){
-		percentM[m] = p;
+		percentM[m] = p/100;
 	}
 	
 	public void setStarScore(int n,int s){
@@ -331,7 +331,7 @@ public class LevelBuilder {
 		return threeStarScore; 
 	}
 	
-	public boolean getEnabled(int i)
+	public boolean getSpecialEnabled(int i)
 	{
 		if(i==1)
 			return allowReset;
@@ -341,7 +341,7 @@ public class LevelBuilder {
 			return allowRemove;
 	}
 
-	public void setEnabled(int i, boolean enabled) {
+	public void setSpecialEnabled(int i, boolean enabled) {
 		// TODO Auto-generated method stub
 		if(i==1)
 			allowReset=enabled;
@@ -351,6 +351,7 @@ public class LevelBuilder {
 			allowRemove=enabled;
 	}
 	
+<<<<<<< HEAD
 	public static ArrayList<String> getLevelList() {
 		return levelList;
 	}
@@ -365,6 +366,16 @@ public class LevelBuilder {
 
 	public static void setLevel(Level level) {
 		LevelBuilder.level = level;
+=======
+	public boolean getBucketEnabled(int i)
+	{
+		return bucketFor6s[i];
+	}
+	
+	public void setBucketEnabled(int i, boolean b)
+	{
+		bucketFor6s[i]=b;
+>>>>>>> branch 'master' of https://github.com/jalomi/SiarnaqGroupProject
 	}
 }
 

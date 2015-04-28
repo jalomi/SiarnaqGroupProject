@@ -4,20 +4,21 @@ import javax.swing.JCheckBox;
 
 import levelBuilderEntity.LevelBuilder;
 
-public class SpecialMoveEnableMove extends Move{
+public class BucketEnableMove extends Move{
+
 	LevelBuilder model;
 	boolean state;
 	JCheckBox ch;
-	int moveID;
+	int bucket;
 	boolean oldState;
 	
-	public SpecialMoveEnableMove(LevelBuilder m, boolean e, JCheckBox ch, int moveID)
+	public BucketEnableMove(LevelBuilder m, boolean e, JCheckBox ch, int bucket)
 	{
 		this.model=m;
 		this.state=e;
 		this.ch=ch;
-		this.moveID=moveID;
-		this.oldState=model.getSpecialEnabled(moveID);
+		this.bucket=bucket;
+		this.oldState=model.getBucketEnabled(bucket);
 		
 	}
 
@@ -32,16 +33,8 @@ public class SpecialMoveEnableMove extends Move{
 		// TODO Auto-generated method stub
 		if(!isValid()){return false;}
 		
-		if(state==true)
-		{
-			model.allowSpecials(moveID);
-			ch.setSelected(true);
-		}
-		else
-		{
-			model.disallowSpecials(moveID);
-			ch.setSelected(false);
-		}
+		model.setBucketEnabled(bucket, state);
+		ch.setSelected(model.getBucketEnabled(bucket));
 			
 		return true;
 	}
@@ -49,8 +42,9 @@ public class SpecialMoveEnableMove extends Move{
 	@Override
 	public boolean undo() {
 		// TODO Auto-generated method stub
-		model.setSpecialEnabled(moveID, oldState);
-		ch.setSelected(model.getSpecialEnabled(moveID));
+		model.setBucketEnabled(bucket, oldState);
+		ch.setSelected(model.getBucketEnabled(bucket));
 		return true;
 	}
+
 }

@@ -42,7 +42,7 @@ public class Lightning extends Level {
 		
 	}
 	
-	public boolean hasWon(){
+	public boolean gameOver(){
 		if(timeRemaining <= 0){
 			if(score >= oneStarScore){
 				if(score >= threeStarScore){
@@ -54,9 +54,9 @@ public class Lightning extends Level {
 				else{
 					starNumber = 1 ;
 				}			
-				
-				return true ;
 			}
+			
+			return true ;
 		}
 		
 		return false ;

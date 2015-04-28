@@ -81,6 +81,10 @@ public class TileLabelController extends MouseAdapter {
 				}
 				selectedLabels.removeAll(selectedLabels);
 			}
+			else{
+				sixesWildApp.getModel().getBoard().setRemoveMove(false) ;
+				selectedLabels.removeAll(selectedLabels);				
+			}
 		}
 		else if(sixesWildApp.getModel().getBoard().getSwapMove()){
 			//Swap tile move
@@ -97,9 +101,9 @@ public class TileLabelController extends MouseAdapter {
 				if(m.doMove(sixesWildApp)){
 					sixesWildApp.getGamePanel().refreshBoard();
 					sixesWildApp.getLevelPanel().refresh();
-					System.out.println(TAG + "RemoveSquareMove suceeded");
+					System.out.println(TAG + "SwapSquareMove suceeded");
 				} else {
-					System.out.println(TAG + "RemoveSquareMove failed");
+					System.out.println(TAG + "SwapSquareMove failed");
 				}
 				selectedLabels.removeAll(selectedLabels);				
 			}
