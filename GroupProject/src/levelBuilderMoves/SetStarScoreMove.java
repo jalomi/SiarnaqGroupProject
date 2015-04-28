@@ -4,18 +4,21 @@ import javax.swing.JTextField;
 
 import levelBuilderEntity.LevelBuilder;
 
-public class Set3StarScoreMove extends Move{
+public class SetStarScoreMove extends Move{
+
 	LevelBuilder model;
 	int newValue;
 	int oldValue;
 	JTextField tf;
+	int star;
 	
-	public Set3StarScoreMove(LevelBuilder model, int newValue, JTextField tf)
+	public SetStarScoreMove(LevelBuilder model, int newValue, JTextField tf, int star)
 	{
 		this.model=model;
 		this.newValue=newValue;
-		this.oldValue=model.getThreeStarScore();
+		this.oldValue=model.getStarScore(star);
 		this.tf=tf;
+		this.star=star;
 	}
 
 	@Override
@@ -27,16 +30,16 @@ public class Set3StarScoreMove extends Move{
 	public boolean doMove() {
 		// TODO Auto-generated method stub
 		if(!isValid()){return false;}
-		model.setStarScore(3, newValue);
-		tf.setText(""+model.getThreeStarScore());
+		model.setStarScore(star, newValue);
+		tf.setText(""+model.getStarScore(star));
 		return true;
 	}
 
 	@Override
 	public boolean undo() {
 		// TODO Auto-generated method stub
-		model.setStarScore(3, oldValue);
-		tf.setText(""+model.getThreeStarScore());
+		model.setStarScore(star, oldValue);
+		tf.setText(""+model.getStarScore(star));
 		return true;
 	}
 	

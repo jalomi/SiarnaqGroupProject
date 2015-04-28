@@ -17,9 +17,7 @@ import levelBuilderControllers.ExitController;
 import levelBuilderControllers.GenerateLevelController;
 import levelBuilderControllers.PreviewController;
 import levelBuilderControllers.RedoController;
-import levelBuilderControllers.Select1StarScoreController;
-import levelBuilderControllers.Select2StarScoreController;
-import levelBuilderControllers.Select3StarScoreController;
+import levelBuilderControllers.SelectStarScoreController;
 import levelBuilderControllers.SelectLevelNumberController;
 import levelBuilderControllers.SelectLevelTypeController;
 import levelBuilderControllers.SelectMoveNumberController;
@@ -74,14 +72,14 @@ public class LevelBuilderApplication extends JFrame {
 		
 		//controllers
 		getGenerateBtn().addActionListener(new GenerateLevelController(this)) ;
-		getPreviewBtn().addActionListener(new PreviewController(this));
+		getPreviewBtn().addActionListener(new PreviewController(this, model));
 		getExitBtn().addActionListener(new ExitController(this)) ;
 		getInputPanel().getUndoBtn().addActionListener(new UndoController(model, this));
 		getInputPanel().getRedoBtn().addActionListener(new RedoController(model, this));
 		getInputPanel().getMaxMoves().addActionListener(new SelectMoveNumberController (model, this));
-		getInputPanel().getScore1().addActionListener(new Select1StarScoreController (model, this));
-		getInputPanel().getScore2().addActionListener(new Select2StarScoreController (model, this));
-		getInputPanel().getScore3().addActionListener(new Select3StarScoreController (model, this));
+		getInputPanel().getScore1().addActionListener(new SelectStarScoreController (model, this, 0));
+		getInputPanel().getScore2().addActionListener(new SelectStarScoreController (model, this, 1));
+		getInputPanel().getScore3().addActionListener(new SelectStarScoreController (model, this, 2));
 		getInputPanel().getSeconds().addActionListener(new SelectSecondsController (model, this));
 		getInputPanel().getLevel().addActionListener(new SelectLevelNumberController (model, this));
 		getInputPanel().getPercent1().addActionListener(new SelectSquarePercentController(model, this, 0));

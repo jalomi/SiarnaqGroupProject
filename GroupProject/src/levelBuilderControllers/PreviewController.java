@@ -8,12 +8,15 @@ import org.json.JSONException;
 
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderBoundary.LevelBuilderPreviewApplication;
+import levelBuilderEntity.LevelBuilder;
 
 public class PreviewController implements ActionListener {
 	LevelBuilderApplication app ;
+	LevelBuilder model;
 	
-	public PreviewController(LevelBuilderApplication app){
+	public PreviewController(LevelBuilderApplication app, LevelBuilder model){
 		this.app = app ;
+		this.model=model;
 	}
 
 	@Override
