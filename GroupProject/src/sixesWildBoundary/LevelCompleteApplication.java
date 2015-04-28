@@ -1,5 +1,7 @@
 package sixesWildBoundary;
 
-public class LevelCompleteApplication {
+import javax.swing.JFrame;
 
+public class LevelCompleteApplication extends JFrame{
+	
 }

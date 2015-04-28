@@ -48,6 +48,8 @@ public class ResetBoardMove implements IMove{
 			}
 		}
 		
+		theGame.updateMovesLeft(-1) ;
+		
 		return true ;
 	}
 
