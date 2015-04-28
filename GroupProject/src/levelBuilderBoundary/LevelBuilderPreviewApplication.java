@@ -4,8 +4,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+
 import java.awt.Color;
+import java.io.IOException;
+
 import javax.swing.UIManager;
+
+import org.json.JSONException;
 
 public class LevelBuilderPreviewApplication extends JFrame {
 
@@ -35,8 +40,10 @@ public class LevelBuilderPreviewApplication extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws JSONException 
+	 * @throws IOException 
 	 */
-	public LevelBuilderPreviewApplication() {
+	public LevelBuilderPreviewApplication() throws IOException, JSONException {
 		setResizable(false);
 		setTitle("Preview");
 		setBackground(new Color(238, 238, 238));
