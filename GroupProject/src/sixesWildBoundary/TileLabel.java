@@ -53,7 +53,7 @@ public class TileLabel extends JLabel {
 				setIconMarked();
 				break;
 			case MARKED_SELECTED:
-				setIconMarkerSelected();
+				setIconMarkedSelected();
 				break;
 		}
 	}
@@ -179,7 +179,7 @@ public class TileLabel extends JLabel {
 		
 	}
 	
-	public void setIconMarkerSelected() {
+	public void setIconMarkedSelected() {
 		
 	}
 }

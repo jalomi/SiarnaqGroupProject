@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import javax.swing.UIManager;
 
 public class GameOverApplication extends JFrame {
 
@@ -12,6 +13,7 @@ public class GameOverApplication extends JFrame {
 
 	
 	public GameOverApplication(boolean hasWon) {
+		getContentPane().setBackground(UIManager.getColor("textHighlight"));
 		setTitle("Game Over!");
 		getContentPane().setLayout(null);
 		setBounds(300, 200, 300, 150);
@@ -26,6 +28,7 @@ public class GameOverApplication extends JFrame {
 		}
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(65, 13, 150, 25);
+		lblNewLabel.setBackground(UIManager.getColor("textHighlight"));
 		getContentPane().add(lblNewLabel);
 		
 

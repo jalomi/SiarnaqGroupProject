@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 
 import sixesWildEntity.Board;
 import sixesWildEntity.SixesWild;
+import java.awt.Color;
+import javax.swing.UIManager;
 
 
 @SuppressWarnings("serial")
@@ -22,6 +24,7 @@ public class SixesWildApplication extends JFrame {
 	 * Create the frame.
 	 */
 	public SixesWildApplication(SixesWild game) {
+		getContentPane().setBackground(UIManager.getColor("textHighlight"));
 		setTitle("Sixes Wild");
 		initModels(game);
 		initBoundaries();
