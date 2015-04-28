@@ -30,7 +30,6 @@ public class ChooseLevelController implements ActionListener {
 		System.out.println(TAG);
 		
 		if(theGame.getLevels().size() > buttonIndex) {
-			levelSelectApplication.dispose();
 			
 			/* Comments By Albert
 			 * Let controller to set entity classes here,
@@ -39,9 +38,12 @@ public class ChooseLevelController implements ActionListener {
 			 * we have the static access to them globally.
 			 */
 			Level levelClicked = theGame.getLevels().get(buttonIndex);
-			Board.newInstance().setLevel(levelClicked);
-			SixesWildApplication newLevelToPlay = new SixesWildApplication(theGame);
-			newLevelToPlay.setVisible(true);
+			if(theGame.getLevels().get(buttonIndex).getUnlocked() == true){
+				levelSelectApplication.dispose();
+				Board.newInstance().setLevel(levelClicked);
+				SixesWildApplication newLevelToPlay = new SixesWildApplication(theGame);
+				newLevelToPlay.setVisible(true);
+			}
 		} else {
 			System.err.println("We don't have level " + buttonIndex + " yet!");
 		}
