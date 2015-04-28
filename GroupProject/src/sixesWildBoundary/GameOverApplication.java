@@ -30,7 +30,7 @@ public class GameOverApplication extends JFrame {
 		
 
 		btnMainMenu = new JButton("Main Menu");
-		btnMainMenu.setBounds(120, 127, 89, 23);
+		btnMainMenu.setBounds(65, 60, 150, 25);
 		getContentPane().add(btnMainMenu);
 	}
 	
