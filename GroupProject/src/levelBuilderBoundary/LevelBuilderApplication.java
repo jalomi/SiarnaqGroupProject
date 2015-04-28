@@ -3,6 +3,7 @@ package levelBuilderBoundary;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JToggleButton;
 import javax.swing.border.EmptyBorder;
 import javax.swing.UIManager;
 
@@ -21,6 +22,7 @@ import levelBuilderControllers.SelectMoveNumberController;
 import levelBuilderControllers.SelectMultiplierPercentController;
 import levelBuilderControllers.SelectSecondsController;
 import levelBuilderControllers.SelectSquarePercentController;
+import levelBuilderControllers.SelectTilesController;
 import levelBuilderControllers.UndoController;
 import levelBuilderEntity.LevelBuilder;
 
@@ -114,6 +116,11 @@ public class LevelBuilderApplication extends JFrame {
 		getInputPanel().getSwapEnabled().addActionListener(new ActivateSpecialMoveController(model, this, 2));
 		getInputPanel().getResetEnabled().addActionListener(new ActivateSpecialMoveController(model, this, 1));
 		getInputPanel().getRemoveEnabled().addActionListener(new ActivateSpecialMoveController(model, this, 3));
+		for(int i=0;i<9;i++){
+			for(int j=0;j<9;j++){
+				gamePanel.getTile(i, j).addActionListener(new SelectTilesController(model, this, getTiles(i,j),i, j));
+			}
+		}
 	}
 	
 	private JButton getExitBtn() {
@@ -127,5 +134,7 @@ public class LevelBuilderApplication extends JFrame {
 	public JButton getGenerateBtn(){
 		return inputPanel.getGenerateLevelBtn() ;
 	}
-	
+	public JToggleButton getTiles(int x, int y){
+		return gamePanel.getTile(x,y);
+	}
 }

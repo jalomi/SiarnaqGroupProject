@@ -23,4 +23,8 @@ public class LevelBuilderGamePanel extends JPanel {
 			}
 		}
 	}
+	
+	public JToggleButton getTile(int x,int y ){
+		return tiles[x][y];
+	}
 }
