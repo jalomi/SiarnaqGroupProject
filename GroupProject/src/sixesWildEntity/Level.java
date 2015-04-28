@@ -245,6 +245,10 @@ public abstract class Level {
 	public int getStarNumber() {
 		return starNumber;
 	}
+	
+	public boolean getUnlocked(){
+		return unlocked ;
+	}
 		
 	public abstract String getMovesRemainingString();
 	public abstract String getTimeRemainingString();

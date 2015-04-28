@@ -11,6 +11,7 @@ public class Lightning extends Level {
 	public Lightning(int number, int time) {
 		super(number);
 		this.timeRemaining = time;
+		this.unlocked = false ;
 	}
 	
 	public Lightning(int number, int timeRemaining, 
