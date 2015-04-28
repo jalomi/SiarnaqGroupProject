@@ -7,18 +7,27 @@ import javax.swing.JButton;
 
 public class GameOverApplication extends JFrame {
 	JButton btnNewButton ;
+	boolean hasWon ;
 	
-	public GameOverApplication() {
+	public GameOverApplication(boolean hasWon) {
+		setTitle("Game Over!");
 		getContentPane().setLayout(null);
-		setBounds(300, 200, 350, 200);
+		setBounds(300, 200, 300, 150);
 		
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel lblNewLabel = null ;
+		
+		if(hasWon){
+			lblNewLabel = new JLabel("You Won!");
+		}
+		else{
+			lblNewLabel = new JLabel("You Lost!") ;
+		}
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(10, 11, 314, 92);
+		lblNewLabel.setBounds(65, 13, 150, 25);
 		getContentPane().add(lblNewLabel);
 		
-		btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(120, 127, 89, 23);
+		btnNewButton = new JButton("Main Menu");
+		btnNewButton.setBounds(65, 50, 150, 23);
 		getContentPane().add(btnNewButton);
 	}
 }
