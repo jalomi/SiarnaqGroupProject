@@ -118,7 +118,61 @@ public class TileLabel extends JLabel {
 	}
 	
 	public void setIconSelected() {
-		this.setIcon(null);
+		if(!model.isEnabled()) {
+			return;
+		}
+		
+		int value = model.getSquare().getValue();
+		int multi = model.getSquare().getMultiplier();
+		
+		if(value == 1 && multi == 1) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/1-1-sel.png")));
+
+		} else if(value == 1 && multi == 2) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/1-2-sel.png")));
+		
+		} else if(value == 1 && multi == 3) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/1-3-sel.png")));
+		
+		} else if(value == 2 && multi == 1) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/2-1-sel.png")));
+		
+		} else if(value == 2 && multi == 2) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/2-2-sel.png")));
+		
+		} else if(value == 2 && multi == 3) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/2-3-sel.png")));
+		
+		} else if(value == 3 && multi == 1) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/3-1-sel.png")));
+		
+		} else if(value == 3 && multi == 2) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/3-2-sel.png")));
+		
+		} else if(value == 3 && multi == 3) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/3-3-sel.png")));
+		
+		} else if(value == 4 && multi == 1) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/4-1-sel.png")));
+		
+		} else if(value == 4 && multi == 2) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/4-2-sel.png")));
+		
+		} else if(value == 4 && multi == 3) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/4-3-sel.png")));
+		
+		} else if(value == 5 && multi == 1) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/5-1-sel.png")));
+		
+		} else if(value == 5 && multi == 2) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/5-2-sel.png")));
+		
+		} else if(value == 5 && multi == 3) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/5-3-sel.png")));
+		
+		} else if(value == 6) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/6-sel.png")));
+		} 
 	}
 	
 	public void setIconMarked() {
