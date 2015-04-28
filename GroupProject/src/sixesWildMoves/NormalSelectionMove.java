@@ -2,7 +2,7 @@ package sixesWildMoves;
 
 import java.util.ArrayList;
 
-import sixesWildBoundary.LevelCompleteApplication;
+import sixesWildBoundary.GameOverApplication;
 import sixesWildBoundary.MainMenuApplication;
 import sixesWildBoundary.SixesWildApplication;
 import sixesWildEntity.Board;
@@ -63,7 +63,7 @@ public class NormalSelectionMove implements IMove{
 				//close the frame and show level complete screen
 				theGame.setVisible(false) ;
 				theGame.getModel().updateScores() ;
-				LevelCompleteApplication completeScreen = new LevelCompleteApplication();
+				GameOverApplication completeScreen = new GameOverApplication();
 				completeScreen.setVisible(true);
 			}
 			
