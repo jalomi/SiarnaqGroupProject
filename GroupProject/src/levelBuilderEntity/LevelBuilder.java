@@ -99,6 +99,8 @@ public class LevelBuilder {
 		percentM[1] = 0 ;
 		percentM[2] = 0 ;
 		
+		second=0;
+		
 		this.allowReset = false;
 		this.allowSwap = false;
 		this.allowRemove = false;
@@ -356,6 +358,16 @@ public class LevelBuilder {
 	public void setBucketEnabled(int i, boolean b)
 	{
 		bucketFor6s[i]=b;
+	}
+	
+	public int getSeconds()
+	{
+		return second;
+	}
+	
+	public void setSeconds(int i)
+	{
+		second=i;
 	}
 }
 
