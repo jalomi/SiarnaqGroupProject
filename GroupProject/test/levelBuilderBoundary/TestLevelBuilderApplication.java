@@ -8,7 +8,7 @@ public class TestLevelBuilderApplication extends TestCase {
 	
 	@Override
 	protected void setUp(){
-		LBA = new LevelBuilderApplication() ;
+		//LBA = new LevelBuilderApplication() ;
 		
 		LBA.setVisible(true) ;
 	}

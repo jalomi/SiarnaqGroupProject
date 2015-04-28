@@ -58,7 +58,7 @@ public class ResetBoardMove implements IMove{
 			//close the frame and show level complete screen
 			theGame.setVisible(false) ;
 			theGame.getModel().updateScores() ;
-			GameOverApplication completeScreen = new GameOverApplication();
+			GameOverApplication completeScreen = new GameOverApplication(board.getLevel().getStarNumber() != 0);
 			completeScreen.setVisible(true);
 		}
 		
