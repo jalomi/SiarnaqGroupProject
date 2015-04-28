@@ -21,9 +21,12 @@ public class RedoController implements ActionListener{
 	
 	public boolean process(){
 		Move m = model.removeRedoMove();
-		if(m==null){return false;}
+		if(m==null){
+			System.out.print("null!!!");
+			return false;}
 		
 		if(m.doMove()){
+			System.out.print("Redo!!!");
 			model.recordRedoneMove(m);
 		}
 		application.repaint();
