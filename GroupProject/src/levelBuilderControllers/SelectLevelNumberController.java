@@ -20,16 +20,15 @@ public class SelectLevelNumberController implements ActionListener{
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent ae)
-	{
+	public void actionPerformed(ActionEvent ae) {
 		JTextField tf=(JTextField)ae.getSource();
 		update(tf);
 	}
 	
-	public void update(JTextField tf)
-	{
-		try{
+	public void update(JTextField tf) {
+		try {
 			int num = Integer.valueOf(tf.getText());
+			System.out.println("TAG:::::" + "num");
 			SetLevelNumberMove m=new SetLevelNumberMove(model, num, tf);
 			if(m.doMove())
 			{

@@ -1,9 +1,17 @@
 package levelBuilderEntity;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Stack;
 
+import org.json.JSONException;
+
+import JSONSerializer.LevelJSONSerializer;
 import sixesWildEntity.Elimination;
 import sixesWildEntity.Level;
+import sixesWildEntity.Lightning;
+import sixesWildEntity.Puzzle;
+import sixesWildEntity.Release;
 import levelBuilderMoves.Move;
 
 public class LevelBuilder {
@@ -29,13 +37,14 @@ public class LevelBuilder {
 	int twoStarScore;
 	int threeStarScore;
 	
-	int millisecond; //millisecond is the unit which java real time uses
+	int second;
 	int moves;
 	/*    End The Configuration of a Level    */
 	
 	/*    Current Editing Level    */
 	//Must do cast after you do type checking!!!
-	Level level;
+	static ArrayList<String> levelList = new ArrayList<String>();
+	static Level level;
 	/*    End Current Editing Level    */
 	
 	
@@ -45,12 +54,18 @@ public class LevelBuilder {
 	/*    End The info LevelBuilder keeps for itself    */
 	
 	//CONSTRUCTOR 
-	public LevelBuilder(){
+	public LevelBuilder() throws IOException, JSONException{
+		//first loading the level
+		LevelJSONSerializer json = new LevelJSONSerializer("Level List.json");
+		this.levelList = json.loadLevelList();
+		
+		
 		for(int i = 0; i < 9; i++){
 			for(int j = 0; j < 9; j++){
 				tilesActive[i][j] = true ;
 			}
 		}
+		
 		
 		for(int i=0; i<9; i++)
 		{
@@ -88,7 +103,7 @@ public class LevelBuilder {
 		this.allowReset = false;
 		this.allowSwap = false;
 		this.allowRemove = false;
-		this.type= "Level";
+		this.type= "Puzzle";
 	}
 	
 	/**
@@ -96,6 +111,7 @@ public class LevelBuilder {
 	 * @throws Exception 
 	 */
 	public Level generateLevel(String type) throws Exception {
+		System.out.println(TAG + " type:" + type);
 		if(type.equals("Elimination")) {
 			return new Elimination(this.getLevelNumber(), this.moves,
 					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
@@ -106,7 +122,7 @@ public class LevelBuilder {
 					  this.allowSwap, this.allowReset, this.allowRemove,
 					  this.tilesActive);
 		} else if(type.equals("Lightning")) {
-			return new Elimination(this.getLevelNumber(), this.moves,
+			return new Lightning(this.getLevelNumber(), this.moves,
 					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
 					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
 					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
@@ -115,7 +131,7 @@ public class LevelBuilder {
 					  this.allowSwap, this.allowReset, this.allowRemove,
 					  this.tilesActive);
 		} else if(type.equals("Puzzle")) {
-			return new Elimination(this.getLevelNumber(), this.moves,
+			return new Puzzle(this.getLevelNumber(), this.moves,
 					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
 					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
 					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
@@ -124,7 +140,7 @@ public class LevelBuilder {
 					  this.allowSwap, this.allowReset, this.allowRemove,
 					  this.tilesActive);
 		} else if(type.equals("Release")) {
-			return new Elimination(this.getLevelNumber(), this.moves,
+			return new Release(this.getLevelNumber(), this.moves,
 					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
 					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
 					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
@@ -333,6 +349,22 @@ public class LevelBuilder {
 			allowSwap=enabled;
 		else
 			allowRemove=enabled;
+	}
+	
+	public static ArrayList<String> getLevelList() {
+		return levelList;
+	}
+
+	public static void setLevelList(ArrayList<String> levelList) {
+		LevelBuilder.levelList = levelList;
+	}
+
+	public static Level getLevel() {
+		return level;
+	}
+
+	public static void setLevel(Level level) {
+		LevelBuilder.level = level;
 	}
 }
 

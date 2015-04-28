@@ -22,11 +22,11 @@ public class SavingLoadingLevelController implements ActionListener{
 	
 	public static final String TAG = "SavingLoadingLevelController";
 	
-	LevelBuilderApplication app;
+	//LevelBuilderApplication app;
 	LevelBuilder model;
 	
-	public SavingLoadingLevelController(LevelBuilderApplication app, LevelBuilder model) {
-		this.app = app;
+	public SavingLoadingLevelController(LevelBuilder model) {
+		//this.app = app;
 		this.model = model;
 	}
 	
@@ -34,15 +34,15 @@ public class SavingLoadingLevelController implements ActionListener{
 	public void actionPerformed(ActionEvent event) {
 		//generate a level based on level builders' attributes(configuration)
 		//Please change getLevelType to String!
+		String fileName = model.getLevelType() + " " + model.getLevelNumber();
 		LevelJSONSerializer json = 
-				new LevelJSONSerializer(model.getLevelType() + " " + model.getLevelNumber());
+				new LevelJSONSerializer(fileName);
 		try {
+			System.out.println("!!!----!!!");
 			json.saveSingleLevel(model.generateLevel(model.getLevelType()));
-		} catch (JSONException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+			LevelBuilder.getLevelList().add(fileName);
 		} catch (Exception e) {
+			System.out.println("!!!-22-!!!");
 			e.printStackTrace();
 		}
 	}

@@ -1,11 +1,14 @@
 package levelBuilderBoundary;
 
 import java.awt.GridLayout;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import org.json.JSONException;
 
 import levelBuilderEntity.LevelBuilder;
 
@@ -16,8 +19,10 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 
 	/**
 	 * Create the panel.
+	 * @throws JSONException 
+	 * @throws IOException 
 	 */
-	public LevelBuilderPreviewGamePanel() {
+	public LevelBuilderPreviewGamePanel() throws IOException, JSONException {
 		this.setSize(490, 490);
 		this.setLayout(new GridLayout(9,9));
 		this.setBorder(new EmptyBorder(10,10,10,10));
@@ -32,7 +37,9 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 						
 	}
 	
-	private void initLabel(int col, int row) {
+	private void initLabel(int col, int row) throws IOException, JSONException {
+		//Maybe want to change this later
+		//make LevelBuilder static
 		board = new LevelBuilder() ;
 		map[col][row] = new JLabel("");
 		

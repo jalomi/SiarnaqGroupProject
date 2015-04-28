@@ -8,11 +8,13 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 
+import levelBuilderControllers.SavingLoadingLevelController;
+import levelBuilderEntity.LevelBuilder;
+
 
 public class LevelBuilderInputPanel extends JPanel {
 	private JTextField txtLevelNumber;
 	private JTextField txtEnterMaxMoves;
-	private JTextField txtEnterMaxMinutes;
 	private JTextField txtEnterMaxSeconds;
 	private JTextField txtEnterScore;
 	private JTextField txtEnterScore_1;
@@ -60,12 +62,6 @@ public class LevelBuilderInputPanel extends JPanel {
 		add(txtEnterMaxMoves);
 		txtEnterMaxMoves.setColumns(10);
 		
-		txtEnterMaxMinutes = new JTextField();
-		txtEnterMaxMinutes.setText("Enter Max Minutes");
-		txtEnterMaxMinutes.setBounds(0, 105, 150, 27);
-		add(txtEnterMaxMinutes);
-		txtEnterMaxMinutes.setColumns(10);
-		
 		txtEnterMaxSeconds = new JTextField();
 		txtEnterMaxSeconds.setText("Enter Max Seconds");
 		txtEnterMaxSeconds.setBounds(0, 140, 150, 27);
@@ -104,6 +100,8 @@ public class LevelBuilderInputPanel extends JPanel {
 		
 		generateLevelBtn = new JButton("Generate Level");
 		generateLevelBtn.setBounds(0, 415, 150, 40);
+		generateLevelBtn.addActionListener(
+				new SavingLoadingLevelController(LevelBuilderApplication.getModel()));
 		add(generateLevelBtn);
 		
 		exitBtn = new JButton("Exit");
@@ -178,10 +176,12 @@ public class LevelBuilderInputPanel extends JPanel {
 		
 		//this view should be dynamically loaded in the run time
 		//change later
-		JComboBox<String> choosingLevelBox = 
-			new JComboBox<String>(
-				new DefaultComboBoxModel(
-					new String[] {"Puzzle 1"}));
+		DefaultComboBoxModel<String> m = new DefaultComboBoxModel<String>();
+		m.addElement("New Level");
+		for(String s: LevelBuilder.getLevelList()) {
+			m.addElement(s);
+		}
+		JComboBox<String> choosingLevelBox = new JComboBox<String>(m);
 		choosingLevelBox.setBounds(210, 363, 150, 40);
 		add(choosingLevelBox);
 	}
@@ -222,10 +222,6 @@ public class LevelBuilderInputPanel extends JPanel {
 	public JTextField getScore3() {
 		// TODO Auto-generated method stub
 		return txtEnterScore_2;
-	}
-	
-	public JTextField getMinutes(){
-		return txtEnterMaxMinutes;
 	}
 
 	public JTextField getSeconds() {
