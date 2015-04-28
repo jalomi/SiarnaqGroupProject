@@ -229,11 +229,11 @@ public class LevelBuilder {
 	}
 	
 	public void setPercents(int n, double p){
-		percents[n] = p;
+		percents[n] = p/100;
 	}
 	
 	public void setPercentM(int m, double p){
-		percentM[m] = p;
+		percentM[m] = p/100;
 	}
 	
 	public void setStarScore(int n,int s){
