@@ -1,9 +1,5 @@
 package sixesWildEntity;
 
-import java.util.UUID;
-
-import javax.swing.JTextArea;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -245,10 +241,18 @@ public abstract class Level {
 	public int getLevelNumber() {
 		return levelNumber;
 	}
+	
+	public int getStarNumber() {
+		return starNumber;
+	}
+	
+	public boolean getUnlocked(){
+		return unlocked ;
+	}
 		
 	public abstract String getMovesRemainingString();
 	public abstract String getTimeRemainingString();
 	public abstract void updateMovesLeft(int m) ;
-	public abstract boolean hasWon() ;
+	public abstract boolean gameOver() ;
 	
 }

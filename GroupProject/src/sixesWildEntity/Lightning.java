@@ -1,7 +1,5 @@
 package sixesWildEntity;
 
-import java.sql.Time;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -10,9 +8,10 @@ public class Lightning extends Level {
 	//a real countdown timer should be implemented later
 	//check out Scanner, Timer, and TimerTask
 	
-	public Lightning(int number, int movesRemaining) {
+	public Lightning(int number, int time) {
 		super(number);
-		this.timeRemaining = movesRemaining;
+		this.timeRemaining = time;
+		this.unlocked = false ;
 	}
 	
 	public Lightning(int number, int timeRemaining, 
@@ -30,19 +29,23 @@ public class Lightning extends Level {
 		super(json);
 	}
 
+	@Override
 	public String getMovesRemainingString() {
 		return "Unlimited";
 	}
 	
+	@Override
 	public String getTimeRemainingString() {
 		return Integer.toString(timeRemaining);
 	}
 	
+	@Override
 	public void updateMovesLeft(int m){
 		
 	}
 	
-	public boolean hasWon(){
+	@Override
+	public boolean gameOver(){
 		if(timeRemaining <= 0){
 			if(score >= oneStarScore){
 				if(score >= threeStarScore){
@@ -54,9 +57,9 @@ public class Lightning extends Level {
 				else{
 					starNumber = 1 ;
 				}			
-				
-				return true ;
 			}
+			
+			return true ;
 		}
 		
 		return false ;

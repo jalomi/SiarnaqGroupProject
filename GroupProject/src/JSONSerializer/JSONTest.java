@@ -1,11 +1,8 @@
 package JSONSerializer;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import org.json.JSONException;
 
-import sixesWildEntity.Level;
 import sixesWildEntity.Puzzle;
 
 public class JSONTest {

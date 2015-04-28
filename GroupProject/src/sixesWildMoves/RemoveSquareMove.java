@@ -1,8 +1,9 @@
 package sixesWildMoves;
 
+import sixesWildBoundary.GameOverApplication;
 import sixesWildBoundary.SixesWildApplication;
+import sixesWildControllers.BacktoMainMenuController;
 import sixesWildEntity.Board;
-import sixesWildEntity.Square;
 import sixesWildEntity.Tile;
 
 public class RemoveSquareMove implements IMove{
@@ -32,14 +33,18 @@ public class RemoveSquareMove implements IMove{
 			board.setRemoveMove(false) ;
 			theGame.updateMovesLeft(-1) ;
 			
+			if(board.getLevel().gameOver()){
+				//close the frame and show level complete screen
+				theGame.setVisible(false) ;
+				theGame.getModel().updateScores() ;
+				GameOverApplication completeScreen = new GameOverApplication(board.getLevel().getStarNumber() != 0);
+				completeScreen.setVisible(true);
+				completeScreen.getMainMenuBtn().addActionListener(new BacktoMainMenuController(completeScreen)) ;
+			}
+			
 			return true ;
 		}
 		return false ;
 	}
 
-	@Override
-	public void undoMove(SixesWildApplication theGame) {
-		// TODO Auto-generated method stub
-		
-	}
 }

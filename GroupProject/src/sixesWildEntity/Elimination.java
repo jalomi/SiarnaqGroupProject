@@ -30,19 +30,23 @@ public class Elimination extends Level {
 		//add more later
 	}
 
+	@Override
 	public String getMovesRemainingString() {
 		return String.valueOf(movesRemaining);
 	}
 	
+	@Override
 	public String getTimeRemainingString() {
 		return "Unlimited";
 	}
 	
+	@Override
 	public void updateMovesLeft(int m){
 		movesRemaining += m ;
 	}
 	
-	public boolean hasWon(){
+	@Override
+	public boolean gameOver(){
 //		if(movesRemaining == 0){
 //			if(score >= oneStarScore){
 //				if(score >= threeStarScore){
@@ -54,9 +58,9 @@ public class Elimination extends Level {
 //				else{
 //					starNumber = 1 ;
 //				}			
-//				
-//				return true ;
 //			}
+//
+//		return true ;
 //		}
 //		
 //		return false ;

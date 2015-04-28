@@ -129,4 +129,52 @@ public class LevelJSONSerializer {
         
 		return level;
     }
+    
+    public void saveLevelList(ArrayList<String> levelList) throws IOException {
+        // build an array in JSON
+        JSONArray array = new JSONArray();
+        for (String s : levelList)
+            array.put(s);
+
+        // write the file to disk
+        Writer writer = null;
+        try {
+            OutputStream out = new FileOutputStream(fileName);
+            writer = new OutputStreamWriter(out);
+            writer.write(array.toString());
+        } finally {
+            if (writer != null)
+                writer.close();
+        }
+    }
+    
+    public ArrayList<String> loadLevelList() throws IOException, JSONException {
+        ArrayList<String> levelList = new ArrayList<String>();
+        BufferedReader reader = null;
+        try {
+            // open and read the file into a StringBuilder
+            InputStream in = new FileInputStream(fileName);
+            reader = new BufferedReader(new InputStreamReader(in));
+            StringBuilder jsonString = new StringBuilder();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                // line breaks are omitted and irrelevant
+                jsonString.append(line);
+            }
+            
+            // parse the JSON using JSONTokener
+            JSONArray array = (JSONArray) new JSONTokener(jsonString.toString()).nextValue();
+            // build the array of levels from JSONObjects
+            for (int i = 0; i < array.length(); i++) {
+            	levelList.add(array.getString(i));
+            }
+        } catch (FileNotFoundException e) {
+            //ignore this one, since it happens when we start fresh
+        	//when no levels to read
+        } finally {
+            if (reader != null)
+                reader.close();
+        }
+		return levelList;
+    }
 }

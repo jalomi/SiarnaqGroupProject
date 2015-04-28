@@ -10,10 +10,13 @@ import javax.swing.JLabel;
 
 import sixesWildControllers.BacktoMainMenuController;
 import sixesWildControllers.RemoveSquareButtonController;
+import sixesWildControllers.ResetBoardButtonController;
 import sixesWildControllers.SwapSquareButtonController;
 import sixesWildEntity.Board;
 import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
+
+import javax.swing.UIManager;
 
 public class SixesWildLevelPanel extends JPanel {
 	public static final String TAG = "SixesWildLevelPanel";
@@ -55,6 +58,7 @@ public class SixesWildLevelPanel extends JPanel {
 	
 	public void initBoundaries() {
 		JTextArea txtrLevelNumberHere = new JTextArea();
+		txtrLevelNumberHere.setBackground(UIManager.getColor("Panel.background"));
 		txtrLevelNumberHere.setEditable(false);
 		txtrLevelNumberHere.setText("Level Number: " + level.getLevelNumber());
 		txtrLevelNumberHere.setBounds(170, 0, 150, 27);
@@ -78,15 +82,15 @@ public class SixesWildLevelPanel extends JPanel {
 		resetBoardButton.setBounds(115, 95, 100, 40);
 		add(resetBoardButton);
 		
-		JLabel scoreLabel = new JLabel("Score");
+		JLabel scoreLabel = new JLabel("Score:");
 		scoreLabel.setBounds(245, 40, 50, 21);
 		add(scoreLabel);
 		
-		JLabel timeLeftLabel = new JLabel("Time Left");
+		JLabel timeLeftLabel = new JLabel("Time Left:");
 		timeLeftLabel.setBounds(319, 40, 80, 21);
 		add(timeLeftLabel);
 		
-		JLabel moveLeftLabel = new JLabel("Moves Left");
+		JLabel moveLeftLabel = new JLabel("Moves Left:");
 		moveLeftLabel.setBounds(408, 40, 80, 21);
 		add(moveLeftLabel);
 		
@@ -97,18 +101,21 @@ public class SixesWildLevelPanel extends JPanel {
 		add(textScore);
 		
 		text1stStarScore = new JTextArea();
+		text1stStarScore.setBackground(UIManager.getColor("Panel.background"));
 		text1stStarScore.setEditable(false);
 		text1stStarScore.setText("1*: " + String.valueOf(level.getFirstStarScore()));
 		text1stStarScore.setBounds(245, 108, 60, 27);
 		add(text1stStarScore);
 		
 		text2ndStarScore = new JTextArea();
+		text2ndStarScore.setBackground(UIManager.getColor("Panel.background"));
 		text2ndStarScore.setEditable(false);
 		text2ndStarScore.setText("2*: " + String.valueOf(level.getSecondStarScore()));
 		text2ndStarScore.setBounds(319, 108, 63, 27);
 		add(text2ndStarScore);
 		
 		text3rdStarScore = new JTextArea();
+		text3rdStarScore.setBackground(UIManager.getColor("Panel.background"));
 		text3rdStarScore.setEditable(false);
 		text3rdStarScore.setText("3*: " + String.valueOf(level.getThirdStarScore()));
 		text3rdStarScore.setBounds(396, 108, 62, 27);
@@ -131,6 +138,7 @@ public class SixesWildLevelPanel extends JPanel {
 		this.backToMainManuButton.addActionListener(new BacktoMainMenuController(app));
 		this.deleteSquareButton.addActionListener(new RemoveSquareButtonController(app, board));
 		this.swapSquareButton.addActionListener(new SwapSquareButtonController(app, board)) ;
+		this.resetBoardButton.addActionListener(new ResetBoardButtonController(app, board, app)) ;
 	}
 	
 	public void refresh() {

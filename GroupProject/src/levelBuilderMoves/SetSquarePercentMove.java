@@ -25,8 +25,22 @@ public class SetSquarePercentMove extends Move{
 
 	@Override
 	public boolean isValid() {
-		return newValue>=0 && newValue<=100; /*&& (model.getPercent(0)+model.getPercent(1)+model.getPercent(2)
-				+model.getPercent(3)+model.getPercent(4)+model.getPercent(5))==100*/
+		double sum=newValue/100;
+		for(int i=0; i<5; i++)
+		{
+			sum+=model.getPercent(i);
+		}
+		sum-=model.getPercent(squareNum);
+		
+		try
+		{
+			if(sum>1)
+				throw new IllegalArgumentException("percent for 6s negative");
+		} catch(IllegalArgumentException iae){
+			tf.setText(""+(model.getPercent(squareNum)*100));
+		}
+		
+		return newValue>=0 && newValue<=100 && sum<=1;
 	}
 
 	@Override
@@ -35,13 +49,13 @@ public class SetSquarePercentMove extends Move{
 		double sum=0;
 		if(!isValid()){return false;}
 		model.setPercents(squareNum, newValue);
-		tf.setText(""+model.getPercent(squareNum));
+		tf.setText(""+(model.getPercent(squareNum)*100));
 		for(int i=0; i<5; i++)
 		{
 			sum+=model.getPercent(i);
 		}
-		model.setPercents(5, 100-sum);
-		ta.setText(""+model.getPercent(5));
+		model.setPercents(5, (1-sum)*100);
+		ta.setText(""+(model.getPercent(5)*100));
 		return true;
 	}
 
@@ -50,13 +64,13 @@ public class SetSquarePercentMove extends Move{
 		// TODO Auto-generated method stub
 		double sum=0;
 		model.setPercents(squareNum, oldValue);
-		tf.setText(""+model.getPercent(squareNum));
+		tf.setText(""+(model.getPercent(squareNum)*100));
 		for(int i=0; i<5; i++)
 		{
 			sum+=model.getPercent(i);
 		}
-		model.setPercents(5, 100-sum);
-		ta.setText(""+model.getPercent(5));
+		model.setPercents(5, (1-sum)*100);
+		ta.setText(""+(model.getPercent(5)*100));
 		return true;
 	}
 }

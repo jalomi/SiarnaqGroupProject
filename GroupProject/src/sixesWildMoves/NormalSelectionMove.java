@@ -2,8 +2,10 @@ package sixesWildMoves;
 
 import java.util.ArrayList;
 
-import sixesWildBoundary.MainMenuApplication;
+import levelBuilderControllers.SavedScreenToLevelBuilderController;
+import sixesWildBoundary.GameOverApplication;
 import sixesWildBoundary.SixesWildApplication;
+import sixesWildControllers.BacktoMainMenuController;
 import sixesWildEntity.Board;
 import sixesWildEntity.Tile;
 
@@ -58,23 +60,18 @@ public class NormalSelectionMove implements IMove{
 			theGame.updateScore(score);
 			theGame.updateMovesLeft(-1) ;
 			
-			if(board.getLevel().hasWon()){
-				//close the frame and return to level select
+			if(board.getLevel().gameOver()){
+				//close the frame and show level complete screen
 				theGame.setVisible(false) ;
 				theGame.getModel().updateScores() ;
-				MainMenuApplication main = new MainMenuApplication();
-				main.setVisible(true);
+				GameOverApplication completeScreen = new GameOverApplication(board.getLevel().getStarNumber() != 0);
+				completeScreen.setVisible(true);
+				completeScreen.getMainMenuBtn().addActionListener(new BacktoMainMenuController(completeScreen)) ;
 			}
 			
 			return true;
 		}
 		return false;
-	}
-
-	@Override
-	public void undoMove(SixesWildApplication theGame) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

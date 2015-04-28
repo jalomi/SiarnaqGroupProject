@@ -7,7 +7,6 @@ import javax.swing.JTextField;
 
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
-import levelBuilderMoves.SetTimeMove;
 
 public class SelectMinutesController implements ActionListener{
 	/*This controller should be either removed or rewritten

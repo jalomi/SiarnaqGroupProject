@@ -28,25 +28,30 @@ public class Puzzle extends Level {
 		this.movesRemaining = movesRemaining;
 	}
 	
+	@Override
 	public JSONObject toJSON() throws JSONException {
 		JSONObject json = super.toJSON();
 		json.put("movesRemaining", movesRemaining);
 		return json;
 	}
 	
+	@Override
 	public String getMovesRemainingString() {
 		return String.valueOf(movesRemaining);
 	}
 	
+	@Override
 	public String getTimeRemainingString() {
 		return "Unlimited";
 	}
 	
+	@Override
 	public void updateMovesLeft(int m){
 		movesRemaining += m ;
 	}
 	
-	public boolean hasWon(){
+	@Override
+	public boolean gameOver(){
 		if(movesRemaining <= 0){
 			if(score >= oneStarScore){
 				if(score >= threeStarScore){
@@ -59,8 +64,9 @@ public class Puzzle extends Level {
 					starNumber = 1 ;
 				}			
 				
-				return true ;
 			}
+			
+			return true ;
 		}
 		
 		return false ;

@@ -8,7 +8,7 @@ public class TestLevelBuilderPreviewApplication extends TestCase {
 	@Override
 	protected void setUp()
 	{
-		prev=new LevelBuilderPreviewApplication();
+		//prev=new LevelBuilderPreviewApplication();
 	}
 	
 	@Override

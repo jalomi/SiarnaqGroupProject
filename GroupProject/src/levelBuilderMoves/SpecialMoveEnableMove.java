@@ -17,7 +17,7 @@ public class SpecialMoveEnableMove extends Move{
 		this.state=e;
 		this.ch=ch;
 		this.moveID=moveID;
-		this.oldState=model.getEnabled(moveID);
+		this.oldState=model.getSpecialEnabled(moveID);
 		
 	}
 
@@ -33,9 +33,15 @@ public class SpecialMoveEnableMove extends Move{
 		if(!isValid()){return false;}
 		
 		if(state==true)
+		{
 			model.allowSpecials(moveID);
+			ch.setSelected(true);
+		}
 		else
+		{
 			model.disallowSpecials(moveID);
+			ch.setSelected(false);
+		}
 			
 		return true;
 	}
@@ -43,8 +49,8 @@ public class SpecialMoveEnableMove extends Move{
 	@Override
 	public boolean undo() {
 		// TODO Auto-generated method stub
-		model.setEnabled(moveID, oldState);
-		ch.setSelected(model.getEnabled(moveID));
+		model.setSpecialEnabled(moveID, oldState);
+		ch.setSelected(model.getSpecialEnabled(moveID));
 		return true;
 	}
 }
