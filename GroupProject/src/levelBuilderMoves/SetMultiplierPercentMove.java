@@ -42,8 +42,8 @@ public class SetMultiplierPercentMove extends Move{
 			{
 				sum+=model.getPercentM(i);
 			}
-			model.setPercentM(0, 100-sum);
-			ta.setText(""+model.getPercentM(0));
+			model.setPercentM(0, (1-sum)*100);
+			ta.setText(""+(model.getPercentM(0)*100));
 			return true;
 		}
 
@@ -52,13 +52,13 @@ public class SetMultiplierPercentMove extends Move{
 			// TODO Auto-generated method stub
 			double sum=0;
 			model.setPercentM(multiplierNum, oldValue);
-			tf.setText(""+model.getPercentM(multiplierNum));
+			tf.setText(""+(model.getPercentM(multiplierNum)*100));
 			for(int i=1; i<3; i++)
 			{
 				sum+=model.getPercentM(i);
 			}
-			model.setPercentM(0, 100-sum);
-			ta.setText(""+model.getPercentM(0));
+			model.setPercentM(0, (1-sum)*100);
+			ta.setText(""+(model.getPercentM(0)*100));
 			return true;
 		}
 }

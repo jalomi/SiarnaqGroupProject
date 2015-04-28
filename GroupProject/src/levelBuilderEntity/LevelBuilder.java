@@ -74,16 +74,16 @@ public class LevelBuilder {
 		this.allowRemove=false;
 
 		//bad dummy values
-		percents[0] = .2 ;
-		percents[1] = .2 ;
-		percents[2] = .2 ;
-		percents[3] = .2 ;
-		percents[4] = .1 ;
-		percents[5] = .1 ;
+		percents[0] = 0 ;
+		percents[1] = 0 ;
+		percents[2] = 0 ;
+		percents[3] = 0 ;
+		percents[4] = 0 ;
+		percents[5] = 0 ;
 		
-		percentM[0] = .89 ;
-		percentM[1] = .1 ;
-		percentM[2] = .01 ;
+		percentM[0] = 0 ;
+		percentM[1] = 0 ;
+		percentM[2] = 0 ;
 		
 		this.allowReset = false;
 		this.allowSwap = false;

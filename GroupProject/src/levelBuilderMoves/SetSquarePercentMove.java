@@ -35,13 +35,13 @@ public class SetSquarePercentMove extends Move{
 		double sum=0;
 		if(!isValid()){return false;}
 		model.setPercents(squareNum, newValue);
-		tf.setText(""+model.getPercent(squareNum));
+		tf.setText(""+(model.getPercent(squareNum)*100));
 		for(int i=0; i<5; i++)
 		{
 			sum+=model.getPercent(i);
 		}
-		model.setPercents(5, 100-sum);
-		ta.setText(""+model.getPercent(5));
+		model.setPercents(5, (1-sum)*100);
+		ta.setText(""+(model.getPercent(5)*100));
 		return true;
 	}
 
@@ -50,13 +50,13 @@ public class SetSquarePercentMove extends Move{
 		// TODO Auto-generated method stub
 		double sum=0;
 		model.setPercents(squareNum, oldValue);
-		tf.setText(""+model.getPercent(squareNum));
+		tf.setText(""+(model.getPercent(squareNum)*100));
 		for(int i=0; i<5; i++)
 		{
 			sum+=model.getPercent(i);
 		}
-		model.setPercents(5, 100-sum);
-		ta.setText(""+model.getPercent(5));
+		model.setPercents(5, (1-sum)*100);
+		ta.setText(""+(model.getPercent(5)*100));
 		return true;
 	}
 }
