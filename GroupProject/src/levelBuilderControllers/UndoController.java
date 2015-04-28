@@ -33,7 +33,7 @@ public class UndoController implements ActionListener{
 			/*if(m instanceof SetMoveNumberMove)
 				((SetMoveNumberMove)m).setOldValue(model.getMoves());*/
 		}
-	
+		
 		application.repaint();
 		return true;
 	}
