@@ -17,89 +17,44 @@ public class SetLevelTypeMove extends Move{
 	JComboBox<String> cb;
 	SelectLevelTypeController controller;
 	
-	public SetLevelTypeMove(LevelBuilder model, String newValue, JComboBox<String> cb, SelectLevelTypeController c)
-	{
-		this.model=model;
-		this.newValue=newValue;
-		this.oldValue=model.getLevelType();
+	public SetLevelTypeMove(LevelBuilder model, String newValue, JComboBox<String> cb, SelectLevelTypeController c) {
+		this.model = model;
+		this.newValue = newValue;
+		this.oldValue = model.getLevelType();
 		this.cb=cb;
 		this.controller=c;
 	}
 
 	@Override
 	public boolean isValid() {
-		// TODO Auto-generated method stub
-		return true;
+		if(newValue.equals("Puzzle") || newValue.equals("Release") 
+				|| newValue.equals("Elimination")
+				|| newValue.equals("Lightning")) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean doMove() {
 		// TODO Auto-generated method stub
 		if(!isValid()){return false;}
-		switch(newValue)
-		{
-			case "Puzzle":
-				System.out.println("Level Type: Puzzle");
-				model.setLevelType(newValue);
-				cb.removeActionListener(controller);
-				cb.setSelectedItem("Puzzle");
-				cb.addActionListener(controller);
-				break;
-			case "Lightning":
-				System.out.println("Level Type: Lightning");
-				model.setLevelType(newValue);
-				cb.removeActionListener(controller);
-				cb.setSelectedItem("Lightning");
-				cb.addActionListener(controller);
-				break;
-			case "Elimination":
-				System.out.println("Level Type: Elimination");
-				model.setLevelType(newValue);
-				cb.removeActionListener(controller);
-				cb.setSelectedItem("Elimination");
-				cb.addActionListener(controller);
-				break;
-			case "Release":
-				System.out.println("Level Type: Release");
-				model.setLevelType(newValue);
-				cb.removeActionListener(controller);
-				cb.setSelectedItem("Release");
-				cb.addActionListener(controller);
-				break;
-		}
+		
+		System.out.println("new value: " + newValue);
+		model.setLevelType(newValue);
+		cb.removeActionListener(controller);
+		cb.setSelectedItem(newValue);
+		cb.addActionListener(controller);
 		return true;
 	}
 
 	@Override
 	public boolean undo() {
-		// TODO Auto-generated method stub
-		switch(oldValue)
-		{
-//			case 1:
-//				model.setLevelType(1);
-//				cb.removeActionListener(controller);
-//				cb.setSelectedItem("Puzzle");
-//				cb.addActionListener(controller);
-//				break;
-//			case 2:
-//				model.setLevelType(2);
-//				cb.removeActionListener(controller);
-//				cb.setSelectedItem("Lightning");
-//				cb.addActionListener(controller);
-//				break;
-//			case 3:
-//				model.setLevelType(3);
-//				cb.removeActionListener(controller);
-//				cb.setSelectedItem("Elimination");
-//				cb.addActionListener(controller);
-//				break;
-//			case 4:
-//				model.setLevelType(4);
-//				cb.removeActionListener(controller);
-//				cb.setSelectedItem("Release");
-//				cb.addActionListener(controller);
-//				break;
-		}
+		model.setLevelType(oldValue);
+		cb.removeActionListener(controller);
+		cb.setSelectedItem(oldValue);
+		cb.addActionListener(controller);
 		return true;
 	}
 

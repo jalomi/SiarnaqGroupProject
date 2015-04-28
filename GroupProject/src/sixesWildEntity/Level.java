@@ -1,9 +1,5 @@
 package sixesWildEntity;
 
-import java.util.UUID;
-
-import javax.swing.JTextArea;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -244,6 +240,10 @@ public abstract class Level {
 	
 	public int getLevelNumber() {
 		return levelNumber;
+	}
+	
+	public int getStarNumber() {
+		return starNumber;
 	}
 		
 	public abstract String getMovesRemainingString();

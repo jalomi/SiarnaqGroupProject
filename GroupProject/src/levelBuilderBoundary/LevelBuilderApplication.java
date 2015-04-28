@@ -1,10 +1,14 @@
 package levelBuilderBoundary;
 
+import java.io.IOException;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.UIManager;
+
+import org.json.JSONException;
 
 import levelBuilderControllers.ActivateBucketforSixesController;
 import levelBuilderControllers.ActivateSpecialMoveController;
@@ -17,7 +21,6 @@ import levelBuilderControllers.Select2StarScoreController;
 import levelBuilderControllers.Select3StarScoreController;
 import levelBuilderControllers.SelectLevelNumberController;
 import levelBuilderControllers.SelectLevelTypeController;
-import levelBuilderControllers.SelectMinutesController;
 import levelBuilderControllers.SelectMoveNumberController;
 import levelBuilderControllers.SelectMultiplierPercentController;
 import levelBuilderControllers.SelectSecondsController;
@@ -32,40 +35,16 @@ public class LevelBuilderApplication extends JFrame {
 	LevelBuilderInputPanel inputPanel ;
 	LevelBuilderCheckBoxPanel checkBoxPanel ;
 	private JPanel panel;
-	private LevelBuilder model=new LevelBuilder();
-	
-	public LevelBuilderGamePanel getGamePanel(){
-		return gamePanel ;
-	}
-	
-	public LevelBuilderInputPanel getInputPanel(){
-		return inputPanel ;
-	}
-	
-	public LevelBuilderCheckBoxPanel getCheckBoxPanel(){
-		return checkBoxPanel ;
-	}
-
-//	/**
-//	 * Launch the application.
-//	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					LevelBuilderApplication frame = new LevelBuilderApplication();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	private static LevelBuilder model;
 
 	/**
 	 * Create the frame.
+	 * @throws JSONException 
+	 * @throws IOException 
 	 */
-	public LevelBuilderApplication() {
+	public LevelBuilderApplication() throws IOException, JSONException {
+		model= new LevelBuilder();
+		
 		setResizable(false);
 		setTitle("Level Builder");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -101,7 +80,6 @@ public class LevelBuilderApplication extends JFrame {
 		getInputPanel().getScore1().addActionListener(new Select1StarScoreController (model, this));
 		getInputPanel().getScore2().addActionListener(new Select2StarScoreController (model, this));
 		getInputPanel().getScore3().addActionListener(new Select3StarScoreController (model, this));
-		getInputPanel().getMinutes().addActionListener(new SelectMinutesController (model, this));
 		getInputPanel().getSeconds().addActionListener(new SelectSecondsController (model, this));
 		getInputPanel().getLevel().addActionListener(new SelectLevelNumberController (model, this));
 		getInputPanel().getPercent1().addActionListener(new SelectSquarePercentController(model, this, 0));
@@ -136,6 +114,26 @@ public class LevelBuilderApplication extends JFrame {
 	
 	public JButton getGenerateBtn(){
 		return inputPanel.getGenerateLevelBtn() ;
+	}
+	
+	public static LevelBuilder getModel() {
+		return model;
+	}
+
+	public static void setModel(LevelBuilder model) {
+		LevelBuilderApplication.model = model;
+	}
+
+	public LevelBuilderGamePanel getGamePanel(){
+		return gamePanel ;
+	}
+	
+	public LevelBuilderInputPanel getInputPanel(){
+		return inputPanel ;
+	}
+	
+	public LevelBuilderCheckBoxPanel getCheckBoxPanel(){
+		return checkBoxPanel ;
 	}
 	
 }

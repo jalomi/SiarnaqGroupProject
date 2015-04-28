@@ -7,7 +7,6 @@ import javax.swing.border.EmptyBorder;
 
 import sixesWildControllers.TileLabelController;
 import sixesWildEntity.Board;
-import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
 
 public class SixesWildGamePanel extends JPanel {

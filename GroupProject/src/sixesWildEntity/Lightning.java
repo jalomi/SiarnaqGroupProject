@@ -1,7 +1,5 @@
 package sixesWildEntity;
 
-import java.sql.Time;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -30,18 +28,22 @@ public class Lightning extends Level {
 		super(json);
 	}
 
+	@Override
 	public String getMovesRemainingString() {
 		return "Unlimited";
 	}
 	
+	@Override
 	public String getTimeRemainingString() {
 		return Integer.toString(timeRemaining);
 	}
 	
+	@Override
 	public void updateMovesLeft(int m){
 		
 	}
 	
+	@Override
 	public boolean gameOver(){
 		if(timeRemaining <= 0){
 			if(score >= oneStarScore){

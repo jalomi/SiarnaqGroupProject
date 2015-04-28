@@ -3,7 +3,6 @@ package sixesWildMoves;
 import sixesWildBoundary.GameOverApplication;
 import sixesWildBoundary.SixesWildApplication;
 import sixesWildEntity.Board;
-import sixesWildEntity.Square;
 import sixesWildEntity.Tile;
 
 public class RemoveSquareMove implements IMove{
@@ -37,7 +36,7 @@ public class RemoveSquareMove implements IMove{
 				//close the frame and show level complete screen
 				theGame.setVisible(false) ;
 				theGame.getModel().updateScores() ;
-				GameOverApplication completeScreen = new GameOverApplication();
+				GameOverApplication completeScreen = new GameOverApplication(board.getLevel().getStarNumber() != 0);
 				completeScreen.setVisible(true);
 			}
 			

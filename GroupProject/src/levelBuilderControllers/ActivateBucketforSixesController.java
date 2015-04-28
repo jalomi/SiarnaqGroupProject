@@ -8,7 +8,6 @@ import javax.swing.JCheckBox;
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
 import levelBuilderMoves.BucketEnableMove;
-import levelBuilderMoves.SpecialMoveEnableMove;
 
 public class ActivateBucketforSixesController implements ActionListener{
 	LevelBuilder model;
