@@ -71,6 +71,11 @@ public class Puzzle extends Level {
 		
 		return false ;
 	}
+
+	@Override
+	public void updateTimeLeft(int t) {
+		
+	}
 	
 	
 }
