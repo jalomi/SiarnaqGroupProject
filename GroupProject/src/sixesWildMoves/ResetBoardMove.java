@@ -41,8 +41,9 @@ public class ResetBoardMove implements IMove{
 		for(int i = 0; i < 9; i++){
 			for(int j = 0; j < 9; j++){
 				if(board.getMap()[i][j].getSquare().getValue() != 6){
-					random = randNum.nextInt(squaresAdded+1) ;
+					random = randNum.nextInt(squaresAdded) ;
 					board.getMap()[i][j].setSquare(boardSquares.get(random)) ;
+					boardSquares.remove(random) ;
 					squaresAdded-- ;
 				}
 			}
