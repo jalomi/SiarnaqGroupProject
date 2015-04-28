@@ -7,7 +7,6 @@ import javax.swing.JTextField;
 
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
-import levelBuilderMoves.SetLevelNumberMove;
 import levelBuilderMoves.SetSquarePercentMove;
 
 public class SelectSquarePercentController implements ActionListener{

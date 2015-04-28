@@ -3,7 +3,6 @@ package sixesWildMoves;
 import java.util.ArrayList;
 
 import sixesWildBoundary.GameOverApplication;
-import sixesWildBoundary.MainMenuApplication;
 import sixesWildBoundary.SixesWildApplication;
 import sixesWildEntity.Board;
 import sixesWildEntity.Tile;

@@ -3,7 +3,6 @@ package sixesWildMoves;
 import sixesWildBoundary.GameOverApplication;
 import sixesWildBoundary.SixesWildApplication;
 import sixesWildEntity.Board;
-import sixesWildEntity.Square;
 import sixesWildEntity.Tile;
 
 public class RemoveSquareMove implements IMove{

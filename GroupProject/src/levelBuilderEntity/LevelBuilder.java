@@ -57,7 +57,7 @@ public class LevelBuilder {
 	public LevelBuilder() throws IOException, JSONException{
 		//first loading the level
 		LevelJSONSerializer json = new LevelJSONSerializer("Level List.json");
-		this.levelList = json.loadLevelList();
+		LevelBuilder.levelList = json.loadLevelList();
 		
 		
 		for(int i = 0; i < 9; i++){
@@ -351,7 +351,6 @@ public class LevelBuilder {
 			allowRemove=enabled;
 	}
 	
-<<<<<<< HEAD
 	public static ArrayList<String> getLevelList() {
 		return levelList;
 	}
@@ -366,7 +365,8 @@ public class LevelBuilder {
 
 	public static void setLevel(Level level) {
 		LevelBuilder.level = level;
-=======
+	}
+	
 	public boolean getBucketEnabled(int i)
 	{
 		return bucketFor6s[i];
@@ -375,7 +375,6 @@ public class LevelBuilder {
 	public void setBucketEnabled(int i, boolean b)
 	{
 		bucketFor6s[i]=b;
->>>>>>> branch 'master' of https://github.com/jalomi/SiarnaqGroupProject
 	}
 }
 

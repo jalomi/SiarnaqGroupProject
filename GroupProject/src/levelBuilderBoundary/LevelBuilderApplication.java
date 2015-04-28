@@ -21,7 +21,6 @@ import levelBuilderControllers.Select2StarScoreController;
 import levelBuilderControllers.Select3StarScoreController;
 import levelBuilderControllers.SelectLevelNumberController;
 import levelBuilderControllers.SelectLevelTypeController;
-import levelBuilderControllers.SelectMinutesController;
 import levelBuilderControllers.SelectMoveNumberController;
 import levelBuilderControllers.SelectMultiplierPercentController;
 import levelBuilderControllers.SelectSecondsController;

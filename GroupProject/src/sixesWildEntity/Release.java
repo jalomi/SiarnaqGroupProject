@@ -27,18 +27,22 @@ public class Release extends Level {
 		//
 	}
 
+	@Override
 	public String getMovesRemainingString() {
 		return String.valueOf(movesRemaining);
 	}
 	
+	@Override
 	public String getTimeRemainingString() {
 		return "Unlimited";
 	}
 	
+	@Override
 	public void updateMovesLeft(int m){
 		movesRemaining += m ;
 	}
 	
+	@Override
 	public boolean gameOver(){
 //		if(movesRemaining == 0){
 //			if(score >= oneStarScore){

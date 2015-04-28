@@ -8,7 +8,6 @@ import org.json.JSONException;
 
 import sixesWildEntity.Level;
 import JSONSerializer.LevelJSONSerializer;
-import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
 
 /**

@@ -8,7 +8,6 @@ import javax.swing.JFrame;
 import sixesWildBoundary.SixesWildApplication;
 import sixesWildEntity.Board;
 import sixesWildMoves.IMove;
-import sixesWildMoves.RemoveSquareMove;
 import sixesWildMoves.ResetBoardMove;
 
 public class ResetBoardButtonController implements ActionListener{

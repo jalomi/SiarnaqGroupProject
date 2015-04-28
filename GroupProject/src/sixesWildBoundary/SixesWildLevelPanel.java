@@ -16,8 +16,6 @@ import sixesWildEntity.Board;
 import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
 
-import java.awt.Color;
-
 import javax.swing.UIManager;
 
 public class SixesWildLevelPanel extends JPanel {

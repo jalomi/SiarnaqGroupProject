@@ -3,7 +3,6 @@ package sixesWildBoundary;
 import javax.swing.JFrame;
 
 import sixesWildEntity.Board;
-import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
 
 

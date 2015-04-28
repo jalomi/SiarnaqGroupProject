@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
 import levelBuilderMoves.Move;
-import levelBuilderMoves.SetMoveNumberMove;
 
 public class UndoController implements ActionListener{
 	LevelBuilder model;
