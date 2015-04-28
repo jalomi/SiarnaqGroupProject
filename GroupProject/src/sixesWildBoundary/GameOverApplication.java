@@ -6,7 +6,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
 public class GameOverApplication extends JFrame {
-	JButton btnNewButton ;
+	JButton btnMainMenu ; 
 	
 	public GameOverApplication() {
 		getContentPane().setLayout(null);
@@ -17,8 +17,12 @@ public class GameOverApplication extends JFrame {
 		lblNewLabel.setBounds(10, 11, 314, 92);
 		getContentPane().add(lblNewLabel);
 		
-		btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(120, 127, 89, 23);
-		getContentPane().add(btnNewButton);
+		btnMainMenu = new JButton("Main Menu");
+		btnMainMenu.setBounds(120, 127, 89, 23);
+		getContentPane().add(btnMainMenu);
+	}
+	
+	public JButton getMainMenuBtn(){
+		return btnMainMenu ;
 	}
 }
