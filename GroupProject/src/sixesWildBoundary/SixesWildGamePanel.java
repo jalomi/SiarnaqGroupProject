@@ -22,7 +22,7 @@ public class SixesWildGamePanel extends JPanel {
 		setBackground(UIManager.getColor("textHighlight"));
 		
 		
-		this.board = Board.newInstance();//should change board to singleton later
+		this.board = Board.newInstance();
 		
 		this.setSize(490, 490);
 		this.setLayout(new GridLayout(9,9));

@@ -2,6 +2,7 @@ package sixesWildBoundary;
 
 import javax.swing.JFrame;
 
+import sixesWildControllers.BacktoMainMenuController;
 import sixesWildEntity.Board;
 import sixesWildEntity.LTimer;
 import sixesWildEntity.Level;
@@ -82,6 +83,21 @@ public class SixesWildApplication extends JFrame {
 					
 					int val = Integer.valueOf(levelPane.getTextTime().getText());
 					val -= 1;
+					
+					if(val <= 0){
+						if(theGame.getBoard().getLevel().gameOver()){
+							//close the frame and show level complete screen
+							setVisible(false) ;
+							theGame.updateScores() ;
+							GameOverApplication completeScreen = new GameOverApplication(theGame.getBoard().getLevel().getStarNumber() != 0);
+							if(theGame.getBoard().getLevel().getStarNumber() > 0){
+								theGame.getLevels().get(theGame.getBoard().getLevel().getLevelNumber()).setUnlocked(true) ;
+							}
+							completeScreen.setVisible(true);
+							completeScreen.getMainMenuBtn().addActionListener(new BacktoMainMenuController(completeScreen)) ;
+						}
+					}
+					
 					levelPane.getTextTime().setText("" + val);
 					System.out.println("TIMER: " + val) ;
 				}

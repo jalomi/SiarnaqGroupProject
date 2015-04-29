@@ -17,7 +17,7 @@ import levelBuilderMoves.Move;
 public class LevelBuilder {
 	
 	public static final String TAG = "LevelBuilder";
-	
+	public static LevelBuilder lb;
 	
 	/*    The Configuration of a Level    */
 	int number;
@@ -52,6 +52,13 @@ public class LevelBuilder {
 	/*    End The info LevelBuilder keeps for itself    */
 	
 	//CONSTRUCTOR 
+	public static LevelBuilder newInstance() throws IOException, JSONException{
+		if(LevelBuilder.lb == null){
+			System.out.println("NuLL!!!!!");
+			LevelBuilder.lb = new LevelBuilder(); 
+		}
+		return lb;
+	}
 	public LevelBuilder() throws IOException, JSONException{
 		//first loading the level
 		LevelJSONSerializer json = new LevelJSONSerializer("Level List.json");
