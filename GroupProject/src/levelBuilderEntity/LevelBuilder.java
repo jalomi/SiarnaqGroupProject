@@ -120,6 +120,17 @@ public class LevelBuilder {
 	 */
 	public Level generateLevel(String type) throws Exception {
 		System.out.println(TAG + " type:" + type);
+		//check for attributes validation
+		double percent = this.getPercent(0) + this.getPercent(1) + this.getPercent(2)
+				    + this.getPercent(3) + this.getPercent(4) + this.getPercent(5);
+		double percentM = getPercentM(0) + this.getPercentM(1) + this.getPercentM(2);
+		if(Double.compare(percent, 1.0) != 0) {
+			throw new Exception(TAG + " :: Percent 1-6 is not valid");
+		}
+		if(Double.compare(percentM, 1.0) != 0) {
+			throw new Exception(TAG + " :: Percent 1-6 is not valid");
+		}
+		
 		if(type.equals("Elimination")) {
 			return new Elimination(this.getLevelNumber(), this.moves,
 					  this.getPercent(0), this.getPercent(1), this.getPercent(2),

@@ -29,6 +29,13 @@ public class Lightning extends Level {
 		super(json);
 		timeRemaining = json.getInt("timeRemaining");
 	}
+	
+	@Override
+	public JSONObject toJSON() throws JSONException {
+        JSONObject json = super.toJSON();
+        json.put("timeRemaining", timeRemaining);
+		return json;
+	}
 
 	@Override
 	public String getMovesRemainingString() {

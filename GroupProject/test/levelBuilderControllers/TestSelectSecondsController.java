@@ -12,33 +12,35 @@ import org.json.JSONException;
 public class TestSelectSecondsController extends TestCase{
 LevelBuilderApplication a;
 	
+	@Override
 	protected void setUp() throws IOException, JSONException {
 		a = new LevelBuilderApplication();
 		
 		a.setVisible(true);
 	}
 	
+	@Override
 	protected void tearDown() {
 		a.dispose();
 	}
 	
 	public void testValid() throws IOException, JSONException
 	{
-		SelectSecondsController ssc=new SelectSecondsController(a.model, a);
+		SelectSecondsController ssc=new SelectSecondsController(LevelBuilderApplication.model, a);
 		JTextField tb=a.getInputPanel().getSeconds();
 		tb.setText("55");
 		ssc.update(tb);
 		
-		assertEquals(a.model.getSeconds(), 55);
+		assertEquals(LevelBuilderApplication.model.getSeconds(), 55);
 	}
 	
 	public void testInvalid() throws IOException, JSONException
 	{
-		SelectSecondsController smc=new SelectSecondsController(a.model, a);
+		SelectSecondsController smc=new SelectSecondsController(LevelBuilderApplication.model, a);
 		JTextField tb=a.getInputPanel().getSeconds();
 		tb.setText("abc");
 		smc.update(tb);
 		
-		assertEquals(a.model.getSeconds(), 55);
+		assertEquals(LevelBuilderApplication.model.getSeconds(), 55);
 	}
 }

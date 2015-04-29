@@ -12,28 +12,30 @@ import org.json.JSONException;
 public class TestActivateSpecialMoveController extends TestCase{
 LevelBuilderApplication a;
 	
+	@Override
 	protected void setUp() throws IOException, JSONException {
 		a = new LevelBuilderApplication();
 		
 		a.setVisible(true);
 	}
 	
+	@Override
 	protected void tearDown() {
 		a.dispose();
 	}
 	
 	public void testSpecialMove() throws IOException, JSONException
 	{
-		ActivateSpecialMoveController asc=new ActivateSpecialMoveController(a.model, a, 1);
+		ActivateSpecialMoveController asc=new ActivateSpecialMoveController(LevelBuilderApplication.model, a, 1);
 		JCheckBox cb=a.getInputPanel().getResetEnabled();
 		cb.setSelected(true);
 		asc.update(cb);
 		
-		assertEquals(a.model.getReset(), true);
+		assertEquals(LevelBuilderApplication.model.getReset(), true);
 		
 		cb.setSelected(false);
 		asc.update(cb);
 		
-		assertEquals(a.model.getReset(), false);
+		assertEquals(LevelBuilderApplication.model.getReset(), false);
 	}
 }

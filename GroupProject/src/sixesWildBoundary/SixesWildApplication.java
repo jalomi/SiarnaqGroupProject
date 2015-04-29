@@ -2,15 +2,12 @@ package sixesWildBoundary;
 
 import javax.swing.JFrame;
 
-import sixesWildControllers.BacktoMainMenuController;
 import sixesWildControllers.GameOverToMainMenuController;
 import sixesWildEntity.Board;
 import sixesWildEntity.LTimer;
-import sixesWildEntity.Level;
 import sixesWildEntity.Lightning;
 import sixesWildEntity.SixesWild;
 
-import java.awt.Color;
 import java.util.TimerTask;
 
 import javax.swing.UIManager;
