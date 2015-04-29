@@ -49,7 +49,10 @@ public class SwapSquareMove implements IMove{
 				theGame.getModel().updateScores() ;
 				GameOverApplication completeScreen = new GameOverApplication(board.getLevel().getStarNumber() != 0);
 				if(board.getLevel().getStarNumber() > 0){
-					theGame.getModel().getLevels().get(board.getLevel().getLevelNumber()).setUnlocked(true) ;
+					if(theGame.getModel().getLevels().size() > board.getLevel().getLevelNumber()){
+						theGame.getModel().getLevels().get(board.getLevel().getLevelNumber()).setUnlocked(true) ;
+					}
+					
 				}
 				
 				int lastScore = theGame.getModel().getHighScore(board.getLevel().getLevelNumber() - 1) ;

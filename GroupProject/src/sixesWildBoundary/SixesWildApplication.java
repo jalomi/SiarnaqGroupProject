@@ -91,7 +91,9 @@ public class SixesWildApplication extends JFrame {
 							theGame.updateScores() ;
 							GameOverApplication completeScreen = new GameOverApplication(theGame.getBoard().getLevel().getStarNumber() != 0);
 							if(theGame.getBoard().getLevel().getStarNumber() > 0){
-								theGame.getLevels().get(theGame.getBoard().getLevel().getLevelNumber()).setUnlocked(true) ;
+								if(theGame.getLevels().size() > theGame.getBoard().getLevel().getLevelNumber()){
+									theGame.getLevels().get(theGame.getBoard().getLevel().getLevelNumber()).setUnlocked(true) ;
+								}
 							}
 							int lastScore = theGame.getHighScore(theGame.getBoard().getLevel().getLevelNumber() - 1) ;
 							int thisScore = theGame.getBoard().getLevel().getScore() ;
