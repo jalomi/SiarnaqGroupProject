@@ -51,7 +51,7 @@ public class Elimination extends Level {
 	}
 	
 	@Override
-	public boolean gameOver(){
+	public boolean gameOver(){ 
 		Board board = Board.newInstance();
 		if(board.allTilesMarked()){
 			updateScore(20*movesRemaining) ;
