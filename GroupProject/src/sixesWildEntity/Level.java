@@ -110,7 +110,7 @@ public abstract class Level {
 				  int first, int second, int third,
 				  boolean unlocked, boolean swap, boolean reset, boolean remove,
 				  boolean[][] enabledTiles) throws Exception {
-		if(this.checkPercentageCorrectnes(p1, p2, p3, p4, p5, p6, m1, m2, m3)) {
+		if(this.percentsValid()) {
 			//this.id = UUID.randomUUID();
 			this.levelNumber = number;
 			
@@ -172,14 +172,19 @@ public abstract class Level {
     }
 	
 	//they must add to 1
-	private boolean checkPercentageCorrectnes (
-			double p1, double p2, double p3, double p4, double p5, double p6,
-			double m1, double m2, double m3){
-		if(p1 + p2 + p3 + p4 + p5 + p6 == 1 && m1 + m2 + m3 == 1) {
-			return true;
-		} else {
-			return false;
+	private boolean percentsValid(){
+		int sum1 = 0;
+		int sum2 = 0;
+		
+		for(int i = 0; i < 6; i++){
+			sum1 += percent[i] ;
 		}
+		
+		for(int i = 0; i < 3; i++){
+			sum2 += percentM[i] ;
+		}
+		
+		return sum1 == 1 && sum2 == 1 ;
 	}
 
 	Square generateSquare() {

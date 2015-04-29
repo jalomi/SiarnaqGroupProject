@@ -161,6 +161,29 @@ public class LevelBuilder {
 		}
 	}
 	
+	/**
+	 * Determines if a level can be generated based on the current parameters
+	 * 
+	 * Will set generate level and preview level buttons as enabled if entries are
+	 * valid and disabled if not.
+	 */
+	
+	public boolean canGenerate() {
+		//TODO
+		boolean result = false ;
+		
+		
+		
+		if(result){
+			//enable buttons
+		}
+		else{
+			//disable buttons
+		}
+		
+		return result ;
+	}
+	
 	
 	/**
 	 * Record the move which can be undone in the future.
@@ -332,7 +355,6 @@ public class LevelBuilder {
 	}
 
 	public void setSpecialEnabled(int i, boolean enabled) {
-		// TODO Auto-generated method stub
 		if(i==1)
 			allowReset=enabled;
 		else if(i==2)
@@ -391,5 +413,6 @@ public class LevelBuilder {
 	{
 		return allowRemove;
 	}
+	
 }
 
