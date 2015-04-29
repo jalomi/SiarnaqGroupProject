@@ -25,10 +25,6 @@ public class SixesWild {
 	}
 	
 	public SixesWild(){
-		//should load levels from disk by using LevelJSONSerializer
-		//since LevelBuilder is not ready
-		//make a default list of levels of size 1
-
 		LevelJSONSerializer json = new LevelJSONSerializer("Level List.json");
 		try {
 			levelNames = json.loadLevelList();

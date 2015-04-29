@@ -66,6 +66,7 @@ public class LevelBuilderApplication extends JFrame {
 		contentPane.add(checkBoxPanel);
 		
 		inputPanel = new LevelBuilderInputPanel();
+		inputPanel.getPercent6().setEditable(false);
 		inputPanel.setBackground(UIManager.getColor("Panel.background"));
 		inputPanel.setBounds(540, 15, 360, 510);
 		contentPane.add(inputPanel);

@@ -3,6 +3,7 @@ package sixesWildBoundary;
 import javax.swing.JFrame;
 
 import sixesWildControllers.BacktoMainMenuController;
+import sixesWildControllers.GameOverToMainMenuController;
 import sixesWildEntity.Board;
 import sixesWildEntity.LTimer;
 import sixesWildEntity.Level;
@@ -20,6 +21,7 @@ public class SixesWildApplication extends JFrame {
 	
 	public static final String TAG = "SixesWildApplication";
 	
+	private SixesWildApplication app ;
 	
 	//Boundaries
 	private SixesWildLevelPanel levelPane;
@@ -37,6 +39,8 @@ public class SixesWildApplication extends JFrame {
 		initModels(game);
 		initBoundaries();
 		initControllers();
+		
+		app = this ;
 	}
 	
 	public SixesWildLevelPanel getLevelPanel() {
@@ -87,7 +91,6 @@ public class SixesWildApplication extends JFrame {
 					if(val <= 0){
 						if(theGame.getBoard().getLevel().gameOver()){
 							//close the frame and show level complete screen
-							setVisible(false) ;
 							theGame.updateScores() ;
 							GameOverApplication completeScreen = new GameOverApplication(theGame.getBoard().getLevel().getStarNumber() != 0);
 							if(theGame.getBoard().getLevel().getStarNumber() > 0){
@@ -100,7 +103,7 @@ public class SixesWildApplication extends JFrame {
 								theGame.setHighScore(theGame.getBoard().getLevel().getLevelNumber(), thisScore) ;
 							}
 							completeScreen.setVisible(true);
-							completeScreen.getMainMenuBtn().addActionListener(new BacktoMainMenuController(completeScreen)) ;
+							completeScreen.getMainMenuBtn().addActionListener(new GameOverToMainMenuController(completeScreen, app)) ;
 						}
 					}
 					
