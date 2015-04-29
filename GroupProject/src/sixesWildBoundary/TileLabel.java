@@ -32,6 +32,11 @@ public class TileLabel extends JLabel {
 	}
 	
 	public void refresh() {
+		if(model.getMarked()){
+			setRightIcon(MARKED) ;
+			return ;
+		}
+		
 		setRightIcon(UNSELECTED); //for now, need change later
 	}
 	
