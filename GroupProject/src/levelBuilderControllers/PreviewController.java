@@ -25,6 +25,7 @@ public class PreviewController implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		app.setVisible(false) ;
+		app.dispose() ;
 		
 		LevelBuilderPreviewApplication p;
 		try {
