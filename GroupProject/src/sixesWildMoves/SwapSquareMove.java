@@ -3,6 +3,7 @@ package sixesWildMoves;
 import sixesWildBoundary.GameOverApplication;
 import sixesWildBoundary.SixesWildApplication;
 import sixesWildControllers.BacktoMainMenuController;
+import sixesWildControllers.GameOverToMainMenuController;
 import sixesWildEntity.Board;
 import sixesWildEntity.Square;
 import sixesWildEntity.Tile;
@@ -46,14 +47,21 @@ public class SwapSquareMove implements IMove{
 			
 			if(board.getLevel().gameOver()){
 				//close the frame and show level complete screen
-				theGame.setVisible(false) ;
 				theGame.getModel().updateScores() ;
 				GameOverApplication completeScreen = new GameOverApplication(board.getLevel().getStarNumber() != 0);
 				if(board.getLevel().getStarNumber() > 0){
 					theGame.getModel().getLevels().get(board.getLevel().getLevelNumber()).setUnlocked(true) ;
 				}
+				
+				int lastScore = theGame.getModel().getHighScore(board.getLevel().getLevelNumber() - 1) ;
+				int thisScore = board.getLevel().getScore() ;
+				if(thisScore > lastScore){
+					//update the high score
+					theGame.getModel().setHighScore(board.getLevel().getLevelNumber(), thisScore) ;
+				}
+				
 				completeScreen.setVisible(true);
-				completeScreen.getMainMenuBtn().addActionListener(new BacktoMainMenuController(completeScreen)) ;
+				completeScreen.getMainMenuBtn().addActionListener(new GameOverToMainMenuController(completeScreen, theGame)) ;
 			}
 			
 			return true ;

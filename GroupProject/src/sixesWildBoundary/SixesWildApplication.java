@@ -93,6 +93,12 @@ public class SixesWildApplication extends JFrame {
 							if(theGame.getBoard().getLevel().getStarNumber() > 0){
 								theGame.getLevels().get(theGame.getBoard().getLevel().getLevelNumber()).setUnlocked(true) ;
 							}
+							int lastScore = theGame.getHighScore(theGame.getBoard().getLevel().getLevelNumber() - 1) ;
+							int thisScore = theGame.getBoard().getLevel().getScore() ;
+							if(thisScore > lastScore){
+								//update the high score
+								theGame.setHighScore(theGame.getBoard().getLevel().getLevelNumber(), thisScore) ;
+							}
 							completeScreen.setVisible(true);
 							completeScreen.getMainMenuBtn().addActionListener(new BacktoMainMenuController(completeScreen)) ;
 						}
