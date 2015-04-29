@@ -26,7 +26,7 @@ public class SixesWild {
 		
 		levels.add(new Lightning(2, 120)) ;
 		
-		levels.add(new Elimination(3, 30)) ;
+		levels.add(new Elimination(3, 45)) ;
 		
 		//add empty levels for testing
 		for(int i = 0; i < 13; i++){

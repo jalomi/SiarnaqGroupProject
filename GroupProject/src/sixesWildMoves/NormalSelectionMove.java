@@ -51,7 +51,10 @@ public class NormalSelectionMove implements IMove{
 			//update the score
 			for(Tile t : tiles) {
 				//remove the square data from tile since we already get the score
-				t.setSquare(null); //#1
+				t.setSquare(null) ; //#1
+				if(board.getLevel().getLevelType() == 3){
+					t.setMarked(true) ;
+				}
 			}
 			
 			score += tileNum * 10 * mult ;

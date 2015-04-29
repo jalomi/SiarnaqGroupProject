@@ -259,4 +259,8 @@ public abstract class Level {
 		this.unlocked = unlocked ;
 	}
 	
+	public int getLevelType(){
+		return 0 ; //this should be overwritten by classes that extend it
+	}
+	
 }

@@ -64,4 +64,8 @@ public class Tile {
 	public Square getSquare() {
 		return square;
 	}
+	
+	public boolean getMarked(){
+		return this.marked ;
+	}
 }

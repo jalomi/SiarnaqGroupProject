@@ -46,24 +46,29 @@ public class Elimination extends Level {
 	}
 	
 	@Override
+	public int getLevelType(){
+		return 3 ;
+	}
+	
+	@Override
 	public boolean gameOver(){
-//		if(movesRemaining == 0){
-//			if(score >= oneStarScore){
-//				if(score >= threeStarScore){
-//					starNumber = 3 ;
-//				}
-//				else if(score >= twoStarScore){
-//					starNumber = 2 ;
-//				}
-//				else{
-//					starNumber = 1 ;
-//				}			
-//			}
-//
-//		return true ;
-//		}
-//		
-//		return false ;
+		Board board = Board.newInstance();
+		if(board.allTilesMarked() || movesRemaining <= 0){
+			updateScore(20*movesRemaining) ;
+			if(score >= oneStarScore){
+				if(score >= threeStarScore){
+					starNumber = 3 ;
+				}
+				else if(score >= twoStarScore){
+					starNumber = 2 ;
+				}
+				else{
+					starNumber = 1 ;
+				}			
+			}
+			
+			return true ;
+		}		
 		return false ;
 	}
 	
