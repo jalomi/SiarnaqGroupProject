@@ -64,5 +64,10 @@ public class Lightning extends Level {
 		
 		return false ;
 	}
+
+	@Override
+	public void updateTimeLeft(int t) {
+		timeRemaining += t ;
+	}
 	
 }

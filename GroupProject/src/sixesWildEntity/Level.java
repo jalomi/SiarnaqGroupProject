@@ -253,6 +253,7 @@ public abstract class Level {
 	public abstract String getMovesRemainingString();
 	public abstract String getTimeRemainingString();
 	public abstract void updateMovesLeft(int m) ;
+	public abstract void updateTimeLeft(int t) ;
 	public abstract boolean gameOver() ;
 
 	public void setUnlocked(boolean unlocked) {

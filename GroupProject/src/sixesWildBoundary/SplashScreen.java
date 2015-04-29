@@ -58,6 +58,7 @@ public class SplashScreen extends JWindow {
     try { Thread.sleep(duration); } catch (Exception e) {}
 
     setVisible(false);
+    dispose() ;
   }
 
   public void showSplashAndExit() {

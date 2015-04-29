@@ -62,5 +62,10 @@ public class Release extends Level {
 //		return false ;
 		return false ;
 	}
+
+	@Override
+	public void updateTimeLeft(int t) {
+		
+	}
 	
 }
