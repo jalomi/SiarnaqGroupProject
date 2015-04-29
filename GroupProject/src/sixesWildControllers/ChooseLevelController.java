@@ -49,7 +49,7 @@ public class ChooseLevelController implements ActionListener {
 				newLevelToPlay.setVisible(true);	
 			}
 		} else {
-			System.err.println("We don't have level " + buttonIndex + " yet!");
+			System.err.println("We don't have level " + (buttonIndex + 1) + " yet!");
 		}
 
 	}

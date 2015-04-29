@@ -61,6 +61,7 @@ public class TileLabel extends JLabel {
 	public void setIconUnselected() {
 		
 		if(!model.isEnabled()) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/disabled.png"))) ;
 			return;
 		}
 		
@@ -119,6 +120,7 @@ public class TileLabel extends JLabel {
 	
 	public void setIconSelected() {
 		if(!model.isEnabled()) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/disabled.png"))) ;
 			return;
 		}
 		

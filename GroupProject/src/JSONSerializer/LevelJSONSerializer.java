@@ -30,7 +30,7 @@ public class LevelJSONSerializer {
     private String fileName;
 
     public LevelJSONSerializer(String fName) {
-        fileName = fName;
+        fileName = "Levels/" + fName;
     }
 
     public void saveLevels(ArrayList<Level> levels) throws JSONException, IOException {
@@ -110,13 +110,13 @@ public class LevelJSONSerializer {
             // parse the JSON using JSONTokener
             JSONObject json = (JSONObject) new JSONTokener(jsonString.toString()).nextValue();
             
-            if(type.equals("Elimination")) {
+            if(type.equals("E")) {
             	level = new Elimination(json);
-            } else if(type.equals("Lightning")) {
+            } else if(type.equals("L")) {
             	level = new Lightning(json);
-            } else if(type.equals("Puzzle")) {
+            } else if(type.equals("P")) {
             	level = new Puzzle(json);
-            } else if(type.equals("Release")) {
+            } else if(type.equals("R")) {
             	level = new Release(json);
             }
             

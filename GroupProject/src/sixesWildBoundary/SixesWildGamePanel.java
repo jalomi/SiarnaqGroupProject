@@ -37,10 +37,10 @@ public class SixesWildGamePanel extends JPanel {
 		
 		this.setVisible(true);
 		
-		System.out.println("gamePane 0 0	" + map[0][0].getModel().getSquare().getValue());
-		System.out.println("gamePane 0 1	" + map[0][1].getModel().getSquare().getValue());
-		System.out.println("First: (0,0):  " + board.getSquare(0,0).getValue() + 
-				"   (0,1): " + board.getSquare(0,1).getValue()) ;
+//		System.out.println("gamePane 0 0	" + map[0][0].getModel().getSquare().getValue());
+//		System.out.println("gamePane 0 1	" + map[0][1].getModel().getSquare().getValue());
+//		System.out.println("First: (0,0):  " + board.getSquare(0,0).getValue() + 
+//				"   (0,1): " + board.getSquare(0,1).getValue()) ;
 
 	}
 	

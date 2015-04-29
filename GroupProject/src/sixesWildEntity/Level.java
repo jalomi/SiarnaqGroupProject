@@ -249,6 +249,10 @@ public abstract class Level {
 	public boolean getUnlocked(){
 		return unlocked ;
 	}
+	
+	public void setUnlocked(boolean unlocked) {
+		this.unlocked = unlocked ;
+	}
 		
 	public abstract String getMovesRemainingString();
 	public abstract String getTimeRemainingString();
@@ -256,8 +260,6 @@ public abstract class Level {
 	public abstract void updateTimeLeft(int t) ;
 	public abstract boolean gameOver() ;
 
-	public void setUnlocked(boolean unlocked) {
-		this.unlocked = unlocked ;
-	}
+	
 	
 }
