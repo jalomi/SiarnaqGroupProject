@@ -369,5 +369,20 @@ public class LevelBuilder {
 	{
 		second=i;
 	}
+	
+	public boolean getReset()
+	{
+		return allowReset;
+	}
+	
+	public boolean getSwap()
+	{
+		return allowSwap;
+	}
+	
+	public boolean getRemove()
+	{
+		return allowRemove;
+	}
 }
 
