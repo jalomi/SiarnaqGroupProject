@@ -17,6 +17,7 @@ public class PreviewToLevelBuilderController implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		current.setVisible(false) ;
+		current.dispose() ;
 		app.setVisible(true) ;		
 	}
 	

@@ -50,6 +50,18 @@ public class Board {
 		//System.out.println(colAbove + " " + rowAbove) ;
 		if(rowAbove >= 0){			
 			Tile aboveTile = map[colAbove][rowAbove] ;	
+			
+			while(aboveTile.getSquare() == null){
+				rowAbove-- ;
+				
+				if(rowAbove < 0){
+					t.setSquare(this.generateSquare()) ;
+					return ;
+				}
+				
+				aboveTile = map[colAbove][rowAbove] ;
+			}			
+			
 			t.setSquare(aboveTile.getSquare()) ;
 			fall(aboveTile) ;	
 		} else {

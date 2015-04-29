@@ -35,7 +35,7 @@ public class LevelBuilderApplication extends JFrame {
 	LevelBuilderInputPanel inputPanel ;
 	LevelBuilderCheckBoxPanel checkBoxPanel ;
 	private JPanel panel;
-	private static LevelBuilder model;
+	public static LevelBuilder model;
 
 	/**
 	 * Create the frame.
@@ -43,7 +43,7 @@ public class LevelBuilderApplication extends JFrame {
 	 * @throws IOException 
 	 */
 	public LevelBuilderApplication() throws IOException, JSONException {
-		model= new LevelBuilder();
+		model= LevelBuilder.newInstance();
 		
 		setResizable(false);
 		setTitle("Level Builder");
@@ -72,7 +72,7 @@ public class LevelBuilderApplication extends JFrame {
 		
 		//controllers
 		getGenerateBtn().addActionListener(new GenerateLevelController(this)) ;
-		getPreviewBtn().addActionListener(new PreviewController(this, model));
+		getPreviewBtn().addActionListener(new PreviewController(this));
 		getExitBtn().addActionListener(new ExitController(this)) ;
 		getInputPanel().getUndoBtn().addActionListener(new UndoController(model, this));
 		getInputPanel().getRedoBtn().addActionListener(new RedoController(model, this));

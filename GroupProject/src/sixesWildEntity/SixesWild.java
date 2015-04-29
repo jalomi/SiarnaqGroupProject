@@ -1,9 +1,15 @@
 package sixesWildEntity;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import org.json.JSONException;
+
+import JSONSerializer.LevelJSONSerializer;
 
 public class SixesWild {
 	private ArrayList<Level> levels = new ArrayList<Level>();
+	private ArrayList<String> levelNames = new ArrayList<String>(); 
 	private int[] highScore = new int[16] ;
 	private int[] starNum = new int[16] ;
 	private Board board;
@@ -22,21 +28,28 @@ public class SixesWild {
 		//should load levels from disk by using LevelJSONSerializer
 		//since LevelBuilder is not ready
 		//make a default list of levels of size 1
-		levels.add(new Puzzle(1, 30));
-		
-		levels.add(new Lightning(2, 120)) ;
-		
-		levels.add(new Elimination(3, 45)) ;
-		
-		//add empty levels for testing
-		for(int i = 0; i < 13; i++){
-			levels.add(new Puzzle(i+3, 30)) ;
+
+		LevelJSONSerializer json = new LevelJSONSerializer("Level List.json");
+		try {
+			levelNames = json.loadLevelList();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
+		for(String s : levelNames) {
+			LevelJSONSerializer l = new LevelJSONSerializer(s);
+			try {
+				levels.add(l.loadSingleLevel(s.substring(0, 1)));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		board = Board.newInstance();
 		
-		for(int i = 0; i < 16; i++){
+		levels.get(0).setUnlocked(true) ;
+		
+		for(int i = 0; i < levelNames.size(); i++){
 			highScore[i] = 0 ;
 			starNum[i] = levels.get(i).starNumber ;
 		}
@@ -71,7 +84,7 @@ public class SixesWild {
 	}
 
 	public void updateScores() {
-		for(int i = 0; i < 16; i++){
+		for(int i = 0; i < levels.size(); i++){
 			highScore[i] = levels.get(i).score ;
 			starNum[i] = levels.get(i).starNumber ;
 		}

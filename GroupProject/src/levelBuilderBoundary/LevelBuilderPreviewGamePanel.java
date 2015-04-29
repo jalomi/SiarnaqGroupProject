@@ -26,7 +26,7 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 		this.setSize(490, 490);
 		this.setLayout(new GridLayout(9,9));
 		this.setBorder(new EmptyBorder(10,10,10,10));
-		
+		this.board = LevelBuilder.newInstance();
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
 				this.initLabel(i, j);
@@ -40,17 +40,17 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 	private void initLabel(int col, int row) throws IOException, JSONException {
 		//Maybe want to change this later
 		//make LevelBuilder static
-		board = new LevelBuilder() ;
 		map[col][row] = new JLabel("");
-		
+		System.out.println("tile x: "+col+" y: "+row+" isActivate: "+ board.getTileActiveAt(col, row));
 		boolean tile = board.getTileActiveAt(col, row);
 		if(tile == false) {
+			this.add(map[col][row]);
 			return;
 		}
 		
 		int value = randValue();
 		int multi = randMultiplier();
-		
+		System.out.println("tile at x:"+col+" y: "+row+" tile isactive:"+tile+" tile value: "+ value+" tile multiplier: "+multi);
 		if(value == 1 && multi == 1) {
 			map[col][row].setIcon(new ImageIcon(LevelBuilderPreviewGamePanel.class.getResource("/tileIcons/1-1.png")));
 
@@ -105,6 +105,7 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 
 	private int randMultiplier() {
 		double random = Math.random() ;
+		//System.out.println("percentM(0): "+board.getPercentM(0)+"percentM(1)"+board.getPercentM(1));
 		if(random <= board.getPercentM(0)) {
 			return 1;
 		} else if(random <= board.getPercentM(0) + board.getPercentM(1)) {
@@ -116,6 +117,8 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 
 	private int randValue() {
 		double random = Math.random();
+		System.out.println("percent(0): "+board.getPercent(0)+" percent(1): "+board.getPercent(1)+" percent(2): "+board.getPercent(2));
+		System.out.println("percent(3): "+board.getPercent(3)+" percent(4): "+board.getPercent(4)+" percent(5): "+board.getPercent(5));
 		if(random <= board.getPercent(0)) {
 			return 1;
 		} else if(random <= board.getPercent(0) + board.getPercent(1)) {

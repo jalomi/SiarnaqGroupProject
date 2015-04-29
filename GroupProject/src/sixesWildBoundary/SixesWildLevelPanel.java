@@ -35,6 +35,8 @@ public class SixesWildLevelPanel extends JPanel {
 	JTextArea textTime;
 	JTextArea textMoveRem;
 	
+	JLabel timeLeftLabel ;
+	
 	/* Entities */
 	private Level level;
 	private Board board ;
@@ -59,6 +61,7 @@ public class SixesWildLevelPanel extends JPanel {
 	
 	public void initBoundaries() {
 		JTextArea txtrLevelNumberHere = new JTextArea();
+		txtrLevelNumberHere.setFont(new Font("Monospaced", Font.BOLD, 13));
 		txtrLevelNumberHere.setBackground(UIManager.getColor("textHighlight"));
 		txtrLevelNumberHere.setEditable(false);
 		txtrLevelNumberHere.setText("Level Number: " + level.getLevelNumber());
@@ -71,15 +74,17 @@ public class SixesWildLevelPanel extends JPanel {
 		add(backToMainManuButton);
 		
 		deleteSquareButton = new JButton("Remove");
+		deleteSquareButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		deleteSquareButton.setBounds(0, 95, 100, 40);
 		add(deleteSquareButton);
 		
 		swapSquareButton = new JButton("Swap");
+		swapSquareButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		swapSquareButton.setBounds(115, 40, 100, 40);
 		add(swapSquareButton);
 		
 		resetBoardButton = new JButton("Shuffle");
-		resetBoardButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		resetBoardButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		resetBoardButton.setBounds(115, 95, 100, 40);
 		add(resetBoardButton);
 		
@@ -87,7 +92,7 @@ public class SixesWildLevelPanel extends JPanel {
 		scoreLabel.setBounds(245, 40, 50, 21);
 		add(scoreLabel);
 		
-		JLabel timeLeftLabel = new JLabel("Time Left:");
+		timeLeftLabel = new JLabel("Time Left:");
 		timeLeftLabel.setBounds(319, 40, 80, 21);
 		add(timeLeftLabel);
 		
@@ -162,5 +167,9 @@ public class SixesWildLevelPanel extends JPanel {
 
 	public void setLevel(Level level) {
 		this.level = level;
+	}
+
+	public JTextArea getTextTime() {
+		return textTime;
 	}
 }

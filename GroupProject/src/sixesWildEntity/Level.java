@@ -249,15 +249,18 @@ public abstract class Level {
 	public boolean getUnlocked(){
 		return unlocked ;
 	}
+	
+	public void setUnlocked(boolean unlocked) {
+		this.unlocked = unlocked ;
+	}
 		
 	public abstract String getMovesRemainingString();
 	public abstract String getTimeRemainingString();
 	public abstract void updateMovesLeft(int m) ;
+	public abstract void updateTimeLeft(int t) ;
 	public abstract boolean gameOver() ;
 
-	public void setUnlocked(boolean unlocked) {
-		this.unlocked = unlocked ;
-	}
+	
 	
 	public int getLevelType(){
 		return 0 ; //this should be overwritten by classes that extend it

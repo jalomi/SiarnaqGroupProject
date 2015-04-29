@@ -1,5 +1,9 @@
 package levelBuilderBoundary;
 
+import java.io.IOException;
+
+import org.json.JSONException;
+
 import junit.framework.TestCase;
 
 public class TestLevelBuilderApplication extends TestCase {
@@ -7,8 +11,8 @@ public class TestLevelBuilderApplication extends TestCase {
 	LevelBuilderApplication LBA ;
 	
 	@Override
-	protected void setUp(){
-		//LBA = new LevelBuilderApplication() ;
+	protected void setUp() throws IOException, JSONException{
+		LBA = new LevelBuilderApplication() ;
 		
 		LBA.setVisible(true) ;
 	}

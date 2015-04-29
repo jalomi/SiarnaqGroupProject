@@ -2,9 +2,16 @@ package sixesWildBoundary;
 
 import javax.swing.JFrame;
 
+import sixesWildControllers.BacktoMainMenuController;
 import sixesWildEntity.Board;
+import sixesWildEntity.LTimer;
+import sixesWildEntity.Level;
+import sixesWildEntity.Lightning;
 import sixesWildEntity.SixesWild;
+
 import java.awt.Color;
+import java.util.TimerTask;
+
 import javax.swing.UIManager;
 
 
@@ -12,6 +19,7 @@ import javax.swing.UIManager;
 public class SixesWildApplication extends JFrame {
 	
 	public static final String TAG = "SixesWildApplication";
+	
 	
 	//Boundaries
 	private SixesWildLevelPanel levelPane;
@@ -63,6 +71,41 @@ public class SixesWildApplication extends JFrame {
 	private void initModels(SixesWild game) {
 		theGame = game;
 		theGame.setBoard(Board.newInstance());
+		
+		if(theGame.getBoard().getLevel() instanceof Lightning){
+			LTimer t = LTimer.getInstance();
+						
+			TimerTask task = new TimerTask() {
+				
+				@Override
+				public void run() {
+					theGame.getBoard().getLevel().updateTimeLeft(-1) ;
+					
+					int val = Integer.valueOf(levelPane.getTextTime().getText());
+					val -= 1;
+					
+					if(val <= 0){
+						if(theGame.getBoard().getLevel().gameOver()){
+							//close the frame and show level complete screen
+							setVisible(false) ;
+							theGame.updateScores() ;
+							GameOverApplication completeScreen = new GameOverApplication(theGame.getBoard().getLevel().getStarNumber() != 0);
+							if(theGame.getBoard().getLevel().getStarNumber() > 0){
+								theGame.getLevels().get(theGame.getBoard().getLevel().getLevelNumber()).setUnlocked(true) ;
+							}
+							completeScreen.setVisible(true);
+							completeScreen.getMainMenuBtn().addActionListener(new BacktoMainMenuController(completeScreen)) ;
+						}
+					}
+					
+					levelPane.getTextTime().setText("" + val);
+					System.out.println("TIMER: " + val) ;
+				}
+				
+			};
+			
+			t.schedule(task, 1000);
+		}
 	}
 	
 	private void initBoundaries() {

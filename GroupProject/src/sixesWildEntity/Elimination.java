@@ -71,5 +71,10 @@ public class Elimination extends Level {
 		}		
 		return false ;
 	}
+
+	@Override
+	public void updateTimeLeft(int t) {
+		
+	}
 	
 }

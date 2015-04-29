@@ -28,7 +28,7 @@ int moveID;
 		update(ch);
 	}
 
-	private void update(JCheckBox ch) {
+	public void update(JCheckBox ch) {
 		// TODO Auto-generated method stub
 		boolean enabled=ch.isSelected();
 		SpecialMoveEnableMove m=new SpecialMoveEnableMove(model, enabled, ch, moveID);

@@ -25,5 +25,6 @@ public class BacktoMainMenuController implements ActionListener {
 		current.setVisible(false);
 		MainMenuApplication main = new MainMenuApplication();
 		main.setVisible(true);
+		current.dispose() ;
 	}
 }

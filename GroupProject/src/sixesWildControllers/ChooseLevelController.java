@@ -2,11 +2,15 @@ package sixesWildControllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.TimerTask;
 
 import sixesWildBoundary.LevelSelectApplication;
 import sixesWildBoundary.SixesWildApplication;
+import sixesWildBoundary.SixesWildLevelPanel;
 import sixesWildEntity.Board;
+import sixesWildEntity.LTimer;
 import sixesWildEntity.Level;
+import sixesWildEntity.Lightning;
 import sixesWildEntity.SixesWild;
 
 public class ChooseLevelController implements ActionListener {
@@ -42,10 +46,10 @@ public class ChooseLevelController implements ActionListener {
 				levelSelectApplication.dispose();
 				Board.newInstance().setLevel(levelClicked);
 				SixesWildApplication newLevelToPlay = new SixesWildApplication(theGame);
-				newLevelToPlay.setVisible(true);
+				newLevelToPlay.setVisible(true);	
 			}
 		} else {
-			System.err.println("We don't have level " + buttonIndex + " yet!");
+			System.err.println("We don't have level " + (buttonIndex + 1) + " yet!");
 		}
 
 	}
