@@ -53,7 +53,7 @@ public class Elimination extends Level {
 	@Override
 	public boolean gameOver(){
 		Board board = Board.newInstance();
-		if(board.allTilesMarked() || movesRemaining <= 0){
+		if(board.allTilesMarked()){
 			updateScore(20*movesRemaining) ;
 			if(score >= oneStarScore){
 				if(score >= threeStarScore){
@@ -69,6 +69,9 @@ public class Elimination extends Level {
 			
 			return true ;
 		}		
+		if(movesRemaining <= 0){
+			return true ;
+		}
 		return false ;
 	}
 
