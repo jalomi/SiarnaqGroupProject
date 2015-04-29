@@ -23,7 +23,35 @@ public class SetStarScoreMove extends Move{
 
 	@Override
 	public boolean isValid() {
-		return newValue>=0;
+		if(star==0)
+			try
+			{
+				if((model.getStarScore(1)!=0 && newValue>=model.getStarScore(1)) || (newValue>=model.getStarScore(2) && model.getStarScore(2)!=0))
+					throw new IllegalArgumentException("1 star score too big");
+			} catch(IllegalArgumentException iae){
+				tf.setText(""+(model.getStarScore(star)));
+				return false;
+			}
+		else if(star==1)
+			try
+			{
+				if((model.getStarScore(0)!=0 && newValue<=model.getStarScore(0)) || (newValue>=model.getStarScore(2) && model.getStarScore(2)!=0))
+					throw new IllegalArgumentException("2 star score too big or too small");
+			} catch(IllegalArgumentException iae){
+				tf.setText(""+(model.getStarScore(star)));
+				return false;
+			}
+		else if(star==2)
+			try
+			{
+				if((model.getStarScore(0)!=0 && newValue<=model.getStarScore(0)) || (newValue<=model.getStarScore(1) && model.getStarScore(1)!=0))
+					throw new IllegalArgumentException("3 star score too small");
+			} catch(IllegalArgumentException iae){
+				tf.setText(""+(model.getStarScore(star)));
+				return false;
+			}
+		
+		return newValue>0;
 	}
 
 	@Override

@@ -2,7 +2,6 @@ package sixesWildMoves;
 
 import sixesWildBoundary.GameOverApplication;
 import sixesWildBoundary.SixesWildApplication;
-import sixesWildControllers.BacktoMainMenuController;
 import sixesWildControllers.GameOverToMainMenuController;
 import sixesWildEntity.Board;
 import sixesWildEntity.Tile;

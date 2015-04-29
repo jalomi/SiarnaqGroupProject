@@ -2,15 +2,10 @@ package sixesWildControllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.TimerTask;
-
 import sixesWildBoundary.LevelSelectApplication;
 import sixesWildBoundary.SixesWildApplication;
-import sixesWildBoundary.SixesWildLevelPanel;
 import sixesWildEntity.Board;
-import sixesWildEntity.LTimer;
 import sixesWildEntity.Level;
-import sixesWildEntity.Lightning;
 import sixesWildEntity.SixesWild;
 
 public class ChooseLevelController implements ActionListener {

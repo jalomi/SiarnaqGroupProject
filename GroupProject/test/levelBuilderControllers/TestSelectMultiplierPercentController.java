@@ -9,38 +9,38 @@ import levelBuilderBoundary.LevelBuilderApplication;
 
 import org.json.JSONException;
 
-public class TestSelectLevelNumberController extends TestCase{
+public class TestSelectMultiplierPercentController extends TestCase{
 LevelBuilderApplication a;
 	
-	@Override
 	protected void setUp() throws IOException, JSONException {
 		a = new LevelBuilderApplication();
 		
 		a.setVisible(true);
 	}
 	
-	@Override
 	protected void tearDown() {
 		a.dispose();
 	}
 	
 	public void testValid() throws IOException, JSONException
 	{
-		SelectLevelNumberController slc=new SelectLevelNumberController(LevelBuilderApplication.model, a);
-		JTextField tb=a.getInputPanel().getLevel();
+		SelectMultiplierPercentController sspc=new SelectMultiplierPercentController(a.model, a, 1);
+		JTextField tb=a.getInputPanel().getPercentx2();
 		tb.setText("55");
-		slc.update(tb);
+		sspc.update(tb);
 		
-		assertEquals(LevelBuilderApplication.model.getLevelNumber(), 55);
+		assertEquals(a.model.getPercentM(1), 0.55);
+		assertEquals(a.model.getPercentM(0), 0.45);
 	}
 	
 	public void testInvalid() throws IOException, JSONException
 	{
-		SelectLevelNumberController slc=new SelectLevelNumberController(LevelBuilderApplication.model, a);
-		JTextField tb=a.getInputPanel().getLevel();
+		SelectMultiplierPercentController sspc=new SelectMultiplierPercentController(a.model, a, 1);
+		JTextField tb=a.getInputPanel().getPercentx2();
 		tb.setText("abc");
-		slc.update(tb);
+		sspc.update(tb);
 		
-		assertEquals(LevelBuilderApplication.model.getLevelNumber(), 55);
+		assertEquals(a.model.getPercentM(1), 0.55);
+		assertEquals(a.model.getPercentM(0), 0.45);
 	}
 }

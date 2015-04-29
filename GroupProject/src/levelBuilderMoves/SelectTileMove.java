@@ -2,7 +2,6 @@ package levelBuilderMoves;
 
 import javax.swing.JToggleButton;
 
-import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
 
 public class SelectTileMove extends Move{
