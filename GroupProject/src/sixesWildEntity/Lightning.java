@@ -27,6 +27,7 @@ public class Lightning extends Level {
 	
 	public Lightning(JSONObject json) throws JSONException {
 		super(json);
+		timeRemaining = json.getInt("timeRemaining");
 	}
 
 	@Override

@@ -109,38 +109,33 @@ public abstract class Level {
 				  double m1, double m2, double m3,
 				  int first, int second, int third,
 				  boolean unlocked, boolean swap, boolean reset, boolean remove,
-				  boolean[][] enabledTiles) throws Exception {
-		if(this.percentsValid()) {
-			//this.id = UUID.randomUUID();
-			this.levelNumber = number;
-			
-			this.percent[0] = p1;
-			this.percent[1] = p2;
-			this.percent[2] = p3;
-			this.percent[3] = p4;
-			this.percent[4] = p5;
-			this.percent[5] = p6;
-			
-			this.percentM[0] = m1;
-			this.percentM[1] = m1;
-			this.percentM[2] = m1;
-			
-			this.oneStarScore = first;
-			this.twoStarScore = second;
-			this.threeStarScore = third;
-			this.score = 0;
-			this.starNumber = 0;
-			
-			this.unlocked = unlocked ;
-			this.swapEnabled = swap;
-			this.resetEnabled = reset;
-			this.removeEnabled = remove;
-			
-			this.enabledTiles = enabledTiles;
-		} else {
-			System.out.print("The percentage is not correct");
-			throw new Exception();
-		}
+				  boolean[][] enabledTiles){
+		
+		this.levelNumber = number;
+		
+		this.percent[0] = p1;
+		this.percent[1] = p2;
+		this.percent[2] = p3;
+		this.percent[3] = p4;
+		this.percent[4] = p5;
+		this.percent[5] = p6;
+		
+		this.percentM[0] = m1;
+		this.percentM[1] = m1;
+		this.percentM[2] = m1;
+		
+		this.oneStarScore = first;
+		this.twoStarScore = second;
+		this.threeStarScore = third;
+		this.score = 0;
+		this.starNumber = 0;
+		
+		this.unlocked = unlocked ;
+		this.swapEnabled = swap;
+		this.resetEnabled = reset;
+		this.removeEnabled = remove;
+		
+		this.enabledTiles = enabledTiles;
 	}
 	
 	//END CONSTRUCTORS
