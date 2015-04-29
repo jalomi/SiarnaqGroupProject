@@ -35,7 +35,7 @@ public class LevelBuilderApplication extends JFrame {
 	LevelBuilderInputPanel inputPanel ;
 	LevelBuilderCheckBoxPanel checkBoxPanel ;
 	private JPanel panel;
-	private static LevelBuilder model;
+	public static LevelBuilder model;
 
 	/**
 	 * Create the frame.
