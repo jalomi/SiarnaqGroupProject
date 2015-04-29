@@ -12,35 +12,37 @@ import org.json.JSONException;
 public class TestSelectSquarePercentController extends TestCase{
 LevelBuilderApplication a;
 	
+	@Override
 	protected void setUp() throws IOException, JSONException {
 		a = new LevelBuilderApplication();
 		
 		a.setVisible(true);
 	}
 	
+	@Override
 	protected void tearDown() {
 		a.dispose();
 	}
 	
 	public void testValid() throws IOException, JSONException
 	{
-		SelectSquarePercentController sspc=new SelectSquarePercentController(a.model, a, 0);
+		SelectSquarePercentController sspc=new SelectSquarePercentController(LevelBuilderApplication.model, a, 0);
 		JTextField tb=a.getInputPanel().getPercent1();
 		tb.setText("55");
 		sspc.update(tb);
 		
-		assertEquals(a.model.getPercent(0), 0.55);
-		assertEquals(a.model.getPercent(5), 0.45);
+		assertEquals(LevelBuilderApplication.model.getPercent(0), 0.55);
+		assertEquals(LevelBuilderApplication.model.getPercent(5), 0.45);
 	}
 	
 	public void testInvalid() throws IOException, JSONException
 	{
-		SelectSquarePercentController sspc=new SelectSquarePercentController(a.model, a, 0);
+		SelectSquarePercentController sspc=new SelectSquarePercentController(LevelBuilderApplication.model, a, 0);
 		JTextField tb=a.getInputPanel().getPercent1();
 		tb.setText("abc");
 		sspc.update(tb);
 		
-		assertEquals(a.model.getPercent(0), 0.55);
-		assertEquals(a.model.getPercent(5), 0.45);
+		assertEquals(LevelBuilderApplication.model.getPercent(0), 0.55);
+		assertEquals(LevelBuilderApplication.model.getPercent(5), 0.45);
 	}
 }

@@ -54,6 +54,6 @@ public class SavingLoadingLevelController implements ActionListener{
 	public Level loadingLevel(String levelName) throws IOException, JSONException {
 		LevelJSONSerializer json = 
 				new LevelJSONSerializer(levelName);
-		return json.loadSingleLevel(levelName.substring(0, -2));
+		return json.loadSingleLevel(levelName.substring(0, levelName.indexOf(" ")));
 	}
 }

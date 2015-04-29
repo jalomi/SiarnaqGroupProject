@@ -42,13 +42,13 @@ public class LevelBuilder {
 	/*    Current Editing Level    */
 	//Must do cast after you do type checking!!!
 	static ArrayList<String> levelList = new ArrayList<String>();
-	static Level level;
+	public static Level level;
 	/*    End Current Editing Level    */
 	
 	
 	/*    The info LevelBuilder keeps for itself    */
-	Stack<Move> moveStack = new Stack<Move>();
-	Stack<Move> redoStack = new Stack<Move>();
+	public Stack<Move> moveStack = new Stack<Move>();
+	public Stack<Move> redoStack = new Stack<Move>();
 	/*    End The info LevelBuilder keeps for itself    */
 	
 	//CONSTRUCTOR 
@@ -120,17 +120,22 @@ public class LevelBuilder {
 	 */
 	public Level generateLevel(String type) throws Exception {
 		System.out.println(TAG + " type:" + type);
+		System.out.println(TAG + "M " + percentM[0]);
+		System.out.println(TAG + "M " + percentM[1]);
+		System.out.println(TAG + "M " + percentM[2]);
 		//check for attributes validation
 		double percent = this.getPercent(0) + this.getPercent(1) + this.getPercent(2)
 				    + this.getPercent(3) + this.getPercent(4) + this.getPercent(5);
 		double percentM = getPercentM(0) + this.getPercentM(1) + this.getPercentM(2);
 		if(Double.compare(percent, 1.0) != 0) {
-			throw new Exception(TAG + " :: Percent 1-6 is not valid");
+			throw new Exception(TAG + " :: Percent Sum " + percent  + " is not valid");
 		}
 		if(Double.compare(percentM, 1.0) != 0) {
-			throw new Exception(TAG + " :: Percent 1-6 is not valid");
+			throw new Exception(TAG + " :: PercentM Sum is not valid");
 		}
-		
+		if(this.getLevelNumber() < 1) {
+			throw new Exception(TAG + " :: Level Number is Less than 1");
+		}
 		if(type.equals("Elimination")) {
 			return new Elimination(this.getLevelNumber(), this.moves,
 					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
@@ -420,9 +425,29 @@ public class LevelBuilder {
 		return allowSwap;
 	}
 	
-	public boolean getRemove()
-	{
+	public boolean getRemove() {
 		return allowRemove;
+	}
+	
+	public void assignEntities(String t){
+		number = level.getLevelNumber();
+		type = t;
+		unlocked = level.getUnlocked();
+		allowReset = level.isResetEnabled();
+		allowSwap = level.isSwapEnabled();
+		allowRemove = level.isRemoveEnabled();
+		tilesActive = level.getEnabledTiles();
+		bucketFor6s = level.getColumnForSixes();
+		percents = level.getPercent();
+		percentM = level.getPercentM();
+		System.out.println(percentM[0]);
+		System.out.println(percentM[1]);
+		System.out.println(percentM[2]);
+		starScore[0] = level.getOneStarScore();
+		starScore[1] = level.getTwoStarScore();
+		starScore[2] = level.getThreeStarScore();
+		second = level.getTimeRemaining();
+		moves = level.getMovesRemaining();
 	}
 	
 }

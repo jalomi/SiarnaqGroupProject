@@ -13,6 +13,7 @@ import org.json.JSONException;
 
 import levelBuilderControllers.ActivateBucketforSixesController;
 import levelBuilderControllers.ActivateSpecialMoveController;
+import levelBuilderControllers.ChoosingLevelController;
 import levelBuilderControllers.ExitController;
 import levelBuilderControllers.GenerateLevelController;
 import levelBuilderControllers.PreviewController;
@@ -29,13 +30,15 @@ import levelBuilderControllers.UndoController;
 import levelBuilderEntity.LevelBuilder;
 
 public class LevelBuilderApplication extends JFrame {
+	
+	//public static LevelBuilderApplication app;
+	public static LevelBuilder model;
 
 	private JPanel contentPane;
 	LevelBuilderGamePanel gamePanel ;
 	LevelBuilderInputPanel inputPanel ;
 	LevelBuilderCheckBoxPanel checkBoxPanel ;
 	private JPanel panel;
-	public static LevelBuilder model;
 
 	/**
 	 * Create the frame.
@@ -94,6 +97,7 @@ public class LevelBuilderApplication extends JFrame {
 		getInputPanel().getSwapEnabled().addActionListener(new ActivateSpecialMoveController(model, this, 2));
 		getInputPanel().getResetEnabled().addActionListener(new ActivateSpecialMoveController(model, this, 1));
 		getInputPanel().getRemoveEnabled().addActionListener(new ActivateSpecialMoveController(model, this, 3));
+		getInputPanel().choosingLevelBox.addActionListener(new ChoosingLevelController(this));
 		for(int i=0;i<9;i++){
 			for(int j=0;j<9;j++){
 				gamePanel.getTile(i, j).addActionListener(new SelectTilesController(model, this, getTiles(i,j),i, j));

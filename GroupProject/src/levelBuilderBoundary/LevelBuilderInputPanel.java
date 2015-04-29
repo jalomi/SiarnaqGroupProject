@@ -37,6 +37,7 @@ public class LevelBuilderInputPanel extends JPanel {
 	private JCheckBox chckbxNewCheckBox;
 	private JCheckBox chckbxNewCheckBox_1;
 	private JCheckBox chckbxNewCheckBox_2;
+	JComboBox<String> choosingLevelBox;
 
 	/**
 	 * Create the panel.
@@ -181,7 +182,7 @@ public class LevelBuilderInputPanel extends JPanel {
 		for(String s: LevelBuilder.getLevelList()) {
 			m.addElement(s);
 		}
-		JComboBox<String> choosingLevelBox = new JComboBox<String>(m);
+		choosingLevelBox = new JComboBox<String>(m);
 		choosingLevelBox.setBounds(210, 363, 150, 40);
 		add(choosingLevelBox);
 	}

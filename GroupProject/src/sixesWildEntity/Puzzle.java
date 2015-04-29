@@ -76,6 +76,16 @@ public class Puzzle extends Level {
 	public void updateTimeLeft(int t) {
 		
 	}
+
+	@Override
+	public int getMovesRemaining() {
+		return movesRemaining;
+	}
+
+	@Override
+	public int getTimeRemaining() {
+		return 0;
+	}
 	
 	
 }

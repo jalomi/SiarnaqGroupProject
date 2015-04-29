@@ -28,11 +28,24 @@ public class Elimination extends Level {
 	public Elimination(JSONObject json) throws JSONException {
 		super(json);
 		//add more later
+		movesRemaining = json.getInt("movesRemaining");
+	}
+	
+	@Override
+	public JSONObject toJSON() throws JSONException {
+		JSONObject json = super.toJSON();
+		json.put("movesRemaining", movesRemaining);
+		return json;
 	}
 
 	@Override
 	public String getMovesRemainingString() {
 		return String.valueOf(movesRemaining);
+	}
+	
+	@Override
+	public int getMovesRemaining() {
+		return movesRemaining;
 	}
 	
 	@Override
@@ -75,6 +88,11 @@ public class Elimination extends Level {
 	@Override
 	public void updateTimeLeft(int t) {
 		
+	}
+
+	@Override
+	public int getTimeRemaining() {
+		return 0;
 	}
 	
 }

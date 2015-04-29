@@ -39,7 +39,7 @@ public class Lightning extends Level {
 
 	@Override
 	public String getMovesRemainingString() {
-		return "Unlimited";
+		return "0";
 	}
 	
 	@Override
@@ -78,6 +78,16 @@ public class Lightning extends Level {
 	@Override
 	public void updateTimeLeft(int t) {
 		timeRemaining += t ;
+	}
+
+	@Override
+	public int getMovesRemaining() {
+		return 0;
+	}
+
+	@Override
+	public int getTimeRemaining() {
+		return timeRemaining;
 	}
 	
 }

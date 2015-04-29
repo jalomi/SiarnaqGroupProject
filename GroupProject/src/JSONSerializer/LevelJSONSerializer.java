@@ -110,13 +110,18 @@ public class LevelJSONSerializer {
             // parse the JSON using JSONTokener
             JSONObject json = (JSONObject) new JSONTokener(jsonString.toString()).nextValue();
             
+            System.out.println(TAG + " b" + type);
             if(type.equals("E")) {
+            	System.out.println(TAG + " " + type);
             	level = new Elimination(json);
             } else if(type.equals("L")) {
+            	System.out.println(TAG + " " + type);
             	level = new Lightning(json);
             } else if(type.equals("P")) {
+            	System.out.println(TAG + " " + type);
             	level = new Puzzle(json);
             } else if(type.equals("R")) {
+            	System.out.println(TAG + " " + type);
             	level = new Release(json);
             }
             
@@ -127,6 +132,9 @@ public class LevelJSONSerializer {
                 reader.close();
         }
         
+        if(level == null) {
+        	System.out.println(TAG + "null is returned");
+        }
 		return level;
     }
     

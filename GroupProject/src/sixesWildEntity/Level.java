@@ -13,8 +13,7 @@ public abstract class Level {
 	public static final String TAG = "Level";
 	
 	int levelNumber;
-	
-	boolean enabled; 
+
 	boolean[][] enabledTiles = new boolean[9][9];
 	//columns that has 6s on the top at the beginning of the game(release only)
 	boolean[] columnForSixes = new boolean[9];
@@ -38,7 +37,6 @@ public abstract class Level {
        // id = UUID.fromString(json.getString("id"));
         levelNumber = json.getInt("levelNumber");
         
-        enabled = json.getBoolean("enabled");
         for(int i = 0; i < 9; i++) {
         	for(int j = 0; j < 9; j++){
         		enabledTiles[i][j] = json.getJSONArray("enabledTiles").getJSONArray(i).getBoolean(j); //!
@@ -121,8 +119,8 @@ public abstract class Level {
 		this.percent[5] = p6;
 		
 		this.percentM[0] = m1;
-		this.percentM[1] = m1;
-		this.percentM[2] = m1;
+		this.percentM[1] = m2;
+		this.percentM[2] = m3;
 		
 		this.oneStarScore = first;
 		this.twoStarScore = second;
@@ -146,7 +144,6 @@ public abstract class Level {
         //json.put("id", id.toString());
         json.put("levelNumber", levelNumber);
         
-        json.put("enabled", enabled);
         json.put("enabledTiles", enabledTiles); //!
         json.put("columnForSixes", columnForSixes); //!
         
@@ -253,17 +250,105 @@ public abstract class Level {
 	public void setUnlocked(boolean unlocked) {
 		this.unlocked = unlocked ;
 	}
-		
-	public abstract String getMovesRemainingString();
-	public abstract String getTimeRemainingString();
-	public abstract void updateMovesLeft(int m) ;
-	public abstract void updateTimeLeft(int t) ;
-	public abstract boolean gameOver() ;
 
-	
-	
 	public int getLevelType(){
 		return 0 ; //this should be overwritten by classes that extend it
 	}
+
+	public boolean[] getColumnForSixes() {
+		return columnForSixes;
+	}
+
+	public double[] getPercent() {
+		return percent;
+	}
+
+	public double[] getPercentM() {
+		return percentM;
+	}
+
+	public int getOneStarScore() {
+		return oneStarScore;
+	}
+
+	public int getTwoStarScore() {
+		return twoStarScore;
+	}
+
+	public int getThreeStarScore() {
+		return threeStarScore;
+	}
+
+	public boolean isSwapEnabled() {
+		return swapEnabled;
+	}
+
+	public boolean isResetEnabled() {
+		return resetEnabled;
+	}
+
+	public boolean isRemoveEnabled() {
+		return removeEnabled;
+	}
+
+	public void setLevelNumber(int levelNumber) {
+		this.levelNumber = levelNumber;
+	}
+
+	public void setEnabledTiles(boolean[][] enabledTiles) {
+		this.enabledTiles = enabledTiles;
+	}
+
+	public void setColumnForSixes(boolean[] columnForSixes) {
+		this.columnForSixes = columnForSixes;
+	}
+
+	public void setPercent(double[] percent) {
+		this.percent = percent;
+	}
+
+	public void setPercentM(double[] percentM) {
+		this.percentM = percentM;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
+	public void setStarNumber(int starNumber) {
+		this.starNumber = starNumber;
+	}
+
+	public void setOneStarScore(int oneStarScore) {
+		this.oneStarScore = oneStarScore;
+	}
+
+	public void setTwoStarScore(int twoStarScore) {
+		this.twoStarScore = twoStarScore;
+	}
+
+	public void setThreeStarScore(int threeStarScore) {
+		this.threeStarScore = threeStarScore;
+	}
+
+	public void setSwapEnabled(boolean swapEnabled) {
+		this.swapEnabled = swapEnabled;
+	}
+
+	public void setResetEnabled(boolean resetEnabled) {
+		this.resetEnabled = resetEnabled;
+	}
+
+	public void setRemoveEnabled(boolean removeEnabled) {
+		this.removeEnabled = removeEnabled;
+	}
+	
+	public abstract String getMovesRemainingString();
+	public abstract String getTimeRemainingString();
+	public abstract int getMovesRemaining();
+	public abstract int getTimeRemaining();
+	public abstract void updateMovesLeft(int m);
+	public abstract void updateTimeLeft(int t);
+	public abstract boolean gameOver();
 	
 }
