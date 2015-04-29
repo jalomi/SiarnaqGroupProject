@@ -1,7 +1,6 @@
 package sixesWildBoundary;
 
 import junit.framework.TestCase;
-import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
 import sixesWildBoundary.SixesWildApplication;
 

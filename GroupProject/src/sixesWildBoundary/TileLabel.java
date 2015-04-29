@@ -13,7 +13,6 @@ public class TileLabel extends JLabel {
 	public static final int UNSELECTED = 1;
 	public static final int SELECTED = 2;
 	public static final int MARKED = 3;
-	public static final int MARKED_SELECTED = 4;
 	
 	Tile model;
 	Icon numberImage;
@@ -33,15 +32,10 @@ public class TileLabel extends JLabel {
 	}
 	
 	public void refresh() {
-		setRightIcon(1); //for now, need change later
+		setRightIcon(UNSELECTED); //for now, need change later
 	}
 	
 	public void setRightIcon(int state) {
-		if(model.getSquare() == null){
-			setIcon(null) ;
-			return ;
-		}
-		
 		switch(state) {
 			case UNSELECTED:
 				setIconUnselected();
@@ -52,15 +46,12 @@ public class TileLabel extends JLabel {
 			case MARKED:
 				setIconMarked();
 				break;
-			case MARKED_SELECTED:
-				setIconMarkedSelected();
-				break;
 		}
 	}
 	
 	public void setIconUnselected() {
 		if(!model.isEnabled()) {
-			//this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/disabled.png"))) ;
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/disabled.png"))) ;
 			return;
 		}
 		
@@ -119,7 +110,7 @@ public class TileLabel extends JLabel {
 	
 	public void setIconSelected() {
 		if(!model.isEnabled()) {
-			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/disabled.png"))) ;
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/disabled-sel.png"))) ;
 			return;
 		}
 		
@@ -177,10 +168,62 @@ public class TileLabel extends JLabel {
 	}
 	
 	public void setIconMarked() {
+		if(!model.isEnabled()) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/disabled.png"))) ;
+			return;
+		}
 		
-	}
-	
-	public void setIconMarkedSelected() {
+		int value = model.getSquare().getValue();
+		int multi = model.getSquare().getMultiplier();
 		
+		if(value == 1 && multi == 1) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/1-1-mar.png")));
+
+		} else if(value == 1 && multi == 2) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/1-2-mar.png")));
+		
+		} else if(value == 1 && multi == 3) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/1-3-mar.png")));
+		
+		} else if(value == 2 && multi == 1) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/2-1-mar.png")));
+		
+		} else if(value == 2 && multi == 2) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/2-2-mar.png")));
+		
+		} else if(value == 2 && multi == 3) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/2-3-mar.png")));
+		
+		} else if(value == 3 && multi == 1) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/3-1-mar.png")));
+		
+		} else if(value == 3 && multi == 2) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/3-2-mar.png")));
+		
+		} else if(value == 3 && multi == 3) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/3-3-mar.png")));
+		
+		} else if(value == 4 && multi == 1) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/4-1-mar.png")));
+		
+		} else if(value == 4 && multi == 2) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/4-2-mar.png")));
+		
+		} else if(value == 4 && multi == 3) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/4-3-mar.png")));
+		
+		} else if(value == 5 && multi == 1) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/5-1-mar.png")));
+		
+		} else if(value == 5 && multi == 2) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/5-2-mar.png")));
+		
+		} else if(value == 5 && multi == 3) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/5-3-mar.png")));
+		
+		} else if(value == 6) {
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/6-mar.png")));
+		} 
 	}
+
 }
