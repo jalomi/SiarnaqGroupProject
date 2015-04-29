@@ -46,6 +46,7 @@ public class SixesWild {
 			highScore[i] = 0 ;
 			starNum[i] = levels.get(i).starNumber ;
 		}
+		levels.add(new Elimination(3, 5)) ;
 	}
 	//END CONSTRUCTORS
 	
