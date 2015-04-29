@@ -58,6 +58,7 @@ public class SetMultiplierPercentMove extends Move{
 			}
 			model.setPercentM(0, (1-sum)*100);
 			ta.setText(""+(model.getPercentM(0)*100));
+						
 			return true;
 		}
 
