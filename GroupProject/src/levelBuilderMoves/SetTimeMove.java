@@ -27,16 +27,16 @@ public class SetTimeMove extends Move{
 	public boolean doMove() {
 		// TODO Auto-generated method stub
 		if(!isValid()){return false;}
-		//model.setMinutes(newValue);
-		//tf.setText(""+model.getMinutes());
+		model.setSeconds(newValue);
+		tf.setText(""+model.getSeconds());
 		return true;
 	}
 
 	@Override
 	public boolean undo() {
 		// TODO Auto-generated method stub
-		//model.setMinutes(oldValue);
-		//tf.setText(""+model.getMinutes());
+		model.setSeconds(oldValue);
+		tf.setText(""+model.getSeconds());
 		return true;
 	}
 }

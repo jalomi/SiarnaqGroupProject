@@ -13,6 +13,7 @@ public class SplashScreen extends JWindow {
    * @param d input int for how long you want for splash screen to stay in ms.
    */
   public SplashScreen(int d) {
+  	getContentPane().setBackground(UIManager.getColor("textHighlight"));
     this.duration = d;
   }
 
@@ -21,7 +22,7 @@ public class SplashScreen extends JWindow {
    */
   public void showSplash() {
     JPanel content = (JPanel)getContentPane();
-    content.setBackground(Color.white);
+    content.setBackground(UIManager.getColor("textHighlight"));
 
     // Set the window's bounds, centering the window
     int width = 450;
@@ -57,6 +58,7 @@ public class SplashScreen extends JWindow {
     try { Thread.sleep(duration); } catch (Exception e) {}
 
     setVisible(false);
+    dispose() ;
   }
 
   public void showSplashAndExit() {

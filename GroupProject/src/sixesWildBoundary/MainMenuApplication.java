@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import sixesWildControllers.EnterLevelSelectController;
 import sixesWildControllers.ExitController;
+import javax.swing.UIManager;
 
 public class MainMenuApplication extends JFrame {
 
@@ -26,6 +27,7 @@ public class MainMenuApplication extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(5, 5, 580, 750);
 		contentPane = new JPanel();
+		contentPane.setBackground(UIManager.getColor("textHighlight"));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

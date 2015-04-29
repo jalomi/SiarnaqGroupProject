@@ -33,9 +33,7 @@ public class LevelBuilder {
     double percents[] = new double[6];
 	double percentM[] = new double[3];
 	
-	int oneStarScore;
-	int twoStarScore;
-	int threeStarScore;
+	int starScore[] = new int[3];
 	
 	int second;
 	int moves;
@@ -87,9 +85,10 @@ public class LevelBuilder {
 			this.percentM[i] = 0;
 		}
 		
-		this.oneStarScore = 0;
-		this.twoStarScore = 0;
-		this.threeStarScore = 0;
+		for(int i=0; i<3; i++)
+		{
+			this.starScore[i]=0;
+		}
 		
 		this.allowReset=false;
 		this.allowSwap=false;
@@ -106,6 +105,8 @@ public class LevelBuilder {
 		percentM[0] = 0 ;
 		percentM[1] = 0 ;
 		percentM[2] = 0 ;
+		
+		second=0;
 		
 		this.allowReset = false;
 		this.allowSwap = false;
@@ -124,7 +125,7 @@ public class LevelBuilder {
 					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
 					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
 					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
-					  this.getOneStarScore(), this.getTwoStarScore(), this.getThreeStarScore(),
+					  this.getStarScore(0), this.getStarScore(1), this.getStarScore(2),
 					  this.unlocked, 
 					  this.allowSwap, this.allowReset, this.allowRemove,
 					  this.tilesActive);
@@ -133,7 +134,7 @@ public class LevelBuilder {
 					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
 					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
 					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
-					  this.getOneStarScore(), this.getTwoStarScore(), this.getThreeStarScore(),
+					  this.getStarScore(0), this.getStarScore(1), this.getStarScore(2),
 					  this.unlocked, 
 					  this.allowSwap, this.allowReset, this.allowRemove,
 					  this.tilesActive);
@@ -142,7 +143,7 @@ public class LevelBuilder {
 					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
 					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
 					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
-					  this.getOneStarScore(), this.getTwoStarScore(), this.getThreeStarScore(),
+					  this.getStarScore(0), this.getStarScore(1), this.getStarScore(2),
 					  this.unlocked, 
 					  this.allowSwap, this.allowReset, this.allowRemove,
 					  this.tilesActive);
@@ -151,7 +152,7 @@ public class LevelBuilder {
 					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
 					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
 					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
-					  this.getOneStarScore(), this.getTwoStarScore(), this.getThreeStarScore(),
+					  this.getStarScore(0), this.getStarScore(1), this.getStarScore(2),
 					  this.unlocked, 
 					  this.allowSwap, this.allowReset, this.allowRemove,
 					  this.tilesActive);
@@ -261,17 +262,7 @@ public class LevelBuilder {
 	
 	public void setStarScore(int n,int s){
 		//n = star number, s = score 
-		if(n==1){
-		oneStarScore = s;
-		}
-	
-		else if(n==2){
-		twoStarScore = s;
-		}
-	
-		else if(n==3){
-		threeStarScore = s; 
-		}
+		starScore[n]=s;
 	}
 	
 	public void setLevelNumber(int l){
@@ -326,16 +317,8 @@ public class LevelBuilder {
 		return moves;
 	}
 	
-	public int getOneStarScore(){
-		return oneStarScore;
-	}
-	
-	public int getTwoStarScore(){
-		return twoStarScore;
-	}
-	
-	public int getThreeStarScore(){
-		return threeStarScore; 
+	public int getStarScore(int i){
+		return starScore[i];
 	}
 	
 	public boolean getSpecialEnabled(int i)
@@ -382,6 +365,16 @@ public class LevelBuilder {
 	public void setBucketEnabled(int i, boolean b)
 	{
 		bucketFor6s[i]=b;
+	}
+	
+	public int getSeconds()
+	{
+		return second;
+	}
+	
+	public void setSeconds(int i)
+	{
+		second=i;
 	}
 }
 

@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 import sixesWildControllers.TileLabelController;
 import sixesWildEntity.Board;
 import sixesWildEntity.SixesWild;
+import javax.swing.UIManager;
 
 public class SixesWildGamePanel extends JPanel {
 	
@@ -18,6 +19,7 @@ public class SixesWildGamePanel extends JPanel {
 	TileLabelController controller;
  
 	public SixesWildGamePanel() {
+		setBackground(UIManager.getColor("textHighlight"));
 		
 		
 		this.board = Board.newInstance();

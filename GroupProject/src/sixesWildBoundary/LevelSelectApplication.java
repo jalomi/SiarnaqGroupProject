@@ -20,6 +20,7 @@ public class LevelSelectApplication extends JFrame {
 	private SixesWild theGame;
 	
 	public LevelSelectApplication(SixesWild theGame) {
+		getContentPane().setBackground(UIManager.getColor("textHighlight"));
 		
 		System.out.println("LevelSelectApplication contructor");
 		
@@ -254,7 +255,7 @@ public class LevelSelectApplication extends JFrame {
 		
 		
 		JTextArea txtrPleaseSelectLevel = new JTextArea();
-		txtrPleaseSelectLevel.setBackground(UIManager.getColor("Panel.background"));
+		txtrPleaseSelectLevel.setBackground(UIManager.getColor("textHighlight"));
 		txtrPleaseSelectLevel.setEditable(false);
 		txtrPleaseSelectLevel.setText("Please Select Level");
 		txtrPleaseSelectLevel.setBounds(35, 15, 360, 30);

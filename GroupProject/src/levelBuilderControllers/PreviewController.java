@@ -14,9 +14,12 @@ public class PreviewController implements ActionListener {
 	LevelBuilderApplication app ;
 	LevelBuilder model;
 	
+
 	public PreviewController(LevelBuilderApplication app) throws IOException, JSONException{
+
 		this.app = app ;
-		model = LevelBuilder.newInstance();
+
+		this.model = LevelBuilder.newInstance();
 	}
 
 	@Override

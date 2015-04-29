@@ -60,6 +60,9 @@ public class ResetBoardMove implements IMove{
 			theGame.setVisible(false) ;
 			theGame.getModel().updateScores() ;
 			GameOverApplication completeScreen = new GameOverApplication(board.getLevel().getStarNumber() != 0);
+			if(board.getLevel().getStarNumber() > 0){
+				theGame.getModel().getLevels().get(board.getLevel().getLevelNumber()).setUnlocked(true) ;
+			}
 			completeScreen.setVisible(true);
 			completeScreen.getMainMenuBtn().addActionListener(new BacktoMainMenuController(completeScreen)) ;
 		}
