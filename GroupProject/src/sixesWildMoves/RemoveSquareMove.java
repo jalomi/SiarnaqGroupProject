@@ -17,6 +17,10 @@ public class RemoveSquareMove implements IMove{
 
 	@Override
 	public boolean isValid(SixesWildApplication theGame) {
+		if(!tile.isEnabled()){
+			return false ;
+		}
+		
 		if(tile.getSquare().getValue() != 6){
 			return true ;
 		}
