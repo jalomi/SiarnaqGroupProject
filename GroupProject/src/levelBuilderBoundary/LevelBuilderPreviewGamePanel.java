@@ -29,7 +29,7 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 		this.board = LevelBuilder.newInstance();
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
-				this.initLabel(i, j);
+				this.initLabel(j, i);
 			}
 		}
 		this.validate();

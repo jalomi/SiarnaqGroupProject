@@ -18,8 +18,8 @@ public class LevelBuilderGamePanel extends JPanel {
 			for(int j = 0; j <9; j++) {
 				JToggleButton button = new JToggleButton();
 				button.setBounds(i*55, j*55, 50, 50);
-				tiles[j][i] = button;
-				add(tiles[j][i]);
+				tiles[i][j] = button;
+				add(tiles[i][j]);
 			}
 		}
 	}
