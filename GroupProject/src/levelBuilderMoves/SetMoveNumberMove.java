@@ -20,7 +20,7 @@ public class SetMoveNumberMove extends Move{
 
 	@Override
 	public boolean isValid() {
-		return newValue>0;
+		return newValue > 0;
 	}
 
 	@Override

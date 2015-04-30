@@ -38,6 +38,8 @@ public class Board {
 				}
 			}
 		}
+		
+
 	}
 	
 	public Square generateSquare() {

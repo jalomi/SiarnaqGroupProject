@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 public class Release extends Level {
 	int movesRemaining;
+	boolean[] buckets = new boolean[9] ;
 	
 	public Release(int number, int movesRemaining) {
 		super(number);
@@ -16,16 +17,27 @@ public class Release extends Level {
 			  double m1, double m2, double m3,
 			  int first, int second, int third,
 			  boolean unlocked, boolean swap, boolean reset, boolean remove,
-			  boolean[][] enabledTiles) throws Exception {
+			  boolean[][] enabledTiles, boolean[] buckets) throws Exception {
 		super(number, p1, p2, p3, p4, p5, p6, m1, m2, m3, first, second, third,
 				unlocked, swap, reset, remove, enabledTiles);
 		this.movesRemaining = movesRemaining;
+		this.buckets = buckets ;
+		
 	}
 	
 	public Release(JSONObject json) throws JSONException {
 		super(json);
 		//
+		movesRemaining = json.getInt("movesRemaining") ;
 	}
+	
+	@Override
+	public JSONObject toJSON() throws JSONException{
+		JSONObject json = super.toJSON() ;
+		json.put("movesRemaining", movesRemaining) ;
+		return json ;
+	}
+	
 
 	@Override
 	public String getMovesRemainingString() {
