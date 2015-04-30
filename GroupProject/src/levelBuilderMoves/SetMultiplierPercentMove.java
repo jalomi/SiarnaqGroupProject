@@ -27,37 +27,39 @@ public class SetMultiplierPercentMove extends Move{
 
 		@Override
 		public boolean isValid() {
-			double sum=newValue/100;
-			for(int i=1; i<3; i++)
+			double sum = newValue/100;
+			for(int i = 1; i < 3; i++)
 			{
-				sum+=model.getPercentM(i);
+				sum += model.getPercentM(i);
 			}
-			sum-=model.getPercentM(multiplierNum);
+			sum -= model.getPercentM(multiplierNum);
 			
 			try
 			{
-				if(sum>1)
+				if(sum > 1)
 					throw new IllegalArgumentException("percent for x1s negative");
 			} catch(IllegalArgumentException iae){
-				tf.setText(""+(model.getPercentM(multiplierNum)*100));
+				tf.setText("" + (model.getPercentM(multiplierNum) * 100));
 			}
 			
-			return newValue>=0 && newValue<=100 && sum<=1;
+			return newValue >= 0 && newValue <= 100 && sum <= 1;
 		}
 
 		@Override
 		public boolean doMove() {
-			// TODO Auto-generated method stub
-			double sum=0;
+			double sum = 0;
+			
 			if(!isValid()){return false;}
+			
 			model.setPercentM(multiplierNum, newValue);
-			tf.setText(""+(model.getPercentM(multiplierNum)*100));
-			for(int i=1; i<3; i++)
-			{
-				sum+=model.getPercentM(i);
+			tf.setText("" + (model.getPercentM(multiplierNum) * 100));
+			
+			for(int i = 1; i < 3; i++){
+				sum += model.getPercentM(i);
 			}
-			model.setPercentM(0, (1-sum)*100);
-			ta.setText(""+(model.getPercentM(0)*100));
+			
+			model.setPercentM(0, (1 - sum) * 100);
+			ta.setText("" + (model.getPercentM(0) * 100));
 						
 			return true;
 		}

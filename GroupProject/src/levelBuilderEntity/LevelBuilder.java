@@ -127,17 +127,22 @@ public class LevelBuilder {
 		double percent = this.getPercent(0) + this.getPercent(1) + this.getPercent(2)
 				    + this.getPercent(3) + this.getPercent(4) + this.getPercent(5);
 		double percentM = getPercentM(0) + this.getPercentM(1) + this.getPercentM(2);
-		if(Double.compare(percent, 1.0) != 0) {
-			throw new Exception(TAG + " :: Percent Sum " + percent  + " is not valid");
-		}
-		if(Double.compare(percentM, 1.0) != 0) {
-			throw new Exception(TAG + " :: PercentM Sum is not valid");
-		}
+
+		//These are checked in the controller and are not needed
+		//
+//		if(Double.compare(percent, 1.0) != 0) {
+//			throw new Exception(TAG + " :: Percent Sum " + percent  + " is not valid");
+//		}
+		//We can remove this because it is impossible 
+//		if(Double.compare(percentM, 1.0) != 0) {
+//			throw new Exception(TAG + " :: PercentM Sum is not valid");
+//		}
+		
 		if(this.getLevelNumber() < 1) {
 			throw new Exception(TAG + " :: Level Number is Less than 1");
 		}
 		if(type.equals("Elimination")) {
-			return new Elimination(this.getLevelNumber(), this.moves,
+			return new Elimination(this.number, this.moves,
 					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
 					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
 					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
@@ -146,7 +151,7 @@ public class LevelBuilder {
 					  this.allowSwap, this.allowReset, this.allowRemove,
 					  this.tilesActive);
 		} else if(type.equals("Lightning")) {
-			return new Lightning(this.getLevelNumber(), this.moves,
+			return new Lightning(this.number, this.second,
 					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
 					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
 					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
@@ -155,7 +160,7 @@ public class LevelBuilder {
 					  this.allowSwap, this.allowReset, this.allowRemove,
 					  this.tilesActive);
 		} else if(type.equals("Puzzle")) {
-			return new Puzzle(this.getLevelNumber(), this.moves,
+			return new Puzzle(this.number, this.moves,
 					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
 					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
 					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
@@ -164,7 +169,7 @@ public class LevelBuilder {
 					  this.allowSwap, this.allowReset, this.allowRemove,
 					  this.tilesActive);
 		} else if(type.equals("Release")) {
-			return new Release(this.getLevelNumber(), this.moves,
+			return new Release(this.number, this.moves,
 					  this.getPercent(0), this.getPercent(1), this.getPercent(2),
 					  this.getPercent(3), this.getPercent(4), this.getPercent(5),
 					  this.getPercentM(0), this.getPercentM(1), this.getPercentM(2),
@@ -175,29 +180,6 @@ public class LevelBuilder {
 		} else {
 			throw new Exception(TAG + " :: Wrong Level Type!");
 		}
-	}
-	
-	/**
-	 * Determines if a level can be generated based on the current parameters
-	 * 
-	 * Will set generate level and preview level buttons as enabled if entries are
-	 * valid and disabled if not.
-	 */
-	
-	public boolean canGenerate() {
-		//TODO
-		boolean result = false ;
-		
-		
-		
-		if(result){
-			//enable buttons
-		}
-		else{
-			//disable buttons
-		}
-		
-		return result ;
 	}
 	
 	

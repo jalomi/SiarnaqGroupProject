@@ -39,7 +39,7 @@ public class SelectSquarePercentController implements ActionListener{
 				model.recordMove(m);
 			}
 		} catch (Exception e) {
-			tf.setText(""+model.getPercent(square));
+			tf.setText("" + model.getPercent(square));
 		}
 		
 	}

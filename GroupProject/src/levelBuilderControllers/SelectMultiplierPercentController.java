@@ -32,14 +32,14 @@ public class SelectMultiplierPercentController implements ActionListener{
 	{
 		try{
 			double num = Double.parseDouble(tf.getText());
-			SetMultiplierPercentMove m=new SetMultiplierPercentMove(model, num, tf, multiplier, application.getInputPanel().getPercentx1());
+			SetMultiplierPercentMove m = new SetMultiplierPercentMove(model, num, tf, multiplier, application.getInputPanel().getPercentx1());
 			if(m.doMove())
 			{
-				System.out.println("Percentage of x"+(multiplier+1)+"s: "+model.getPercentM(multiplier));
+				System.out.println("Percentage of x" + (multiplier+1) + "s: " + model.getPercentM(multiplier));
 				model.recordMove(m);
 			}
 		} catch (Exception e) {
-			tf.setText(""+model.getPercentM(multiplier));
+			tf.setText("" + model.getPercentM(multiplier));
 		}
 		
 	}

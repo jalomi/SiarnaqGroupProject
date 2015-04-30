@@ -44,22 +44,36 @@ public class Release extends Level {
 	
 	@Override
 	public boolean gameOver(){
-//		if(movesRemaining == 0){
-//			if(score >= oneStarScore){
-//				if(score >= threeStarScore){
-//					starNumber = 3 ;
-//				}
-//				else if(score >= twoStarScore){
-//					starNumber = 2 ;
-//				}
-//				else{
-//					starNumber = 1 ;
-//				}			
-//			}
-//			return true ;
-//		}
-//		
-//		return false ;
+		boolean allBucketFull = true ;
+		Board board = Board.newInstance() ;
+		
+		for(int i = 0; i < 9; i++){
+			if(columnForSixes[i]){
+				if(board.getSquare(i, 8).getValue() != 6){
+					allBucketFull = false ;
+				}
+			}
+		}
+		
+		if(allBucketFull){
+			updateScore(20*movesRemaining) ;		//Do we want this?
+			if(score >= threeStarScore){
+				starNumber = 3 ;
+			}
+			else if(score >= twoStarScore){
+				starNumber = 2 ;
+			}
+			else{
+				starNumber = 1 ;
+			}		
+			
+			return true ;
+		}
+	
+		if(movesRemaining <= 0){
+			return true ;
+		}
+		
 		return false ;
 	}
 
