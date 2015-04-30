@@ -176,7 +176,7 @@ public class LevelBuilder {
 					  this.getStarScore(0), this.getStarScore(1), this.getStarScore(2),
 					  this.unlocked, 
 					  this.allowSwap, this.allowReset, this.allowRemove,
-					  this.tilesActive);
+					  this.tilesActive, this.bucketFor6s);
 		} else {
 			throw new Exception(TAG + " :: Wrong Level Type!");
 		}

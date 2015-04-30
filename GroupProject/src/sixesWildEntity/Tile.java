@@ -8,11 +8,13 @@ public class Tile {
 	private boolean marked;
 	private boolean selected;
 	private boolean enabled;
+	private boolean bucket ;
 	
 	public Tile(Position p) {
 		enabled = false;
 		marked = false;
 		selected = false;
+		bucket = false ;
 		square = null;
 		pos = p;
 	}
@@ -21,6 +23,7 @@ public class Tile {
 		enabled = true;
 		marked = false;
 		selected = false;
+		bucket = false ;
 		square = s;
 		pos = p;
 	}
@@ -67,5 +70,13 @@ public class Tile {
 	
 	public boolean getMarked(){
 		return this.marked ;
+	}
+	
+	public boolean getBucket(){
+		return bucket ;
+	}
+	
+	public void setBucket(boolean b){
+		bucket = b ;
 	}
 }
