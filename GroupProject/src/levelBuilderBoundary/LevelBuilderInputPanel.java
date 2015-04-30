@@ -1,5 +1,8 @@
 package levelBuilderBoundary;
 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -51,6 +54,22 @@ public class LevelBuilderInputPanel extends JPanel {
 		txtLevelNumber.setBounds(0, 0, 150, 27);
 		add(txtLevelNumber);
 		txtLevelNumber.setColumns(10);
+		txtLevelNumber.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtLevelNumber.getText().equals("Level Number")) {
+					txtLevelNumber.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
 		
 		comboBox = new JComboBox<String>();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Puzzle", "Lightning", "Elimination", "Release"}));
@@ -62,13 +81,41 @@ public class LevelBuilderInputPanel extends JPanel {
 		txtEnterMaxMoves.setBounds(0, 70, 150, 27);
 		add(txtEnterMaxMoves);
 		txtEnterMaxMoves.setColumns(10);
-		
+		txtEnterMaxMoves.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtEnterMaxMoves.getText().equals("Enter Max Moves")) {
+					txtEnterMaxMoves.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		txtEnterMaxSeconds = new JTextField();
 		txtEnterMaxSeconds.setText("Enter Max Seconds");
 		txtEnterMaxSeconds.setBounds(0, 140, 150, 27);
 		add(txtEnterMaxSeconds);
 		txtEnterMaxSeconds.setColumns(10);
-		
+		txtEnterMaxSeconds.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtEnterMaxSeconds.getText().equals("Enter Max Seconds")) {
+					txtEnterMaxSeconds.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		chckbxNewCheckBox = new JCheckBox("Allow Reset Board");
 		chckbxNewCheckBox.setBounds(0, 178, 150, 25);
 		add(chckbxNewCheckBox);
@@ -86,18 +133,63 @@ public class LevelBuilderInputPanel extends JPanel {
 		txtEnterScore.setBounds(0, 292, 150, 27);
 		add(txtEnterScore);
 		txtEnterScore.setColumns(10);
+		txtEnterScore.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtEnterScore.getText().equals("Enter 1* Score")) {
+					txtEnterScore.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		txtEnterScore_1 = new JTextField();
 		txtEnterScore_1.setText("Enter 2* Score");
 		txtEnterScore_1.setBounds(0, 327, 150, 27);
 		add(txtEnterScore_1);
 		txtEnterScore_1.setColumns(10);
+		txtEnterScore_1.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtEnterScore_1.getText().equals("Enter 2* Score")) {
+					txtEnterScore_1.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		txtEnterScore_2 = new JTextField();
 		txtEnterScore_2.setText("Enter 3* Score");
 		txtEnterScore_2.setBounds(0, 362, 150, 27);
 		add(txtEnterScore_2);
 		txtEnterScore_2.setColumns(10);
+		txtEnterScore_2.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtEnterScore_2.getText().equals("Enter 3* Score")) {
+					txtEnterScore_2.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		generateLevelBtn = new JButton("Generate Level");
 		generateLevelBtn.setBounds(0, 415, 150, 40);
@@ -114,36 +206,112 @@ public class LevelBuilderInputPanel extends JPanel {
 		txtEnterPercentFor.setBounds(210, 0, 150, 27);
 		add(txtEnterPercentFor);
 		txtEnterPercentFor.setColumns(10);
+		txtEnterPercentFor.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtEnterPercentFor.getText().equals("Enter Percent for 1s")) {
+					txtEnterPercentFor.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		txtEnterPercentFor_1 = new JTextField();
 		txtEnterPercentFor_1.setText("Enter Percent for 2s");
 		txtEnterPercentFor_1.setBounds(210, 35, 150, 27);
 		add(txtEnterPercentFor_1);
 		txtEnterPercentFor_1.setColumns(10);
+		txtEnterPercentFor_1.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtEnterPercentFor_1.getText().equals("Enter Percent for 2s")) {
+					txtEnterPercentFor_1.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		txtEnterPercentFor_2 = new JTextField();
 		txtEnterPercentFor_2.setText("Enter Percent for 3s");
 		txtEnterPercentFor_2.setBounds(210, 70, 150, 27);
 		add(txtEnterPercentFor_2);
 		txtEnterPercentFor_2.setColumns(10);
+		txtEnterPercentFor_2.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtEnterPercentFor_2.getText().equals("Enter Percent for 3s")) {
+					txtEnterPercentFor_2.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		txtEnterPercentFor_3 = new JTextField();
 		txtEnterPercentFor_3.setText("Enter Percent for 4s");
 		txtEnterPercentFor_3.setBounds(210, 105, 150, 27);
 		add(txtEnterPercentFor_3);
 		txtEnterPercentFor_3.setColumns(10);
+		txtEnterPercentFor_3.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtEnterPercentFor_3.getText().equals("Enter Percent for 4s")) {
+					txtEnterPercentFor_3.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		txtEnterPercentFor_4 = new JTextField();
 		txtEnterPercentFor_4.setText("Enter Percent for 5s");
 		txtEnterPercentFor_4.setBounds(210, 140, 150, 27);
 		add(txtEnterPercentFor_4);
 		txtEnterPercentFor_4.setColumns(10);
+		txtEnterPercentFor_4.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtEnterPercentFor_4.getText().equals("Enter Percent for 5s")) {
+					txtEnterPercentFor_4.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		txtEnterPercentFor_5 = new JTextArea();
 		txtEnterPercentFor_5.setText("Percent for 6s");
 		txtEnterPercentFor_5.setBounds(210, 175, 150, 27);
 		add(txtEnterPercentFor_5);
 		txtEnterPercentFor_5.setColumns(10);
+
 		
 		txtrPercentForx = new JTextArea();
 		txtrPercentForx.setEditable(false);
@@ -156,12 +324,42 @@ public class LevelBuilderInputPanel extends JPanel {
 		txtEnterPercentFor_6.setBounds(210, 292, 150, 27);
 		add(txtEnterPercentFor_6);
 		txtEnterPercentFor_6.setColumns(10);
+		txtEnterPercentFor_6.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtEnterPercentFor_6.getText().equals("Enter Percent for 2x")) {
+					txtEnterPercentFor_6.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		txtEnterPercentFor_7 = new JTextField();
 		txtEnterPercentFor_7.setText("Enter Percent for 3x");
 		txtEnterPercentFor_7.setBounds(210, 327, 150, 27);
 		add(txtEnterPercentFor_7);
 		txtEnterPercentFor_7.setColumns(10);
+		txtEnterPercentFor_7.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtEnterPercentFor_7.getText().equals("Enter Percent for 3x")) {
+					txtEnterPercentFor_7.setText("");
+				}
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		previewBtn = new JButton("Preview");
 		previewBtn.setBounds(210, 415, 150, 40);
