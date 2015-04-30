@@ -24,7 +24,15 @@ public class Release extends Level {
 	
 	public Release(JSONObject json) throws JSONException {
 		super(json);
-		//
+		//add more later
+		movesRemaining = json.getInt("movesRemaining");
+	}
+	
+	@Override
+	public JSONObject toJSON() throws JSONException {
+		JSONObject json = super.toJSON();
+		json.put("movesRemaining", movesRemaining);
+		return json;
 	}
 
 	@Override
