@@ -81,7 +81,7 @@ public class NormalSelectionMove implements IMove{
 					//update the high score
 					theGame.getModel().setHighScore(board.getLevel().getLevelNumber(), thisScore) ;
 				}
-				
+				theGame.setEnabled(false) ;
 				completeScreen.setVisible(true);
 				completeScreen.getMainMenuBtn().addActionListener(new GameOverToMainMenuController(completeScreen, theGame)) ;
 			}
