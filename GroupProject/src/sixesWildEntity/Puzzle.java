@@ -52,23 +52,12 @@ public class Puzzle extends Level {
 	
 	@Override
 	public boolean gameOver(){
-		if(movesRemaining <= 0){
-			if(score >= oneStarScore){
-				if(score >= threeStarScore){
-					starNumber = 3 ;
-				}
-				else if(score >= twoStarScore){
-					starNumber = 2 ;
-				}
-				else{
-					starNumber = 1 ;
-				}			
-				
-			}
-			
+		Board board = Board.newInstance();
+		System.out.println(TAG + " Puzzle moves: " + board.getCurrentMoves());
+		System.out.println(TAG + " Puzzle score: " + board.getCurrentScore());
+		if(board.getCurrentMoves() <= 0){
 			return true ;
 		}
-		
 		return false ;
 	}
 
@@ -87,5 +76,32 @@ public class Puzzle extends Level {
 		return 0;
 	}
 	
+	@Override
+	public String getLevelType() {
+		return "Puzzle";
+	}
+	
+	@Override
+	public boolean hasWon() {
+		Board board = Board.newInstance();
+		boolean hasWon = false;
+		if(board.getCurrentScore() > oneStarScore) {
+			hasWon = true;
+		}
+		if(board.getCurrentScore() > highestScore) {
+			highestScore = board.getCurrentScore();
+			if(highestScore >= threeStarScore){
+				starNumber = 3 ;
+			}
+			else if(highestScore >= twoStarScore){
+				starNumber = 2 ;
+			}
+			else if(highestScore >= oneStarScore) {
+				starNumber = 1 ;
+				System.out.println("111: " + board.getLevel().getStarNumber());
+			}			
+		}
+		return hasWon;
+	}
 	
 }

@@ -122,7 +122,7 @@ public class TileLabelController extends MouseAdapter {
 			ArrayList<Tile> tiles = new ArrayList<Tile>();
 			for(TileLabel tl : selectedLabels) {
 				tiles.add(tl.getModel());
-			}
+			} 
 			IMove m = new NormalSelectionMove(tiles, sixesWildApp.getModel().getBoard());
 			
 			if(m.doMove(sixesWildApp)) {

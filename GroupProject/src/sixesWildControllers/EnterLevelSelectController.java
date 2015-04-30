@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import sixesWildBoundary.LevelSelectApplication;
 import sixesWildBoundary.MainMenuApplication;
-import sixesWildEntity.SixesWild;
 
 public class EnterLevelSelectController implements ActionListener {
 	
@@ -22,7 +21,7 @@ public class EnterLevelSelectController implements ActionListener {
 		System.out.println(TAG);
 		
 		m.dispose();
-		LevelSelectApplication levelSelectApp = new LevelSelectApplication(SixesWild.newInstance());
+		LevelSelectApplication levelSelectApp = new LevelSelectApplication();
 		levelSelectApp.setVisible(true);	
 	}  
 }

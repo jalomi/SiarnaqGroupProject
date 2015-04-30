@@ -59,8 +59,8 @@ public class Elimination extends Level {
 	}
 	
 	@Override
-	public int getLevelType(){
-		return 3 ;
+	public String getLevelType(){
+		return "Elimination" ;
 	}
 	
 	@Override
@@ -68,21 +68,9 @@ public class Elimination extends Level {
 		Board board = Board.newInstance();
 		if(board.allTilesMarked()){
 			updateScore(20*movesRemaining) ;
-			if(score >= oneStarScore){
-				if(score >= threeStarScore){
-					starNumber = 3 ;
-				}
-				else if(score >= twoStarScore){
-					starNumber = 2 ;
-				}
-				else{
-					starNumber = 1 ;
-				}			
-			}
-			
 			return true ;
 		}		
-		if(movesRemaining <= 0){
+		if(board.getCurrentMoves() <= 0){
 			return true ;
 		}
 		return false ;
@@ -98,4 +86,22 @@ public class Elimination extends Level {
 		return 0;
 	}
 	
+	@Override
+	public boolean hasWon() {
+		Board board = Board.newInstance();
+		if(board.getCurrentScore() > highestScore) {
+			highestScore = board.getCurrentScore();
+		}
+		boolean hasWon = board.allTilesMarked() && highestScore >= oneStarScore;
+		if(highestScore >= threeStarScore){
+			starNumber = 3 ;
+		}
+		else if(highestScore >= twoStarScore){
+			starNumber = 2 ;
+		}
+		else if(highestScore >= oneStarScore){
+			starNumber = 1 ;
+		}	
+		return hasWon;
+	}
 }

@@ -102,7 +102,7 @@ public class SixesWildLevelPanel extends JPanel {
 		
 		textScore = new JTextArea();
 		textScore.setEditable(false);
-		textScore.setText("0");
+		textScore.setText(Integer.toString(board.getCurrentScore()));
 		textScore.setBounds(245, 68, 57, 27);
 		add(textScore);
 		
@@ -129,13 +129,13 @@ public class SixesWildLevelPanel extends JPanel {
 		
 		textTime = new JTextArea();
 		textTime.setEditable(false);
-		textTime.setText(level.getTimeRemainingString());
+		textTime.setText(Integer.toString(board.getCurrentTime()));
 		textTime.setBounds(319, 68, 72, 27);
 		add(textTime);
 		
 		textMoveRem = new JTextArea();
 		textMoveRem.setEditable(false);
-		textMoveRem.setText(level.getMovesRemainingString());
+		textMoveRem.setText(Integer.toString(board.getCurrentMoves()));
 		textMoveRem.setBounds(408, 68, 80, 25);
 		add(textMoveRem);
 	}
@@ -148,9 +148,9 @@ public class SixesWildLevelPanel extends JPanel {
 	}
 	
 	public void refresh() {
-		textScore.setText(Integer.toString(level.getScore())) ;
-		textTime.setText(level.getTimeRemainingString()) ;
-		textMoveRem.setText(level.getMovesRemainingString()) ;		
+		textScore.setText(Integer.toString(board.getCurrentScore())) ;
+		textTime.setText(Integer.toString(board.getCurrentTime())) ;
+		textMoveRem.setText(Integer.toString(board.getCurrentMoves())) ;		
 	}
 	
 	public JButton getBackToMainManuButton() {

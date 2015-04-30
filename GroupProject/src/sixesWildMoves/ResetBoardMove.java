@@ -41,7 +41,7 @@ public class ResetBoardMove implements IMove{
 				}
 			}
 		}
-		
+		 
 		for(int i = 0; i < 9; i++){
 			for(int j = 0; j < 9; j++){
 				if(board.getMap()[i][j].getSquare() != null && board.getMap()[i][j].getSquare().getValue() != 6){
@@ -58,18 +58,26 @@ public class ResetBoardMove implements IMove{
 		if(board.getLevel().gameOver()){
 			//close the frame and show level complete screen
 			theGame.getModel().updateScores() ;
-			GameOverApplication completeScreen = new GameOverApplication(board.getLevel().getStarNumber() != 0);
-			if(board.getLevel().getStarNumber() > 0){
+			Board b = Board.newInstance();
+			if(b.equals(board)) {
+				System.out.println("Same object again");
+			}
+			System.out.println("Reset : Star: " + board.getLevel().getStarNumber());
+			GameOverApplication completeScreen = new GameOverApplication(board.getLevel().hasWon());
+			if(board.getLevel().hasWon()){
 				if(theGame.getModel().getLevels().size() > board.getLevel().getLevelNumber()){
 					theGame.getModel().getLevels().get(board.getLevel().getLevelNumber()).setUnlocked(true) ;
 				}
 			}
 			
-			int lastScore = theGame.getModel().getHighScore(board.getLevel().getLevelNumber() - 1) ;
-			int thisScore = board.getLevel().getScore() ;
+			//old //int lastScore = theGame.getModel().getHighScore(board.getLevel().getLevelNumber() - 1) ;
+			int lastScore = board.getLevel().getHighestScore();
+			//old //int thisScore = board.getLevel().getScore() ;
+			int thisScore = board.getCurrentScore();
 			if(thisScore > lastScore){
 				//update the high score
-				theGame.getModel().setHighScore(board.getLevel().getLevelNumber(), thisScore) ;
+				//old //theGame.getModel().setHighScore(board.getLevel().getLevelNumber(), thisScore) ;
+				board.getLevel().setHighestScore(thisScore);
 			}
 			theGame.setEnabled(false) ;
 			completeScreen.setVisible(true);

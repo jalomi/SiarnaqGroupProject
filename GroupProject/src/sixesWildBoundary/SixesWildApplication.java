@@ -56,11 +56,15 @@ public class SixesWildApplication extends JFrame {
 	public void updateScore(int score) {
 		//we should have some function like this one
 		//SixesWild.updateScore(score);
-		theGame.getLevel().updateScore(score) ;
+		//old //theGame.getLevel().updateScore(score) ;
+		int currentScore = theGame.getBoard().getCurrentScore();
+		theGame.getBoard().setCurrentScore(currentScore + score);
 	}
 	
 	public void updateMovesLeft(int i) {
-		theGame.getLevel().updateMovesLeft(i) ;
+		//old theGame.getLevel().updateMovesLeft(i) ;
+		int currentMoves = theGame.getBoard().getCurrentMoves();
+		theGame.getBoard().setCurrentMoves(currentMoves + i);
 	}
 	
 	
@@ -89,17 +93,20 @@ public class SixesWildApplication extends JFrame {
 						if(theGame.getBoard().getLevel().gameOver()){
 							//close the frame and show level complete screen
 							theGame.updateScores() ;
-							GameOverApplication completeScreen = new GameOverApplication(theGame.getBoard().getLevel().getStarNumber() != 0);
-							if(theGame.getBoard().getLevel().getStarNumber() > 0){
+							GameOverApplication completeScreen = new GameOverApplication(theGame.getBoard().getLevel().hasWon());
+							if(theGame.getBoard().getLevel().hasWon()){
 								if(theGame.getLevels().size() > theGame.getBoard().getLevel().getLevelNumber()){
 									theGame.getLevels().get(theGame.getBoard().getLevel().getLevelNumber()).setUnlocked(true) ;
 								}
-							}
-							int lastScore = theGame.getHighScore(theGame.getBoard().getLevel().getLevelNumber() - 1) ;
-							int thisScore = theGame.getBoard().getLevel().getScore() ;
+							} 
+							//old //int lastScore = theGame.getHighScore(theGame.getBoard().getLevel().getLevelNumber() - 1) ;
+							int lastScore = theGame.getBoard().getLevel().getHighestScore();
+							//old //int thisScore = theGame.getBoard().getLevel().getScore() ;
+							int thisScore = theGame.getBoard().getCurrentScore();
 							if(thisScore > lastScore){
 								//update the high score
-								theGame.setHighScore(theGame.getBoard().getLevel().getLevelNumber(), thisScore) ;
+								//theGame.setHighScore(theGame.getBoard().getLevel().getLevelNumber(), thisScore) ;
+								theGame.getBoard().getLevel().setHighestScore(thisScore);
 							}
 							completeScreen.setVisible(true);
 							completeScreen.getMainMenuBtn().addActionListener(new GameOverToMainMenuController(completeScreen, app)) ;

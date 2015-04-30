@@ -71,21 +71,11 @@ public class Release extends Level {
 		}
 		
 		if(allBucketFull){
-			updateScore(20*movesRemaining) ;		//Do we want this?
-			if(score >= threeStarScore){
-				starNumber = 3 ;
-			}
-			else if(score >= twoStarScore){
-				starNumber = 2 ;
-			}
-			else{
-				starNumber = 1 ;
-			}		
-			
+			updateScore(20*board.getCurrentMoves()) ;		//Do we want this?	
 			return true ;
 		}
 	
-		if(movesRemaining <= 0){
+		if(board.getCurrentMoves() <= 0){
 			return true ;
 		}
 		
@@ -107,4 +97,37 @@ public class Release extends Level {
 		return 0;
 	}
 	
+	@Override
+	public String getLevelType() {
+		return "Release";
+	}
+	
+	@Override
+	public boolean hasWon() {
+		boolean allBucketFull = true ;
+		Board board = Board.newInstance() ;
+		
+		for(int i = 0; i < 9; i++){
+			if(columnForSixes[i]){
+				if(board.getSquare(i, 8).getValue() != 6){
+					allBucketFull = false ;
+				}
+			}
+		}
+		
+		if(board.currentScore > highestScore) {
+			highestScore = board.currentScore;
+		}
+		if(highestScore >= threeStarScore){
+			starNumber = 3 ;
+		}
+		else if(highestScore >= twoStarScore){
+			starNumber = 2 ;
+		}
+		else if(highestScore >= oneStarScore) {
+			starNumber = 1 ;
+		}	
+		
+		return allBucketFull;
+	}
 }

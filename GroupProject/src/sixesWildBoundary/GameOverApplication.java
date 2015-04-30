@@ -19,11 +19,10 @@ public class GameOverApplication extends JFrame {
 		setBounds(300, 200, 300, 150);
 		
 		JLabel lblNewLabel = null ;
-		
 		if(hasWon){
 			lblNewLabel = new JLabel("You Won!");
 		}
-		else{
+		else{ 
 			lblNewLabel = new JLabel("You Lost!") ;
 		}
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

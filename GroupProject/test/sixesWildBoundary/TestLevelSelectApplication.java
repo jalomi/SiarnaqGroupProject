@@ -9,7 +9,7 @@ public class TestLevelSelectApplication extends TestCase {
 	@Override
 	protected void setUp()
 	{
-		l=new LevelSelectApplication(new SixesWild());
+		l=new LevelSelectApplication();
 	}
 	
 	public void testLevelSelect()
