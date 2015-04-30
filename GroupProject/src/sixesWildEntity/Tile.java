@@ -19,6 +19,15 @@ public class Tile {
 		pos = p;
 	}
 	
+	public Tile(Position p, boolean bkt){
+		enabled = true ;
+		marked = false ;
+		selected = false ;
+		bucket = bkt ;
+		square = null ;
+		pos = p ;
+	}
+	
 	public Tile(Square s, Position p) {
 		enabled = true;
 		marked = false;

@@ -64,9 +64,15 @@ public class Release extends Level {
 		
 		for(int i = 0; i < 9; i++){
 			if(columnForSixes[i]){
-				if(board.getSquare(i, 8).getValue() != 6){
-					allBucketFull = false ;
+				if(board.getSquare(i, 8) != null){
+					System.out.println("Bucket in column " + i+1 + " was not empty");
+					if(board.getSquare(i, 8).getValue() != 6){
+						allBucketFull = false ;
+						break ;
+					}
 				}
+				else allBucketFull = false;
+				break ;
 			}
 		}
 		
@@ -97,7 +103,6 @@ public class Release extends Level {
 		return 0;
 	}
 	
-	@Override
 	public String getLevelType() {
 		return "Release";
 	}
