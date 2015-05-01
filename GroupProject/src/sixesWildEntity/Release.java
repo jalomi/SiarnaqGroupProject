@@ -114,8 +114,10 @@ public class Release extends Level {
 		
 		for(int i = 0; i < 9; i++){
 			if(columnForSixes[i]){
-				if(board.getSquare(i, 8).getValue() != 6){
+				if(board.getSquare(i, 8) != null){
+					if(board.getSquare(i, 8).getValue() != 6){
 					allBucketFull = false ;
+					}
 				}
 			}
 		}

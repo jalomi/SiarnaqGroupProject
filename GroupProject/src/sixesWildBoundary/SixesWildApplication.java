@@ -64,7 +64,10 @@ public class SixesWildApplication extends JFrame {
 	public void updateMovesLeft(int i) {
 		//old theGame.getLevel().updateMovesLeft(i) ;
 		int currentMoves = theGame.getBoard().getCurrentMoves();
-		theGame.getBoard().setCurrentMoves(currentMoves + i);
+		if(theGame.getBoard().getLevel() instanceof Lightning) {
+		} else {
+			theGame.getBoard().setCurrentMoves(currentMoves + i);
+		}
 	}
 	
 	

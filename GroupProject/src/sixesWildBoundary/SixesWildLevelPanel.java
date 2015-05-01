@@ -14,6 +14,7 @@ import sixesWildControllers.ResetBoardButtonController;
 import sixesWildControllers.SwapSquareButtonController;
 import sixesWildEntity.Board;
 import sixesWildEntity.Level;
+import sixesWildEntity.Lightning;
 import sixesWildEntity.SixesWild;
 
 import javax.swing.UIManager;
@@ -129,13 +130,13 @@ public class SixesWildLevelPanel extends JPanel {
 		
 		textTime = new JTextArea();
 		textTime.setEditable(false);
-		textTime.setText(Integer.toString(board.getCurrentTime()));
+		textTime.setText(board.getLevel().getTimeRemainingString());
 		textTime.setBounds(319, 68, 72, 27);
 		add(textTime);
 		
 		textMoveRem = new JTextArea();
 		textMoveRem.setEditable(false);
-		textMoveRem.setText(Integer.toString(board.getCurrentMoves()));
+		textMoveRem.setText(board.getLevel().getMovesRemainingString());
 		textMoveRem.setBounds(408, 68, 80, 25);
 		add(textMoveRem);
 	}
@@ -148,9 +149,12 @@ public class SixesWildLevelPanel extends JPanel {
 	}
 	
 	public void refresh() {
-		textScore.setText(Integer.toString(board.getCurrentScore())) ;
-		textTime.setText(Integer.toString(board.getCurrentTime())) ;
-		textMoveRem.setText(Integer.toString(board.getCurrentMoves())) ;		
+		textScore.setText(Integer.toString(board.getCurrentScore()));
+		if(!(board.getLevel() instanceof Lightning)) {
+			textMoveRem.setText(Integer.toString(board.getCurrentMoves()));
+		} else {
+			textTime.setText(Integer.toString(board.getCurrentTime()));
+		}	
 	}
 	
 	public JButton getBackToMainManuButton() {
