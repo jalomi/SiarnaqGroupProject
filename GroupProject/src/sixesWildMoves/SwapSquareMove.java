@@ -24,6 +24,10 @@ public class SwapSquareMove implements IMove{
 			return false ;
 		}
 		
+		if(!board.getLevel().isSwapEnabled()){
+			return false ;
+		}
+		
 		if(t1.getSquare().getValue() != 6 && t2.getSquare().getValue() != 6){
 			return true ;
 		}

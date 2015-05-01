@@ -21,6 +21,10 @@ public class RemoveSquareMove implements IMove{
 			return false ;
 		}
 		
+		if(!board.getLevel().isRemoveEnabled()){
+			return false ;
+		}
+		
 		if(tile.getSquare().getValue() != 6){
 			return true ;
 		}

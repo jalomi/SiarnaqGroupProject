@@ -19,6 +19,10 @@ public class ResetBoardMove implements IMove{
 
 	@Override
 	public boolean isValid(SixesWildApplication theGame) {
+		if(!board.getLevel().isResetEnabled()){
+			return false ;
+		}
+		
 		return true ;
 	}
 
