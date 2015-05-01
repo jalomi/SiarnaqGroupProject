@@ -13,6 +13,7 @@ import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
 
 import javax.swing.UIManager;
+import java.awt.Font;
 
 public class LevelSelectApplication extends JFrame {
 
@@ -286,6 +287,7 @@ public class LevelSelectApplication extends JFrame {
 		
 		
 		JTextArea txtrPleaseSelectLevel = new JTextArea();
+		txtrPleaseSelectLevel.setFont(new Font("Monospaced", Font.BOLD, 17));
 		txtrPleaseSelectLevel.setBackground(UIManager.getColor("textHighlight"));
 		txtrPleaseSelectLevel.setEditable(false);
 		txtrPleaseSelectLevel.setText("Please Select Level");
