@@ -30,7 +30,7 @@ public class LevelJSONSerializer {
     private String fileName;
 
     public LevelJSONSerializer(String fName) {
-        fileName = "Levels/" + fName;
+        fileName = "json/" + fName;
     }
 
     public void saveLevels(ArrayList<Level> levels) throws JSONException, IOException {

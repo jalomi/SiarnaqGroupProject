@@ -90,22 +90,6 @@ public class LevelBuilder {
 			this.starScore[i]=0;
 		}
 		
-		this.allowReset=false;
-		this.allowSwap=false;
-		this.allowRemove=false;
-
-		//bad dummy values
-		percents[0] = 0 ;
-		percents[1] = 0 ;
-		percents[2] = 0 ;
-		percents[3] = 0 ;
-		percents[4] = 0 ;
-		percents[5] = 0 ;
-		
-		percentM[0] = 0 ;
-		percentM[1] = 0 ;
-		percentM[2] = 0 ;
-		
 		second=0;
 		
 		this.allowReset = false;
