@@ -28,11 +28,11 @@ LevelBuilderApplication a;
 	{
 		SelectSquarePercentController sspc=new SelectSquarePercentController(LevelBuilderApplication.model, a, 0);
 		JTextField tb=a.getInputPanel().getPercent1();
-		tb.setText("55");
+		tb.setText("30");
 		sspc.update(tb);
 		
-		assertEquals(LevelBuilderApplication.model.getPercent(0), 0.55);
-		assertEquals(LevelBuilderApplication.model.getPercent(5), 0.45);
+		assertEquals(LevelBuilderApplication.model.getPercent(0), 0.3);
+		assertEquals(LevelBuilderApplication.model.getPercent(5), 0.7);
 	}
 	
 	public void testInvalid() throws IOException, JSONException
@@ -42,7 +42,7 @@ LevelBuilderApplication a;
 		tb.setText("abc");
 		sspc.update(tb);
 		
-		assertEquals(LevelBuilderApplication.model.getPercent(0), 0.55);
-		assertEquals(LevelBuilderApplication.model.getPercent(5), 0.45);
+		assertEquals(LevelBuilderApplication.model.getPercent(0), 0.3);
+		assertEquals(LevelBuilderApplication.model.getPercent(5), 0.7);
 	}
 }

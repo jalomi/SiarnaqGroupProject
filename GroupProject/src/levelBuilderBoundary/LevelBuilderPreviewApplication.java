@@ -12,6 +12,7 @@ import javax.swing.UIManager;
 
 import org.json.JSONException;
 
+@SuppressWarnings("serial")
 public class LevelBuilderPreviewApplication extends JFrame {
 
 	private JPanel contentPane;
@@ -21,22 +22,6 @@ public class LevelBuilderPreviewApplication extends JFrame {
 	public LevelBuilderPreviewGamePanel getGamePanel(){
 		return gamePanel ;
 	}
-
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					LevelBuilderPreviewApplication frame = new LevelBuilderPreviewApplication();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
 	/**
 	 * Create the frame.

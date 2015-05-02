@@ -7,18 +7,34 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import sixesWildControllers.EnterLevelSelectController;
 import sixesWildControllers.ExitController;
-import javax.swing.UIManager;
 
+import javax.swing.UIManager;
+/**
+ * The main menu of Sixes Wild
+ * Can either quit the application or move to a level selectin screen
+ * @author John
+ *
+ */
+@SuppressWarnings("serial")
 public class MainMenuApplication extends JFrame {
 
+	/** Panel for the frame */
 	private JPanel contentPane;
+	
+	/** Button to go to the level select application */
 	private JButton levelSelectButton;
+	
+	/** Button to exit application */
 	private JButton quitButton;
+	
+	/** label to show the game's title */
 	private JLabel lblSixesWild;
 
 	/**
+	 * Constructor
 	 * Create the frame.
 	 */
 	public MainMenuApplication() {

@@ -6,31 +6,61 @@ import javax.swing.JLabel;
 
 import sixesWildEntity.Tile;
 
+/**
+ * The boundary for each tile
+ * @author 
+ *
+ */
+@SuppressWarnings("serial")
 public class TileLabel extends JLabel {
-	
+	/** TAG for the application */
 	public static final String TAG = "TileLabel";
 	
+	/** constant representing an unselected tile */
 	public static final int UNSELECTED = 1;
+	
+	/** constant representing a selected tile */
 	public static final int SELECTED = 2;
+	
+	/** constant representing a marded tile */
 	public static final int MARKED = 3;
 	
+	/** the tile model */
 	Tile model;
+	
+	/** the image for the tile */
 	Icon numberImage;
 	
+	/**
+	 * Constructor
+	 * @param name
+	 * @param tile
+	 */
 	TileLabel(String name, Tile tile) {
 		super(name);
 		this.model = tile;
 		setIconUnselected();
 	}
 	
+	/**
+	 * gets the model
+	 * @return Tile
+	 */
 	public Tile getModel() {
 		return model;
 	}
 	
+	/**
+	 * set the tile for the TileLabel
+	 * @param t
+	 */
 	public void setModel(Tile t) {
 		this.model = t;
 	}
 	
+	/**
+	 * refreshes the icon
+	 */
 	public void refresh() {
 		if(model.getMarked()){
 			setRightIcon(MARKED) ;
@@ -40,6 +70,10 @@ public class TileLabel extends JLabel {
 		setRightIcon(UNSELECTED); //for now, need change later
 	}
 	
+	/**
+	 * sets the right icon state
+	 * @param state
+	 */
 	public void setRightIcon(int state) {
 		switch(state) {
 			case UNSELECTED:
@@ -54,10 +88,16 @@ public class TileLabel extends JLabel {
 		}
 	}
 	
+	/**
+	 * assignes icon images for unselected tile
+	 */
 	public void setIconUnselected() {
 		if(!model.isEnabled()) {
 			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/disabled.png"))) ;
 			return;
+		}
+		if(model.getBucket()){
+			return ;
 		}
 		
 		int value = model.getSquare().getValue();
@@ -113,6 +153,9 @@ public class TileLabel extends JLabel {
 		} 
 	}
 	
+	/**
+	 * assignes tile icon for selected tile
+	 */
 	public void setIconSelected() {
 		if(!model.isEnabled()) {
 			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/disabled-sel.png"))) ;
@@ -172,6 +215,9 @@ public class TileLabel extends JLabel {
 		} 
 	}
 	
+	/**
+	 * assigns tile image for marked tile
+	 */
 	public void setIconMarked() {
 		if(!model.isEnabled()) {
 			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/disabled.png"))) ;

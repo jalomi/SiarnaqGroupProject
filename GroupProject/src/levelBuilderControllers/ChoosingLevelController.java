@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.JComboBox;
+
 import org.json.JSONException;
 
-import sixesWildEntity.Level;
 import JSONSerializer.LevelJSONSerializer;
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
@@ -26,6 +26,7 @@ public class ChoosingLevelController implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
+		@SuppressWarnings("unchecked")
 		JComboBox<String> cb = (JComboBox<String>)event.getSource();
 		
 		String fileNameToSave = model.getLevelType() + " " + model.getLevelNumber();

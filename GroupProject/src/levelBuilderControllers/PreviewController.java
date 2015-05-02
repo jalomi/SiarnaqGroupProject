@@ -24,6 +24,11 @@ public class PreviewController implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		process();
+	}
+	
+	public void process()
+	{
 		app.setVisible(false) ;
 		
 		LevelBuilderPreviewApplication p;
@@ -36,9 +41,6 @@ public class PreviewController implements ActionListener {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		
 	}
-	
-	
 	
 }

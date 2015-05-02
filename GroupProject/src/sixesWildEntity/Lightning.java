@@ -39,7 +39,7 @@ public class Lightning extends Level {
 
 	@Override
 	public String getMovesRemainingString() {
-		return "0";
+		return "Unlimited";
 	}
 	
 	@Override
@@ -54,30 +54,22 @@ public class Lightning extends Level {
 	
 	@Override
 	public boolean gameOver(){
-		if(timeRemaining <= 0){
-			if(score >= oneStarScore){
-				if(score >= threeStarScore){
-					starNumber = 3 ;
-				}
-				else if(score >= twoStarScore){
-					starNumber = 2 ;
-				}
-				else{
-					starNumber = 1 ;
-				}			
-			}
+		//old //timeRemaining <= 0
+		Board board = Board.newInstance();
+		if(board.getCurrentTime() <= 0){
 			LTimer t = LTimer.getInstance();
 			t.cancel();
-			
 			return true ;
 		}
-		
 		return false ;
 	}
 
 	@Override
 	public void updateTimeLeft(int t) {
-		timeRemaining += t ;
+		Board board = Board.newInstance();
+		int currentTime = board.getCurrentTime();
+		board.setCurrentTime(currentTime + t); 
+		//old //timeRemaining += t ;
 	}
 
 	@Override
@@ -90,4 +82,28 @@ public class Lightning extends Level {
 		return timeRemaining;
 	}
 	
+	@Override
+	public String getLevelType() {
+		return "Lightning";
+	}
+	
+	@Override
+	public boolean hasWon() {
+		Board board = Board.newInstance();
+		if(board.currentScore >= highestScore) {
+			highestScore = board.currentScore;
+		}
+		
+		if(highestScore >= threeStarScore){
+			starNumber = 3 ;
+		}
+		else if(highestScore >= twoStarScore){
+			starNumber = 2 ;
+		}
+		else if(highestScore >= oneStarScore){
+			starNumber = 1 ;
+		}	
+		
+		return board.currentScore >= oneStarScore;
+	}
 }

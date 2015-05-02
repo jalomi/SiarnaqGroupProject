@@ -28,7 +28,7 @@ public class TestActivateBucketforSixesController extends TestCase{
 	public void testBucket() throws IOException, JSONException
 	{
 		ActivateBucketforSixesController abc=new ActivateBucketforSixesController(LevelBuilderApplication.model, a, 0);
-		JCheckBox cb=a.getCheckBoxPanel().getCheckBox1();
+		JCheckBox cb=a.getCheckBoxPanel().getCheckBox(0);
 		cb.setSelected(true);
 		abc.update(cb);
 		

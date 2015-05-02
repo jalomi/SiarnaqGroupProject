@@ -90,22 +90,6 @@ public class LevelBuilder {
 			this.starScore[i]=0;
 		}
 		
-		this.allowReset=false;
-		this.allowSwap=false;
-		this.allowRemove=false;
-
-		//bad dummy values
-		percents[0] = 0 ;
-		percents[1] = 0 ;
-		percents[2] = 0 ;
-		percents[3] = 0 ;
-		percents[4] = 0 ;
-		percents[5] = 0 ;
-		
-		percentM[0] = 0 ;
-		percentM[1] = 0 ;
-		percentM[2] = 0 ;
-		
 		second=0;
 		
 		this.allowReset = false;
@@ -123,20 +107,6 @@ public class LevelBuilder {
 		System.out.println(TAG + "M " + percentM[0]);
 		System.out.println(TAG + "M " + percentM[1]);
 		System.out.println(TAG + "M " + percentM[2]);
-		//check for attributes validation
-		double percent = this.getPercent(0) + this.getPercent(1) + this.getPercent(2)
-				    + this.getPercent(3) + this.getPercent(4) + this.getPercent(5);
-		double percentM = getPercentM(0) + this.getPercentM(1) + this.getPercentM(2);
-
-		//These are checked in the controller and are not needed
-		//
-//		if(Double.compare(percent, 1.0) != 0) {
-//			throw new Exception(TAG + " :: Percent Sum " + percent  + " is not valid");
-//		}
-		//We can remove this because it is impossible 
-//		if(Double.compare(percentM, 1.0) != 0) {
-//			throw new Exception(TAG + " :: PercentM Sum is not valid");
-//		}
 		
 		if(this.getLevelNumber() < 1) {
 			throw new Exception(TAG + " :: Level Number is Less than 1");

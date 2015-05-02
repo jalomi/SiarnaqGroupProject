@@ -27,14 +27,19 @@ public class ResetBoardButtonController implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		System.out.println(TAG) ;
 		
-		IMove m = new ResetBoardMove(board) ;
-		
-		if(m.doMove(app)){
-			app.getGamePanel().refreshBoard();
-			app.getLevelPanel().refresh();
-			System.out.println(TAG + "RemoveSquareMove suceeded");
-		} else {
-			System.out.println(TAG + "RemoveSquareMove failed");
+		if(board.getLevel().isResetEnabled()){
+			IMove m = new ResetBoardMove(board) ;
+			
+			if(m.doMove(app)){
+				app.getGamePanel().refreshBoard();
+				app.getLevelPanel().refresh();
+				System.out.println(TAG + "RemoveSquareMove suceeded");
+			} else {
+				System.out.println(TAG + "RemoveSquareMove failed");
+			}
+		}
+		else{
+			System.out.println(TAG + ": DISABLED") ;
 		}
 	}
 

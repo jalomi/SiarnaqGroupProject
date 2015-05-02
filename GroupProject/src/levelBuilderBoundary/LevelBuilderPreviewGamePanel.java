@@ -12,6 +12,7 @@ import org.json.JSONException;
 
 import levelBuilderEntity.LevelBuilder;
 
+@SuppressWarnings("serial")
 public class LevelBuilderPreviewGamePanel extends JPanel {
 	
 	private LevelBuilder board;

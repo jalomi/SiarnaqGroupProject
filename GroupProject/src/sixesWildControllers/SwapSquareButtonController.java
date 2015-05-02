@@ -22,7 +22,12 @@ public class SwapSquareButtonController implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		System.out.println(TAG) ;
 		
-		board.setSwapMove(true) ;
+		if(board.getLevel().isSwapEnabled()){
+			board.setSwapMove(true) ;
+		}
+		else{
+			System.out.println(TAG + ": DISABLED") ;
+		}
 	}
 
 }

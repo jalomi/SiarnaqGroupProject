@@ -22,7 +22,12 @@ public class RemoveSquareButtonController implements ActionListener {
 	public void actionPerformed(ActionEvent e){
 		System.out.println(TAG) ;
 		
-		board.setRemoveMove(true);		
+		if(board.getLevel().isRemoveEnabled()){
+			board.setRemoveMove(true);	
+		}
+		else{
+			System.out.println(TAG + ": DISABLED") ;
+		}
 	}
 	
 }

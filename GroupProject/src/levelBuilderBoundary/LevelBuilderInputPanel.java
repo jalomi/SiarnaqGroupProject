@@ -15,6 +15,7 @@ import levelBuilderControllers.SavingLoadingLevelController;
 import levelBuilderEntity.LevelBuilder;
 
 
+@SuppressWarnings("serial")
 public class LevelBuilderInputPanel extends JPanel {
 	private JTextField txtLevelNumber;
 	private JTextField txtEnterMaxMoves;
@@ -72,7 +73,7 @@ public class LevelBuilderInputPanel extends JPanel {
 		
 		
 		comboBox = new JComboBox<String>();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Puzzle", "Lightning", "Elimination", "Release"}));
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Puzzle", "Lightning", "Elimination", "Release"}));
 		comboBox.setBounds(0, 35, 150, 24);
 		add(comboBox);
 		
@@ -414,22 +415,18 @@ public class LevelBuilderInputPanel extends JPanel {
 	}
 
 	public JTextField getScore2() {
-		// TODO Auto-generated method stub
 		return txtEnterScore_1;
 	}
 
 	public JTextField getScore3() {
-		// TODO Auto-generated method stub
 		return txtEnterScore_2;
 	}
 
 	public JTextField getSeconds() {
-		// TODO Auto-generated method stub
 		return txtEnterMaxSeconds;
 	}
 
 	public JTextField getLevel() {
-		// TODO Auto-generated method stub
 		return txtLevelNumber;
 	}
 	
@@ -478,11 +475,10 @@ public class LevelBuilderInputPanel extends JPanel {
 	}
 
 	public JTextArea getPercentx1() {
-		// TODO Auto-generated method stub
 		return txtrPercentForx;
 	}
 	
-	public JComboBox getType()
+	public JComboBox<String> getType()
 	{
 		return comboBox;
 	}

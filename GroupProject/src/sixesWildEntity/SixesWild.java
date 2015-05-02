@@ -86,8 +86,10 @@ public class SixesWild {
 
 	public void updateScores() {
 		for(int i = 0; i < levels.size(); i++){
-			highScore[i] = levels.get(i).score ;
-			starNum[i] = levels.get(i).starNumber ;
+			board.getLevel().setHighestScore(levels.get(i).highestScore);
+			board.getLevel().setStarNumber(levels.get(i).starNumber);
+			//highScore[i] = levels.get(i).highestScore ;
+			//starNum[i] = levels.get(i).starNumber ;
 		}
 	}
 	

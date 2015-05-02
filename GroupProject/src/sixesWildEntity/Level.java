@@ -21,7 +21,7 @@ public abstract class Level {
 	double percent[] = new double[6] ;
 	double percentM[] = new double[3] ;
 		
-	int score;
+	int highestScore;
 	int starNumber = 0;
 	int oneStarScore;
 	int twoStarScore;
@@ -52,7 +52,7 @@ public abstract class Level {
         	percentM[i] = json.getJSONArray("percentM").getDouble(i) ;
         }
         
-        score = json.getInt("score"); //score may not be need to store
+        highestScore = json.getInt("score"); //score may not be need to store
         starNumber = json.getInt("starNumber");
         oneStarScore = json.getInt("firstStarScore");
         twoStarScore = json.getInt("secondStarScore");
@@ -84,7 +84,7 @@ public abstract class Level {
 		oneStarScore = 1000;
 		twoStarScore = 4000;
 		threeStarScore = 9000;
-		score = 0;
+		highestScore = 0;
 		starNumber = 0;
 		
 		unlocked = true ;
@@ -125,7 +125,7 @@ public abstract class Level {
 		this.oneStarScore = first;
 		this.twoStarScore = second;
 		this.threeStarScore = third;
-		this.score = 0;
+		this.highestScore = 0;
 		this.starNumber = 0;
 		
 		this.unlocked = unlocked ;
@@ -150,7 +150,7 @@ public abstract class Level {
         json.put("percent", percent);
         json.put("percentM", percentM);
         
-        json.put("score", score); //score may not be need to store
+        json.put("score", highestScore); //score may not be need to store
         json.put("starNumber", starNumber);
         json.put("firstStarScore", oneStarScore);
         json.put("secondStarScore", twoStarScore);
@@ -162,22 +162,6 @@ public abstract class Level {
         json.put("removeEnabled", removeEnabled);
         return json;
     }
-	
-	//they must add to 1
-	private boolean percentsValid(){
-		int sum1 = 0;
-		int sum2 = 0;
-		
-		for(int i = 0; i < 6; i++){
-			sum1 += percent[i] ;
-		}
-		
-		for(int i = 0; i < 3; i++){
-			sum2 += percentM[i] ;
-		}
-		
-		return sum1 == 1 && sum2 == 1 ;
-	}
 
 	Square generateSquare() {
 		int value = 0;
@@ -228,11 +212,11 @@ public abstract class Level {
 	}
 	
 	public void updateScore(int s) {
-		score = score + s ;
+		highestScore = highestScore + s ;
 	}
 	
-	public int getScore() {
-		return score;
+	public int getHighestScore() {
+		return highestScore;
 	}
 	
 	public int getLevelNumber() {
@@ -249,10 +233,6 @@ public abstract class Level {
 	
 	public void setUnlocked(boolean unlocked) {
 		this.unlocked = unlocked ;
-	}
-
-	public int getLevelType(){
-		return 0 ; //this should be overwritten by classes that extend it
 	}
 
 	public boolean[] getColumnForSixes() {
@@ -311,8 +291,8 @@ public abstract class Level {
 		this.percentM = percentM;
 	}
 
-	public void setScore(int score) {
-		this.score = score;
+	public void setHighestScore(int score) {
+		this.highestScore = score;
 	}
 
 	public void setStarNumber(int starNumber) {
@@ -343,6 +323,7 @@ public abstract class Level {
 		this.removeEnabled = removeEnabled;
 	}
 	
+	public abstract String getLevelType();
 	public abstract String getMovesRemainingString();
 	public abstract String getTimeRemainingString();
 	public abstract int getMovesRemaining();
@@ -350,5 +331,6 @@ public abstract class Level {
 	public abstract void updateMovesLeft(int m);
 	public abstract void updateTimeLeft(int t);
 	public abstract boolean gameOver();
+	public abstract boolean hasWon();
 	
 }

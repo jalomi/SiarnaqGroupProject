@@ -14,6 +14,10 @@ public class Board {
 	boolean removeMove;
 	boolean swapMove;
 	
+	int currentScore;
+	int currentMoves;
+	int currentTime;
+	
 	public static Board newInstance() {
 		if(board == null) {
 			board = new Board();
@@ -31,7 +35,13 @@ public class Board {
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
 				if(level.getEnabledTiles()[i][j]) {
-					map[i][j] = new Tile(generateSquare(), new Position(i, j)) ;
+					if(level.getLevelType().equals("Release")){
+						if(level.getColumnForSixes()[i] && j == 8){
+							map[i][j] = new Tile(new Position(i, j), true) ; //this is a bucket
+						}
+						else map[i][j] = new Tile(generateSquare(), new Position(i, j)) ;
+					}
+					else map[i][j] = new Tile(generateSquare(), new Position(i, j)) ;
 				} 
 				else {
 					map[i][j] = new Tile(new Position(i, j)) ;
@@ -104,6 +114,9 @@ public class Board {
 
 	public void setLevel(Level level) {
 		this.level = level;
+		this.currentMoves = level.getMovesRemaining();
+		this.currentTime = level.getTimeRemaining();
+		this.currentScore = 0;
 		try {
 			this.populateBoard();
 		} catch (Exception e) {
@@ -161,6 +174,30 @@ public class Board {
 		}
 		System.out.println("All Marked") ;
 		return true ;
+	}
+
+	public int getCurrentScore() {
+		return currentScore;
+	}
+
+	public int getCurrentMoves() {
+		return currentMoves;
+	}
+
+	public int getCurrentTime() {
+		return currentTime;
+	}
+
+	public void setCurrentScore(int currentScore) {
+		this.currentScore = currentScore;
+	}
+
+	public void setCurrentMoves(int currentMoves) {
+		this.currentMoves = currentMoves;
+	}
+
+	public void setCurrentTime(int currentTime) {
+		this.currentTime = currentTime;
 	}
 	
 }

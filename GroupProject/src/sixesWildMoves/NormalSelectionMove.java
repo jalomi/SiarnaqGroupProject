@@ -54,32 +54,35 @@ public class NormalSelectionMove implements IMove{
 			for(Tile t : tiles) {
 				//remove the square data from tile since we already get the score
 				t.setSquare(null) ; //#1
-				if(board.getLevel().getLevelType() == 3){
+				if(board.getLevel().getLevelType().equals("Elimination")){
 					t.setMarked(true) ;
 				}
 			}
-			
+			 
 			score += tileNum * 10 * mult ;
 
 			board.fall(tiles);
 			theGame.updateScore(score);
 			theGame.updateMovesLeft(-1) ;
-			
+			 
 			if(board.getLevel().gameOver()){
 				//close the frame and show level complete screen
 				theGame.getModel().updateScores() ;
-				GameOverApplication completeScreen = new GameOverApplication(board.getLevel().getStarNumber() != 0);
-				if(board.getLevel().getStarNumber() > 0){
+				GameOverApplication completeScreen = new GameOverApplication(board.getLevel().hasWon());
+				if(board.getLevel().hasWon()){
 					if(theGame.getModel().getLevels().size() > board.getLevel().getLevelNumber()){
 						theGame.getModel().getLevels().get(board.getLevel().getLevelNumber()).setUnlocked(true) ;
 					}
 				}
 				
-				int lastScore = theGame.getModel().getHighScore(board.getLevel().getLevelNumber() - 1) ;
-				int thisScore = board.getLevel().getScore() ;
+				//old //int lastScore = theGame.getModel().getHighScore(board.getLevel().getLevelNumber() - 1) ;
+				int lastScore = board.getLevel().getHighestScore();
+				//old //int thisScore = board.getLevel().getScore() ;
+				int thisScore = board.getCurrentScore();
 				if(thisScore > lastScore){
 					//update the high score
-					theGame.getModel().setHighScore(board.getLevel().getLevelNumber(), thisScore) ;
+					//old //theGame.getModel().setHighScore(board.getLevel().getLevelNumber(), thisScore) ;
+					board.getLevel().setHighestScore(thisScore);
 				}
 				theGame.setEnabled(false) ;
 				completeScreen.setVisible(true);
