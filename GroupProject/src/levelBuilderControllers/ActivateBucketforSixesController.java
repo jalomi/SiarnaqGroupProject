@@ -38,13 +38,13 @@ public class ActivateBucketforSixesController implements ActionListener{
 				if(enabled==true)
 				{
 					System.out.println(bucket+" is true");
-					model.setTileActive(8, bucket);
+					model.setTileActive(8,bucket);
 					System.out.println("tile x:"+8+" y: "+ bucket +"is activated");
 				}
 				else
 				{
 					System.out.println(bucket+" is false");
-					model.setTileDeactive(8, bucket);
+					model.setTileDeactive(8,bucket);
 					System.out.println("tile x:"+8+" y: "+ bucket +"is deactivated");
 					
 				}
