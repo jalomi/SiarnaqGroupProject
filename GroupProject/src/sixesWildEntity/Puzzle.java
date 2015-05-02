@@ -84,24 +84,23 @@ public class Puzzle extends Level {
 	@Override
 	public boolean hasWon() {
 		Board board = Board.newInstance();
-		boolean hasWon = false;
-		if(board.getCurrentScore() > oneStarScore) {
-			hasWon = true;
-		}
+		
 		if(board.getCurrentScore() > highestScore) {
 			highestScore = board.getCurrentScore();
-			if(highestScore >= threeStarScore){
-				starNumber = 3 ;
-			}
-			else if(highestScore >= twoStarScore){
-				starNumber = 2 ;
-			}
-			else if(highestScore >= oneStarScore) {
-				starNumber = 1 ;
-				System.out.println("111: " + board.getLevel().getStarNumber());
-			}			
 		}
-		return hasWon;
+		
+		if(highestScore >= threeStarScore){
+			starNumber = 3 ;
+		}
+		else if(highestScore >= twoStarScore){
+			starNumber = 2 ;
+		}
+		else if(highestScore >= oneStarScore) {
+			starNumber = 1 ;
+			System.out.println("111: " + board.getLevel().getStarNumber());
+		}			
+		
+		return board.getCurrentScore() >= oneStarScore;
 	}
 	
 }

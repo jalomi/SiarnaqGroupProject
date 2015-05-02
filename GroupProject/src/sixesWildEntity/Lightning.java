@@ -93,6 +93,7 @@ public class Lightning extends Level {
 		if(board.currentScore >= highestScore) {
 			highestScore = board.currentScore;
 		}
+		
 		if(highestScore >= threeStarScore){
 			starNumber = 3 ;
 		}
@@ -100,9 +101,9 @@ public class Lightning extends Level {
 			starNumber = 2 ;
 		}
 		else if(highestScore >= oneStarScore){
-			System.out.println("Light 1");
 			starNumber = 1 ;
-		}			
+		}	
+		
 		return board.currentScore >= oneStarScore;
 	}
 }
