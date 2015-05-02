@@ -103,15 +103,10 @@ public class LevelBuilderApplication extends JFrame {
 				gamePanel.getTile(i, j).addActionListener(new SelectTilesController(model, this, getTiles(i,j),i, j));
 			}
 		}
-		getCheckBoxPanel().getCheckBox1().addActionListener(new ActivateBucketforSixesController(model, this, 0));
-		getCheckBoxPanel().getCheckBox2().addActionListener(new ActivateBucketforSixesController(model, this, 1));
-		getCheckBoxPanel().getCheckBox3().addActionListener(new ActivateBucketforSixesController(model, this, 2));
-		getCheckBoxPanel().getCheckBox4().addActionListener(new ActivateBucketforSixesController(model, this, 3));
-		getCheckBoxPanel().getCheckBox5().addActionListener(new ActivateBucketforSixesController(model, this, 4));
-		getCheckBoxPanel().getCheckBox6().addActionListener(new ActivateBucketforSixesController(model, this, 5));
-		getCheckBoxPanel().getCheckBox7().addActionListener(new ActivateBucketforSixesController(model, this, 6));
-		getCheckBoxPanel().getCheckBox8().addActionListener(new ActivateBucketforSixesController(model, this, 7));
-		getCheckBoxPanel().getCheckBox9().addActionListener(new ActivateBucketforSixesController(model, this, 8));
+		for(int i=0; i<9; i++){
+			getCheckBoxPanel().getCheckBox(i).addActionListener(new ActivateBucketforSixesController(model, this, i));
+			getCheckBoxPanel().getCheckBox(i).setEnabled(false);
+		}
 	}
 	
 	private JButton getExitBtn() {

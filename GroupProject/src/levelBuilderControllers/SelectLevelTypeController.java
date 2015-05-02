@@ -29,7 +29,30 @@ public class SelectLevelTypeController implements ActionListener {
 		String type=(String)cb.getSelectedItem();
 		SetLevelTypeMove m=new SetLevelTypeMove(model, type, cb, this);
 		if(m.doMove())
+		{
 			model.recordMove(m);
+			if(model.getLevelType()=="Release")
+			{
+				for(int i=0; i<9; i++)
+				{
+					model.setTileDeactive(i, 8);
+					application.getTiles(i, 8).setSelected(true);
+					application.getTiles(i, 8).setEnabled(false);
+					application.getCheckBoxPanel().getCheckBox(i).setEnabled(true);
+				}
+				
+			}
+			else
+			{
+				for(int i=0; i<9; i++)
+				{
+					model.setTileActive(i, 8);
+					application.getTiles(i, 8).setSelected(false);
+					application.getTiles(i, 8).setEnabled(true);
+					application.getCheckBoxPanel().getCheckBox(i).setEnabled(false);
+				}
+			}
+		}
 	}
 
 }
