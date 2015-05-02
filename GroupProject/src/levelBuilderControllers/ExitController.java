@@ -18,6 +18,11 @@ public class ExitController implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		process();
+	}
+	
+	public void process()
+	{
 		if(frame != null){
 			LevelJSONSerializer json = new LevelJSONSerializer("Level List.json");
 			try {
@@ -28,7 +33,5 @@ public class ExitController implements ActionListener{
 			frame.dispose() ;
 		}
 	}
-	
-	
 
 }
