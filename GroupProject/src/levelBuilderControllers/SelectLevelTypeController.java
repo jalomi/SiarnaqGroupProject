@@ -36,7 +36,7 @@ public class SelectLevelTypeController implements ActionListener {
 			{
 				for(int i=0; i<9; i++)
 				{
-					model.setTileDeactive(i, 8);
+					model.setTileDeactive(8, i);
 					application.getTiles(i, 8).setSelected(true);
 					application.getTiles(i, 8).setEnabled(false);
 					application.getCheckBoxPanel().getCheckBox(i).setEnabled(true);
@@ -47,7 +47,7 @@ public class SelectLevelTypeController implements ActionListener {
 			{
 				for(int i=0; i<9; i++)
 				{
-					model.setTileActive(i, 8);
+					model.setTileActive(8, i);
 					application.getTiles(i, 8).setSelected(false);
 					application.getTiles(i, 8).setEnabled(true);
 					application.getCheckBoxPanel().getCheckBox(i).setEnabled(false);
