@@ -12,23 +12,33 @@ import java.util.TimerTask;
 
 import javax.swing.UIManager;
 
-
+/**
+ * The Sixes Wild game
+ * This is the frame that holds the actual game
+ * @author John
+ *
+ */
 @SuppressWarnings("serial")
 public class SixesWildApplication extends JFrame {
-	
+	/** TAG for the application */
 	public static final String TAG = "SixesWildApplication";
 	
+	/** Sixes wild app used for the timer in Lightning */
 	private SixesWildApplication app ;
 	
-	//Boundaries
+	/** panel that holds level info and buttons */
 	private SixesWildLevelPanel levelPane;
+	
+	/** panel that holds the game board */
 	private SixesWildGamePanel gamePane;
 	
-	//Models
+	/** the Sixes Wild model */
 	private SixesWild theGame;
 	
 	/**
-	 * Create the frame.
+	 * Constructor
+	 * Creates the application based on the model
+	 * @param game
 	 */
 	public SixesWildApplication(SixesWild game) {
 		getContentPane().setBackground(UIManager.getColor("textHighlight"));
@@ -40,19 +50,34 @@ public class SixesWildApplication extends JFrame {
 		app = this ;
 	}
 	
+	/**
+	 * gets the level panel
+	 * @return
+	 */
 	public SixesWildLevelPanel getLevelPanel() {
 		return levelPane;
 	}
 	
+	/**
+	 * gets the game panel
+	 * @return
+	 */
 	public SixesWildGamePanel getGamePanel() {
 		return gamePane;
 	}
 	
-	
+	/**
+	 * gets the model
+	 * @return
+	 */
 	public SixesWild getModel() {
 		return theGame;
 	}
 	
+	/**
+	 * updates the score of the game
+	 * @param score
+	 */
 	public void updateScore(int score) {
 		//we should have some function like this one
 		//SixesWild.updateScore(score);
@@ -61,6 +86,10 @@ public class SixesWildApplication extends JFrame {
 		theGame.getBoard().setCurrentScore(currentScore + score);
 	}
 	
+	/**
+	 * updates the moves left of the game
+	 * @param i
+	 */
 	public void updateMovesLeft(int i) {
 		//old theGame.getLevel().updateMovesLeft(i) ;
 		int currentMoves = theGame.getBoard().getCurrentMoves();
@@ -72,9 +101,8 @@ public class SixesWildApplication extends JFrame {
 	
 	
 	/**
-	 * This method should init including load levels from disk
-	 * @author albert
-	 * 
+	 * initializes the models of the game
+	 * @param game
 	 */
 	private void initModels(SixesWild game) {
 		theGame = game;
@@ -126,6 +154,9 @@ public class SixesWildApplication extends JFrame {
 		}
 	}
 	
+	/**
+	 * initializes the panels of the game
+	 */
 	private void initBoundaries() {
 		gamePane = new SixesWildGamePanel();
 		gamePane.setSize(490, 490);
@@ -142,6 +173,9 @@ public class SixesWildApplication extends JFrame {
 		this.setVisible(true);
 	}
 	
+	/**
+	 * initializes the controllers of the game
+	 */
 	private void initControllers() {
 		gamePane.initControllers(this, theGame);
 		levelPane.initControllers(this, theGame);

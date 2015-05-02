@@ -1,8 +1,10 @@
 package levelBuilderBoundary;
 
 import java.awt.*;
+
 import javax.swing.*;
 
+@SuppressWarnings("serial")
 public class SplashScreen extends JWindow {
   private int duration;
   /**

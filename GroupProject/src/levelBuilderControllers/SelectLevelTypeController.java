@@ -2,6 +2,7 @@ package levelBuilderControllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JComboBox;
 
 import levelBuilderBoundary.LevelBuilderApplication;
@@ -20,12 +21,12 @@ public class SelectLevelTypeController implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent ae) {
+		@SuppressWarnings("unchecked")
 		JComboBox<String> cb = (JComboBox<String>)ae.getSource();
 		update(cb);
 	}
 
 	public void update(JComboBox<String> cb) {
-		// TODO Auto-generated method stub
 		String type=(String)cb.getSelectedItem();
 		SetLevelTypeMove m=new SetLevelTypeMove(model, type, cb, this);
 		if(m.doMove())

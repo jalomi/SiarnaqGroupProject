@@ -1,6 +1,5 @@
 package sixesWildBoundary;
 
-import sixesWildEntity.SixesWild;
 import junit.framework.TestCase;
 
 public class TestLevelSelectApplication extends TestCase {

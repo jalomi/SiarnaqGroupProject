@@ -1,13 +1,9 @@
 package levelBuilderControllers;
 
 import java.io.IOException;
-
 import javax.swing.JComboBox;
-import javax.swing.JTextField;
-
 import junit.framework.TestCase;
 import levelBuilderBoundary.LevelBuilderApplication;
-
 import org.json.JSONException;
 
 public class TestSelectLevelTypeController extends TestCase{
@@ -28,7 +24,7 @@ LevelBuilderApplication a;
 	public void testLightning() throws IOException, JSONException
 	{
 		SelectLevelTypeController sltc=new SelectLevelTypeController(LevelBuilderApplication.model, a);
-		JComboBox cb=a.getInputPanel().getType();
+		JComboBox<String> cb=a.getInputPanel().getType();
 		cb.setSelectedItem("Lightning");
 		sltc.update(cb);
 		
@@ -38,7 +34,7 @@ LevelBuilderApplication a;
 	public void testRelease() throws IOException, JSONException
 	{
 		SelectLevelTypeController sltc=new SelectLevelTypeController(LevelBuilderApplication.model, a);
-		JComboBox cb=a.getInputPanel().getType();
+		JComboBox<String> cb=a.getInputPanel().getType();
 		cb.setSelectedItem("Release");
 		sltc.update(cb);
 		

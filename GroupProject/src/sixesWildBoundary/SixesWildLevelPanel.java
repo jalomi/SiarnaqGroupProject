@@ -19,27 +19,52 @@ import sixesWildEntity.SixesWild;
 
 import javax.swing.UIManager;
 
+/**
+ * Panel that houses the game information and buttons for Sixes Wild
+ * @author John
+ *
+ */
+@SuppressWarnings("serial")
 public class SixesWildLevelPanel extends JPanel {
 	public static final String TAG = "SixesWildLevelPanel";
 	
-	/* Boundaries */
+	/** button to return to the main menu */
 	JButton backToMainManuButton;
+	
+	/** button to start a remove move */
 	JButton deleteSquareButton;
+	
+	/** button to start a swap move */
 	JButton swapSquareButton;
+	
+	/** button to start a shuffle move */
 	JButton resetBoardButton;
 	
+	/** text that displays score */
 	JTextArea textScore;
+	
+	/** text that displays score needed for 1 star */
 	JTextArea text1stStarScore;
+	
+	/** text that displays score needed for 2 stars */
 	JTextArea text2ndStarScore;
+	
+	/** text that displays score needed for 3 stars */
 	JTextArea text3rdStarScore;
 	
+	/** text that displays time remaining */
 	JTextArea textTime;
+	
+	/** text that displays moves remaining */
 	JTextArea textMoveRem;
 	
+	/** label that says which field is time left */
 	JLabel timeLeftLabel ;
 	
-	/* Entities */
+	/** level entity */
 	private Level level;
+	
+	/** board entity */
 	private Board board ;
 	
 	/**
@@ -60,6 +85,9 @@ public class SixesWildLevelPanel extends JPanel {
 		initBoundaries();
 	}
 	
+	/**
+	 * initializes the boandaries of the panel
+	 */
 	public void initBoundaries() {
 		JTextArea txtrLevelNumberHere = new JTextArea();
 		txtrLevelNumberHere.setFont(new Font("Monospaced", Font.BOLD, 13));
@@ -141,6 +169,11 @@ public class SixesWildLevelPanel extends JPanel {
 		add(textMoveRem);
 	}
 	
+	/**
+	 * initializes the controllers for the buttons on the panel
+	 * @param app
+	 * @param theGame
+	 */
 	public void initControllers(SixesWildApplication app, SixesWild theGame) {
 		this.backToMainManuButton.addActionListener(new BacktoMainMenuController(app));
 		this.deleteSquareButton.addActionListener(new RemoveSquareButtonController(app, board));
@@ -148,6 +181,9 @@ public class SixesWildLevelPanel extends JPanel {
 		this.resetBoardButton.addActionListener(new ResetBoardButtonController(app, board, app)) ;
 	}
 	
+	/**
+	 * refreshes score, time, and moves display
+	 */
 	public void refresh() {
 		textScore.setText(Integer.toString(board.getCurrentScore()));
 		if(!(board.getLevel() instanceof Lightning)) {
@@ -157,22 +193,26 @@ public class SixesWildLevelPanel extends JPanel {
 		}	
 	}
 	
+	/**
+	 * gets main menu button
+	 * @return
+	 */
 	public JButton getBackToMainManuButton() {
 		return backToMainManuButton;
 	}
 
-	public void setBackToMainManuButton(JButton backToMainManuButton) {
-		this.backToMainManuButton = backToMainManuButton;
-	}
-
+	/**
+	 * gets the level entity
+	 * @return
+	 */
 	public Level getLevel() {
 		return level;
 	}
 
-	public void setLevel(Level level) {
-		this.level = level;
-	}
-
+	/**
+	 * gets the text area for the time remaining
+	 * @return
+	 */
 	public JTextArea getTextTime() {
 		return textTime;
 	}

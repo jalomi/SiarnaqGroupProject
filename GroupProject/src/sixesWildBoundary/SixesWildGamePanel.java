@@ -8,16 +8,31 @@ import javax.swing.border.EmptyBorder;
 import sixesWildControllers.TileLabelController;
 import sixesWildEntity.Board;
 import sixesWildEntity.SixesWild;
+
 import javax.swing.UIManager;
 
+/**
+ * Panel that houses the game board for Sixes Wild
+ * @author John
+ *
+ */
+@SuppressWarnings("serial")
 public class SixesWildGamePanel extends JPanel {
-	
+	/** TAG for the application */
 	public static final String TAG = "SixesWildGamePanel";
 
+	/** the game board entity */
 	private Board board;
+	
+	/** the tile boundaries to be shown in the panel */
 	TileLabel[][] map = new TileLabel[9][9] ;
+	
+	/** the controller for tileLabels */
 	TileLabelController controller;
  
+	/**
+	 * Constructor
+	 */
 	public SixesWildGamePanel() {
 		setBackground(UIManager.getColor("textHighlight"));
 		
@@ -36,14 +51,13 @@ public class SixesWildGamePanel extends JPanel {
 		this.validate();
 		
 		this.setVisible(true);
-		
-//		System.out.println("gamePane 0 0	" + map[0][0].getModel().getSquare().getValue());
-//		System.out.println("gamePane 0 1	" + map[0][1].getModel().getSquare().getValue());
-//		System.out.println("First: (0,0):  " + board.getSquare(0,0).getValue() + 
-//				"   (0,1): " + board.getSquare(0,1).getValue()) ;
-
 	}
 	
+	/**
+	 * initialize all controllers for the game panel
+	 * @param app
+	 * @param model
+	 */
 	void initControllers(SixesWildApplication app, SixesWild model) {
 		controller = new TileLabelController(app, model);
 		for(int i = 0; i < 9; i++) {
@@ -54,11 +68,19 @@ public class SixesWildGamePanel extends JPanel {
 		}
 	}
 	
+	/**
+	 * initialize all of the label boundaries for the tiles
+	 * @param col
+	 * @param row
+	 */
 	private void initLabel(int col, int row) {
 		map[col][row] = new TileLabel("", board.getTile(col, row));
 		this.add(map[col][row]) ;
 	}
 	
+	/**
+	 * refresh the boundaries
+	 */
 	public void refreshBoard() {
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {

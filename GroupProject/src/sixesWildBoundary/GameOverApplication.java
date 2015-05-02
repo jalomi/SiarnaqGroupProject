@@ -6,12 +6,25 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.UIManager;
 
+/**
+ * Frame that displays when a SixesWild level is complete.
+ * Will tell user if the level was won or lost
+ * 
+ * @author 
+ *
+ */
+@SuppressWarnings("serial")
 public class GameOverApplication extends JFrame {
 
+	/** Button to return to the main menu */
 	JButton btnMainMenu ; 
 
 
-	
+	/**
+	 * Constructor.
+	 * Changes message based on result of level (win/loss)
+	 * @param hasWon
+	 */
 	public GameOverApplication(boolean hasWon) {
 		getContentPane().setBackground(UIManager.getColor("textHighlight"));
 		setTitle("Game Over!");
@@ -36,6 +49,10 @@ public class GameOverApplication extends JFrame {
 		getContentPane().add(btnMainMenu);
 	}
 	
+	/**
+	 * gets The main menu button
+	 * @return
+	 */
 	public JButton getMainMenuBtn(){
 		return btnMainMenu ;
 	}

@@ -107,20 +107,6 @@ public class LevelBuilder {
 		System.out.println(TAG + "M " + percentM[0]);
 		System.out.println(TAG + "M " + percentM[1]);
 		System.out.println(TAG + "M " + percentM[2]);
-		//check for attributes validation
-		double percent = this.getPercent(0) + this.getPercent(1) + this.getPercent(2)
-				    + this.getPercent(3) + this.getPercent(4) + this.getPercent(5);
-		double percentM = getPercentM(0) + this.getPercentM(1) + this.getPercentM(2);
-
-		//These are checked in the controller and are not needed
-		//
-//		if(Double.compare(percent, 1.0) != 0) {
-//			throw new Exception(TAG + " :: Percent Sum " + percent  + " is not valid");
-//		}
-		//We can remove this because it is impossible 
-//		if(Double.compare(percentM, 1.0) != 0) {
-//			throw new Exception(TAG + " :: PercentM Sum is not valid");
-//		}
 		
 		if(this.getLevelNumber() < 1) {
 			throw new Exception(TAG + " :: Level Number is Less than 1");

@@ -29,6 +29,7 @@ import levelBuilderControllers.SelectTilesController;
 import levelBuilderControllers.UndoController;
 import levelBuilderEntity.LevelBuilder;
 
+@SuppressWarnings("serial")
 public class LevelBuilderApplication extends JFrame {
 	
 	//public static LevelBuilderApplication app;
@@ -38,7 +39,6 @@ public class LevelBuilderApplication extends JFrame {
 	LevelBuilderGamePanel gamePanel ;
 	LevelBuilderInputPanel inputPanel ;
 	LevelBuilderCheckBoxPanel checkBoxPanel ;
-	private JPanel panel;
 
 	/**
 	 * Create the frame.

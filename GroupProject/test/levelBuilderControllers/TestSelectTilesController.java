@@ -1,13 +1,9 @@
 package levelBuilderControllers;
 
 import java.io.IOException;
-
-import javax.swing.JTextField;
 import javax.swing.JToggleButton;
-
 import junit.framework.TestCase;
 import levelBuilderBoundary.LevelBuilderApplication;
-
 import org.json.JSONException;
 
 public class TestSelectTilesController extends TestCase{

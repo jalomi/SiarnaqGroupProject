@@ -3,6 +3,7 @@ package levelBuilderBoundary;
 import javax.swing.JPanel;
 import javax.swing.JCheckBox;
 
+@SuppressWarnings("serial")
 public class LevelBuilderCheckBoxPanel extends JPanel {
 	
 	JCheckBox[] checkBox=new JCheckBox[9];

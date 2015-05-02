@@ -162,22 +162,6 @@ public abstract class Level {
         json.put("removeEnabled", removeEnabled);
         return json;
     }
-	
-	//they must add to 1
-	private boolean percentsValid(){
-		int sum1 = 0;
-		int sum2 = 0;
-		
-		for(int i = 0; i < 6; i++){
-			sum1 += percent[i] ;
-		}
-		
-		for(int i = 0; i < 3; i++){
-			sum2 += percentM[i] ;
-		}
-		
-		return sum1 == 1 && sum2 == 1 ;
-	}
 
 	Square generateSquare() {
 		int value = 0;

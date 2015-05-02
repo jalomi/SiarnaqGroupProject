@@ -3,6 +3,7 @@ package levelBuilderBoundary;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
+@SuppressWarnings("serial")
 public class LevelBuilderGamePanel extends JPanel {
 	
 	JToggleButton [][] tiles = new JToggleButton[9][9];
