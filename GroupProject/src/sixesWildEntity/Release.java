@@ -66,18 +66,17 @@ public class Release extends Level {
 		
 		for(int i = 0; i < 9; i++){
 			if(buckets[i]){
-				if(board.getSquare(i, 8) != null){
-					System.out.println("Bucket in column " + i+1 + " was not empty");
-					if(board.getSquare(i, 8).getValue() != 6){
-						allBucketFull = false ;
-						break ;
-					}
+				System.out.println("Bucket in column " + i + " is being checked");
+				System.out.println("Current value in bucket 3: " + board.getSquare(i, 8).getValue()) ;
+				System.out.println("Current value in bucket 4: " + board.getSquare(4, 8).getValue()) ;
+				System.out.println("Current value in bucket 5: " + board.getSquare(5, 8).getValue()) ;
+				if(board.getSquare(i, 8).getValue() != 6){
+					allBucketFull = false ;
+					break ;
 				}
-				else allBucketFull = false;
-				break ;
 			}
 		}
-		
+
 		if(allBucketFull){
 			updateScore(20*board.getCurrentMoves()) ;		//Do we want this?	
 			return true ;
