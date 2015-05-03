@@ -26,6 +26,7 @@ LevelBuilderApplication a;
 	
 	public void testValid() throws IOException, JSONException
 	{
+		LevelBuilderApplication.model.setLevelNumber(1);
 		SelectLevelNumberController slc=new SelectLevelNumberController(LevelBuilderApplication.model, a);
 		JTextField tb=a.getInputPanel().getLevel();
 		tb.setText("0");
@@ -37,7 +38,7 @@ LevelBuilderApplication a;
 		UndoController uc=new UndoController(LevelBuilderApplication.model, a);
 		uc.process();
 		
-		assertEquals(LevelBuilderApplication.model.getLevelNumber(), 0);
+		assertEquals(LevelBuilderApplication.model.getLevelNumber(), 1);
 		
 		RedoController rc=new RedoController(LevelBuilderApplication.model, a);
 		rc.process();
