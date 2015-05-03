@@ -36,8 +36,7 @@ public class Board {
 			for(int j = 0; j < 9; j++) {
 				if(level.getEnabledTiles()[i][j]) {
 					if(level.getLevelType().equals("Release")){
-						if(level.getColumnForSixes()[i] && j == 8){
-							System.out.println("Bucket at " + i + " by " + j) ;
+						if(level.getBuckets()[i] && j == 8){
 							map[i][j] = new Tile(new Position(i, j), true) ; //this is a bucket
 						}
 						else map[i][j] = new Tile(generateSquare(), new Position(i, j)) ;

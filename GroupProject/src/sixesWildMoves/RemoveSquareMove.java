@@ -6,15 +6,31 @@ import sixesWildControllers.GameOverToMainMenuController;
 import sixesWildEntity.Board;
 import sixesWildEntity.Tile;
 
+/**
+ * Removes a square from the board
+ * @author John
+ *
+ */
 public class RemoveSquareMove implements IMove{
+	/** The tile being removed */
 	Tile tile;
+	
+	/** the board entity */
 	Board board ;
 
+	/**
+	 * Constructor
+	 * @param board
+	 * @param t
+	 */
 	public RemoveSquareMove(Board board, Tile t) {
 		this.board = board ;
 		this.tile = t;
 	} 
 
+	/**
+	 * Checks to see if the move is valid
+	 */
 	@Override
 	public boolean isValid(SixesWildApplication theGame) {
 		if(!tile.isEnabled()){
@@ -32,6 +48,9 @@ public class RemoveSquareMove implements IMove{
 		return false;
 	}
 
+	/**
+	 * Does the move
+	 */
 	@Override
 	public boolean doMove(SixesWildApplication theGame) {
 		if(isValid(theGame)){
@@ -51,13 +70,10 @@ public class RemoveSquareMove implements IMove{
 					}
 				}
 				
-				//old //int lastScore = theGame.getModel().getHighScore(board.getLevel().getLevelNumber() - 1) ;
 				int lastScore = board.getLevel().getHighestScore();
-				//old //int thisScore = board.getLevel().getScore() ;
 				int thisScore = board.getCurrentScore();
 				if(thisScore > lastScore){
 					//update the high score
-					//old //theGame.getModel().setHighScore(board.getLevel().getLevelNumber(), thisScore) ;
 					board.getLevel().setHighestScore(thisScore);
 				}
 				theGame.setEnabled(false) ;

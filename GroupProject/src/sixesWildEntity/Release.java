@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 public class Release extends Level {
 	int movesRemaining;
-	boolean[] buckets = new boolean[9] ;
+	boolean[] buckets = new boolean[9];
 	
 	public Release(int number, int movesRemaining) {
 		super(number);
@@ -27,9 +27,10 @@ public class Release extends Level {
 	
 	public Release(JSONObject json) throws JSONException {
 		super(json);
-
 		movesRemaining = json.getInt("movesRemaining") ;
-
+        for(int i = 0; i < 9; i++){
+	        buckets[i] = json.getJSONArray("buckets").getBoolean(i);
+        }
 	}
 
 	
@@ -38,6 +39,7 @@ public class Release extends Level {
 	public JSONObject toJSON() throws JSONException{
 		JSONObject json = super.toJSON() ;
 		json.put("movesRemaining", movesRemaining) ;
+        json.put("buckets", buckets); //!
 		return json ;
 	}
 	
@@ -63,7 +65,7 @@ public class Release extends Level {
 		Board board = Board.newInstance() ;
 		
 		for(int i = 0; i < 9; i++){
-			if(columnForSixes[i]){
+			if(buckets[i]){
 				if(board.getSquare(i, 8) != null){
 					System.out.println("Bucket in column " + i+1 + " was not empty");
 					if(board.getSquare(i, 8).getValue() != 6){
@@ -113,7 +115,7 @@ public class Release extends Level {
 		Board board = Board.newInstance() ;
 		
 		for(int i = 0; i < 9; i++){
-			if(columnForSixes[i]){
+			if(buckets[i]){
 				if(board.getSquare(i, 8) != null){
 					if(board.getSquare(i, 8).getValue() != 6){
 					allBucketFull = false ;
@@ -136,5 +138,10 @@ public class Release extends Level {
 		}	
 		
 		return allBucketFull;
+	}
+	
+	@Override
+	public boolean[] getBuckets(){
+		return buckets;
 	}
 }

@@ -7,17 +7,36 @@ import sixesWildEntity.Board;
 import sixesWildEntity.Square;
 import sixesWildEntity.Tile;
 
+/**
+ * Swaps two squares
+ * @author John
+ *
+ */
 public class SwapSquareMove implements IMove{
+	/** 1st tile to be swapped */
 	Tile t1;
+	
+	/** 2nd tile to be swapped */
 	Tile t2;
+	
+	/** the board entity */
 	Board board ;
 	
+	/**
+	 * Constructor
+	 * @param board
+	 * @param t1
+	 * @param t2
+	 */
 	public SwapSquareMove(Board board, Tile t1, Tile t2) {
 		this.t1 = t1;
 		this.t2 = t2;
 		this.board = board ;
 	}
 
+	/**
+	 * checks to see that the move is valid
+	 */
 	@Override
 	public boolean isValid(SixesWildApplication theGame) {
 		if(!t1.isEnabled() || !t2.isEnabled()){
@@ -35,6 +54,9 @@ public class SwapSquareMove implements IMove{
 		return false;
 	}
 
+	/**
+	 * executes the move
+	 */
 	@Override
 	public boolean doMove(SixesWildApplication theGame) {
 		if(isValid(theGame)){

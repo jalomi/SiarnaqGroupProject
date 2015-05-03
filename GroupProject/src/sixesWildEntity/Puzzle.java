@@ -103,4 +103,6 @@ public class Puzzle extends Level {
 		return board.getCurrentScore() >= oneStarScore;
 	}
 	
+	@Override
+	public boolean[] getBuckets(){return null;}
 }

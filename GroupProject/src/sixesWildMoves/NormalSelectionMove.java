@@ -8,22 +8,46 @@ import sixesWildControllers.GameOverToMainMenuController;
 import sixesWildEntity.Board;
 import sixesWildEntity.Tile;
 
+/**
+ * A move with a normal selection
+ * @author John
+ *
+ */
 public class NormalSelectionMove implements IMove{
-	
+	/** TAG for the class */
 	public static final String TAG = "NormalSelectionMove";
 	
+	/** tiles that were selected */
 	ArrayList<Tile> tiles = new ArrayList<Tile>();
+	
+	/** board entity */
 	Board board;
+	
+	/** sum of the tile values */
 	int sum = 0;
+	
+	/** the multiplier of the selection */
 	int mult = 1 ;
+	
+	/** the number of tiles */
 	int tileNum = 0 ;
+	
+	/** the score of the move */
 	int score = 0;
 	
+	/**
+	 * Constructor
+	 * @param selectedTiles
+	 * @param board
+	 */
 	public NormalSelectionMove(ArrayList<Tile> selectedTiles, Board board) {
 		this.tiles = selectedTiles;
 		this.board = board;
 	}
 
+	/**
+	 * Checks to see if the move is valid
+	 */
 	@Override 
 	public boolean isValid(SixesWildApplication theGame) {
 		if(tiles.size() <= 1){
@@ -47,6 +71,9 @@ public class NormalSelectionMove implements IMove{
 		return false;
 	}
 
+	/**
+	 * Does the move
+	 */
 	@Override
 	public boolean doMove(SixesWildApplication theGame) {
 		if(isValid(theGame)) {

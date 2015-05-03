@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import junit.framework.TestCase;
 import levelBuilderBoundary.LevelBuilderApplication;
-import levelBuilderBoundary.LevelBuilderPreviewApplication;
 
 import org.json.JSONException;
 
