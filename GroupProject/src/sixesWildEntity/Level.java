@@ -160,7 +160,7 @@ public abstract class Level {
     }
 
 	Square generateSquare() {
-		int value = 0;
+		int value = 6;
 		int multi = 0;
 		double random = Math.random();
 		if(random <= percent[0]) {

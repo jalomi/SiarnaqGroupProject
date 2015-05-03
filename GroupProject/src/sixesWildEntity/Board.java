@@ -32,14 +32,29 @@ public class Board {
 	}
 	
 	public void populateBoard() throws Exception {
+		boolean sixAdded[] = new boolean[9] ;
+		for(int i = 0; i < 9; i++){
+			sixAdded[i] = false ;
+		}
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
 				if(level.getEnabledTiles()[i][j]) {
 					if(level.getLevelType().equals("Release")){
-						if(level.getBuckets()[i] && j == 8){
+						if(level.getBuckets()[i] && !sixAdded[i]){
+							System.out.println("Putting six in column " + i) ;
+							map[i][j] = new Tile(new Square(6, 1), new Position(i, j)) ;
+							sixAdded[i] = true ;
+						}
+						else if(level.getBuckets()[i] && j == 8){
 							map[i][j] = new Tile(new Position(i, j), true) ; //this is a bucket
 						}
-						else map[i][j] = new Tile(generateSquare(), new Position(i, j)) ;
+						else{
+							Square genSquare = generateSquare() ;
+							while(level.getBuckets()[i] && genSquare.getValue() == 6){
+								genSquare = generateSquare() ;
+							}
+							map[i][j] = new Tile(genSquare, new Position(i, j)) ;
+						}
 					}
 					else map[i][j] = new Tile(generateSquare(), new Position(i, j)) ;
 				} 
