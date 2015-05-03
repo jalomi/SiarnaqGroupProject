@@ -144,10 +144,14 @@ public class ChoosingLevelController implements ActionListener{
 					}
 				}
 			}
-			for(int i=0;i<9;i++){
-				if(model.getBucketEnabled(i)){
-				app.getCheckBoxPanel().getCheckBox(i).setSelected(true);
-				model.setTileActive(8,i);;
+
+			if(model.getLevelType().equals("Release")){// if it is a release game, the check where the bucket is.
+				//System.out.println(TAG+"the loading type name is "+ model.getLevelType() );
+				for(int i=0;i<9;i++){
+					if(model.getBucketEnabled(i)){
+						app.getCheckBoxPanel().getCheckBox(i).setSelected(true);
+						model.setTileActive(8,i);;
+					}
 				}
 			}
 			//empty 2 stacks
