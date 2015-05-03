@@ -3,6 +3,7 @@ package levelBuilderControllers;
 import java.io.IOException;
 
 import javax.swing.JCheckBox;
+import javax.swing.JToggleButton;
 
 import junit.framework.TestCase;
 
@@ -37,6 +38,18 @@ public class TestActivateBucketforSixesController extends TestCase{
 		cb.setSelected(false);
 		abc.update(cb);
 		
+		assertEquals(LevelBuilderApplication.model.getBucketEnabled(0), false);
+	}
+	
+	public void testUndo()
+	{
+		ActivateBucketforSixesController abc=new ActivateBucketforSixesController(LevelBuilderApplication.model, a, 0);
+		JCheckBox cb=a.getCheckBoxPanel().getCheckBox(0);
+		cb.setSelected(false);
+		abc.update(cb);
+		
+		UndoController uc=new UndoController(LevelBuilderApplication.model, a);
+		uc.process();
 		assertEquals(LevelBuilderApplication.model.getBucketEnabled(0), false);
 	}
 }

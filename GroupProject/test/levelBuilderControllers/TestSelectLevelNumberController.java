@@ -43,4 +43,16 @@ LevelBuilderApplication a;
 		
 		assertEquals(LevelBuilderApplication.model.getLevelNumber(), 55);
 	}
+	
+	public void testUndo()
+	{
+		SelectLevelNumberController slc=new SelectLevelNumberController(LevelBuilderApplication.model, a);
+		JTextField tb=a.getInputPanel().getLevel();
+		tb.setText("65");
+		slc.update(tb);
+		
+		UndoController uc=new UndoController(LevelBuilderApplication.model, a);
+		uc.process();
+		assertEquals(LevelBuilderApplication.model.getLevelNumber(), 55);
+	}
 }
