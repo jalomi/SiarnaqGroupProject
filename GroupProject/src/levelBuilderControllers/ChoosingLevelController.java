@@ -144,7 +144,7 @@ public class ChoosingLevelController implements ActionListener{
 					}
 				}
 			}
-			for(int i=0;i<9;i++){
+			for(int i=0;i<9;i++) {
 				if(model.getBucketEnabled(i)){
 					app.getCheckBoxPanel().getCheckBox(i).setSelected(true);
 					model.setTileActive(8,i);;
@@ -156,7 +156,6 @@ public class ChoosingLevelController implements ActionListener{
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		
 	}
 
 }
