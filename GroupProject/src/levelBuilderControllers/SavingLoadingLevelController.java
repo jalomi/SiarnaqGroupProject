@@ -26,7 +26,7 @@ public class SavingLoadingLevelController implements ActionListener{
 	
 	public SavingLoadingLevelController(LevelBuilder model) {
 		//this.app = app;
-		this.model = model;
+		this.model = model; 
 	}
 	
 	@Override

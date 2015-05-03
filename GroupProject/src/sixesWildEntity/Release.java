@@ -29,9 +29,7 @@ public class Release extends Level {
 		super(json);
 
 		movesRemaining = json.getInt("movesRemaining") ;
-        for(int i = 0; i < 9; i++){
-	        buckets[i] = json.getJSONArray("buckets").getBoolean(i);
-        }
+
 	}
 
 	
@@ -40,7 +38,6 @@ public class Release extends Level {
 	public JSONObject toJSON() throws JSONException{
 		JSONObject json = super.toJSON() ;
 		json.put("movesRemaining", movesRemaining) ;
-		json.put("buckets", buckets);
 		return json ;
 	}
 	
