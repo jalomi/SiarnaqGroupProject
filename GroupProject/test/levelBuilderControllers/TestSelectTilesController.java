@@ -40,7 +40,7 @@ LevelBuilderApplication a;
 		assertEquals(LevelBuilderApplication.model.getTileActiveAt(5, 2), false);
 	}
 	
-	public void testUndo()
+	public void testUndoSelect()
 	{
 		JToggleButton tb=a.getGamePanel().getTile(5, 2);
 		SelectTilesController stc=new SelectTilesController(LevelBuilderApplication.model, a, tb, 5, 2);
@@ -50,5 +50,17 @@ LevelBuilderApplication a;
 		UndoController uc=new UndoController(LevelBuilderApplication.model, a);
 		uc.process();
 		assertEquals(LevelBuilderApplication.model.getTileActiveAt(5, 2), true);
+	}
+	
+	public void testUndoDeselect()
+	{
+		JToggleButton tb=a.getGamePanel().getTile(5, 2);
+		SelectTilesController stc=new SelectTilesController(LevelBuilderApplication.model, a, tb, 5, 2);
+		tb.setSelected(false);
+		stc.process();
+		
+		UndoController uc=new UndoController(LevelBuilderApplication.model, a);
+		uc.process();
+		assertEquals(LevelBuilderApplication.model.getTileActiveAt(5, 2), false);
 	}
 }

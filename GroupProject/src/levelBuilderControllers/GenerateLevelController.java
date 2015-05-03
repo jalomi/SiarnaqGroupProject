@@ -18,7 +18,7 @@ public class GenerateLevelController implements ActionListener{
 	}
 	
 	public void process()
-	{
+	{ 
 		app.setEnabled(false) ;
 		
 		LevelBuilderSavedScreen p = new LevelBuilderSavedScreen() ;

@@ -1,9 +1,13 @@
 package levelBuilderControllers;
 
 import java.io.IOException;
+
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
 import junit.framework.TestCase;
 import levelBuilderBoundary.LevelBuilderApplication;
+
 import org.json.JSONException;
 
 public class TestSelectLevelTypeController extends TestCase{
@@ -40,5 +44,17 @@ LevelBuilderApplication a;
 		
 		assertEquals(LevelBuilderApplication.model.getLevelType(), "Release");
 		assertEquals(LevelBuilderApplication.model.getTileActiveAt(2, 8), false);
+	}
+	
+	public void testUndo()
+	{
+		SelectLevelTypeController sltc=new SelectLevelTypeController(LevelBuilderApplication.model, a);
+		JComboBox<String> cb=a.getInputPanel().getType();
+		cb.setSelectedItem("Lightning");
+		sltc.update(cb);
+		
+		UndoController uc=new UndoController(LevelBuilderApplication.model, a);
+		uc.process();
+		assertEquals(LevelBuilderApplication.model.getLevelType(), "Lightning");
 	}
 }

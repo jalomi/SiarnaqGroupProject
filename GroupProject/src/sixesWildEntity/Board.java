@@ -31,7 +31,7 @@ public class Board {
 		swapMove = false ;
 	}
 	
-	private void populateBoard() throws Exception {
+	public void populateBoard() throws Exception {
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
 				if(level.getEnabledTiles()[i][j]) {

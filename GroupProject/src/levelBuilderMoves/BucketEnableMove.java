@@ -32,7 +32,7 @@ public class BucketEnableMove extends Move{
 	public boolean doMove() {
 		// TODO Auto-generated method stub
 		if(!isValid()){return false;}
-		
+		System.out.println("saving bucket as " + state) ;
 		model.setBucketEnabled(bucket, state);
 		ch.setSelected(model.getBucketEnabled(bucket));
 			
