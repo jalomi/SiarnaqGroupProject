@@ -66,7 +66,7 @@ public class SetSquarePercentMove extends Move{
 	public boolean undo() {
 		// TODO Auto-generated method stub
 		double sum=0;
-		model.setPercents(squareNum, oldValue);
+		model.setPercents(squareNum, oldValue*100);
 		tf.setText(""+(model.getPercent(squareNum)*100));
 		for(int i=0; i<5; i++)
 		{

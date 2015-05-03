@@ -39,6 +39,6 @@ LevelBuilderApplication a;
 		sltc.update(cb);
 		
 		assertEquals(LevelBuilderApplication.model.getLevelType(), "Release");
-		assertEquals(LevelBuilderApplication.model.getTileActiveAt(8, 2), false);
+		assertEquals(LevelBuilderApplication.model.getTileActiveAt(2, 8), false);
 	}
 }

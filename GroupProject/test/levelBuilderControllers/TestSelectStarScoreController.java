@@ -63,4 +63,16 @@ LevelBuilderApplication a;
 		
 		assertEquals(LevelBuilderApplication.model.getStarScore(0), 0);
 	}
+	
+	public void testUndo()
+	{
+		SelectStarScoreController sspc=new SelectStarScoreController(LevelBuilderApplication.model, a, 0);
+		JTextField tb=a.getInputPanel().getScore1();
+		tb.setText("88");
+		sspc.update(tb);
+		
+		UndoController uc=new UndoController(LevelBuilderApplication.model, a);
+		uc.process();
+		assertEquals(LevelBuilderApplication.model.getStarScore(0), 0);
+	}
 }

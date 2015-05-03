@@ -27,6 +27,7 @@ LevelBuilderApplication a;
 	
 	public void testValid() throws IOException, JSONException
 	{
+		LevelBuilderApplication.model.moveStack.clear();
 		SelectLevelNumberController slc=new SelectLevelNumberController(LevelBuilderApplication.model, a);
 		JTextField tb=a.getInputPanel().getLevel();
 		tb.setText("55");
