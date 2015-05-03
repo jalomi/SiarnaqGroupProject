@@ -8,6 +8,7 @@ public class TestBoard extends TestCase{
 	public TestBoard() throws Exception{
 		b.populateBoard();
 		System.out.println("full");
+		assertTrue(true) ;
 	}
 
 }
