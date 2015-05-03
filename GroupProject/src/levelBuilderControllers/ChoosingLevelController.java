@@ -144,6 +144,7 @@ public class ChoosingLevelController implements ActionListener{
 					}
 				}
 			}
+			
 			if(model.getLevelType().equals("Release")){
 				for(int i=0;i<9;i++){
 					if(model.getBucketEnabled(i)){
@@ -158,7 +159,6 @@ public class ChoosingLevelController implements ActionListener{
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		
 	}
 
 }
