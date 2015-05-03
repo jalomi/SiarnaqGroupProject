@@ -8,22 +8,19 @@ public class TestSplashScreen extends TestCase {
 	SplashScreen sg;
 	
 	@Override
-	protected void setUp()
-	{
+	protected void setUp() {
 		sg=new SplashScreen(1000);
 		sg.showSplash();
 		sg.setVisible(true);
 	}
 	
 	@Override
-	protected void tearDown(){
+	protected void tearDown() {
 		if(sg != null){
 			sg.dispose() ;
 		}
 	}
 	
-	public void testSplashScreenGame()
-	{
-		System.out.println("Sample Splash Screen");
+	public void testSplashScreenGame() {
 	}
 }
