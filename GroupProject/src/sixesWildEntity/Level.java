@@ -15,8 +15,6 @@ public abstract class Level {
 	int levelNumber;
 
 	boolean[][] enabledTiles = new boolean[9][9];
-	//columns that has 6s on the top at the beginning of the game(release only)
-	boolean[] columnForSixes = new boolean[9];
 
 	double percent[] = new double[6] ;
 	double percentM[] = new double[3] ;
@@ -41,7 +39,6 @@ public abstract class Level {
         	for(int j = 0; j < 9; j++){
         		enabledTiles[i][j] = json.getJSONArray("enabledTiles").getJSONArray(i).getBoolean(j); //!
         	}
-        	columnForSixes[i] = json.getJSONArray("columnForSixes").getBoolean(i);
         }
         
         for(int i = 0; i < 6; i++){
@@ -145,7 +142,6 @@ public abstract class Level {
         json.put("levelNumber", levelNumber);
         
         json.put("enabledTiles", enabledTiles); //!
-        json.put("columnForSixes", columnForSixes); //!
         
         json.put("percent", percent);
         json.put("percentM", percentM);
@@ -235,10 +231,6 @@ public abstract class Level {
 		this.unlocked = unlocked ;
 	}
 
-	public boolean[] getColumnForSixes() {
-		return columnForSixes;
-	}
-
 	public double[] getPercent() {
 		return percent;
 	}
@@ -277,10 +269,6 @@ public abstract class Level {
 
 	public void setEnabledTiles(boolean[][] enabledTiles) {
 		this.enabledTiles = enabledTiles;
-	}
-
-	public void setColumnForSixes(boolean[] columnForSixes) {
-		this.columnForSixes = columnForSixes;
 	}
 
 	public void setPercent(double[] percent) {
@@ -332,5 +320,6 @@ public abstract class Level {
 	public abstract void updateTimeLeft(int t);
 	public abstract boolean gameOver();
 	public abstract boolean hasWon();
+	public abstract boolean[] getBuckets();
 	
 }

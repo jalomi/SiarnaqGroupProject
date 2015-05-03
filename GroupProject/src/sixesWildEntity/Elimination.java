@@ -105,4 +105,7 @@ public class Elimination extends Level {
 		}	
 		return board.allTilesMarked() && highestScore >= oneStarScore;
 	}
+	
+	@Override
+	public boolean[] getBuckets(){return null;}
 }

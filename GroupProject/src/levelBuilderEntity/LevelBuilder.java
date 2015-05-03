@@ -389,7 +389,7 @@ public class LevelBuilder {
 		allowSwap = level.isSwapEnabled();
 		allowRemove = level.isRemoveEnabled();
 		tilesActive = level.getEnabledTiles();
-		bucketFor6s = level.getColumnForSixes();
+		bucketFor6s = level.getBuckets();
 		percents = level.getPercent();
 		percentM = level.getPercentM();
 		System.out.println(percentM[0]);

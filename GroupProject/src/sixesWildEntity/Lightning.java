@@ -106,4 +106,7 @@ public class Lightning extends Level {
 		
 		return board.currentScore >= oneStarScore;
 	}
+	
+	@Override
+	public boolean[] getBuckets(){return null;}
 }
