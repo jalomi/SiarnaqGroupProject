@@ -27,10 +27,10 @@ public class Release extends Level {
 	
 	public Release(JSONObject json) throws JSONException {
 		super(json);
-        for(int i = 0; i < 9; i++) {
-        	buckets[i] = json.getJSONArray("columnForSixes").getBoolean(i);
-        }
 		movesRemaining = json.getInt("movesRemaining") ;
+        for(int i = 0; i < 9; i++){
+	        buckets[i] = json.getJSONArray("buckets").getBoolean(i);
+        }
 	}
 
 	

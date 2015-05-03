@@ -45,4 +45,16 @@ LevelBuilderApplication a;
 		assertEquals(LevelBuilderApplication.model.getPercent(0), 0.3);
 		assertEquals(LevelBuilderApplication.model.getPercent(5), 0.7);
 	}
+	
+	public void testUndo()
+	{
+		SelectSquarePercentController sspc=new SelectSquarePercentController(LevelBuilderApplication.model, a, 0);
+		JTextField tb=a.getInputPanel().getPercent1();
+		tb.setText("30");
+		sspc.update(tb);
+		
+		UndoController uc=new UndoController(LevelBuilderApplication.model, a);
+		uc.process();
+		assertEquals(LevelBuilderApplication.model.getPercent(0), 0.3);
+	}
 }

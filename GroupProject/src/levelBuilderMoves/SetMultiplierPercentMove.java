@@ -68,7 +68,7 @@ public class SetMultiplierPercentMove extends Move{
 		public boolean undo() {
 			// TODO Auto-generated method stub
 			double sum=0;
-			model.setPercentM(multiplierNum, oldValue);
+			model.setPercentM(multiplierNum, oldValue*100);
 			tf.setText(""+(model.getPercentM(multiplierNum)*100));
 			for(int i=1; i<3; i++)
 			{

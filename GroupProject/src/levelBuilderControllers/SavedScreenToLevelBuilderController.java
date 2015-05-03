@@ -15,6 +15,11 @@ public class SavedScreenToLevelBuilderController implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		process();
+	}
+	
+	public void process()
+	{
 		current.setVisible(false) ;
 		current.dispose() ;
 		app.setEnabled(true) ;
