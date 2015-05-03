@@ -28,7 +28,11 @@ public class ChoosingLevelController implements ActionListener{
 	public void actionPerformed(ActionEvent event) {
 		@SuppressWarnings("unchecked")
 		JComboBox<String> cb = (JComboBox<String>)event.getSource();
-		
+		update(cb);
+	}
+	
+	public void update(JComboBox<String> cb)
+	{
 		String fileNameToSave = model.getLevelType() + " " + model.getLevelNumber();
 		if(fileNameToSave.equals("Puzzle 0")) {
 			System.out.println(TAG + "Nothing to Save");

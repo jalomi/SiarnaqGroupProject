@@ -588,11 +588,18 @@ public class LevelBuilderInputPanel extends JPanel {
 	}
 	
 	/**
-	 * get the combo box
+	 * get the level type combo box
 	 * @return
 	 */
 	public JComboBox<String> getType(){
 		return comboBox;
+	}
+	
+	/**
+	 * get the choosing level combo box
+	 */
+	public JComboBox<String> getChoosingLevel(){
+		return choosingLevelBox;
 	}
 	
 	/**
