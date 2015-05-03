@@ -92,5 +92,9 @@ public class SixesWild {
 			//starNum[i] = levels.get(i).starNumber ;
 		}
 	}
+
+	public ArrayList<String> getLevelNames() {
+		return levelNames;
+	}
 	
 }

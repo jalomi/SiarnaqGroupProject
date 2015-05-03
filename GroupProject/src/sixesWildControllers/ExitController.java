@@ -2,8 +2,15 @@ package sixesWildControllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JFrame;
+
+import org.json.JSONException;
+
+import JSONSerializer.LevelJSONSerializer;
+import sixesWildEntity.Level;
+import sixesWildEntity.SixesWild;
 
 /**
  * exits the application
@@ -27,11 +34,20 @@ public class ExitController implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		process();
+		try {
+			process();
+		} catch (JSONException | IOException e1) {
+			e1.printStackTrace();
+		}
 	}
 	
-	public void process()
+	public void process() throws JSONException, IOException
 	{
+		SixesWild sw  = SixesWild.newInstance();
+		for(int i = 0; i < sw.getLevels().size(); i++) {
+			LevelJSONSerializer json = new LevelJSONSerializer(sw.getLevelNames().get(i));
+			json.saveSingleLevel(sw.getLevels().get(i));
+		}
 		if(frame!=null)
 			frame.dispose();
 	}

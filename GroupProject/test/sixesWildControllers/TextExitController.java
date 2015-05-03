@@ -22,7 +22,7 @@ MainMenuApplication a;
 		a.dispose();
 	}
 
-	public void testController(){
+	public void testController() throws JSONException, IOException{
 		ExitController ec=new ExitController(a);
 		ec.process();
 		
