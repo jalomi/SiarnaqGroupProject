@@ -3,7 +3,6 @@ package levelBuilderControllers;
 import java.io.IOException;
 
 import javax.swing.JCheckBox;
-import javax.swing.JToggleButton;
 
 import junit.framework.TestCase;
 
