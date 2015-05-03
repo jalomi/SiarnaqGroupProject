@@ -29,7 +29,6 @@ public class Release extends Level {
 		super(json);
 
 		movesRemaining = json.getInt("movesRemaining") ;
-
 	}
 
 	
