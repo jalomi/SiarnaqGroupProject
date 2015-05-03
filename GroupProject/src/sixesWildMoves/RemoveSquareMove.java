@@ -4,6 +4,7 @@ import sixesWildBoundary.GameOverApplication;
 import sixesWildBoundary.SixesWildApplication;
 import sixesWildControllers.GameOverToMainMenuController;
 import sixesWildEntity.Board;
+import sixesWildEntity.Lightning;
 import sixesWildEntity.Tile;
 
 /**
@@ -62,26 +63,27 @@ public class RemoveSquareMove implements IMove{
 			
 			board.setRemoveMove(false) ;
 			theGame.updateMovesLeft(-1) ;
-			 
-			if(board.getLevel().gameOver()){
-				//close the frame and show level complete screen
-				theGame.getModel().updateScores() ;
-				GameOverApplication completeScreen = new GameOverApplication(board.getLevel().hasWon());
-				if(board.getLevel().hasWon()){
-					if(theGame.getModel().getLevels().size() > board.getLevel().getLevelNumber()){
-						theGame.getModel().getLevels().get(board.getLevel().getLevelNumber()).setUnlocked(true) ;
+			if(!(board.getLevel() instanceof Lightning)){
+				if(board.getLevel().gameOver()){
+					//close the frame and show level complete screen
+					theGame.getModel().updateScores() ;
+					GameOverApplication completeScreen = new GameOverApplication(board.getLevel().hasWon());
+					if(board.getLevel().hasWon()){
+						if(theGame.getModel().getLevels().size() > board.getLevel().getLevelNumber()){
+							theGame.getModel().getLevels().get(board.getLevel().getLevelNumber()).setUnlocked(true) ;
+						}
 					}
+					
+					int lastScore = board.getLevel().getHighestScore();
+					int thisScore = board.getCurrentScore();
+					if(thisScore > lastScore){
+						//update the high score
+						board.getLevel().setHighestScore(thisScore);
+					}
+					theGame.setEnabled(false) ;
+					completeScreen.setVisible(true);
+					completeScreen.getMainMenuBtn().addActionListener(new GameOverToMainMenuController(completeScreen, theGame)) ;
 				}
-				
-				int lastScore = board.getLevel().getHighestScore();
-				int thisScore = board.getCurrentScore();
-				if(thisScore > lastScore){
-					//update the high score
-					board.getLevel().setHighestScore(thisScore);
-				}
-				theGame.setEnabled(false) ;
-				completeScreen.setVisible(true);
-				completeScreen.getMainMenuBtn().addActionListener(new GameOverToMainMenuController(completeScreen, theGame)) ;
 			}
 			
 			return true ;
