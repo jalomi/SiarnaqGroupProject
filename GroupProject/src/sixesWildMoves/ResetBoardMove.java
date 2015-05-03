@@ -55,7 +55,7 @@ public class ResetBoardMove implements IMove{
 		
 		for(int i = 0; i < 9; i++){
 			for(int j = 0; j < 9; j++){
-				if(board.getMap()[i][j].getSquare() != null && board.getMap()[i][j].getSquare().getValue() != 6){
+				if(board.getMap()[i][j].getSquare() != null && board.getMap()[i][j].getSquare().getValue() != 6 && !(board.getMap()[i][j].getBucket())){
 					boardSquares.add(board.getMap()[i][j].getSquare()) ;
 					squaresAdded++ ;
 				}
@@ -64,7 +64,7 @@ public class ResetBoardMove implements IMove{
 		 
 		for(int i = 0; i < 9; i++){
 			for(int j = 0; j < 9; j++){
-				if(board.getMap()[i][j].getSquare() != null && board.getMap()[i][j].getSquare().getValue() != 6){
+				if(board.getMap()[i][j].getSquare() != null && board.getMap()[i][j].getSquare().getValue() != 6 && !(board.getMap()[i][j].getBucket())){
 					random = randNum.nextInt(squaresAdded) ;
 					board.getMap()[i][j].setSquare(boardSquares.get(random)) ;
 					boardSquares.remove(random) ;

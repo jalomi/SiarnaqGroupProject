@@ -59,9 +59,12 @@ public class Board {
 	public void fall(Tile t){	
 		int colAbove = t.getPos().col ;
 		int rowAbove = t.getPos().row - 1;
+		int colBelow = t.getPos().col ;
+		int rowBelow = t.getPos().row + 1 ;
+		Tile belowTile = map[colBelow][rowBelow] ;
 		//System.out.println(colAbove + " " + rowAbove) ;
 		if(rowAbove >= 0){			
-			Tile aboveTile = map[colAbove][rowAbove] ;	
+			Tile aboveTile = map[colAbove][rowAbove] ;
 			
 			while(aboveTile.getSquare() == null){
 				rowAbove-- ;
@@ -76,6 +79,23 @@ public class Board {
 			
 			t.setSquare(aboveTile.getSquare()) ;
 			fall(aboveTile) ;	
+			if(belowTile.getSquare() != null){
+				while(belowTile.getSquare().getValue() == 7){
+					if(rowBelow > 8){
+						return ;
+					}
+					else {
+						belowTile = map[colBelow][rowBelow] ;
+						if(belowTile.getBucket() && t.getSquare().getValue() == 6){
+							System.out.println("Six dropped into " + colBelow + " by " + rowBelow);
+							belowTile.setSquare(t.getSquare()) ;
+							System.out.println("This is now in the bucket: " + belowTile.getSquare().getValue());
+							fall(t) ;
+						}
+						rowBelow++ ;
+					}
+				}
+			}
 		} else {
 			t.setSquare(this.generateSquare()) ;			
 		}

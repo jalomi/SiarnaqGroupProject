@@ -42,7 +42,9 @@ public class SwapSquareMove implements IMove{
 		if(!t1.isEnabled() || !t2.isEnabled()){
 			return false ;
 		}
-		
+		if(t1.getBucket() || t2.getBucket()){
+			return false ;
+		}
 		if(!board.getLevel().isSwapEnabled()){
 			return false ;
 		}
