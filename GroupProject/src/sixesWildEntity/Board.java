@@ -32,14 +32,29 @@ public class Board {
 	}
 	
 	public void populateBoard() throws Exception {
+		boolean sixAdded[] = new boolean[9] ;
+		for(int i = 0; i < 9; i++){
+			sixAdded[i] = false ;
+		}
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
 				if(level.getEnabledTiles()[i][j]) {
 					if(level.getLevelType().equals("Release")){
-						if(level.getBuckets()[i] && j == 8){
+						if(level.getBuckets()[i] && !sixAdded[i]){
+							System.out.println("Putting six in column " + i) ;
+							map[i][j] = new Tile(new Square(6, 1), new Position(i, j)) ;
+							sixAdded[i] = true ;
+						}
+						else if(level.getBuckets()[i] && j == 8){
 							map[i][j] = new Tile(new Position(i, j), true) ; //this is a bucket
 						}
-						else map[i][j] = new Tile(generateSquare(), new Position(i, j)) ;
+						else{
+							Square genSquare = generateSquare() ;
+							while(level.getBuckets()[i] && genSquare.getValue() == 6){
+								genSquare = generateSquare() ;
+							}
+							map[i][j] = new Tile(genSquare, new Position(i, j)) ;
+						}
 					}
 					else map[i][j] = new Tile(generateSquare(), new Position(i, j)) ;
 				} 
@@ -61,7 +76,6 @@ public class Board {
 		int rowAbove = t.getPos().row - 1;
 		int colBelow = t.getPos().col ;
 		int rowBelow = t.getPos().row + 1 ;
-		Tile belowTile = map[colBelow][rowBelow] ;
 		//System.out.println(colAbove + " " + rowAbove) ;
 		if(rowAbove >= 0){			
 			Tile aboveTile = map[colAbove][rowAbove] ;
@@ -79,7 +93,8 @@ public class Board {
 			
 			t.setSquare(aboveTile.getSquare()) ;
 			fall(aboveTile) ;	
-			if(belowTile.getSquare() != null){
+			if(t.getPos().row < 8 && map[colBelow][rowBelow].getSquare() != null){
+				Tile belowTile = map[colBelow][rowBelow] ;
 				while(belowTile.getSquare().getValue() == 7){
 					if(rowBelow > 8){
 						return ;
