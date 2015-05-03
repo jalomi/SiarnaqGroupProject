@@ -33,10 +33,13 @@ LevelBuilderApplication a;
 		tb.setText("55");
 		slc.update(tb);
 		
+		tb.setText("14") ;
+		slc.update(tb) ;
+		
 		UndoController uc=new UndoController(LevelBuilderApplication.model, a);
 		uc.process();
 		
-		assertEquals(LevelBuilderApplication.model.getLevelNumber(), 0);
+		assertEquals(LevelBuilderApplication.model.getLevelNumber(), 55);
 	}
 	
 	public void testInvalid() throws IOException, JSONException

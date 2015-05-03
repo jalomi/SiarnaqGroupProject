@@ -7,8 +7,6 @@ import junit.framework.TestCase;
 import org.json.JSONException;
 
 import sixesWildBoundary.MainMenuApplication;
-import sixesWildBoundary.SixesWildApplication;
-import sixesWildEntity.SixesWild;
 
 public class TestEnterLevelSelectController extends TestCase{
 MainMenuApplication a;

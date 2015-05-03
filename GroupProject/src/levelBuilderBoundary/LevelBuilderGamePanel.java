@@ -3,12 +3,18 @@ package levelBuilderBoundary;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
+/**
+ * Panel that houses the toggle buttons for tile enable/disable
+ * @author John
+ *
+ */
 @SuppressWarnings("serial")
 public class LevelBuilderGamePanel extends JPanel {
-	
+	/** the toggle buttons */
 	JToggleButton [][] tiles = new JToggleButton[9][9];
 
 	/**
+	 * Constructor
 	 * Create the panel.
 	 */
 	public LevelBuilderGamePanel() {
@@ -25,6 +31,12 @@ public class LevelBuilderGamePanel extends JPanel {
 		}
 	}
 	
+	/** 
+	 * get the toggle button at a certain coordinate
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public JToggleButton getTile(int x,int y ){
 		return tiles[x][y];
 	}

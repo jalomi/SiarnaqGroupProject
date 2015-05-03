@@ -73,7 +73,12 @@ public class TileLabelController extends MouseAdapter {
 			} else {
 				int index = selectedLabels.indexOf(label);
 				for(int i = selectedLabels.size() - 1; i > index; i--) {
-					selectedLabels.get(i).setIconUnselected();
+					if(selectedLabels.get(i).getModel().isMarked()){
+						selectedLabels.get(i).setIconMarked() ;
+					}
+					else{
+						selectedLabels.get(i).setIconUnselected();
+					}
 					selectedLabels.remove(i);
 				}
 			}
@@ -88,7 +93,12 @@ public class TileLabelController extends MouseAdapter {
 		if(sixesWildApp.getModel().getBoard().getRemoveMove()){
 			//Remove tile move
 			for(TileLabel label : selectedLabels) {
-				label.setIconUnselected();
+				if(label.getModel().isMarked()){
+					label.setIconMarked() ;
+				}
+				else{
+					label.setIconUnselected();
+				}
 			}
 			havePressed = false;
 			
@@ -113,7 +123,12 @@ public class TileLabelController extends MouseAdapter {
 		else if(sixesWildApp.getModel().getBoard().getSwapMove()){
 			//Swap tile move
 			for(TileLabel label : selectedLabels) {
-				label.setIconUnselected();
+				if(label.getModel().isMarked()){
+					label.setIconMarked() ;
+				}
+				else{
+					label.setIconUnselected();
+				}
 			}
 			havePressed = false;
 			
@@ -139,7 +154,12 @@ public class TileLabelController extends MouseAdapter {
 		else{
 			//Normal move
 			for(TileLabel label : selectedLabels) {
-				label.setIconUnselected();
+				if(label.getModel().isMarked()){
+					label.setIconMarked() ;
+				}
+				else{
+					label.setIconUnselected();
+				}
 			}
 			havePressed = false;
 			
