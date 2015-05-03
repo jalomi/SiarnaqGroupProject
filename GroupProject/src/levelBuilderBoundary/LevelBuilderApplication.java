@@ -76,7 +76,13 @@ public class LevelBuilderApplication extends JFrame {
 		
 		//controllers
 		getGenerateBtn().addActionListener(new GenerateLevelController(this)) ;
+		if(model.getLevelNumber()<1){
+		getGenerateBtn().setEnabled(false);//the generate level button is disabled at first.
+		}
 		getPreviewBtn().addActionListener(new PreviewController(this));
+		if(model.getLevelNumber()<1){
+		getPreviewBtn().setEnabled(false);//the preview button is disabled at first.
+		}
 		getExitBtn().addActionListener(new ExitController(this)) ;
 		getInputPanel().getUndoBtn().addActionListener(new UndoController(model, this));
 		getInputPanel().getRedoBtn().addActionListener(new RedoController(model, this));
