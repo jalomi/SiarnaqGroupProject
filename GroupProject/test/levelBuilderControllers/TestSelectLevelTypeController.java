@@ -3,7 +3,6 @@ package levelBuilderControllers;
 import java.io.IOException;
 
 import javax.swing.JComboBox;
-import javax.swing.JTextField;
 
 import junit.framework.TestCase;
 import levelBuilderBoundary.LevelBuilderApplication;

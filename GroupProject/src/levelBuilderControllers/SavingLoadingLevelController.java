@@ -31,6 +31,11 @@ public class SavingLoadingLevelController implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
+		process();
+	}
+	
+	public void process()
+	{
 		//generate a level based on level builders' attributes(configuration)
 		//Please change getLevelType to String!
 		String fileName = model.getLevelType() + " " + model.getLevelNumber();

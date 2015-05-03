@@ -14,33 +14,87 @@ import javax.swing.JTextArea;
 import levelBuilderControllers.SavingLoadingLevelController;
 import levelBuilderEntity.LevelBuilder;
 
-
+/**
+ * The panel with all the buttons, textfields, and other input components
+ * needed to create a level
+ * @author John
+ *
+ */
 @SuppressWarnings("serial")
 public class LevelBuilderInputPanel extends JPanel {
+	/** text input for the level number */
 	private JTextField txtLevelNumber;
+	
+	/** text input for the number of moves */
 	private JTextField txtEnterMaxMoves;
+	
+	/** text input for the number of seconds */
 	private JTextField txtEnterMaxSeconds;
+	
+	/** text input for the score to get 1 star */
 	private JTextField txtEnterScore;
+	
+	/** text input for the score to get 2 stars */
 	private JTextField txtEnterScore_1;
+	
+	/** text input for the score to get 3 stars */
 	private JTextField txtEnterScore_2;
+	
+	/** text input for the percent for a 1 tile */
 	private JTextField txtEnterPercentFor;
+	
+	/** text input for the percent for a 2 tile */
 	private JTextField txtEnterPercentFor_1;
+	
+	/** text input for the percent for a 3 tile */
 	private JTextField txtEnterPercentFor_2;
+	
+	/** text input for the percent for a 4 tile */
 	private JTextField txtEnterPercentFor_3;
+	
+	/** text input for the percent for a 5 tile */
 	private JTextField txtEnterPercentFor_4;
+	
+	/** text display for the percent for a 6 tile */
 	private JTextArea txtEnterPercentFor_5;
+	
+	/** text input for the percent for a 2x tile */
 	private JTextField txtEnterPercentFor_6;
+	
+	/** text input for the percent for a 3x tile */
 	private JTextField txtEnterPercentFor_7;
+	
+	/** text display for the percent of a 1x tile */
 	private JTextArea txtrPercentForx;
+	
+	/** button to generate and save the level */
 	private JButton generateLevelBtn ;
+	
+	/** button to preview the level */
 	private JButton previewBtn ;
+	
+	/** button to exit the program */
 	private JButton exitBtn ;
+	
+	/** button to undo last move */
 	private JButton undoBtn;
+	
+	/** button to redo last undone move */
 	private JButton redoBtn;
+	
+	/** combo box to choose level type */
 	private JComboBox<String> comboBox;
+	
+	/** check box to set reset move allow */
 	private JCheckBox chckbxNewCheckBox;
+	
+	/** check box to set swap move allow */
 	private JCheckBox chckbxNewCheckBox_1;
+	
+	/** check box to set remove move allow */
 	private JCheckBox chckbxNewCheckBox_2;
+	
+	/** combo box to choose previously made levels */
 	JComboBox<String> choosingLevelBox;
 
 	/**
@@ -66,7 +120,6 @@ public class LevelBuilderInputPanel extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -93,7 +146,6 @@ public class LevelBuilderInputPanel extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -113,7 +165,6 @@ public class LevelBuilderInputPanel extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -145,7 +196,6 @@ public class LevelBuilderInputPanel extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -166,7 +216,6 @@ public class LevelBuilderInputPanel extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -187,7 +236,6 @@ public class LevelBuilderInputPanel extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -218,7 +266,6 @@ public class LevelBuilderInputPanel extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -239,7 +286,6 @@ public class LevelBuilderInputPanel extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -260,7 +306,6 @@ public class LevelBuilderInputPanel extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -281,7 +326,6 @@ public class LevelBuilderInputPanel extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -302,7 +346,6 @@ public class LevelBuilderInputPanel extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -336,7 +379,6 @@ public class LevelBuilderInputPanel extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -357,7 +399,6 @@ public class LevelBuilderInputPanel extends JPanel {
 
 			@Override
 			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -386,115 +427,195 @@ public class LevelBuilderInputPanel extends JPanel {
 		add(choosingLevelBox);
 	}
 
-	public JButton getUndoBtn()
-	{
+	/**
+	 * gets the undo button
+	 * @return
+	 */
+	public JButton getUndoBtn(){
 		return undoBtn;
 	}
 	
-	public JButton getRedoBtn()
-	{
+	/**
+	 * gets the redo button
+	 * @return
+	 */
+	public JButton getRedoBtn(){
 		return redoBtn;
 	}
 	
+	/**
+	 * gets the preview button
+	 * @return
+	 */
 	public JButton getPreviewBtn() {
 		return previewBtn;
 	}
 
+	/**
+	 * gets the exit button
+	 * @return
+	 */
 	public JButton getExitBtn() {
 		return exitBtn;
 	}
 	
-	public JTextField getMaxMoves()
-	{
+	/**
+	 * gets the max moves text field
+	 * @return
+	 */
+	public JTextField getMaxMoves(){
 		return txtEnterMaxMoves;
 	}
 	
-	public JTextField getScore1()
-	{
+	/**
+	 * gets the 1 star score text field 
+	 * @return
+	 */
+	public JTextField getScore1(){
 		return txtEnterScore;
 	}
 
+	/**
+	 * gets the 2 star score text field
+	 * @return
+	 */
 	public JTextField getScore2() {
 		return txtEnterScore_1;
 	}
 
+	/**
+	 * gets the 3 star score text field
+	 * @return
+	 */
 	public JTextField getScore3() {
 		return txtEnterScore_2;
 	}
 
+	/**
+	 * gets the seconds left text field
+	 * @return
+	 */
 	public JTextField getSeconds() {
 		return txtEnterMaxSeconds;
 	}
 
+	/**
+	 * gets the level number text field
+	 * @return
+	 */
 	public JTextField getLevel() {
 		return txtLevelNumber;
 	}
 	
+	/**
+	 * gets the generate level button
+	 * @return
+	 */
 	public JButton getGenerateLevelBtn(){
 		return generateLevelBtn ;
 	}
 	
-	public JTextField getPercent1()
-	{
+	/**
+	 * get the percent for a 1
+	 * @return
+	 */
+	public JTextField getPercent1(){
 		return txtEnterPercentFor;
 	}
 	
-	public JTextField getPercent2()
-	{
+	/**
+	 * get the percent for a 2
+	 * @return
+	 */
+	public JTextField getPercent2(){
 		return txtEnterPercentFor_1;
 	}
 	
-	public JTextField getPercent3()
-	{
+	/**
+	 * get the percent for a 3
+	 * @return
+	 */
+	public JTextField getPercent3(){
 		return txtEnterPercentFor_2;
 	}
 	
-	public JTextField getPercent4()
-	{
+	/**
+	 * get the percent for a 4
+	 * @return
+	 */
+	public JTextField getPercent4(){
 		return txtEnterPercentFor_3;
 	}
 	
-	public JTextField getPercent5()
-	{
+	/**
+	 * get the percent for a 5
+	 * @return
+	 */
+	public JTextField getPercent5(){
 		return txtEnterPercentFor_4;
 	}
 	
-	public JTextArea getPercent6()
-	{
+	/** 
+	 * get the percent for a 6
+	 * @return
+	 */
+	public JTextArea getPercent6(){
 		return txtEnterPercentFor_5;
 	}
 	
-	public JTextField getPercentx2()
-	{
+	/**
+	 * get percent for a 2x
+	 * @return
+	 */
+	public JTextField getPercentx2(){
 		return txtEnterPercentFor_6;
 	}
 	
-	public JTextField getPercentx3()
-	{
+	/**
+	 * get percent for a 3x
+	 * @return
+	 */
+	public JTextField getPercentx3(){
 		return txtEnterPercentFor_7;
 	}
 
+	/**
+	 * get percent for a 1x
+	 * @return
+	 */
 	public JTextArea getPercentx1() {
 		return txtrPercentForx;
 	}
 	
-	public JComboBox<String> getType()
-	{
+	/**
+	 * get the combo box
+	 * @return
+	 */
+	public JComboBox<String> getType(){
 		return comboBox;
 	}
 	
-	public JCheckBox getResetEnabled()
-	{
+	/**
+	 * get reset enabled check box
+	 * @return
+	 */
+	public JCheckBox getResetEnabled(){
 		return chckbxNewCheckBox;
 	}
 	
-	public JCheckBox getSwapEnabled()
-	{
+	/**
+	 * get swap enabled check box
+	 * @return
+	 */
+	public JCheckBox getSwapEnabled(){
 		return chckbxNewCheckBox_1;
 	}
 	
-	public JCheckBox getRemoveEnabled()
-	{
+	/**
+	 * get remove enabled check box
+	 * @return
+	 */
+	public JCheckBox getRemoveEnabled(){
 		return chckbxNewCheckBox_2;
 	}
 }

@@ -3,12 +3,19 @@ package levelBuilderBoundary;
 import javax.swing.JPanel;
 import javax.swing.JCheckBox;
 
+/**
+ * Panel that houses the checkboxes used in Release
+ * @author John
+ *
+ */
 @SuppressWarnings("serial")
 public class LevelBuilderCheckBoxPanel extends JPanel {
 	
+	/** the check boxes */
 	JCheckBox[] checkBox=new JCheckBox[9];
 
 	/**
+	 * Constructor
 	 * Create the panel.
 	 */
 	public LevelBuilderCheckBoxPanel() {
@@ -53,6 +60,11 @@ public class LevelBuilderCheckBoxPanel extends JPanel {
 
 	}
 	
+	/**
+	 * gets the checkbox at the given index
+	 * @param i
+	 * @return
+	 */
 	public JCheckBox getCheckBox(int i)
 	{
 		return checkBox[i];

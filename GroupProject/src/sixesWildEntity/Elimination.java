@@ -90,18 +90,20 @@ public class Elimination extends Level {
 	public boolean hasWon() {
 		Board board = Board.newInstance();
 		
-		if(board.getCurrentScore() > highestScore) {
-			highestScore = board.getCurrentScore();
-		}
-		
-		if(highestScore >= threeStarScore){
-			starNumber = 3 ;
-		}
-		else if(highestScore >= twoStarScore){
-			starNumber = 2 ;
-		}
-		else if(highestScore >= oneStarScore){
-			starNumber = 1 ;
+		if(board.allTilesMarked()){
+			if(board.getCurrentScore() > highestScore) {
+				highestScore = board.getCurrentScore();
+			}
+			
+			if(highestScore >= threeStarScore){
+				starNumber = 3 ;
+			}
+			else if(highestScore >= twoStarScore){
+				starNumber = 2 ;
+			}
+			else if(highestScore >= oneStarScore){
+				starNumber = 1 ;
+			}	
 		}	
 		return board.allTilesMarked() && highestScore >= oneStarScore;
 	}

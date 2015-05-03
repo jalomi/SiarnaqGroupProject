@@ -29,18 +29,30 @@ import levelBuilderControllers.SelectTilesController;
 import levelBuilderControllers.UndoController;
 import levelBuilderEntity.LevelBuilder;
 
+/**
+ * Application for the Level Builder program
+ * @author John
+ *
+ */
 @SuppressWarnings("serial")
 public class LevelBuilderApplication extends JFrame {
-	
-	//public static LevelBuilderApplication app;
+	/** the level builder model */
 	public static LevelBuilder model;
 
+	/** the main panel */
 	private JPanel contentPane;
+	
+	/** the panel for the tile enable/disable option */
 	LevelBuilderGamePanel gamePanel ;
+	
+	/** the panel for inputs like buttons, checkboxes, and textfields */
 	LevelBuilderInputPanel inputPanel ;
+	
+	/** the panel for checkboxes related to the Release mode */
 	LevelBuilderCheckBoxPanel checkBoxPanel ;
 
 	/**
+	 * Constructor
 	 * Create the frame.
 	 * @throws JSONException 
 	 * @throws IOException 
@@ -115,38 +127,76 @@ public class LevelBuilderApplication extends JFrame {
 		}
 	}
 	
+	/**
+	 * gets the button to exit
+	 * @return
+	 */
 	private JButton getExitBtn() {
 		return inputPanel.getExitBtn();
 	}
 	
+	/**
+	 * get the button to preview the level
+	 * @return
+	 */
 	public JButton getPreviewBtn(){
 		return inputPanel.getPreviewBtn() ;
 	}
 	
+	/**
+	 * get the button to generate and save the level
+	 * @return
+	 */
 	public JButton getGenerateBtn(){
 		return inputPanel.getGenerateLevelBtn() ;
 	}
 
+	/**
+	 * gets the toggle button for the game panel at a certain coordinate
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public JToggleButton getTiles(int x, int y){
 		return gamePanel.getTile(x,y);
 	}
 	
+	/**
+	 * gets the level builder model
+	 * @return
+	 */
 	public static LevelBuilder getModel() {
 		return model;
 	}
 
+	/**
+	 * sets the level builder model
+	 * @param model
+	 */
 	public static void setModel(LevelBuilder model) {
 		LevelBuilderApplication.model = model;
 	}
 
+	/**
+	 * gets the game panel
+	 * @return
+	 */
 	public LevelBuilderGamePanel getGamePanel(){
 		return gamePanel ;
 	}
 	
+	/**
+	 * gets the input panel
+	 * @return
+	 */
 	public LevelBuilderInputPanel getInputPanel(){
 		return inputPanel ;
 	}
 	
+	/**
+	 * gets the check box panel
+	 * @return
+	 */
 	public LevelBuilderCheckBoxPanel getCheckBoxPanel(){
 		return checkBoxPanel ;
 	}
