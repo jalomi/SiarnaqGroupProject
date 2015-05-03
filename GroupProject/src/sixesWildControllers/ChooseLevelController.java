@@ -8,15 +8,30 @@ import sixesWildEntity.Board;
 import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
 
+/**
+ * Controls movement from level selection application to a level
+ * @author 
+ *
+ */
 public class ChooseLevelController implements ActionListener {
-	
+	/** TAG for the class */
 	public static final String TAG = "ChooseLevelController";
 	
-	//private MainMenuApplication main;
+	/** the application */
 	private LevelSelectApplication levelSelectApplication;
+	
+	/** the model */
 	private SixesWild theGame;
+	
+	/** the button number that corresponds with the level number */
 	private int buttonIndex;
 	
+	/**
+	 * Constructor
+	 * @param app
+	 * @param game
+	 * @param index
+	 */
 	public ChooseLevelController(LevelSelectApplication app, SixesWild game, int index)
 	{
 		this.levelSelectApplication = app;
@@ -24,18 +39,14 @@ public class ChooseLevelController implements ActionListener {
 		this.buttonIndex = index;
 	}
 
+	/**
+	 * open the level if it exists
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println(TAG);
 		
 		if(theGame.getLevels().size() > buttonIndex) {
-			
-			/* Comments By Albert
-			 * Let controller to set entity classes here,
-			 * because boundaries don't have to know any entity class but (SixesWild theGame).
-			 * Since SixesWild and Board are both singletons,
-			 * we have the static access to them globally.
-			 */
 			Level levelClicked = theGame.getLevels().get(buttonIndex);
 			if(theGame.getLevels().get(buttonIndex).getUnlocked() == true){
 				levelSelectApplication.dispose();
