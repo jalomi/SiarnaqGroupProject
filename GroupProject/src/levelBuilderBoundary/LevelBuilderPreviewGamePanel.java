@@ -48,7 +48,17 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 			this.add(map[col][row]);
 			return;
 		}
-		
+		boolean bucket = board.getBucketEnabled(col);
+		if(bucket&&row==8){
+			map[col][row].setIcon(new ImageIcon(LevelBuilderPreviewGamePanel.class.getResource("/tileIcons/bucket.png")));
+			this.add(map[col][row]);
+			return;
+		}
+		if(bucket&&row==0){
+			map[col][row].setIcon(new ImageIcon(LevelBuilderPreviewGamePanel.class.getResource("/tileIcons/6.png")));
+			this.add(map[col][row]);
+			return;
+		}
 		int value = randValue();
 		int multi = randMultiplier();
 		System.out.println("tile at x:"+col+" y: "+row+" tile isactive:"+tile+" tile value: "+ value+" tile multiplier: "+multi);
