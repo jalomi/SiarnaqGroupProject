@@ -2,10 +2,10 @@ package sixesWildEntity;
 
 import junit.framework.TestCase;
 
-public class testBoard extends TestCase{
+public class TestBoard extends TestCase{
 	Board b=new Board();
 
-	public testBoard() throws Exception{
+	public TestBoard() throws Exception{
 		b.populateBoard();
 		System.out.println("full");
 	}

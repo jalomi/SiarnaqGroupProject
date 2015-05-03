@@ -7,7 +7,7 @@ import levelBuilderBoundary.LevelBuilderApplication;
 
 import org.json.JSONException;
 
-public class testGenerateLevelController extends TestCase{
+public class TestGenerateLevelController extends TestCase{
 LevelBuilderApplication a;
 	
 	protected void setUp() throws IOException, JSONException {
