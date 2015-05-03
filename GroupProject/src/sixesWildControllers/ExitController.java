@@ -3,13 +3,9 @@ package sixesWildControllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
 import javax.swing.JFrame;
-
 import org.json.JSONException;
-
 import JSONSerializer.LevelJSONSerializer;
-import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
 
 /**
@@ -41,6 +37,11 @@ public class ExitController implements ActionListener {
 		}
 	}
 	
+	/**
+	 * Stores progress with JSON
+	 * @throws JSONException
+	 * @throws IOException
+	 */
 	public void process() throws JSONException, IOException
 	{
 		SixesWild sw  = SixesWild.newInstance();

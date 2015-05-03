@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 
 import sixesWildControllers.EnterLevelSelectController;
 import sixesWildControllers.ExitController;
+import sixesWildControllers.ResetProgressController;
 
 import javax.swing.UIManager;
 /**
@@ -32,6 +33,9 @@ public class MainMenuApplication extends JFrame {
 	
 	/** label to show the game's title */
 	private JLabel lblSixesWild;
+	
+	/** Button to reset progress */
+	private JButton resetProgressButton ;
 
 	/**
 	 * Constructor
@@ -64,5 +68,11 @@ public class MainMenuApplication extends JFrame {
 		lblSixesWild.setFont(new Font("Matura MT Script Capitals", Font.PLAIN, 56));
 		lblSixesWild.setBounds(135, 100, 305, 200);
 		contentPane.add(lblSixesWild);
+		
+		resetProgressButton = new JButton("Reset Progress");
+		resetProgressButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		resetProgressButton.setBounds(190, 550, 200, 75);
+		resetProgressButton.addActionListener(new ResetProgressController(this)) ;
+		contentPane.add(resetProgressButton);
 	}
 }

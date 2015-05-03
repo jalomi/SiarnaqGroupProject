@@ -1,12 +1,8 @@
 package levelBuilderControllers;
 
 import java.io.IOException;
-
-import javax.swing.JCheckBox;
-
 import junit.framework.TestCase;
 import levelBuilderBoundary.LevelBuilderApplication;
-
 import org.json.JSONException;
 
 public class TestChoosingLevelController extends TestCase{
