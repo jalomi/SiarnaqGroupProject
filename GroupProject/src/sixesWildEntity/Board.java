@@ -76,7 +76,6 @@ public class Board {
 		int rowAbove = t.getPos().row - 1;
 		int colBelow = t.getPos().col ;
 		int rowBelow = t.getPos().row + 1 ;
-		Tile belowTile = map[colBelow][rowBelow] ;
 		//System.out.println(colAbove + " " + rowAbove) ;
 		if(rowAbove >= 0){			
 			Tile aboveTile = map[colAbove][rowAbove] ;
@@ -94,7 +93,8 @@ public class Board {
 			
 			t.setSquare(aboveTile.getSquare()) ;
 			fall(aboveTile) ;	
-			if(belowTile.getSquare() != null){
+			if(t.getPos().row < 8 && map[colBelow][rowBelow].getSquare() != null){
+				Tile belowTile = map[colBelow][rowBelow] ;
 				while(belowTile.getSquare().getValue() == 7){
 					if(rowBelow > 8){
 						return ;
