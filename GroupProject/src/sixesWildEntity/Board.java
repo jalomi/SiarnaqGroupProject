@@ -93,18 +93,19 @@ public class Board {
 			
 			t.setSquare(aboveTile.getSquare()) ;
 			fall(aboveTile) ;	
-			if(t.getPos().row < 8 && map[colBelow][rowBelow].getSquare() != null){
+			if(t.getPos().row < 8){
+				while(rowBelow < 8 && map[colBelow][rowBelow].getSquare() == null){
+					rowBelow++ ;
+				}
 				Tile belowTile = map[colBelow][rowBelow] ;
-				while(belowTile.getSquare().getValue() == 7){
+				if(belowTile.getSquare() != null && belowTile.getSquare().getValue() == 7){
 					if(rowBelow > 8){
 						return ;
 					}
 					else {
 						belowTile = map[colBelow][rowBelow] ;
 						if(belowTile.getBucket() && t.getSquare().getValue() == 6){
-							System.out.println("Six dropped into " + colBelow + " by " + rowBelow);
 							belowTile.setSquare(t.getSquare()) ;
-							System.out.println("This is now in the bucket: " + belowTile.getSquare().getValue());
 							fall(t) ;
 						}
 						rowBelow++ ;
