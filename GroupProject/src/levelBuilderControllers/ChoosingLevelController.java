@@ -144,10 +144,12 @@ public class ChoosingLevelController implements ActionListener{
 					}
 				}
 			}
-			for(int i=0;i<9;i++){
-				if(model.getBucketEnabled(i)){
-					app.getCheckBoxPanel().getCheckBox(i).setSelected(true);
-					model.setTileActive(8,i);;
+			if(model.getLevelType().equals("Release")){
+				for(int i=0;i<9;i++){
+					if(model.getBucketEnabled(i)){
+						app.getCheckBoxPanel().getCheckBox(i).setSelected(true);
+						model.setTileActive(8,i);
+					} 
 				}
 			}
 			//empty 2 stacks
