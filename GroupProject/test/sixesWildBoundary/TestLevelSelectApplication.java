@@ -8,12 +8,13 @@ public class TestLevelSelectApplication extends TestCase {
 	@Override
 	protected void setUp()
 	{
-		l=new LevelSelectApplication();
+		l = new LevelSelectApplication();
 	}
 	
 	public void testLevelSelect()
 	{
 		System.out.println("Sample Level Select");
+		assertTrue(true) ;
 	}
 }
 

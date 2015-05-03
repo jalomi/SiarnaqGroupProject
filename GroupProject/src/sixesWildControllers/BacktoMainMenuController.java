@@ -33,6 +33,11 @@ public class BacktoMainMenuController implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		process();
+	}
+
+	public void process() {
+		// TODO Auto-generated method stub
 		System.out.println(TAG);
 		
 		current.setVisible(false);

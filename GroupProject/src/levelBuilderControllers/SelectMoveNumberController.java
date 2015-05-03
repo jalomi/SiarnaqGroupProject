@@ -34,6 +34,10 @@ public class SelectMoveNumberController implements ActionListener{
 			SetMoveNumberMove m=new SetMoveNumberMove(model, num, application.getInputPanel().getMaxMoves());
 			if(m.doMove())
 			{
+				if(model.getLevelNumber()>0 && model.getMoves()>0){
+					application.getGenerateBtn().setEnabled(true);
+					application.getPreviewBtn().setEnabled(true);
+				}
 				System.out.println("Number of Moves: "+model.getMoves());
 				model.recordMove(m);
 			}

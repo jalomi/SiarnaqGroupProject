@@ -36,11 +36,24 @@ LevelBuilderApplication a;
 	
 	public void testInvalid() throws IOException, JSONException
 	{
+		LevelBuilderApplication.model.setSeconds(0);
 		SelectSecondsController smc=new SelectSecondsController(LevelBuilderApplication.model, a);
 		JTextField tb=a.getInputPanel().getSeconds();
 		tb.setText("abc");
 		smc.update(tb);
 		
-		assertEquals(LevelBuilderApplication.model.getSeconds(), 55);
+		assertEquals(LevelBuilderApplication.model.getSeconds(), 0);
+	}
+	
+	public void testUndo()
+	{
+		SelectSecondsController ssc=new SelectSecondsController(LevelBuilderApplication.model, a);
+		JTextField tb=a.getInputPanel().getSeconds();
+		tb.setText("55");
+		ssc.update(tb);
+		
+		UndoController uc=new UndoController(LevelBuilderApplication.model, a);
+		uc.process();
+		assertEquals(LevelBuilderApplication.model.getSeconds(), 0);
 	}
 }

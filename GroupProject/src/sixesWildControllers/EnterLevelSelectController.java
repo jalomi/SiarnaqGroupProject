@@ -31,10 +31,15 @@ public class EnterLevelSelectController implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		process();
+	}  
+	
+	public void process()
+	{
 		System.out.println(TAG);
 		
 		m.dispose();
 		LevelSelectApplication levelSelectApp = new LevelSelectApplication();
-		levelSelectApp.setVisible(true);	
-	}  
+		levelSelectApp.setVisible(true);
+	}
 }
