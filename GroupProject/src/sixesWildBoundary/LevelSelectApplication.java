@@ -24,7 +24,7 @@ import java.awt.Font;
  */
 @SuppressWarnings("serial")
 public class LevelSelectApplication extends JFrame {
-
+	
 	/** button to return to main menu */
 	private JButton backToMainManuButton;
 	

@@ -2,27 +2,39 @@ package sixesWildControllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JFrame;
-
 import sixesWildBoundary.SixesWildApplication;
 import sixesWildEntity.Board;
 import sixesWildMoves.IMove;
 import sixesWildMoves.ResetBoardMove;
 
+/**
+ * Shuffles the board
+ * @author John
+ *
+ */
 public class ResetBoardButtonController implements ActionListener{
+	/** TAG for the class */
 	public static final String TAG = "ResetBoardButtonController" ;
 	
-	JFrame current ;
-	Board board ;
+	/** frame that this is called in */
 	SixesWildApplication app ;
 	
-	public ResetBoardButtonController(JFrame c, Board b, SixesWildApplication app){
-		this.current = c ;
+	/** The board entity */
+	Board board ;
+	
+	/**
+	 * Constructor
+	 * @param app
+	 * @param b
+	 */
+	public ResetBoardButtonController(SixesWildApplication app, Board b){
 		this.board = b ;
 		this.app = app ;
 	}
 	
+	/**
+	 * Shuffles the board except for 6s
+	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		System.out.println(TAG) ;

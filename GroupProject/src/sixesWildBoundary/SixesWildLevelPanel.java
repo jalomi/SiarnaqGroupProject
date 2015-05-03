@@ -178,7 +178,7 @@ public class SixesWildLevelPanel extends JPanel {
 		this.backToMainManuButton.addActionListener(new BacktoMainMenuController(app));
 		this.deleteSquareButton.addActionListener(new RemoveSquareButtonController(app, board));
 		this.swapSquareButton.addActionListener(new SwapSquareButtonController(app, board)) ;
-		this.resetBoardButton.addActionListener(new ResetBoardButtonController(app, board, app)) ;
+		this.resetBoardButton.addActionListener(new ResetBoardButtonController(app, board)) ;
 	}
 	
 	/**

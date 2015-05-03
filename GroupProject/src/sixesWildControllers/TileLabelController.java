@@ -14,14 +14,29 @@ import sixesWildMoves.NormalSelectionMove;
 import sixesWildMoves.RemoveSquareMove;
 import sixesWildMoves.SwapSquareMove;
 
+/**
+ * Controlls all mouse events on board tiles
+ * @author John
+ *
+ */
 public class TileLabelController extends MouseAdapter {
+	/** TAG for the class */
 	public static final String TAG = "JLabelController";
 	
+	/** the application */
 	SixesWildApplication sixesWildApp;
 	
+	/** the tiles that have been selected */
 	ArrayList<TileLabel> selectedLabels;
+	
+	/** tracks mouse press */
 	boolean havePressed;
 	
+	/**
+	 * Constructor
+	 * @param app
+	 * @param model
+	 */
 	public TileLabelController(SixesWildApplication app, SixesWild model)
 	{
 		this.sixesWildApp = app;
@@ -29,6 +44,9 @@ public class TileLabelController extends MouseAdapter {
 		havePressed = false;
 	}
 	
+	/**
+	 * Records the tile that the mouse is pressed on
+	 */
 	@Override
 	public void mousePressed(MouseEvent me) {		
 		Component c = me.getComponent();
@@ -38,6 +56,9 @@ public class TileLabelController extends MouseAdapter {
 		havePressed = true;
 	}
 	
+	/**
+	 * Records all tiles that the mouse enters
+	 */
 	@Override
 	public void mouseEntered(MouseEvent me) {
 		//System.out.println(TAG + " mouseEntered" + havePressed);
@@ -59,6 +80,9 @@ public class TileLabelController extends MouseAdapter {
 		}
 	}
 	
+	/**
+	 * Does the proper move on the selected tiles once the mouse is releassed
+	 */
 	@Override
 	public void mouseReleased(MouseEvent me) {
 		if(sixesWildApp.getModel().getBoard().getRemoveMove()){

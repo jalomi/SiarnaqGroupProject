@@ -10,13 +10,26 @@ import sixesWildEntity.Square;
 
 import java.util.Random ;
 
+/**
+ * Shuffles all the non-6 tiles on the board
+ * @author John
+ *
+ */
 public class ResetBoardMove implements IMove{
+	/** the board entity */
 	Board board ;
 	
+	/**
+	 * Constructor
+	 * @param board
+	 */
 	public ResetBoardMove(Board board) {
 		this.board = board;
 	}
 
+	/**
+	 * checks to see if the move is valid
+	 */
 	@Override
 	public boolean isValid(SixesWildApplication theGame) {
 		if(!board.getLevel().isResetEnabled()){
@@ -26,6 +39,9 @@ public class ResetBoardMove implements IMove{
 		return true ;
 	}
 
+	/**
+	 * does the move
+	 */
 	@Override
 	public boolean doMove(SixesWildApplication theGame) {
 		if(!isValid(theGame)){
