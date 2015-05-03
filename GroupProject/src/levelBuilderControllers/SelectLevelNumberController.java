@@ -34,6 +34,10 @@ public class SelectLevelNumberController implements ActionListener{
 			{
 				System.out.println("Number of Level: "+model.getLevelNumber());
 				model.recordMove(m);
+				if(model.getLevelNumber()>0 && model.getMoves()>0){
+					application.getGenerateBtn().setEnabled(true);
+					application.getPreviewBtn().setEnabled(true);
+				}
 			}
 		} catch (Exception e) {
 			tf.setText(""+model.getLevelNumber());

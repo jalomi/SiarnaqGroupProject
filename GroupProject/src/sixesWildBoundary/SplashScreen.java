@@ -8,7 +8,7 @@ import sixesWildEntity.SixesWild;
 
 /**
  * Initial Splash screen that displays Group member names
- * @author 
+ * @author Yuheng Huo
  *
  */
 @SuppressWarnings("serial")

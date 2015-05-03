@@ -96,9 +96,9 @@ public class TileLabel extends JLabel {
 			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/disabled.png"))) ;
 			return;
 		}
-		if(model.getBucket()){
-			return ;
-		}
+//		if(model.getBucket()){
+//			return ;
+//		}
 		
 		int value = model.getSquare().getValue();
 		int multi = model.getSquare().getMultiplier();
@@ -150,7 +150,9 @@ public class TileLabel extends JLabel {
 		
 		} else if(value == 6) {
 			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/6.png")));
-		} 
+		} else if(value == 7){
+			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/bucket.png"))) ;
+		}
 	}
 	
 	/**

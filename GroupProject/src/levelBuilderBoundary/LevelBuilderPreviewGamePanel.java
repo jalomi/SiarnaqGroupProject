@@ -17,6 +17,7 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 	
 	private LevelBuilder board;
 	JLabel[][] map = new JLabel[9][9] ;
+	boolean[] hasSix = new boolean[9];//a counter just for release mode
 
 	/**
 	 * Create the panel.
@@ -24,6 +25,10 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 	 * @throws IOException 
 	 */
 	public LevelBuilderPreviewGamePanel() throws IOException, JSONException {
+		//initialize  the boolean array only for release mode
+		for(int a=0; a<9;a++){
+			hasSix[a]=false;
+		}
 		this.setSize(490, 490);
 		this.setLayout(new GridLayout(9,9));
 		this.setBorder(new EmptyBorder(10,10,10,10));
@@ -44,13 +49,29 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 		map[col][row] = new JLabel("");
 		System.out.println("tile x: "+col+" y: "+row+" isActivate: "+ board.getTileActiveAt(col, row));
 		boolean tile = board.getTileActiveAt(col, row);
+		boolean bucket = board.getBucketEnabled(col);
 		if(tile == false) {
 			this.add(map[col][row]);
 			return;
 		}
-		
+		if(bucket&&row==8){
+			map[col][row].setIcon(new ImageIcon(LevelBuilderPreviewGamePanel.class.getResource("/tileIcons/bucket.png")));
+			this.add(map[col][row]);
+			return;
+		}
+		if(bucket&&!hasSix[col]){
+			map[col][row].setIcon(new ImageIcon(LevelBuilderPreviewGamePanel.class.getResource("/tileIcons/6.png")));
+			this.add(map[col][row]);
+			hasSix[col] = true;
+			return;
+		}
 		int value = randValue();
 		int multi = randMultiplier();
+		if(bucket){	
+			while(value==6){
+				value = randValue();
+			}
+		}
 		System.out.println("tile at x:"+col+" y: "+row+" tile isactive:"+tile+" tile value: "+ value+" tile multiplier: "+multi);
 		if(value == 1 && multi == 1) {
 			map[col][row].setIcon(new ImageIcon(LevelBuilderPreviewGamePanel.class.getResource("/tileIcons/1-1.png")));

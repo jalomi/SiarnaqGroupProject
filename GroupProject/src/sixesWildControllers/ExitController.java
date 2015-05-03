@@ -27,6 +27,11 @@ public class ExitController implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		process();
+	}
+	
+	public void process()
+	{
 		if(frame!=null)
 			frame.dispose();
 	}

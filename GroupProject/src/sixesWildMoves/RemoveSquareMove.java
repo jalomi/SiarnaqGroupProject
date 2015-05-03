@@ -36,6 +36,9 @@ public class RemoveSquareMove implements IMove{
 		if(!tile.isEnabled()){
 			return false ;
 		}
+		if(tile.getBucket()){
+			return false ;
+		}
 		
 		if(!board.getLevel().isRemoveEnabled()){
 			return false ;

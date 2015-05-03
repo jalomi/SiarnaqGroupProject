@@ -38,4 +38,16 @@ LevelBuilderApplication a;
 		
 		assertEquals(LevelBuilderApplication.model.getReset(), false);
 	}
+	
+	public void testUndo()
+	{
+		ActivateSpecialMoveController asc=new ActivateSpecialMoveController(LevelBuilderApplication.model, a, 1);
+		JCheckBox cb=a.getInputPanel().getResetEnabled();
+		cb.setSelected(true);
+		asc.update(cb);
+		
+		UndoController uc=new UndoController(LevelBuilderApplication.model, a);
+		uc.process();
+		assertEquals(LevelBuilderApplication.model.getReset(), false);
+	}
 }

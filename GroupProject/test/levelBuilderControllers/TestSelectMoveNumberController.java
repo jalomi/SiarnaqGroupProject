@@ -43,4 +43,16 @@ LevelBuilderApplication a;
 		
 		assertEquals(LevelBuilderApplication.model.getMoves(), 55);
 	}
+	
+	public void testUndo()
+	{
+		SelectMoveNumberController smc=new SelectMoveNumberController(LevelBuilderApplication.model, a);
+		JTextField tb=a.getInputPanel().getMaxMoves();
+		tb.setText("55");
+		smc.update(tb);
+		
+		UndoController uc=new UndoController(LevelBuilderApplication.model, a);
+		uc.process();
+		assertEquals(LevelBuilderApplication.model.getMoves(), 55);
+	}
 }

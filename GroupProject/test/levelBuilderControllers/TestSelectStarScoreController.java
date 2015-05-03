@@ -56,6 +56,7 @@ LevelBuilderApplication a;
 	
 	public void testInvalid() throws IOException, JSONException
 	{
+		LevelBuilderApplication.model.setStarScore(0, 0);
 		SelectStarScoreController sspc=new SelectStarScoreController(LevelBuilderApplication.model, a, 0);
 		JTextField tb=a.getInputPanel().getScore1();
 		tb.setText("abc");
@@ -66,6 +67,7 @@ LevelBuilderApplication a;
 	
 	public void testUndo()
 	{
+		LevelBuilderApplication.model.setStarScore(0, 0);
 		SelectStarScoreController sspc=new SelectStarScoreController(LevelBuilderApplication.model, a, 0);
 		JTextField tb=a.getInputPanel().getScore1();
 		tb.setText("88");
@@ -74,5 +76,34 @@ LevelBuilderApplication a;
 		UndoController uc=new UndoController(LevelBuilderApplication.model, a);
 		uc.process();
 		assertEquals(LevelBuilderApplication.model.getStarScore(0), 0);
+	}
+	
+	public void testBadStarScores()
+	{
+		LevelBuilderApplication.model.setStarScore(2, 0);
+		LevelBuilderApplication.model.setStarScore(1, 0);
+		SelectStarScoreController sspc=new SelectStarScoreController(LevelBuilderApplication.model, a, 0);
+		JTextField tb=a.getInputPanel().getScore1();
+		tb.setText("30");
+		sspc.update(tb);
+		
+		sspc=new SelectStarScoreController(LevelBuilderApplication.model, a, 1);
+		tb=a.getInputPanel().getScore2();
+		tb.setText("20");
+		sspc.update(tb);
+		assertEquals(LevelBuilderApplication.model.getStarScore(1), 0);
+		
+		sspc=new SelectStarScoreController(LevelBuilderApplication.model, a, 2);
+		tb=a.getInputPanel().getScore3();
+		tb.setText("20");
+		sspc.update(tb);
+		assertEquals(LevelBuilderApplication.model.getStarScore(2), 0);
+		
+		LevelBuilderApplication.model.setStarScore(1, 50);
+		sspc=new SelectStarScoreController(LevelBuilderApplication.model, a, 0);
+		tb=a.getInputPanel().getScore1();
+		tb.setText("70");
+		sspc.update(tb);
+		assertEquals(LevelBuilderApplication.model.getStarScore(0), 30);
 	}
 }

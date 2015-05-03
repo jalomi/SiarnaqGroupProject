@@ -58,6 +58,9 @@ public class NormalSelectionMove implements IMove{
 			if(!t.isEnabled()){
 				return false ;
 			}
+			if(t.getBucket()){
+				return false ;
+			}
 			sum += t.getSquare().getValue();
 			mult *= t.getSquare().getMultiplier();
 			tileNum++ ;

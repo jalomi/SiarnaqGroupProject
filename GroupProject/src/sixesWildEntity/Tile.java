@@ -20,11 +20,12 @@ public class Tile {
 	}
 	
 	public Tile(Position p, boolean bkt){
+		System.out.println("Bucket Tile Made") ;
 		enabled = true ;
 		marked = false ;
 		selected = false ;
 		bucket = bkt ;
-		square = null ;
+		square = new Square(7, 1) ;
 		pos = p ;
 	}
 	
