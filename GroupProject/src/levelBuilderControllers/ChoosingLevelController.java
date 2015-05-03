@@ -89,6 +89,7 @@ public class ChoosingLevelController implements ActionListener{
 			}
 			for(int i=0;i<9;i++){
 				for(int j=0;j<9;j++){
+					model.setBucketEnabled(i, false);
 					app.getGamePanel().getTile(i, j).setSelected(false);
 				}
 			}
@@ -144,8 +145,10 @@ public class ChoosingLevelController implements ActionListener{
 				}
 			}
 			for(int i=0;i<9;i++){
-				if(model.getBucketEnabled(i))
+				if(model.getBucketEnabled(i)){
 				app.getCheckBoxPanel().getCheckBox(i).setSelected(true);
+				model.setTileActive(8,i);;
+				}
 			}
 			//empty 2 stacks
 			model.moveStack.clear();
