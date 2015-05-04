@@ -1,10 +1,7 @@
 package sixesWildControllers;
 
-import java.util.ArrayList;
-
 import junit.framework.TestCase;
 import sixesWildBoundary.SixesWildApplication;
-import sixesWildBoundary.TileLabel;
 import sixesWildEntity.Board;
 import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;

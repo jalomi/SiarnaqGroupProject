@@ -50,6 +50,7 @@ public class Release extends Level {
 				unlocked, swap, reset, remove, enabledTiles);
 		this.movesRemaining = movesRemaining;
 		this.buckets = buckets ;
+		this.resetEnabled = false ;
 		
 	}
 	
