@@ -3,36 +3,60 @@ package sixesWildEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/*
- * For now I assume that every tile is enabled
+/**
  * 
- * 
+ * @author John
+ *
  */
-
 public abstract class Level {
+	/** TAG for this class */
 	public static final String TAG = "Level";
 	
+	/** the number of the level */
 	int levelNumber;
 
+	/** the tiles that are enabled */
 	boolean[][] enabledTiles = new boolean[9][9];
 
+	/** the percentages for generating square values */
 	double percent[] = new double[6] ;
+	
+	/** the percentages for generating square multipliers */
 	double percentM[] = new double[3] ;
 		
+	/** highest score on this level */
 	int highestScore;
+	
+	/** highest star earned on this level */
 	int starNumber = 0;
+	
+	/** score you need to get 1 star */
 	int oneStarScore;
+	
+	/** score you need to get 2 stars */
 	int twoStarScore;
+	
+	/** score you need to get 3 stars */
 	int threeStarScore;
 	
+	/** flag to tell if level is unlocked yet */
 	boolean unlocked ;
+	
+	/** flag to enable the swap move */
 	boolean swapEnabled;
+	
+	/** flag to enable the shuffle move */
 	boolean resetEnabled;
+	
+	/** flag to enable the remove move */
 	boolean removeEnabled;
 	
-	//CONSTRUCTORS
+	/**
+	 * Constructor for JSON loading
+	 * @param json
+	 * @throws JSONException
+	 */
 	public Level(JSONObject json) throws JSONException {
-       // id = UUID.fromString(json.getString("id"));
         levelNumber = json.getInt("levelNumber");
         
         for(int i = 0; i < 9; i++) {
@@ -61,44 +85,27 @@ public abstract class Level {
         removeEnabled = json.getBoolean("removeEnabled");
 	}
 	
-	//constructor for testing *******
-	public Level(int number) {
-		//this.id = UUID.randomUUID();
-		this.levelNumber = number;
-		
-		//bad dummy values
-		percent[0] = .3 ;
-		percent[1] = .3 ;
-		percent[2] = .15 ;
-		percent[3] = .1 ;
-		percent[4] = .1 ;
-		percent[5] = .05 ;
-		
-		percentM[0] = .7 ;
-		percentM[1] = .2 ;
-		percentM[2] = .1 ;		
-		
-		oneStarScore = 1000;
-		twoStarScore = 4000;
-		threeStarScore = 9000;
-		highestScore = 0;
-		starNumber = 0;
-		
-		unlocked = true ;
-		swapEnabled = false;
-		resetEnabled = false;
-		removeEnabled = false;
-		
-		for(int i = 0; i < 9; i++)
-			for(int j = 0; j < 9; j++){
-				try {
-					enabledTiles[i][j] = true ;
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-		}
-	}
-	
+	/**
+	 * Constructor	
+	 * @param number
+	 * @param p1
+	 * @param p2
+	 * @param p3
+	 * @param p4
+	 * @param p5
+	 * @param p6
+	 * @param m1
+	 * @param m2
+	 * @param m3
+	 * @param first
+	 * @param second
+	 * @param third
+	 * @param unlocked
+	 * @param swap
+	 * @param reset
+	 * @param remove
+	 * @param enabledTiles
+	 */
 	public Level(int number, 
 				  double p1, double p2, double p3, double p4, double p5, double p6,
 				  double m1, double m2, double m3,
@@ -133,9 +140,11 @@ public abstract class Level {
 		this.enabledTiles = enabledTiles;
 	}
 	
-	//END CONSTRUCTORS
-	
-	
+	/**
+	 * makes a JSONObject out of this object
+	 * @return
+	 * @throws JSONException
+	 */
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         //json.put("id", id.toString());
@@ -159,6 +168,10 @@ public abstract class Level {
         return json;
     }
 
+    /**
+     * generates a square based on level parameters
+     * @return
+     */
 	Square generateSquare() {
 		int value = 6;
 		int multi = 0;
@@ -190,136 +203,274 @@ public abstract class Level {
 		return new Square(value, multi);
 	}
 	
+	/**
+	 * gets array of enabled tiles
+	 * @return
+	 */
 	public boolean[][] getEnabledTiles() {
 		return enabledTiles;
 	}
 	
+	/**
+	 * gets score needed for 1 star
+	 * @return
+	 */
 	public int getFirstStarScore() {
 		return this.oneStarScore;
 	}
 	
+	/**
+	 * gets score needed for 2 stars
+	 * @return
+	 */
 	public int getSecondStarScore() {
 		return this.twoStarScore;
 	}
 	
-	
+	/**
+	 * gets score needed for 3 stars
+	 * @return
+	 */
 	public int getThirdStarScore() {
 		return this.threeStarScore;
 	}
 	
+	/**
+	 * updates the score
+	 * @param s
+	 */
 	public void updateScore(int s) {
 		highestScore = highestScore + s ;
 	}
 	
+	/**
+	 * gets the highest score
+	 * @return
+	 */
 	public int getHighestScore() {
 		return highestScore;
 	}
 	
+	/**
+	 * gets the level number
+	 * @return
+	 */
 	public int getLevelNumber() {
 		return levelNumber;
 	}
 	
+	/**
+	 * gets the number of stars earned
+	 * @return
+	 */
 	public int getStarNumber() {
 		return starNumber;
 	}
 	
+	/**
+	 * checks if level is unlocked
+	 * @return
+	 */
 	public boolean getUnlocked(){
 		return unlocked ;
 	}
 	
+	/**
+	 * sets the unlocked state of the level
+	 * @param unlocked
+	 */
 	public void setUnlocked(boolean unlocked) {
 		this.unlocked = unlocked ;
 	}
 
+	/**
+	 * gets the percents for values
+	 * @return
+	 */
 	public double[] getPercent() {
 		return percent;
 	}
 
+	/**
+	 * gets the percents for multipliers
+	 * @return
+	 */
 	public double[] getPercentM() {
 		return percentM;
 	}
 
+	/**
+	 * gets the score needed for 1 star
+	 * @return
+	 */
 	public int getOneStarScore() {
 		return oneStarScore;
 	}
 
+	/**
+	 * gets the score needed for 2 stars
+	 * @return
+	 */
 	public int getTwoStarScore() {
 		return twoStarScore;
 	}
 
+	/** 
+	 * gets the score needed for 3 stars
+	 * @return
+	 */
 	public int getThreeStarScore() {
 		return threeStarScore;
 	}
 
+	/**
+	 * gets the flag for enabling swap moves
+	 * @return
+	 */
 	public boolean isSwapEnabled() {
 		return swapEnabled;
 	}
 
+	/**
+	 * gets the flag for enabling shuffle moves
+	 * @return
+	 */
 	public boolean isResetEnabled() {
 		return resetEnabled;
 	}
 
+	/**
+	 * gets the flag for enabling remove moves
+	 * @return
+	 */
 	public boolean isRemoveEnabled() {
 		return removeEnabled;
 	}
 
+	/**
+	 * sets the number of the level
+	 * @param levelNumber
+	 */
 	public void setLevelNumber(int levelNumber) {
 		this.levelNumber = levelNumber;
 	}
 
+	/**
+	 * sets the enabled tiles
+	 * @param enabledTiles
+	 */
 	public void setEnabledTiles(boolean[][] enabledTiles) {
 		this.enabledTiles = enabledTiles;
 	}
 
+	/**
+	 * sets the percentages for values
+	 * @param percent
+	 */
 	public void setPercent(double[] percent) {
 		this.percent = percent;
 	}
 
+	/**
+	 * sets the percentages for multipliers
+	 * @param percentM
+	 */
 	public void setPercentM(double[] percentM) {
 		this.percentM = percentM;
 	}
 
+	/**
+	 * sets the high score
+	 * @param score
+	 */
 	public void setHighestScore(int score) {
 		this.highestScore = score;
 	}
 
+	/**
+	 * sets the number of stars earned
+	 * @param starNumber
+	 */
 	public void setStarNumber(int starNumber) {
 		this.starNumber = starNumber;
 	}
 
+	/**
+	 * sets the score needed for 1 star
+	 * @param oneStarScore
+	 */
 	public void setOneStarScore(int oneStarScore) {
 		this.oneStarScore = oneStarScore;
 	}
 
+	/**
+	 * sets the score needed for 2 stars
+	 * @param twoStarScore
+	 */
 	public void setTwoStarScore(int twoStarScore) {
 		this.twoStarScore = twoStarScore;
 	}
 
+	/**
+	 * sets the score needed for 3 stars
+	 * @param threeStarScore
+	 */
 	public void setThreeStarScore(int threeStarScore) {
 		this.threeStarScore = threeStarScore;
 	}
 
+	/**
+	 * sets the flag for enabling swap moves
+	 * @param swapEnabled
+	 */
 	public void setSwapEnabled(boolean swapEnabled) {
 		this.swapEnabled = swapEnabled;
 	}
 
+	/**
+	 * sets the flag for enabling shuffle moves
+	 * @param resetEnabled
+	 */
 	public void setResetEnabled(boolean resetEnabled) {
 		this.resetEnabled = resetEnabled;
 	}
 
+	/**
+	 * sets the flag for enabling remove moves
+	 * @param removeEnabled
+	 */
 	public void setRemoveEnabled(boolean removeEnabled) {
 		this.removeEnabled = removeEnabled;
 	}
 	
+	/** gets the type of level */
 	public abstract String getLevelType();
+	
+	/** gets the moves left */
 	public abstract String getMovesRemainingString();
+	
+	/** gets the time left */
 	public abstract String getTimeRemainingString();
+	
+	/** gets the moves left */
 	public abstract int getMovesRemaining();
+	
+	/** gets the time left */
 	public abstract int getTimeRemaining();
+	
+	/** decrements the moves left */
 	public abstract void updateMovesLeft(int m);
+	
+	/** decrements the time left */
 	public abstract void updateTimeLeft(int t);
+	
+	/** checks to see if the game is over */
 	public abstract boolean gameOver();
+	
+	/** checks to see if the player has won the game */
 	public abstract boolean hasWon();
+	
+	/** gets the buckets for release */
 	public abstract boolean[] getBuckets();
 	
 }

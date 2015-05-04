@@ -3,13 +3,25 @@ package sixesWildEntity;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Timer for lightning game mode
+ * @author John
+ *
+ */
 public class LTimer {
+	/** timer */
 	static LTimer timer = null ;
+	
+	/** timer object */
 	static Timer realTimer = new Timer() ;
 	
 	/** Singleton instance is locked down. */
 	LTimer(){}
 	
+	/** 
+	 * make new LTimer if there isn't one yet
+	 * @return
+	 */
 	public static LTimer getInstance(){
 		if(timer == null){
 			timer = new LTimer() ;

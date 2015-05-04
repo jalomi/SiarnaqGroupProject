@@ -4,16 +4,34 @@ import java.util.ArrayList;
 
 import JSONSerializer.LevelJSONSerializer;
 
+/**
+ * Model for the Sixes Wild game
+ * @author John
+ *
+ */
 public class SixesWild {
+	/** list of levels in the game */
 	private ArrayList<Level> levels = new ArrayList<Level>();
+	
+	/** list of level names for the game */
 	private ArrayList<String> levelNames = new ArrayList<String>(); 
+	
+	/** list of highscores for each level */
 	private int[] highScore = new int[16] ;
+	
+	/** list of stars earned for the levels */
 	private int[] starNum = new int[16] ;
+	
+	/** board being used */
 	private Board board;
+	
+	/** singleton model */
 	public static SixesWild theGame;
 	
-	
-	//CONSTRUCTORS
+	/**
+	 * if a SixesWild exists, use it.  If not, create one
+	 * @return
+	 */
 	public static SixesWild newInstance() {
 		if(theGame == null) {
 			theGame = new SixesWild();
@@ -21,6 +39,9 @@ public class SixesWild {
 		return theGame;
 	}
 	
+	/**
+	 * Constructor
+	 */
 	public SixesWild(){
 		LevelJSONSerializer json = new LevelJSONSerializer("Level List.json");
 		try {
@@ -47,43 +68,69 @@ public class SixesWild {
 			starNum[i] = levels.get(i).starNumber ;
 		}
 	}
-	//END CONSTRUCTORS
-	
 
-	public void setLevels(ArrayList<Level> levels) {
-		this.levels = levels;
-	}
-
-
+	/**
+	 * sets the board of the game
+	 * @param board
+	 */
 	public void setBoard(Board board) {
 		this.board = board;
 	}
 
-
+	/**
+	 * gets the list of levels
+	 * @return
+	 */
 	public ArrayList<Level> getLevels(){
 		return levels;
 	}
 	
+	/**
+	 * gets the board
+	 * @return
+	 */
 	public Board getBoard(){
 		return board;
 	}
 
+	/**
+	 * gets the board's current level
+	 * @return
+	 */
 	public Level getLevel() {
 		return board.getLevel();
 	}
 
+	/**
+	 * get the number of stars earned for the level at this index
+	 * @param i
+	 * @return
+	 */
 	public int getStarNum(int i) {
 		return starNum[i];
 	}
 	
+	/**
+	 * gets the highest score of the level at the index given
+	 * @param i
+	 * @return
+	 */
 	public int getHighScore(int i){
 		return highScore[i] ;
 	}
 	
+	/**
+	 * sets the highest score of the level at the given index
+	 * @param i
+	 * @param s
+	 */
 	public void setHighScore(int i, int s){
 		highScore[i] = s ;
 	}
 
+	/**
+	 * updates the scores of the levels
+	 */
 	public void updateScores() {
 		for(int i = 0; i < levels.size(); i++){
 			board.getLevel().setHighestScore(levels.get(i).highestScore);
@@ -93,6 +140,10 @@ public class SixesWild {
 		}
 	}
 
+	/**
+	 * gets the list of level names
+	 * @return
+	 */
 	public ArrayList<String> getLevelNames() {
 		return levelNames;
 	}

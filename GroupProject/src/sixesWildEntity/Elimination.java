@@ -3,17 +3,38 @@ package sixesWildEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Elimination game mode
+ * @author John
+ *
+ */
 public class Elimination extends Level {
+	/** the number of moves left */
 	int movesRemaining;
 	
 	/**
-	 * This constructor is only for testing!
+	 * Constructor
+	 * @param number
+	 * @param movesRemaining
+	 * @param p1
+	 * @param p2
+	 * @param p3
+	 * @param p4
+	 * @param p5
+	 * @param p6
+	 * @param m1
+	 * @param m2
+	 * @param m3
+	 * @param first
+	 * @param second
+	 * @param third
+	 * @param unlocked
+	 * @param swap
+	 * @param reset
+	 * @param remove
+	 * @param enabledTiles
+	 * @throws Exception
 	 */
-	public Elimination(int levelNumber, int movesRemaining) {
-		super(levelNumber);
-		this.movesRemaining = movesRemaining;
-	}
-	
 	public Elimination(int number, int movesRemaining, 
 			  double p1, double p2, double p3, double p4, double p5, double p6,
 			  double m1, double m2, double m3,
@@ -25,12 +46,20 @@ public class Elimination extends Level {
 		this.movesRemaining = movesRemaining;
 	}
 
+	/**
+	 * constructor for JSON loading
+	 * @param json
+	 * @throws JSONException
+	 */
 	public Elimination(JSONObject json) throws JSONException {
 		super(json);
 		//add more later
 		movesRemaining = json.getInt("movesRemaining");
 	}
 	
+	/**
+	 * makes a JSONObject out of this object
+	 */
 	@Override
 	public JSONObject toJSON() throws JSONException {
 		JSONObject json = super.toJSON();
@@ -38,31 +67,41 @@ public class Elimination extends Level {
 		return json;
 	}
 
+	/**
+	 * gets the number of moves left as a string
+	 */
 	@Override
 	public String getMovesRemainingString() {
 		return String.valueOf(movesRemaining);
 	}
 	
+	/**
+	 * gets the number of moves left
+	 */
 	@Override
 	public int getMovesRemaining() {
 		return movesRemaining;
 	}
 	
+	/**
+	 * gets the time left as a string
+	 */
 	@Override
 	public String getTimeRemainingString() {
 		return "Unlimited";
 	}
 	
-	@Override
-	public void updateMovesLeft(int m){
-		movesRemaining += m ;
-	}
-	
+	/**
+	 * gets the level type
+	 */
 	@Override
 	public String getLevelType(){
 		return "Elimination" ;
 	}
 	
+	/**
+	 * checks to see if the game is over
+	 */
 	@Override
 	public boolean gameOver(){ 
 		Board board = Board.newInstance();
@@ -76,16 +115,26 @@ public class Elimination extends Level {
 		return false ;
 	}
 
+	/**
+	 * updates the time left
+	 * not used in this game mode
+	 */
 	@Override
 	public void updateTimeLeft(int t) {
 		
 	}
 
+	/**
+	 * gets the time remaining
+	 */
 	@Override
 	public int getTimeRemaining() {
 		return 0;
 	}
 	
+	/**
+	 * checks to see if the level has been won
+	 */
 	@Override
 	public boolean hasWon() {
 		Board board = Board.newInstance();
@@ -108,6 +157,18 @@ public class Elimination extends Level {
 		return board.allTilesMarked() && highestScore >= oneStarScore;
 	}
 	
+	/**
+	 * gets the buckets
+	 * not used in this game mode
+	 */
 	@Override
 	public boolean[] getBuckets(){return null;}
+
+	/**
+	 * updates the number of moves left
+	 */
+	@Override
+	public void updateMovesLeft(int m) {
+		movesRemaining += m ;
+	}
 }
