@@ -14,6 +14,7 @@ import javax.swing.UIManager;
 /**
  * Panel that houses the game board for Sixes Wild
  * @author John
+ * @author Kyle
  *
  */
 @SuppressWarnings("serial")
@@ -87,5 +88,9 @@ public class SixesWildGamePanel extends JPanel {
 				map[i][j].refresh();
 			}
 		}
+	}
+	
+	public TileLabel getTileLabel(int i, int j){
+		return map[i][j];
 	}
 }

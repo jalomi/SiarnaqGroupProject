@@ -11,6 +11,7 @@ import sixesWildEntity.Tile;
 /**
  * Swaps two squares
  * @author John
+ * @author Kyle
  *
  */
 public class SwapSquareMove implements IMove{

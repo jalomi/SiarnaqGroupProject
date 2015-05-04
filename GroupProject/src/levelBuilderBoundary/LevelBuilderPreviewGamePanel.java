@@ -12,12 +12,21 @@ import org.json.JSONException;
 
 import levelBuilderEntity.LevelBuilder;
 
+/**
+ * Shows a priview of the game tiles
+ * @author John
+ *
+ */
 @SuppressWarnings("serial")
 public class LevelBuilderPreviewGamePanel extends JPanel {
-	
+	/** the board model */
 	private LevelBuilder board;
+	
+	/** the labels to show each tile */
 	JLabel[][] map = new JLabel[9][9] ;
-	boolean[] hasSix = new boolean[9];//a counter just for release mode
+	
+	/** a counter just for release mode */
+	boolean[] hasSix = new boolean[9];
 
 	/**
 	 * Create the panel.
@@ -43,6 +52,13 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 						
 	}
 	
+	/**
+	 * initializes a label at a certain coordinate
+	 * @param col
+	 * @param row
+	 * @throws IOException
+	 * @throws JSONException
+	 */
 	private void initLabel(int col, int row) throws IOException, JSONException {
 		//Maybe want to change this later
 		//make LevelBuilder static
@@ -125,6 +141,10 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 		this.add(map[col][row]) ;
 	}
 
+	/**
+	 * randomly assigns a multiplier
+	 * @return
+	 */
 	private int randMultiplier() {
 		double random = Math.random() ;
 		//System.out.println("percentM(0): "+board.getPercentM(0)+"percentM(1)"+board.getPercentM(1));
@@ -137,6 +157,10 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 		}	
 	}
 
+	/**
+	 * randomly assigns a value
+	 * @return
+	 */
 	private int randValue() {
 		double random = Math.random();
 		System.out.println("percent(0): "+board.getPercent(0)+" percent(1): "+board.getPercent(1)+" percent(2): "+board.getPercent(2));

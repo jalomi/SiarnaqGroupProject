@@ -12,9 +12,11 @@ public class TestSavingLoadingLevelController extends TestCase{
 	{
 		model=new LevelBuilder();
 		model.setLevelType("Puzzle");
-		model.setLevelNumber(7);
+		model.setLevelNumber(3);
 		SavingLoadingLevelController slc=new SavingLoadingLevelController(model);
 		slc.process();
+		slc.loadingLevel("Puzzle 1");
 		System.out.println("generated");
+		
 	}
 }

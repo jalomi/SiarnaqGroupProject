@@ -8,11 +8,20 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
+/**
+ * Tells the user that the level has been saved
+ * @author John <- Why you on here brah? I literally wrote this whole thing in a few minutes lol
+ * @author Kyle 
+ *
+ */
 @SuppressWarnings("serial")
 public class LevelBuilderSavedScreen extends JFrame {
-	
+	/** button to go back to the level builder */
 	private JButton btnContinue ;
 	
+	/**
+	 * Constructor
+	 */
 	public LevelBuilderSavedScreen() {
 		getContentPane().setLayout(null);
 		setBounds(300, 200, 350, 200);
@@ -28,6 +37,10 @@ public class LevelBuilderSavedScreen extends JFrame {
 		getContentPane().add(btnContinue);
 	}
 	
+	/**
+	 * gets the return to level builder button
+	 * @return
+	 */
 	public JButton getContinueBtn() {
 		return btnContinue ;
 	}

@@ -37,6 +37,11 @@ public class ResetBoardButtonController implements ActionListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		process();
+	}
+	
+	public void process()
+	{
 		System.out.println(TAG) ;
 		
 		if(board.getLevel().isResetEnabled()){

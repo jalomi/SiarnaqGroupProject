@@ -8,9 +8,8 @@ import javax.swing.UIManager;
 
 /**
  * Frame that displays when a SixesWild level is complete.
- * Will tell user if the level was won or lost
- * 
- * @author 
+ * Will tell user if the level was won or lost.
+ * @author Kyle
  *
  */
 @SuppressWarnings("serial")

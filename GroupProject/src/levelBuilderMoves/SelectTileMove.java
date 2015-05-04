@@ -4,14 +4,35 @@ import javax.swing.JToggleButton;
 
 import levelBuilderEntity.LevelBuilder;
 
+/**
+ * Enables a selected tile
+ * @author 
+ *
+ */
 public class SelectTileMove extends Move{
 	
+	/** LevelBuilder entity */
 	LevelBuilder model;
-	//LevelBuilderApplication lba;
+	
+	/** the tile that is selected */
 	JToggleButton tile;
+	
+	/** the x position of the tile */
 	int posx;
+	
+	/** the y position of the tile */
 	int posy;
+	
+	/** flag for if the tile is already enabled or not */
 	boolean selected;
+	
+	/**
+	 * Constructor
+	 * @param model LevelBuilder
+	 * @param t JToggleButton
+	 * @param x int
+	 * @param y int
+	 */
 	public SelectTileMove(LevelBuilder model, JToggleButton t, int x, int y){
 		
 		this.model = model;
@@ -21,7 +42,9 @@ public class SelectTileMove extends Move{
 		this.selected = tile.isSelected();
 	}
 	
-	
+	/**
+	 * Checks if the move is valid
+	 */
 	@Override
 	public boolean isValid() {
 		if(selected){
@@ -32,6 +55,9 @@ public class SelectTileMove extends Move{
 		}
 	}
 
+	/**
+	 * Enables a selected tile
+	 */
 	@Override
 	public boolean doMove() {
 		if(!isValid()){
@@ -44,6 +70,9 @@ public class SelectTileMove extends Move{
 		return true;
 	}
 
+	/**
+	 * Undoes the move
+	 */
 	@Override
 	public boolean undo() {
 		if(tile.isSelected()){

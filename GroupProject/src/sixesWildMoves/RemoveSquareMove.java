@@ -10,6 +10,7 @@ import sixesWildEntity.Tile;
 /**
  * Removes a square from the board
  * @author John
+ * @author Kyle
  *
  */
 public class RemoveSquareMove implements IMove{

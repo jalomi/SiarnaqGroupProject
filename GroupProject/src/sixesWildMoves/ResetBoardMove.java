@@ -14,6 +14,7 @@ import java.util.Random ;
 /**
  * Shuffles all the non-6 tiles on the board
  * @author John
+ * @author Kyle
  *
  */
 public class ResetBoardMove implements IMove{

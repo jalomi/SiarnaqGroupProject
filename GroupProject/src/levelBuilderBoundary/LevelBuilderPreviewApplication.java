@@ -12,18 +12,25 @@ import javax.swing.UIManager;
 
 import org.json.JSONException;
 
+/**
+ * Displays a preview of what the level would look like based on the
+ * current parameters
+ * @author John
+ * @author Kevin
+ */
 @SuppressWarnings("serial")
 public class LevelBuilderPreviewApplication extends JFrame {
-
+	/** Panel for the application */
 	private JPanel contentPane;
-	private JButton backBtn ;
-	LevelBuilderPreviewGamePanel gamePanel ;
 	
-	public LevelBuilderPreviewGamePanel getGamePanel(){
-		return gamePanel ;
-	}
+	/** button to go back to the level builder */
+	private JButton backBtn ;
+	
+	/** panel to hold the game tiles */
+	LevelBuilderPreviewGamePanel gamePanel ;
 
 	/**
+	 * Constructor
 	 * Create the frame.
 	 * @throws JSONException 
 	 * @throws IOException 
@@ -50,7 +57,19 @@ public class LevelBuilderPreviewApplication extends JFrame {
 		contentPane.add(gamePanel);		
 	}
 
+	/**
+	 * gets the back button
+	 * @return
+	 */
 	public JButton getBackBtn() {
 		return backBtn;
+	}
+	
+	/**
+	 * gets the game panel
+	 * @return
+	 */
+	public LevelBuilderPreviewGamePanel getGamePanel(){
+		return gamePanel ;
 	}
 }

@@ -8,7 +8,8 @@ import sixesWildEntity.Tile;
 
 /**
  * The boundary for each tile
- * @author 
+ * @author Kyle
+ * 
  *
  */
 @SuppressWarnings("serial")
@@ -96,9 +97,6 @@ public class TileLabel extends JLabel {
 			this.setIcon(new ImageIcon(SixesWildGamePanel.class.getResource("/tileIcons/disabled.png"))) ;
 			return;
 		}
-//		if(model.getBucket()){
-//			return ;
-//		}
 		
 		int value = model.getSquare().getValue();
 		int multi = model.getSquare().getMultiplier();

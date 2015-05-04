@@ -37,6 +37,11 @@ public class SwapSquareButtonController implements ActionListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		process();
+	}
+	
+	public void process()
+	{
 		System.out.println(TAG) ;
 		
 		if(board.getLevel().isSwapEnabled()){

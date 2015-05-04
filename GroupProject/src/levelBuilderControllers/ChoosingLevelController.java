@@ -28,7 +28,11 @@ public class ChoosingLevelController implements ActionListener{
 	public void actionPerformed(ActionEvent event) {
 		@SuppressWarnings("unchecked")
 		JComboBox<String> cb = (JComboBox<String>)event.getSource();
-		
+		update(cb);
+	}
+	
+	public void update(JComboBox<String> cb)
+	{
 		String fileNameToSave = model.getLevelType() + " " + model.getLevelNumber();
 		if(fileNameToSave.equals("Puzzle 0")) {
 			System.out.println(TAG + "Nothing to Save");
@@ -87,6 +91,7 @@ public class ChoosingLevelController implements ActionListener{
 					model.setTileActive(x, y);
 				}
 			}
+
 			for(int i=0;i<9;i++){
 				for(int j=0;j<9;j++){
 					model.setBucketEnabled(i, false);
@@ -144,15 +149,13 @@ public class ChoosingLevelController implements ActionListener{
 					}
 				}
 			}
-
-			if(model.getLevelType().equals("Release")){// if it is a release game, the check where the bucket is.
-				//System.out.println(TAG+"the loading type name is "+ model.getLevelType() );
+			
+			if(model.getLevelType().equals("Release")){
 				for(int i=0;i<9;i++){
 					if(model.getBucketEnabled(i)){
 						app.getCheckBoxPanel().getCheckBox(i).setSelected(true);
-						model.setTileActive(8,i);;
-					}
-				}
+						model.setTileActive(8,i);
+					} 				}
 			}
 			//empty 2 stacks
 			model.moveStack.clear();
@@ -160,7 +163,6 @@ public class ChoosingLevelController implements ActionListener{
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		
 	}
 
 }

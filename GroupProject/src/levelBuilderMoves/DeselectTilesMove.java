@@ -4,14 +4,35 @@ import javax.swing.JToggleButton;
 
 import levelBuilderEntity.LevelBuilder;
 
+/**
+ * Deselects a currently selected tile.
+ * @author 
+ *
+ */
 public class DeselectTilesMove extends Move {
 	
-	
+	/** the LevelBuilder entity */
 	LevelBuilder model;
+	
+	/** the tile to be deslected */
 	JToggleButton tile;
+	
+	/** the x position of the tile */
 	int posx;
+	
+	/** the y position of the tile */
 	int posy;
+	
+	/** flag for if the tile is already enabled or not */
 	boolean selected;
+	
+	/**
+	 * Constructor
+	 * @param model LevelBuilder
+	 * @param t JToggleButton
+	 * @param x int
+	 * @param y int
+	 */
 	public DeselectTilesMove(LevelBuilder model, JToggleButton t, int x, int y){
 		
 		this.model = model;
@@ -21,7 +42,9 @@ public class DeselectTilesMove extends Move {
 		selected = tile.isSelected();
 	}
 	
-	
+	/**
+	 * Checks if the move is valid
+	 */
 	@Override
 	public boolean isValid() {
 		if(tile.isSelected()){
@@ -32,6 +55,9 @@ public class DeselectTilesMove extends Move {
 		}
 	}
 
+	/**
+	 * Disables a selected tile
+	 */
 	@Override
 	public boolean doMove() {
 		if(!isValid()){return false;}
@@ -41,6 +67,9 @@ public class DeselectTilesMove extends Move {
 		return true;
 	}
 
+	/**
+	 * Undoes the move
+	 */
 	@Override
 	public boolean undo() {
 		if(!tile.isSelected()){
