@@ -88,4 +88,8 @@ public class SixesWildGamePanel extends JPanel {
 			}
 		}
 	}
+	
+	public TileLabel getTileLabel(int i, int j){
+		return map[i][j];
+	}
 }

@@ -51,6 +51,14 @@ public class TileLabelController extends MouseAdapter {
 	public void mousePressed(MouseEvent me) {		
 		Component c = me.getComponent();
 		TileLabel label = (TileLabel) c;
+		pressed(label);
+	}
+	
+	/**
+	 * Handles mouse press event
+	 */
+	public void pressed(TileLabel label)
+	{
 		label.setIconSelected();
 		selectedLabels.add(label);
 		havePressed = true;
@@ -66,21 +74,29 @@ public class TileLabelController extends MouseAdapter {
 			//System.out.println(TAG + " mouseEntered pressed");
 			Component c = me.getComponent();
 			TileLabel label = (TileLabel) c;
-			if(!selectedLabels.contains(label)) {
-				//System.out.println(TAG + " mouseEntered add");
-				label.setIconSelected();
-				selectedLabels.add(label);
-			} else {
-				int index = selectedLabels.indexOf(label);
-				for(int i = selectedLabels.size() - 1; i > index; i--) {
-					if(selectedLabels.get(i).getModel().isMarked()){
-						selectedLabels.get(i).setIconMarked() ;
-					}
-					else{
-						selectedLabels.get(i).setIconUnselected();
-					}
-					selectedLabels.remove(i);
+			entered(label);
+		}
+	}
+	
+	/**
+	 * Handles mouse enter event
+	 */
+	public void entered(TileLabel label)
+	{
+		if(!selectedLabels.contains(label)) {
+			//System.out.println(TAG + " mouseEntered add");
+			label.setIconSelected();
+			selectedLabels.add(label);
+		} else {
+			int index = selectedLabels.indexOf(label);
+			for(int i = selectedLabels.size() - 1; i > index; i--) {
+				if(selectedLabels.get(i).getModel().isMarked()){
+					selectedLabels.get(i).setIconMarked() ;
 				}
+				else{
+					selectedLabels.get(i).setIconUnselected();
+				}
+				selectedLabels.remove(i);
 			}
 		}
 	}
@@ -90,6 +106,14 @@ public class TileLabelController extends MouseAdapter {
 	 */
 	@Override
 	public void mouseReleased(MouseEvent me) {
+		released();
+	}
+	
+	/**
+	 * Handles mouse release event
+	 */
+	public void released()
+	{
 		if(sixesWildApp.getModel().getBoard().getRemoveMove()){
 			//Remove tile move
 			for(TileLabel label : selectedLabels) {
