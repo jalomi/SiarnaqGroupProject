@@ -5,18 +5,35 @@ import javax.swing.JComboBox;
 import levelBuilderControllers.SelectLevelTypeController;
 import levelBuilderEntity.LevelBuilder;
 
+/** IF YOU KNOW WHAT THE JCOMBOBOX IS, PLEASE FILL IT IN BECAUSE I DON'T KNOW
+ * Sets the level type
+ * @author 
+ *
+ */
 public class SetLevelTypeMove extends Move{
-	/**
-	 * Please change all the types to String
-	 * Then you don't need switch cases!!!
-	 * It's a bad idea to use int since you're doing the int-String matching anyway!!
-	 */
+	
+	/** LevelBuilder entity */
 	LevelBuilder model;
+	
+	/** the new value of the level type */
 	String newValue;
+	
+	/** the olds value of the level type */
 	String oldValue;
+	
+	/**  */
 	JComboBox<String> cb;
+	
+	/** the controller for selecting level types */
 	SelectLevelTypeController controller;
 	
+	/**
+	 * Constructor
+	 * @param model LevelBuilder
+	 * @param newValue String
+	 * @param cb JComboBox<String>
+	 * @param c SelectLevelTypeController
+	 */
 	public SetLevelTypeMove(LevelBuilder model, String newValue, JComboBox<String> cb, SelectLevelTypeController c) {
 		this.model = model;
 		this.newValue = newValue;
@@ -25,6 +42,9 @@ public class SetLevelTypeMove extends Move{
 		this.controller=c;
 	}
 
+	/**
+	 * Checks if move is valid
+	 */
 	@Override
 	public boolean isValid() {
 		if(newValue.equals("Puzzle") || newValue.equals("Release") 
@@ -36,6 +56,9 @@ public class SetLevelTypeMove extends Move{
 		}
 	}
 
+	/**
+	 * Assigns new level type
+	 */
 	@Override
 	public boolean doMove() {
 		// TODO Auto-generated method stub
@@ -49,6 +72,9 @@ public class SetLevelTypeMove extends Move{
 		return true;
 	}
 
+	/**
+	 * Undoes the move
+	 */
 	@Override
 	public boolean undo() {
 		model.setLevelType(oldValue);

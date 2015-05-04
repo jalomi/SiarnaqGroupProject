@@ -16,8 +16,8 @@ public class SavedScreenToLevelBuilderController implements ActionListener{
 	
 	/**
 	 * Constructor
-	 * @param app
-	 * @param current
+	 * @param app LevelBuilderApplication
+	 * @param current JFrame
 	 */
 	public SavedScreenToLevelBuilderController(LevelBuilderApplication app, JFrame current){
 		this.app = app ;

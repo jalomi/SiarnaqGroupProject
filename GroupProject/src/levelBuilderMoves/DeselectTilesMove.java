@@ -11,7 +11,7 @@ import levelBuilderEntity.LevelBuilder;
  */
 public class DeselectTilesMove extends Move {
 	
-	/** the levelBuilder entity */
+	/** the LevelBuilder entity */
 	LevelBuilder model;
 	
 	/** the tile to be deslected */
@@ -23,7 +23,7 @@ public class DeselectTilesMove extends Move {
 	/** the y position of the tile */
 	int posy;
 	
-	/** flag for if the tile is already selected or not */
+	/** flag for if the tile is already enabled or not */
 	boolean selected;
 	
 	/**
@@ -56,7 +56,7 @@ public class DeselectTilesMove extends Move {
 	}
 
 	/**
-	 * Deselects the tile if valid
+	 * Disables a selected tile
 	 */
 	@Override
 	public boolean doMove() {
