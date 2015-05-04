@@ -5,7 +5,7 @@ import javax.swing.JComboBox;
 import levelBuilderControllers.SelectLevelTypeController;
 import levelBuilderEntity.LevelBuilder;
 
-/** IF YOU KNOW WHAT THE JCOMBOBOX IS, PLEASE FILL IT IN BECAUSE I DON'T KNOW
+/** 
  * Sets the level type
  * @author 
  *
@@ -21,7 +21,7 @@ public class SetLevelTypeMove extends Move{
 	/** the olds value of the level type */
 	String oldValue;
 	
-	/**  */
+	/** drop down */
 	JComboBox<String> cb;
 	
 	/** the controller for selecting level types */
