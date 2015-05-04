@@ -91,13 +91,12 @@ public class ChoosingLevelController implements ActionListener{
 					model.setTileActive(x, y);
 				}
 			}
-			if(model.getLevelType().equals("Release")){
+
 			for(int i=0;i<9;i++){
 				for(int j=0;j<9;j++){
 					model.setBucketEnabled(i, false);
 					app.getGamePanel().getTile(i, j).setSelected(false);
 				}
-			}
 			}
 			
 			return;

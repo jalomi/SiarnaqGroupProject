@@ -162,8 +162,11 @@ public class Elimination extends Level {
 	 * not used in this game mode
 	 */
 	@Override
-	public boolean[] getBuckets(){return null;}
-
+	public boolean[] getBuckets(){
+		boolean[] b={false, false, false, false, false, false, false, false, false};
+		return b;
+	}
+	
 	/**
 	 * updates the number of moves left
 	 */
