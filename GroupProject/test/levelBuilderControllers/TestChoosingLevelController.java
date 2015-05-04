@@ -25,7 +25,7 @@ LevelBuilderApplication a;
 		ChoosingLevelController clc=new ChoosingLevelController(a);
 		a.getInputPanel().getChoosingLevel().setSelectedItem("Puzzle 1");
 		clc.update(a.getInputPanel().getChoosingLevel());
-		assertEquals(a.model.getLevelNumber(), 1);
+		assertEquals(LevelBuilderApplication.getModel().getLevelNumber(), 1);
 	}
 	
 	public void testLightning() throws IOException, JSONException
@@ -33,7 +33,7 @@ LevelBuilderApplication a;
 		ChoosingLevelController clc=new ChoosingLevelController(a);
 		a.getInputPanel().getChoosingLevel().setSelectedItem("Lightning 2");
 		clc.update(a.getInputPanel().getChoosingLevel());
-		assertEquals(a.model.getLevelNumber(), 2);
+		assertEquals(LevelBuilderApplication.getModel().getLevelNumber(), 2);
 	}
 	
 	public void testElimination() throws IOException, JSONException
@@ -41,7 +41,7 @@ LevelBuilderApplication a;
 		ChoosingLevelController clc=new ChoosingLevelController(a);
 		a.getInputPanel().getChoosingLevel().setSelectedItem("Elimination 3");
 		clc.update(a.getInputPanel().getChoosingLevel());
-		assertEquals(a.model.getLevelNumber(), 3);
+		assertEquals(LevelBuilderApplication.getModel().getLevelNumber(), 3);
 	}
 	
 	public void testRelease() throws IOException, JSONException
@@ -49,7 +49,7 @@ LevelBuilderApplication a;
 		ChoosingLevelController clc=new ChoosingLevelController(a);
 		a.getInputPanel().getChoosingLevel().setSelectedItem("Release 4");
 		clc.update(a.getInputPanel().getChoosingLevel());
-		assertEquals(a.model.getLevelNumber(), 4);
+		assertEquals(LevelBuilderApplication.getModel().getLevelNumber(), 4);
 	}
 	
 	public void testNewLevel() throws IOException, JSONException
