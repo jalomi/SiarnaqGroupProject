@@ -6,7 +6,7 @@ import sixesWildEntity.Board;
 import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
 
-public class TestResetBoardBtnController extends TestCase{
+public class TestRemoveSquareBtnController extends TestCase{
 	SixesWildApplication swa;
 	Board board;
 	SixesWild sw;
@@ -24,15 +24,20 @@ public class TestResetBoardBtnController extends TestCase{
 		}
 	}
 
-	public void testReset()
+	public void testRemove()
 	{
 		Level l = sw.getLevels().get(0);
 		board.setLevel(l);
 		swa = new SixesWildApplication(sw);
+		RemoveSquareButtonController rbc=new RemoveSquareButtonController(swa, board);
+		rbc.process();
+		assertEquals(board.getRemoveMove(), true);
+		
 		board.setCurrentScore(500);
 		board.setCurrentMoves(0);
-		ResetBoardButtonController rbc=new ResetBoardButtonController(swa, board);
-		rbc.process();
-		assertEquals(l.hasWon(), true);
+		TileLabelController tlc=new TileLabelController(swa, sw);
+		tlc.pressed(swa.getGamePanel().getTileLabel(5, 5));
+		tlc.released();
+		assertEquals(l.hasWon(), true);	
 	}
 }

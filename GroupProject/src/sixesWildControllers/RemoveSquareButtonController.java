@@ -35,6 +35,11 @@ public class RemoveSquareButtonController implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e){
+		process();
+	}
+
+	public void process() {
+		// TODO Auto-generated method stub
 		System.out.println(TAG) ;
 		
 		if(board.getLevel().isRemoveEnabled()){

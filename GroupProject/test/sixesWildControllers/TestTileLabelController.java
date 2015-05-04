@@ -78,4 +78,21 @@ public void testSwapMove()
 	tlc.released();
 }
 
+public void testWon()
+{
+	Level l = sw.getLevels().get(0);
+	board.setLevel(l);
+	swa = new SixesWildApplication(sw);
+	swa.getGamePanel().getTileLabel(5, 5).getModel().setSquare(new Square(5, 2));
+	swa.getGamePanel().getTileLabel(5, 6).getModel().setSquare(new Square(1, 1));
+
+	board.setCurrentScore(500);
+	board.setCurrentMoves(0);
+	TileLabelController tlc=new TileLabelController(swa, sw);
+	tlc.pressed(swa.getGamePanel().getTileLabel(5, 5));
+	tlc.entered(swa.getGamePanel().getTileLabel(5, 6));
+	tlc.released();
+	assertEquals(l.hasWon(), true);	
+}
+
 }
