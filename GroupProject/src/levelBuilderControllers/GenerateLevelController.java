@@ -16,7 +16,7 @@ public class GenerateLevelController implements ActionListener{
 	
 	/**
 	 * Constructor
-	 * @param app
+	 * @param app LevelBuilderApplication
 	 */
 	public GenerateLevelController(LevelBuilderApplication app){
 		this.app = app ;

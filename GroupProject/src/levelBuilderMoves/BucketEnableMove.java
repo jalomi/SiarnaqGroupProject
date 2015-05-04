@@ -11,7 +11,7 @@ import levelBuilderEntity.LevelBuilder;
  */
 public class BucketEnableMove extends Move{
 
-	/** the levelBuilder entity */
+	/** the LevelBuilder entity */
 	LevelBuilder model;
 	
 	/** the new state of the bucket */
