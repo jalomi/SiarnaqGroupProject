@@ -40,5 +40,7 @@ public class TestSwapSquareBtnController extends TestCase{
 		tlc.entered(swa.getGamePanel().getTileLabel(5, 6));
 		tlc.released();
 		assertEquals(l.hasWon(), true);	
+		ResetProgressController rpc=new ResetProgressController(swa);
+		rpc.process();
 	}
 }

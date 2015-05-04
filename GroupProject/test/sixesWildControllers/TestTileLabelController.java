@@ -1,10 +1,7 @@
 package sixesWildControllers;
 
-import java.util.ArrayList;
-
 import junit.framework.TestCase;
 import sixesWildBoundary.SixesWildApplication;
-import sixesWildBoundary.TileLabel;
 import sixesWildEntity.Board;
 import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
@@ -93,6 +90,8 @@ public void testWon()
 	tlc.entered(swa.getGamePanel().getTileLabel(5, 6));
 	tlc.released();
 	assertEquals(l.hasWon(), true);	
+	ResetProgressController rpc=new ResetProgressController(swa);
+	rpc.process();
 }
 
 }

@@ -34,5 +34,7 @@ public class TestResetBoardBtnController extends TestCase{
 		ResetBoardButtonController rbc=new ResetBoardButtonController(swa, board);
 		rbc.process();
 		assertEquals(l.hasWon(), true);
+		ResetProgressController rpc=new ResetProgressController(swa);
+		rpc.process();
 	}
 }
