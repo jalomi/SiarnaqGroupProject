@@ -30,6 +30,14 @@ public class ResetProgressController implements ActionListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		process();
+	}
+	
+	/**
+	 * Processes controller
+	 */
+	public void process()
+	{
 		SixesWild sw  = SixesWild.newInstance();
 		//TODO clear progress for the levels
 		sw.getLevels().get(0).setHighestScore(0);

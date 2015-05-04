@@ -16,7 +16,7 @@ import org.json.JSONException;
  * Displays a preview of what the level would look like based on the
  * current parameters
  * @author John
- *
+ * @author Kevin
  */
 @SuppressWarnings("serial")
 public class LevelBuilderPreviewApplication extends JFrame {
