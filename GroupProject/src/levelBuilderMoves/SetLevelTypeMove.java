@@ -5,7 +5,7 @@ import javax.swing.JComboBox;
 import levelBuilderControllers.SelectLevelTypeController;
 import levelBuilderEntity.LevelBuilder;
 
-/** IF YOU KNOW WHAT THE JCOMBOBOX IS, PLEASE FILL IT IN BECAUSE I DON'T KNOW
+/** 
  * Sets the level type
  * @author 
  *
