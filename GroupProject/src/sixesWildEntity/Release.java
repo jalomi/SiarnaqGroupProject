@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 /**
  * Release game mode
+ * @author Kyle
  * @author John
  *
  */

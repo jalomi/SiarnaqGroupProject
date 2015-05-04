@@ -20,6 +20,7 @@ import java.awt.Font;
  * Frame that lets users select what level they want to play
  * Will show high score of each level and the stars earned
  * @author John
+ * @author Kyle
  *
  */
 @SuppressWarnings("serial")

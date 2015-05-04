@@ -12,6 +12,7 @@ import sixesWildEntity.Tile;
 /**
  * A move with a normal selection
  * @author John
+ * @author Kyle
  *
  */
 public class NormalSelectionMove implements IMove{

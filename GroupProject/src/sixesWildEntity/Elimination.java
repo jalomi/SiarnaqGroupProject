@@ -6,6 +6,7 @@ import org.json.JSONObject;
 /**
  * Elimination game mode
  * @author John
+ * @author Kyle
  *
  */
 public class Elimination extends Level {

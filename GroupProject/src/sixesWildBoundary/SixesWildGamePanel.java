@@ -14,6 +14,7 @@ import javax.swing.UIManager;
 /**
  * Panel that houses the game board for Sixes Wild
  * @author John
+ * @author Kyle
  *
  */
 @SuppressWarnings("serial")

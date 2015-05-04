@@ -17,6 +17,7 @@ import javax.swing.UIManager;
  * The main menu of Sixes Wild
  * Can either quit the application or move to a level selectin screen
  * @author John
+ * @author Kyle
  *
  */
 @SuppressWarnings("serial")

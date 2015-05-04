@@ -2,7 +2,7 @@ package sixesWildEntity;
 
 /**
  * Position on a board
- * @author 
+ * @author Kyle
  *
  */
 public class Position {

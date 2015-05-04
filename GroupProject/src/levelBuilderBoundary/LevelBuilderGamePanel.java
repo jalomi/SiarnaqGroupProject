@@ -6,6 +6,7 @@ import javax.swing.JToggleButton;
 /**
  * Panel that houses the toggle buttons for tile enable/disable
  * @author John
+ * @author Kyle
  *
  */
 @SuppressWarnings("serial")
