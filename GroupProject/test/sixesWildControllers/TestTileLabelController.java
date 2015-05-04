@@ -14,7 +14,6 @@ public class TestTileLabelController extends TestCase{
 SixesWildApplication swa;
 Board board;
 SixesWild sw;
-ArrayList<TileLabel> selectedLabels;
 
 @Override
 protected void setUp() {
