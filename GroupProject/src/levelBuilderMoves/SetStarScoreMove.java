@@ -4,14 +4,35 @@ import javax.swing.JTextField;
 
 import levelBuilderEntity.LevelBuilder;
 
+/**
+ * Sets the scores threshold for the stars
+ * @author 
+ *
+ */
 public class SetStarScoreMove extends Move{
 
+	/** LevelBuilder entity */
 	LevelBuilder model;
+	
+	/** value of new threshold */
 	int newValue;
+	
+	/** value of the old threshold */
 	int oldValue;
+	
+	/** textField in which the threshold was entered */
 	JTextField tf;
+	
+	/** which star threshold is being altered */
 	int star;
 	
+	/**
+	 * Constructor
+	 * @param model LevelBuilder
+	 * @param newValue int
+	 * @param tfJTextField
+	 * @param star int
+	 */
 	public SetStarScoreMove(LevelBuilder model, int newValue, JTextField tf, int star)
 	{
 		this.model=model;
@@ -21,6 +42,9 @@ public class SetStarScoreMove extends Move{
 		this.star=star;
 	}
 
+	/**
+	 * Checks if the move is valid
+	 */
 	@Override
 	public boolean isValid() {
 		if(star==0)
@@ -54,6 +78,9 @@ public class SetStarScoreMove extends Move{
 		return newValue>0;
 	}
 
+	/**
+	 * Sets the star threshold
+	 */
 	@Override
 	public boolean doMove() {
 		// TODO Auto-generated method stub
@@ -63,6 +90,9 @@ public class SetStarScoreMove extends Move{
 		return true;
 	}
 
+	/**
+	 * Undoes the move
+	 */
 	@Override
 	public boolean undo() {
 		// TODO Auto-generated method stub

@@ -33,13 +33,16 @@ public class SwapSquareButtonController implements ActionListener{
 	}
 
 	/**
-	 * sets next move as a swap square move
+	 * Handles press of swap square button
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		process();
 	}
 	
+	/**
+	 * Sets next move as a swap square move
+	 */
 	public void process()
 	{
 		System.out.println(TAG) ;

@@ -29,13 +29,16 @@ public class BacktoMainMenuController implements ActionListener {
 	}
 
 	/**
-	 * close the current frame and open the main menu
+	 * Handles press of back to menu button
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		process();
 	}
 
+	/**
+	 * Closes the current frame and opens the main menu
+	 */
 	public void process() {
 		// TODO Auto-generated method stub
 		System.out.println(TAG);

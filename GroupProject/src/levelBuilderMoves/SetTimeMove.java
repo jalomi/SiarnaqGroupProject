@@ -4,12 +4,31 @@ import javax.swing.JTextField;
 
 import levelBuilderEntity.LevelBuilder;
 
+/**
+ * Sets the time for lightning
+ * @author 
+ *
+ */
 public class SetTimeMove extends Move{
+	
+	/** LevelBuilder entity */
 	LevelBuilder model;
+	
+	/** value of the new time */
 	int newValue;
+	
+	/** value of the old time */
 	int oldValue;
+	
+	/** text field in which the time was entered */
 	JTextField tf;
 	
+	/**
+	 * Constructor
+	 * @param model LevelBuilder
+	 * @param newValue int
+	 * @param tf JTextField
+	 */
 	public SetTimeMove(LevelBuilder model, int newValue, JTextField tf)
 	{
 		this.model=model;
@@ -18,11 +37,17 @@ public class SetTimeMove extends Move{
 		this.tf=tf;
 	}
 
+	/**
+	 * Checks if the move is valid
+	 */
 	@Override
 	public boolean isValid() {
 		return newValue>0;
 	}
 
+	/**
+	 * Sets the time
+	 */
 	@Override
 	public boolean doMove() {
 		// TODO Auto-generated method stub
@@ -32,6 +57,9 @@ public class SetTimeMove extends Move{
 		return true;
 	}
 
+	/**
+	 * Undoes the move
+	 */
 	@Override
 	public boolean undo() {
 		// TODO Auto-generated method stub

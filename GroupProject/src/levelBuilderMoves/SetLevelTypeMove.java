@@ -21,7 +21,7 @@ public class SetLevelTypeMove extends Move{
 	/** the olds value of the level type */
 	String oldValue;
 	
-	/**  */
+	/** drop down */
 	JComboBox<String> cb;
 	
 	/** the controller for selecting level types */

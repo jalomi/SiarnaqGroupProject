@@ -27,13 +27,16 @@ public class EnterLevelSelectController implements ActionListener {
 	}
 	
 	/**
-	 * Moves from the main menu to the level selection
+	 * Handles press of enter level select button
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		process();
 	}  
 	
+	/**
+	 * Moves from the main menu to the level selection
+	 */
 	public void process()
 	{
 		System.out.println(TAG);
