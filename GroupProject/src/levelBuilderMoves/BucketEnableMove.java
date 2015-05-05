@@ -6,7 +6,7 @@ import levelBuilderEntity.LevelBuilder;
 
 /**
  * Sets the state of a bucket
- * @author 
+ * @author Kevin
  *
  */
 public class BucketEnableMove extends Move{

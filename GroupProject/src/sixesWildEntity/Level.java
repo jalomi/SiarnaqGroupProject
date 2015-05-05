@@ -4,9 +4,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * 
+ * The information that the board uses to generate a game
  * @author John
  * @author Kyle
+ * @author Xuanzhe 
  *
  */
 public abstract class Level {

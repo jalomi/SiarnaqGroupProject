@@ -4,14 +4,34 @@ import javax.swing.JTextField;
 
 import levelBuilderEntity.LevelBuilder;
 
+/**
+ * sets scores needed to get each star rank
+ * @author Kevin
+ *
+ */
 public class SetStarScoreMove extends Move{
-
+	/** model */
 	LevelBuilder model;
+	
+	/** new value to be set */
 	int newValue;
+	
+	/** the old value */
 	int oldValue;
+	
+	/** text field that gives the input */
 	JTextField tf;
+	
+	/** star number */
 	int star;
 	
+	/**
+	 * Constructor
+	 * @param model
+	 * @param newValue
+	 * @param tf
+	 * @param star
+	 */
 	public SetStarScoreMove(LevelBuilder model, int newValue, JTextField tf, int star)
 	{
 		this.model=model;
@@ -21,6 +41,9 @@ public class SetStarScoreMove extends Move{
 		this.star=star;
 	}
 
+	/**
+	 * checks to see if the move is valid
+	 */
 	@Override
 	public boolean isValid() {
 		if(star==0)
@@ -54,6 +77,9 @@ public class SetStarScoreMove extends Move{
 		return newValue>0;
 	}
 
+	/**
+	 * does the move
+	 */
 	@Override
 	public boolean doMove() {
 		// TODO Auto-generated method stub
@@ -63,6 +89,9 @@ public class SetStarScoreMove extends Move{
 		return true;
 	}
 
+	/**
+	 * undoes the move
+	 */
 	@Override
 	public boolean undo() {
 		// TODO Auto-generated method stub

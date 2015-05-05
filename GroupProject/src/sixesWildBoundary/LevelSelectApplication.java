@@ -21,6 +21,7 @@ import java.awt.Font;
  * Will show high score of each level and the stars earned
  * @author John
  * @author Kyle
+ * @author Xuanzhe 
  *
  */
 @SuppressWarnings("serial")

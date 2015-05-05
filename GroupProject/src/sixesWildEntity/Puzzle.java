@@ -6,6 +6,7 @@ import org.json.JSONObject;
 /**
  * Puzzle game mode
  * @author John
+ * @author Xuanzhe 
  *
  */
 public class Puzzle extends Level {

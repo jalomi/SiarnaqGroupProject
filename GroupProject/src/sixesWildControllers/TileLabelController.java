@@ -17,6 +17,7 @@ import sixesWildMoves.SwapSquareMove;
 /**
  * Controlls all mouse events on board tiles
  * @author John
+ * @author Xuanzhe 
  *
  */
 public class TileLabelController extends MouseAdapter {

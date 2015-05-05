@@ -7,6 +7,7 @@ import JSONSerializer.LevelJSONSerializer;
 /**
  * Model for the Sixes Wild game
  * @author John
+ * @author Xuanzhe 
  *
  */
 public class SixesWild {

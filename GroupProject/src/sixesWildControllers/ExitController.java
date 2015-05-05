@@ -10,7 +10,7 @@ import sixesWildEntity.SixesWild;
 
 /**
  * exits the application
- * @author 
+ * @author Xuanzhe 
  *
  */
 public class ExitController implements ActionListener {

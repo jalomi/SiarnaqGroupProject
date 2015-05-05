@@ -4,12 +4,30 @@ import javax.swing.JTextField;
 
 import levelBuilderEntity.LevelBuilder;
 
+/**
+ * Sets the max time
+ * @author Kevin
+ *
+ */
 public class SetTimeMove extends Move{
+	/** model */
 	LevelBuilder model;
+	
+	/** new value to be set */
 	int newValue;
+	
+	/** old value */
 	int oldValue;
+	
+	/** text field that gives the input */
 	JTextField tf;
 	
+	/**
+	 * Constructor
+	 * @param model
+	 * @param newValue
+	 * @param tf
+	 */
 	public SetTimeMove(LevelBuilder model, int newValue, JTextField tf)
 	{
 		this.model=model;
@@ -18,11 +36,17 @@ public class SetTimeMove extends Move{
 		this.tf=tf;
 	}
 
+	/**
+	 * checks to see if the move is valid
+	 */
 	@Override
 	public boolean isValid() {
 		return newValue>0;
 	}
 
+	/**
+	 * does the move
+	 */
 	@Override
 	public boolean doMove() {
 		// TODO Auto-generated method stub
@@ -32,6 +56,9 @@ public class SetTimeMove extends Move{
 		return true;
 	}
 
+	/** 
+	 * undoes the move
+	 */
 	@Override
 	public boolean undo() {
 		// TODO Auto-generated method stub

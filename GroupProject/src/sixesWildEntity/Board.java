@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * holds all the tiles for a sixes wild game
  * @author John
  * @author Kyle
+ * @author Xuanzhe 
  *
  */
 public class Board {

@@ -3,6 +3,7 @@ package sixesWildEntity;
 /**
  * Game pieces that go in the tiles of the board
  * @author John
+ * @author Xuanzhe 
  *
  */
 public class Square {

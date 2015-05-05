@@ -9,7 +9,7 @@ import sixesWildEntity.Tile;
 /**
  * The boundary for each tile
  * @author Kyle
- * 
+ * @author Xuanzhe 
  *
  */
 @SuppressWarnings("serial")

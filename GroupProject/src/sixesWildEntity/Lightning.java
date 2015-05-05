@@ -6,6 +6,7 @@ import org.json.JSONObject;
 /**
  * Lightning game mode
  * @author John
+ * @author Xuanzhe 
  *
  */
 public class Lightning extends Level {
