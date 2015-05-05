@@ -31,13 +31,16 @@ public class RemoveSquareButtonController implements ActionListener {
 	}
 	
 	/**
-	 * sets the next move as a remove square move
+	 * Handles press of remove square button
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e){
 		process();
 	}
 
+	/**
+	 * Sets the next move as a remove square move
+	 */
 	public void process() {
 		// TODO Auto-generated method stub
 		System.out.println(TAG) ;
