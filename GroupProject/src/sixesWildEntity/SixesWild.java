@@ -15,13 +15,7 @@ public class SixesWild {
 	
 	/** list of level names for the game */
 	private ArrayList<String> levelNames = new ArrayList<String>(); 
-	
-	/** list of highscores for each level */
-	private int[] highScore = new int[16] ;
-	
-	/** list of stars earned for the levels */
-	private int[] starNum = new int[16] ;
-	
+
 	/** board being used */
 	private Board board;
 	
@@ -62,11 +56,6 @@ public class SixesWild {
 		board = Board.newInstance();
 		
 		levels.get(0).setUnlocked(true) ;
-		
-		for(int i = 0; i < levelNames.size(); i++){
-			highScore[i] = 0 ;
-			starNum[i] = levels.get(i).starNumber ;
-		}
 	}
 
 	/**
@@ -99,33 +88,6 @@ public class SixesWild {
 	 */
 	public Level getLevel() {
 		return board.getLevel();
-	}
-
-	/**
-	 * get the number of stars earned for the level at this index
-	 * @param i
-	 * @return
-	 */
-	public int getStarNum(int i) {
-		return starNum[i];
-	}
-	
-	/**
-	 * gets the highest score of the level at the index given
-	 * @param i
-	 * @return
-	 */
-	public int getHighScore(int i){
-		return highScore[i] ;
-	}
-	
-	/**
-	 * sets the highest score of the level at the given index
-	 * @param i
-	 * @param s
-	 */
-	public void setHighScore(int i, int s){
-		highScore[i] = s ;
 	}
 
 	/**
