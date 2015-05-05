@@ -33,7 +33,7 @@ public class TestRemoveSquareBtnController extends TestCase{
 		rbc.process();
 		assertEquals(board.getRemoveMove(), true);
 		
-		board.setCurrentScore(500);
+		board.setCurrentScore(1500);
 		board.setCurrentMoves(0);
 		TileLabelController tlc=new TileLabelController(swa, sw);
 		tlc.pressed(swa.getGamePanel().getTileLabel(5, 5));
