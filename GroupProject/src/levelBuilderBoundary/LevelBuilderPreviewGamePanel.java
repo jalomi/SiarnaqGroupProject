@@ -81,6 +81,7 @@ public class LevelBuilderPreviewGamePanel extends JPanel {
 			hasSix[col] = true;
 			return;
 		}
+
 		int value = randValue();
 		int multi = randMultiplier();
 		if(bucket){	

@@ -64,9 +64,22 @@ public class SelectSquarePercentController implements ActionListener{
 			double num = Double.parseDouble(tf.getText());
 			SetSquarePercentMove m=new SetSquarePercentMove(model, num, tf, square, application.getInputPanel().getPercent6());
 			if(m.doMove())
-			{
+			{	
+				
 				System.out.println("Percentage of "+(square+1)+"s: "+model.getPercent(square));
 				model.recordMove(m);
+				if(model.getLevelType().equals("Release")){
+					if((model.getLevelNumber()>0 || model.getMoves()>0)&&model.getPercent(5)<1){
+						application.getGenerateBtn().setEnabled(true);
+						application.getPreviewBtn().setEnabled(true);
+					}
+				}
+				else{
+					if(model.getLevelNumber()>0 || model.getMoves()>0){
+						application.getGenerateBtn().setEnabled(true);
+						application.getPreviewBtn().setEnabled(true);
+					}
+				}
 			}
 		} catch (Exception e) {
 			tf.setText("" + model.getPercent(square));

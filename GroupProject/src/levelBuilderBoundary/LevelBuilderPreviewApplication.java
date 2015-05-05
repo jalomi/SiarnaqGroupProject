@@ -17,6 +17,7 @@ import org.json.JSONException;
  * current parameters
  * @author John
  * @author Kevin
+ * @author Yuheng 
  */
 @SuppressWarnings("serial")
 public class LevelBuilderPreviewApplication extends JFrame {
