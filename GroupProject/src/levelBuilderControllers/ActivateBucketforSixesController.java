@@ -16,7 +16,6 @@ public class ActivateBucketforSixesController implements ActionListener{
 		
 		public ActivateBucketforSixesController(LevelBuilder model,
 				LevelBuilderApplication application, int bucket) {
-			// TODO Auto-generated constructor stub
 			this.model=model;
 			this.application=application;
 			this.bucket=bucket;
@@ -24,13 +23,11 @@ public class ActivateBucketforSixesController implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent ae) {
-			// TODO Auto-generated method stub
 			JCheckBox ch=(JCheckBox)ae.getSource();
 			update(ch);
 		}
 
 		public void update(JCheckBox ch) {
-			// TODO Auto-generated method stub
 			boolean enabled=ch.isSelected();
 			BucketEnableMove m=new BucketEnableMove(model, enabled, ch, bucket);
 			if(m.doMove())
