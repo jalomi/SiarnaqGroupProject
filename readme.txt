@@ -35,4 +35,12 @@ Sixes Wild:
 Level Builder:
 	When entering values, press enter to save them. For all release levels, the remove
  special move will not be enabled regardless of the selection made in the level 
-builder.  
+builder.  For the generate level and priview buttons to be enabled, you must enter a level
+number, either max moves or max time, and for release,  enter a percentage for tile values.
+
+
+
+
+**NOTE: 12 levels are included.  To make new levels, select new level in the level builder drop
+down combo box.  Then add the next level number (13 for your first level) and choose the level type.
+In order to match what we have been doing make the following levels: Puzzle 13, Lightning 14, Elimination 15, Release 16
