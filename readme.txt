@@ -44,3 +44,9 @@ number, either max moves or max time, and for release,  enter a percentage for t
 **NOTE: 12 levels are included.  To make new levels, select new level in the level builder drop
 down combo box.  Then add the next level number (13 for your first level) and choose the level type.
 In order to match what we have been doing make the following levels: Puzzle 13, Lightning 14, Elimination 15, Release 16
+
+
+
+
+
+***NOTE: 6s will always appear at the top for release mode
