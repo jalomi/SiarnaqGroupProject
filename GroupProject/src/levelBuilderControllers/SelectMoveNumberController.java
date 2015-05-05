@@ -9,16 +9,38 @@ import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
 import levelBuilderMoves.SetMoveNumberMove;
 
+/**
+ * Controller that inputs number of moves for the game in Level Builder
+ * @author Kevin
+ *
+ */
 public class SelectMoveNumberController implements ActionListener{
+	
+	/**
+	 * the Level Builder entity
+	 */
 	LevelBuilder model;
+	
+	/**
+	 * the Level Builder application
+	 */
 	LevelBuilderApplication application;
 	
+	/**
+	 * Constructor
+	 * Creates the controller based on the entity and application
+	 * @param m
+	 * @param a
+	 */
 	public SelectMoveNumberController(LevelBuilder m, LevelBuilderApplication a)
 	{
 		this.model=m;
 		this.application=a;
 	}
 	
+	/**
+	 * Handles entering a number into the text field
+	 */
 	@Override
 	public void actionPerformed(ActionEvent ae)
 	{
@@ -27,6 +49,10 @@ public class SelectMoveNumberController implements ActionListener{
 		update(tf);
 	}
 	
+	/**
+	 * Updates the text field and the number of moves (or throws exception)
+	 * @param tf
+	 */
 	public void update(JTextField tf)
 	{
 		try{

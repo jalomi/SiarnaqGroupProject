@@ -9,11 +9,35 @@ import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
 import levelBuilderMoves.SetMultiplierPercentMove;
 
+/**
+ * Controller that inputs a multiplier percent for the game in Level Builder
+ * @author Kevin
+ *
+ */
 public class SelectMultiplierPercentController implements ActionListener{
+	
+	/**
+	 * the Level Builder entity
+	 */
 	LevelBuilder model;
+	
+	/**
+	 * the Level Builder application
+	 */
 	LevelBuilderApplication application;
+	
+	/**
+	 * the number of the multiplier type being set
+	 */
 	int multiplier;
 	
+	/**
+	 * Constructor
+	 * Creates the controller based on the entity, the application, and the multiplier number
+	 * @param m
+	 * @param a
+	 * @param multiplier
+	 */
 	public SelectMultiplierPercentController(LevelBuilder m, LevelBuilderApplication a, int multiplier)
 	{
 		this.model=m;
@@ -21,6 +45,9 @@ public class SelectMultiplierPercentController implements ActionListener{
 		this.multiplier=multiplier;
 	}
 	
+	/**
+	 * Handles entering number into text field
+	 */
 	@Override
 	public void actionPerformed(ActionEvent ae)
 	{
@@ -28,6 +55,10 @@ public class SelectMultiplierPercentController implements ActionListener{
 		update(tf);
 	}
 	
+	/**
+	 * Updates text field and multiplier number (or throws exception)
+	 * @param tf
+	 */
 	public void update(JTextField tf)
 	{
 		try{
