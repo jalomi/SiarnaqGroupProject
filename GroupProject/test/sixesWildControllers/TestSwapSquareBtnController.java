@@ -33,7 +33,7 @@ public class TestSwapSquareBtnController extends TestCase{
 		sbc.process();
 		assertEquals(board.getSwapMove(), true);
 		
-		board.setCurrentScore(1500);
+		board.setCurrentScore(500);
 		board.setCurrentMoves(0);
 		TileLabelController tlc=new TileLabelController(swa, sw);
 		tlc.pressed(swa.getGamePanel().getTileLabel(5, 5));

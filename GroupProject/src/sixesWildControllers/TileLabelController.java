@@ -15,7 +15,7 @@ import sixesWildMoves.RemoveSquareMove;
 import sixesWildMoves.SwapSquareMove;
 
 /**
- * Controls all mouse events on board tiles
+ * Controlls all mouse events on board tiles
  * @author John
  *
  */
@@ -45,7 +45,7 @@ public class TileLabelController extends MouseAdapter {
 	}
 	
 	/**
-	 * Handles mouse press event
+	 * Records the tile that the mouse is pressed on
 	 */
 	@Override
 	public void mousePressed(MouseEvent me) {		
@@ -55,7 +55,7 @@ public class TileLabelController extends MouseAdapter {
 	}
 	
 	/**
-	 * Records the tile that the mouse is pressed on
+	 * Handles mouse press event
 	 */
 	public void pressed(TileLabel label)
 	{
@@ -65,7 +65,7 @@ public class TileLabelController extends MouseAdapter {
 	}
 	
 	/**
-	 * Handles mouse enter event
+	 * Records all tiles that the mouse enters
 	 */
 	@Override
 	public void mouseEntered(MouseEvent me) {
@@ -79,7 +79,7 @@ public class TileLabelController extends MouseAdapter {
 	}
 	
 	/**
-	 * Records all tiles that the mouse enters
+	 * Handles mouse enter event
 	 */
 	public void entered(TileLabel label)
 	{
@@ -102,7 +102,7 @@ public class TileLabelController extends MouseAdapter {
 	}
 	
 	/**
-	 * Handles mouse release event
+	 * Does the proper move on the selected tiles once the mouse is releassed
 	 */
 	@Override
 	public void mouseReleased(MouseEvent me) {
@@ -110,7 +110,7 @@ public class TileLabelController extends MouseAdapter {
 	}
 	
 	/**
-	 * Does the proper move on the selected tiles once the mouse is released
+	 * Handles mouse release event
 	 */
 	public void released()
 	{

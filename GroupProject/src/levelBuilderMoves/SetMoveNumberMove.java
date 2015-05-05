@@ -4,31 +4,12 @@ import javax.swing.JTextField;
 
 import levelBuilderEntity.LevelBuilder;
 
-/**
- * Sets the move number
- * @author 
- *
- */
 public class SetMoveNumberMove extends Move{
-	
-	/** LevelBuilder entity */
 	LevelBuilder model;
-	
-	/** the new move number value */
 	int newValue;
-	
-	/** the old move number value */
 	int oldValue;
-	
-	/** the text field in which the move number was entered */
 	JTextField tf;
 	
-	/**
-	 * Constructor
-	 * @param model LevelBuilder
-	 * @param newValue int
-	 * @param tf JTextField
-	 */
 	public SetMoveNumberMove(LevelBuilder model, int newValue, JTextField tf)
 	{
 		this.model=model;
@@ -37,17 +18,11 @@ public class SetMoveNumberMove extends Move{
 		this.tf=tf;
 	}
 
-	/**
-	 * Checks if the move is valid
-	 */
 	@Override
 	public boolean isValid() {
 		return newValue > 0;
 	}
 
-	/**
-	 * Sets the move number in the model
-	 */
 	@Override
 	public boolean doMove() {
 		// TODO Auto-generated method stub
@@ -57,9 +32,6 @@ public class SetMoveNumberMove extends Move{
 		return true;
 	}
 
-	/**
-	 * Undoes the move
-	 */
 	@Override
 	public boolean undo() {
 		// TODO Auto-generated method stub

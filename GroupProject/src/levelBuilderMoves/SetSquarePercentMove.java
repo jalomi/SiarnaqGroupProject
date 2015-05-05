@@ -5,37 +5,14 @@ import javax.swing.JTextField;
 
 import levelBuilderEntity.LevelBuilder;
 
-/**
- * Sets the percentages of each square
- * @author 
- *
- */
 public class SetSquarePercentMove extends Move{
-	
-	/** LevelBuilder entity */
 	LevelBuilder model;
-	
-	/** new value of percentage */
 	double newValue;
-	
-	/** old value of percentage */
 	double oldValue;
-	
-	/** text field in which the percentage is entered */
 	JTextField tf;
-	
-	/** which square percentage is being altered */
 	int squareNum;
 	JTextArea ta;
 	
-	/**
-	 * Constructor
-	 * @param model LevelBuilder
-	 * @param newValue double
-	 * @param tf JTextField
-	 * @param squareNum int
-	 * @param ta JTextArea
-	 */
 	public SetSquarePercentMove(LevelBuilder model, double newValue, JTextField tf, int squareNum, JTextArea ta)
 	{
 		this.model=model;
@@ -46,9 +23,6 @@ public class SetSquarePercentMove extends Move{
 		this.ta=ta;
 	}
 
-	/**
-	 * Checks if the move is valid
-	 */
 	@Override
 	public boolean isValid() {
 		double sum=newValue/100;
@@ -69,9 +43,6 @@ public class SetSquarePercentMove extends Move{
 		return newValue >= 0 && newValue <= 100 && sum <= 1;
 	}
 
-	/**
-	 * Sets the percentages of the squares
-	 */
 	@Override
 	public boolean doMove() {
 		// TODO Auto-generated method stub
@@ -91,9 +62,6 @@ public class SetSquarePercentMove extends Move{
 		return true;
 	}
 
-	/**
-	 * Undoes the move
-	 */
 	@Override
 	public boolean undo() {
 		// TODO Auto-generated method stub

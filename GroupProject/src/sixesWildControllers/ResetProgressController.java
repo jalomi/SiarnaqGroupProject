@@ -26,7 +26,7 @@ public class ResetProgressController implements ActionListener{
 	}
 	
 	/**
-	 * Handles press of reset progress button
+	 * Resets the level progress
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
@@ -34,7 +34,7 @@ public class ResetProgressController implements ActionListener{
 	}
 	
 	/**
-	 * Resets the level progress
+	 * Processes controller
 	 */
 	public void process()
 	{
