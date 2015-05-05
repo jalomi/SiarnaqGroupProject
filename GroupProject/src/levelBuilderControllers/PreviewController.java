@@ -9,16 +9,33 @@ import org.json.JSONException;
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderBoundary.LevelBuilderPreviewApplication;
 import levelBuilderEntity.LevelBuilder;
+
 /**
- * 
+ * Controller that enters Preview application from Level Builder application
+ * @author Kevin
  * @author Yuheng
+>>>>>>> refs/remotes/origin/master
  *
  */
 public class PreviewController implements ActionListener {
+	
+	/**
+	 * the Level Builder application
+	 */
 	LevelBuilderApplication app ;
+	
+	/**
+	 * the Level Builder entity
+	 */
 	LevelBuilder model;
 	
-
+	/**
+	 * Constructor
+	 * Creates the controller based on the application
+	 * @param app
+	 * @throws IOException
+	 * @throws JSONException
+	 */
 	public PreviewController(LevelBuilderApplication app) throws IOException, JSONException{
 
 		this.app = app ;
@@ -26,11 +43,17 @@ public class PreviewController implements ActionListener {
 		this.model = LevelBuilder.newInstance();
 	}
 
+	/**
+	 * Handles press of preview button
+	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		process();
 	}
 	
+	/**
+	 * Goes to Preview application from Level Builder application
+	 */
 	public void process()
 	{
 		app.setVisible(false) ;

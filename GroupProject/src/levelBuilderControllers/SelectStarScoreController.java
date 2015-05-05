@@ -9,11 +9,35 @@ import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
 import levelBuilderMoves.SetStarScoreMove;
 
+/**
+ * Controller that inputs a star score for the game in Level Builder
+ * @author Kevin
+ *
+ */
 public class SelectStarScoreController implements ActionListener {
+	
+	/**
+	 * the Level Builder entity
+	 */
 	LevelBuilder model;
+	
+	/**
+	 * the Level Builder model
+	 */
 	LevelBuilderApplication application;
+	
+	/**
+	 * the star number of the score being changed
+	 */
 	int star;
 	
+	/**
+	 * Constructor
+	 * Creates the controller based on the entity, application, and star number
+	 * @param m
+	 * @param a
+	 * @param star
+	 */
 	public SelectStarScoreController(LevelBuilder m, LevelBuilderApplication a, int star)
 	{
 		this.model=m;
@@ -21,6 +45,9 @@ public class SelectStarScoreController implements ActionListener {
 		this.star=star;
 	}
 	
+	/**
+	 * Handles entering number into text field
+	 */
 	@Override
 	public void actionPerformed(ActionEvent ae)
 	{
@@ -28,6 +55,10 @@ public class SelectStarScoreController implements ActionListener {
 		update(tf);
 	}
 	
+	/**
+	 * Updates text field and star score value (or throws exception)
+	 * @param tf
+	 */
 	public void update(JTextField tf)
 	{
 		try{

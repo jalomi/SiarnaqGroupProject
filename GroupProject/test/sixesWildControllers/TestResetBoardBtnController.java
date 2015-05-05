@@ -29,7 +29,7 @@ public class TestResetBoardBtnController extends TestCase{
 		Level l = sw.getLevels().get(0);
 		board.setLevel(l);
 		swa = new SixesWildApplication(sw);
-		board.setCurrentScore(500);
+		board.setCurrentScore(1500);
 		board.setCurrentMoves(0);
 		ResetBoardButtonController rbc=new ResetBoardButtonController(swa, board);
 		rbc.process();

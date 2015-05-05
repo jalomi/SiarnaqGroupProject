@@ -14,44 +14,75 @@ import sixesWildEntity.Puzzle;
 import sixesWildEntity.Release;
 import levelBuilderMoves.Move;
 
+/**
+ * Model for the Level Builder Application
+ * @author 
+ *
+ */
 public class LevelBuilder {
-	
+	/** TAG for the class */
 	public static final String TAG = "LevelBuilder";
+	
+	/** singleton model */
 	public static LevelBuilder lb;
 	
-	/*    The Configuration of a Level    */
+	/** the level's number */
 	int number;
+	
+	/** the level type */
 	String type;
 	
+	/** flag for the level being unlocked */
 	boolean unlocked;
-	boolean allowReset;
-	boolean allowSwap;
-	boolean allowRemove;
-	boolean [][] tilesActive = new boolean[9][9];
-	boolean[] bucketFor6s=new boolean[9]; //Haven't been added to the constructor yet!
 	
+	/** flag for allowing reset moves */
+	boolean allowReset;
+	
+	/** flag for allowing swap moves */
+	boolean allowSwap;
+	
+	/** flag for allowing remove moves */
+	boolean allowRemove;
+	
+	/** the active game tiles */
+	boolean [][] tilesActive = new boolean[9][9];
+	
+	/** the buckets for 6s to fall into in Release */
+	boolean[] bucketFor6s=new boolean[9];
+	
+	/** the percentages for tile values */
     double percents[] = new double[6];
+    
+    /** the percentages for tile multipliers */
 	double percentM[] = new double[3];
 	
+	/** the scores needed to get 1, 2, or 3 stars */
 	int starScore[] = new int[3];
 	
+	/** max seconds */
 	int second;
+	
+	/** max moves */
 	int moves;
-	/*    End The Configuration of a Level    */
 	
-	/*    Current Editing Level    */
-	//Must do cast after you do type checking!!!
+	/** list of levels the builder can access */
 	static ArrayList<String> levelList = new ArrayList<String>();
-	public static Level level;
-	/*    End Current Editing Level    */
 	
+	/** current level being edited */
+	public static Level level;	
 	
-	/*    The info LevelBuilder keeps for itself    */
+	/** moves taken for use with undo */
 	public Stack<Move> moveStack = new Stack<Move>();
-	public Stack<Move> redoStack = new Stack<Move>();
-	/*    End The info LevelBuilder keeps for itself    */
 	
-	//CONSTRUCTOR 
+	/** undos done for use with redo */
+	public Stack<Move> redoStack = new Stack<Move>();
+	
+	/**
+	 * If a level builder exists, use it.  If not, make a new one
+	 * @return
+	 * @throws IOException
+	 * @throws JSONException
+	 */
 	public static LevelBuilder newInstance() throws IOException, JSONException{
 		if(LevelBuilder.lb == null){
 			System.out.println("NuLL!!!!!");
@@ -59,6 +90,12 @@ public class LevelBuilder {
 		}
 		return lb;
 	}
+	
+	/**
+	 * Constructor
+	 * @throws IOException
+	 * @throws JSONException
+	 */
 	public LevelBuilder() throws IOException, JSONException{
 		//first loading the level
 		LevelJSONSerializer json = new LevelJSONSerializer("Level List.json");
@@ -99,6 +136,7 @@ public class LevelBuilder {
 	}
 	
 	/**
+	 * generates the level based on the builder's attributes
 	 * @return Level
 	 * @throws Exception 
 	 */
@@ -200,22 +238,44 @@ public class LevelBuilder {
 		return moveStack.pop();
 	}
 
+	/**
+	 * set the tile at the coordinate to be active
+	 * @param row
+	 * @param col
+	 */
 	public void setTileActive(int row, int col){
 		tilesActive[col][row] = true ;
 	}
 	
+	/**
+	 * set the tile at the coordinate to be inactive
+	 * @param row
+	 * @param col
+	 */
 	public void setTileDeactive(int row, int col){
 		tilesActive[col][row] = false ;
 	}
 	
+	/**
+	 * set the bucket at the inputted column to be active
+	 * @param col
+	 */
 	public void setBucketFor6sActive(int col){
 		bucketFor6s[col]=true;
 	}
 	
+	/**
+	 * set the bucket at the inputted column to be inactive
+	 * @param col
+	 */
 	public void setBucketFor6sDeactive(int col){
 		bucketFor6s[col] = false;
 	}
 	
+	/**
+	 * set allow permission for special moves
+	 * @param i
+	 */
 	public void allowSpecials(int i){
 		//1: allow reset, 2:allow swap, 3: allow remove.
 		if(i==1){
@@ -230,6 +290,10 @@ public class LevelBuilder {
 		
 	}
 	
+	/**
+	 * remove allow permission for special moves
+	 * @param i
+	 */
 	public void disallowSpecials(int i){
 		//1: disallow reset, 2:disallow swap, 3: disallow remove.
 		if(i==1){
@@ -243,77 +307,125 @@ public class LevelBuilder {
 		}
 	}
 	
+	/**
+	 * set the value percentage of the given index
+	 * @param n
+	 * @param p
+	 */
 	public void setPercents(int n, double p){
 		percents[n] = p/100;
 	}
 	
+	/**
+	 * set the multiplier percentage of the given index
+	 * @param m
+	 * @param p
+	 */
 	public void setPercentM(int m, double p){
 		percentM[m] = p/100;
 	}
 	
+	/**
+	 * set the star score of the given index
+	 * @param n
+	 * @param s
+	 */
 	public void setStarScore(int n,int s){
 		//n = star number, s = score 
 		starScore[n]=s;
 	}
 	
+	/**
+	 * set the level's number
+	 * @param l
+	 */
 	public void setLevelNumber(int l){
 		number = l;
 	}
 	
+	/**
+	 * set the level's type
+	 * @param t
+	 */
 	public void setLevelType(String t){
 		type = t; 
 	}
 	
+	/**
+	 * set the maximum moves
+	 * @param n
+	 */
 	public void setMoves(int n){
 		moves = n;
 	}
 	
-	public boolean entriesValid()
-	{
-		return false;
-	}
-	
-	public void generateLevel()
-	{
-		System.out.println("hi");
-	}
-	
-	void preview()
-	{
-		System.out.println("hi");
-	}
-
-
+	/**
+	 * check to see if tile at the coordinate is active
+	 * @param col
+	 * @param row
+	 * @return
+	 */
 	public boolean getTileActiveAt(int col, int row) {
 		return tilesActive[col][row] ;
 	}
 	
+	/**
+	 * get the value percentage of the given index
+	 * @param i
+	 * @return
+	 */
 	public double getPercent(int i){
 		return percents[i] ;
 	}
 	
+	/**
+	 * get the multiplier percentage at the given index
+	 * @param i
+	 * @return
+	 */
 	public double getPercentM(int i){
 		return percentM[i] ;
 	}
 	
+	/**
+	 * get the level's number
+	 * @return
+	 */
 	public int getLevelNumber(){
 		return number;
 	}
 	
+	/**
+	 * get the level's type
+	 * @return
+	 */
 	public String getLevelType(){
 		return type; 
 	}
 	
+	/**
+	 * get the moves
+	 * @return
+	 */
 	public int getMoves(){
 		return moves;
 	}
 	
+	/**
+	 * get the score needed for a star
+	 * @param i
+	 * @return
+	 */
 	public int getStarScore(int i){
 		return starScore[i];
 	}
 	
-	public boolean getSpecialEnabled(int i)
-	{
+	/**
+	 * check if a special move is enabled
+	 * @param i
+	 * @return
+	 */
+	public boolean getSpecialEnabled(int i){
 		if(i==1)
 			return allowReset;
 		else if(i==2)
@@ -322,6 +434,11 @@ public class LevelBuilder {
 			return allowRemove;
 	}
 
+	/**
+	 * set a special move to be allowed or not
+	 * @param i
+	 * @param enabled
+	 */
 	public void setSpecialEnabled(int i, boolean enabled) {
 		if(i==1)
 			allowReset=enabled;
@@ -331,56 +448,100 @@ public class LevelBuilder {
 			allowRemove=enabled;
 	}
 	
+	/**
+	 * get the list of levels
+	 * @return
+	 */
 	public static ArrayList<String> getLevelList() {
 		return levelList;
 	}
 
+	/**
+	 * set the list of levels
+	 * @param levelList
+	 */
 	public static void setLevelList(ArrayList<String> levelList) {
 		LevelBuilder.levelList = levelList;
 	}
 
+	/**
+	 * get the current level
+	 * @return
+	 */
 	public static Level getLevel() {
 		return level;
 	}
 
+	/**
+	 * set the current level
+	 * @param level
+	 */
 	public static void setLevel(Level level) {
 		LevelBuilder.level = level;
 	}
 	
-	public boolean getBucketEnabled(int i)
-	{
+	/**
+	 * check to see if the bucket at the given column is enabled
+	 * @param i
+	 * @return
+	 */
+	public boolean getBucketEnabled(int i){
 		return bucketFor6s[i];
 	}
 	
-	public void setBucketEnabled(int i, boolean b)
-	{
+	/**
+	 * set the bucket at the given column as enabled or disabled
+	 * @param i
+	 * @param b
+	 */
+	public void setBucketEnabled(int i, boolean b){
 		bucketFor6s[i]=b;
 	}
 	
-	public int getSeconds()
-	{
+	/**
+	 * get the seconds
+	 * @return
+	 */
+	public int getSeconds(){
 		return second;
 	}
 	
-	public void setSeconds(int i)
-	{
+	/**
+	 * set the seconds
+	 * @param i
+	 */
+	public void setSeconds(int i){
 		second=i;
 	}
 	
-	public boolean getReset()
-	{
+	/**
+	 * get the reset allowed flag
+	 * @return
+	 */
+	public boolean getReset(){
 		return allowReset;
 	}
 	
-	public boolean getSwap()
-	{
+	/**
+	 * get the swap allowed flag
+	 * @return
+	 */
+	public boolean getSwap(){
 		return allowSwap;
 	}
 	
+	/**
+	 * get the remove allowed flag
+	 * @return
+	 */
 	public boolean getRemove() {
 		return allowRemove;
 	}
 	
+	/**
+	 * assigns the entries to the builder when loading a level
+	 * @param t
+	 */
 	public void assignEntities(String t){
 		number = level.getLevelNumber();
 		type = t;

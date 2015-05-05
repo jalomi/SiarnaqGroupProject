@@ -1,10 +1,7 @@
 package sixesWildControllers;
 
-import java.util.ArrayList;
-
 import junit.framework.TestCase;
 import sixesWildBoundary.SixesWildApplication;
-import sixesWildBoundary.TileLabel;
 import sixesWildEntity.Board;
 import sixesWildEntity.Level;
 import sixesWildEntity.SixesWild;
@@ -86,7 +83,7 @@ public void testWon()
 	swa.getGamePanel().getTileLabel(5, 5).getModel().setSquare(new Square(5, 2));
 	swa.getGamePanel().getTileLabel(5, 6).getModel().setSquare(new Square(1, 1));
 
-	board.setCurrentScore(500);
+	board.setCurrentScore(1500);
 	board.setCurrentMoves(0);
 	TileLabelController tlc=new TileLabelController(swa, sw);
 	tlc.pressed(swa.getGamePanel().getTileLabel(5, 5));

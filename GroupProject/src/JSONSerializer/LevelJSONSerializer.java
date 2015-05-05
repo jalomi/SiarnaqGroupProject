@@ -23,16 +23,32 @@ import sixesWildEntity.Lightning;
 import sixesWildEntity.Puzzle;
 import sixesWildEntity.Release;
 
+/**
+ * loads and saves levels using JSON
+ * @author 
+ *
+ */
 public class LevelJSONSerializer {
-	
+	/** TAG for this class */
 	public static final String TAG = "LevelJSONSerializer";
 
+	/** name for file folder to be stored under */
     private String fileName;
 
+    /**
+     * Constructor
+     * @param fName
+     */
     public LevelJSONSerializer(String fName) {
         fileName = "json/" + fName;
     }
 
+    /**
+     * Saves levels with JSON
+     * @param levels
+     * @throws JSONException
+     * @throws IOException
+     */
     public void saveLevels(ArrayList<Level> levels) throws JSONException, IOException {
         // build an array in JSON
         JSONArray array = new JSONArray();
@@ -51,6 +67,12 @@ public class LevelJSONSerializer {
         }
     }
     
+    /**
+     * loads levels with JSON
+     * @return
+     * @throws IOException
+     * @throws JSONException
+     */
     public ArrayList<Level> loadLevels() throws IOException, JSONException {
         ArrayList<Level> levels = new ArrayList<Level>();
         BufferedReader reader = null;
@@ -81,6 +103,12 @@ public class LevelJSONSerializer {
 		return levels;
     }
     
+    /**
+     * saves one level using JSON
+     * @param level
+     * @throws JSONException
+     * @throws IOException
+     */
     public void saveSingleLevel(Level level) throws JSONException, IOException {
         JSONObject json = level.toJSON();
         Writer writer = null;
@@ -94,6 +122,13 @@ public class LevelJSONSerializer {
         }
     }
     
+    /**
+     * loads one level using JSON
+     * @param type
+     * @return
+     * @throws IOException
+     * @throws JSONException
+     */
     public Level loadSingleLevel(String type) throws IOException, JSONException {
         Level level = null;
         BufferedReader reader = null;
@@ -138,6 +173,11 @@ public class LevelJSONSerializer {
 		return level;
     }
     
+    /**
+     * Saves a list of levels using JSON
+     * @param levelList
+     * @throws IOException
+     */
     public void saveLevelList(ArrayList<String> levelList) throws IOException {
         // build an array in JSON
         JSONArray array = new JSONArray();
@@ -156,6 +196,12 @@ public class LevelJSONSerializer {
         }
     }
     
+    /**
+     * loads a list of levels using JSON
+     * @return
+     * @throws IOException
+     * @throws JSONException
+     */
     public ArrayList<String> loadLevelList() throws IOException, JSONException {
         ArrayList<String> levelList = new ArrayList<String>();
         BufferedReader reader = null;
