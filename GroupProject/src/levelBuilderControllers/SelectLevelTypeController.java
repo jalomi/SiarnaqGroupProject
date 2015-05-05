@@ -9,16 +9,38 @@ import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
 import levelBuilderMoves.SetLevelTypeMove;
 
+/**
+ * Controller that selects type for game in Level Builder
+ * @author Kevin
+ *
+ */
 public class SelectLevelTypeController implements ActionListener {
+	
+	/**
+	 * the Level Builder entity
+	 */
 	LevelBuilder model;
+	
+	/**
+	 * the Level Builder application
+	 */
 	LevelBuilderApplication application;
 	
+	/**
+	 * Constructor
+	 * Creates the application based on the entity and application
+	 * @param m
+	 * @param a
+	 */
 	public SelectLevelTypeController(LevelBuilder m, LevelBuilderApplication a)
 	{
 		this.model=m;
 		this.application=a;
 	}
 
+	/**
+	 * Handles selecting a type from the combo box
+	 */
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		@SuppressWarnings("unchecked")
@@ -26,6 +48,10 @@ public class SelectLevelTypeController implements ActionListener {
 		update(cb);
 	}
 
+	/**
+	 * Updates the combo box and level type
+	 * @param cb
+	 */
 	public void update(JComboBox<String> cb) {
 		String type=(String)cb.getSelectedItem();
 		SetLevelTypeMove m=new SetLevelTypeMove(model, type, cb, this);
