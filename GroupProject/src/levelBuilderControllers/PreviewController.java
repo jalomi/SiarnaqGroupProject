@@ -9,7 +9,11 @@ import org.json.JSONException;
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderBoundary.LevelBuilderPreviewApplication;
 import levelBuilderEntity.LevelBuilder;
-
+/**
+ * 
+ * @author Yuheng
+ *
+ */
 public class PreviewController implements ActionListener {
 	LevelBuilderApplication app ;
 	LevelBuilder model;

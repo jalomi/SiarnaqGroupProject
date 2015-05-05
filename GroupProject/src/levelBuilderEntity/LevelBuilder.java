@@ -77,14 +77,14 @@ public class LevelBuilder {
 			this.bucketFor6s[i]=false;
 		}
 		
-		for(int i=0;i<6;i++){
+		for(int i=0;i<5;i++){
 			this.percents[i] = 0;
 		}
-		
+		this.percents[5] = 1;
 		for(int i=0;i<3;i++){
 			this.percentM[i] = 0;
 		}
-		
+	
 		for(int i=0; i<3; i++)
 		{
 			this.starScore[i]=0;

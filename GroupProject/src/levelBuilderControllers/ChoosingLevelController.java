@@ -11,7 +11,11 @@ import org.json.JSONException;
 import JSONSerializer.LevelJSONSerializer;
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
-
+/**
+ * The ChossingLevelController controls the combo box that load levels
+ * @author Yuheng
+ *
+ */
 public class ChoosingLevelController implements ActionListener{
 	
 	public static final String TAG = "ChoosingLevelController :: ";
@@ -23,14 +27,19 @@ public class ChoosingLevelController implements ActionListener{
 		this.model = LevelBuilder.newInstance();
 		this.app = app;
 	}
-	
+	/**
+	 * action performed when a combo box being selected
+	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		@SuppressWarnings("unchecked")
 		JComboBox<String> cb = (JComboBox<String>)event.getSource();
 		update(cb);
 	}
-	
+	/**
+	 * updates the entity and boundaries when a different level being selected
+	 * @param cb
+	 */
 	public void update(JComboBox<String> cb)
 	{
 		String fileNameToSave = model.getLevelType() + " " + model.getLevelNumber();
@@ -155,7 +164,8 @@ public class ChoosingLevelController implements ActionListener{
 					if(model.getBucketEnabled(i)){
 						app.getCheckBoxPanel().getCheckBox(i).setSelected(true);
 						model.setTileActive(8,i);
-					} 				}
+					}
+				}
 			}
 			//empty 2 stacks
 			model.moveStack.clear();

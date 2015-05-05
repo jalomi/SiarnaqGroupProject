@@ -7,7 +7,11 @@ import javax.swing.JCheckBox;
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
 import levelBuilderMoves.SpecialMoveEnableMove;
-
+/**
+ * The activeSpericalMoveController controls the check boxes for special moves
+ * @author 
+ *
+ */
 public class ActivateSpecialMoveController implements ActionListener{
 LevelBuilder model;
 LevelBuilderApplication application;
@@ -20,14 +24,20 @@ int moveID;
 		this.application=application;
 		this.moveID=moveID;
 	}
-
+	
+	/**
+	 * action performed when check boxes being selected
+	 */
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 		// TODO Auto-generated method stub
 		JCheckBox ch=(JCheckBox)ae.getSource();
 		update(ch);
 	}
-
+/**
+ * the move to enable special moves, and entities and boundary updates  
+ * @param ch
+ */
 	public void update(JCheckBox ch) {
 		// TODO Auto-generated method stub
 		boolean enabled=ch.isSelected();

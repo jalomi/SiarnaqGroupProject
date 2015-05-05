@@ -34,9 +34,18 @@ public class SelectLevelNumberController implements ActionListener{
 			{
 				System.out.println("Number of Level: "+model.getLevelNumber());
 				model.recordMove(m);
-				if(model.getLevelNumber()>0 && model.getMoves()>0){
-					application.getGenerateBtn().setEnabled(true);
-					application.getPreviewBtn().setEnabled(true);
+
+				if(model.getLevelType().equals("Release")){
+					if((model.getLevelNumber()>0 || model.getMoves()>0)&&model.getPercent(5)<1){
+						application.getGenerateBtn().setEnabled(true);
+						application.getPreviewBtn().setEnabled(true);
+					}
+				}
+				else{
+					if(model.getLevelNumber()>0 || model.getMoves()>0){
+						application.getGenerateBtn().setEnabled(true);
+						application.getPreviewBtn().setEnabled(true);
+					}
 				}
 			}
 		} catch (Exception e) {

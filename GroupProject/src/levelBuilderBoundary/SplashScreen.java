@@ -6,7 +6,7 @@ import javax.swing.*;
 
 /**
  * Initial Splash screen that displays Group member names
- * @author Yuheng Huo
+ * @author Yuheng
  *
  */
 @SuppressWarnings("serial")

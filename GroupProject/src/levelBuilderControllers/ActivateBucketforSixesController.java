@@ -8,12 +8,20 @@ import javax.swing.JCheckBox;
 import levelBuilderBoundary.LevelBuilderApplication;
 import levelBuilderEntity.LevelBuilder;
 import levelBuilderMoves.BucketEnableMove;
-
+/**
+ * controller of check boxes for release mode only
+ * @author:
+ */
 public class ActivateBucketforSixesController implements ActionListener{
 	LevelBuilder model;
 	LevelBuilderApplication application;
 	int bucket;
-		
+		/**
+		 * Constructor of controller takes in entity and boundary with the location of the bucket
+		 * @param model: level builder entity
+		 * @param application: level builder boundary
+		 * @param bucket : the location of the bucket
+		 */
 		public ActivateBucketforSixesController(LevelBuilder model,
 				LevelBuilderApplication application, int bucket) {
 			// TODO Auto-generated constructor stub
@@ -21,14 +29,19 @@ public class ActivateBucketforSixesController implements ActionListener{
 			this.application=application;
 			this.bucket=bucket;
 		}
-
+		/**
+		 * select a certain check box for release column
+		 */
 		@Override
 		public void actionPerformed(ActionEvent ae) {
 			// TODO Auto-generated method stub
 			JCheckBox ch=(JCheckBox)ae.getSource();
 			update(ch);
 		}
-
+		/**
+		 * update entity by doing the bucketEnableMove
+		 * @param ch check boxes
+		 */
 		public void update(JCheckBox ch) {
 			// TODO Auto-generated method stub
 			boolean enabled=ch.isSelected();

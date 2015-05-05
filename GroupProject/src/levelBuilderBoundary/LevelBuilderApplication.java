@@ -32,6 +32,7 @@ import levelBuilderEntity.LevelBuilder;
 /**
  * Application for the Level Builder program
  * @author John
+ * @author Yuheng
  *
  */
 @SuppressWarnings("serial")
