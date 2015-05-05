@@ -33,13 +33,16 @@ public class ResetBoardButtonController implements ActionListener{
 	}
 	
 	/**
-	 * Shuffles the board except for 6s
+	 * Handles press of reset board button
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		process();
 	}
 	
+	/**
+	 * Shuffles the board except for 6s
+	 */
 	public void process()
 	{
 		System.out.println(TAG) ;
