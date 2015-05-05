@@ -55,8 +55,7 @@ public class SelectLevelTypeController implements ActionListener {
 	public void update(JComboBox<String> cb) {
 		String type=(String)cb.getSelectedItem();
 		SetLevelTypeMove m=new SetLevelTypeMove(model, type, cb, this);
-		if(m.doMove())
-		{
+		if(m.doMove()){
 			if(model.getLevelType().equals("Release")){
 				if((model.getLevelNumber()==0 && model.getMoves()==0)||model.getPercent(5)==1){
 					application.getGenerateBtn().setEnabled(false);
@@ -71,8 +70,8 @@ public class SelectLevelTypeController implements ActionListener {
 			}
 
 			model.recordMove(m);
-			if(model.getLevelType()=="Release")
-			{
+			
+			if(model.getLevelType().equals("Release")){
 
 				for(int i=0; i<9; i++)
 				{
@@ -87,11 +86,8 @@ public class SelectLevelTypeController implements ActionListener {
 				application.getInputPanel().getRemoveEnabled().setEnabled(false);		
 			}
 			
-			else
-			{
-				for(int i=0; i<9; i++)
-				{
-					model.setTileActive(8, i);
+			else{
+				for(int i=0; i<9; i++){
 					application.getTiles(i, 8).setEnabled(true);
 					application.getTiles(i, 8).setSelected(false);
 					application.getCheckBoxPanel().getCheckBox(i).setSelected(false);
