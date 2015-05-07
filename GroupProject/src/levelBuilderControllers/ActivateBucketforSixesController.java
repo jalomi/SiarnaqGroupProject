@@ -10,7 +10,7 @@ import levelBuilderEntity.LevelBuilder;
 import levelBuilderMoves.BucketEnableMove;
 /**
  * controller of check boxes for release mode only
- * @author:
+ * @author Kevin
  */
 public class ActivateBucketforSixesController implements ActionListener{
 	LevelBuilder model;

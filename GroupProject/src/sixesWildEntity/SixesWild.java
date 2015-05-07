@@ -7,6 +7,7 @@ import JSONSerializer.LevelJSONSerializer;
 /**
  * Model for the Sixes Wild game
  * @author John
+ * @author Xuanzhe 
  *
  */
 public class SixesWild {
@@ -97,8 +98,6 @@ public class SixesWild {
 		for(int i = 0; i < levels.size(); i++){
 			board.getLevel().setHighestScore(levels.get(i).getHighestScore());
 			board.getLevel().setStarNumber(levels.get(i).getStarNumber());
-			//highScore[i] = levels.get(i).highestScore ;
-			//starNum[i] = levels.get(i).starNumber ;
 		}
 	}
 

@@ -7,6 +7,7 @@ import org.json.JSONObject;
  * Release game mode
  * @author Kyle
  * @author John
+ * @author Xuanzhe 
  *
  */
 public class Release extends Level {

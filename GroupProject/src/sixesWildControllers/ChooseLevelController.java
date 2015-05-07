@@ -10,7 +10,8 @@ import sixesWildEntity.SixesWild;
 
 /**
  * Controls movement from level selection application to a level
- * @author 
+ * @author John
+ * @author Xuanzhe 
  *
  */
 public class ChooseLevelController implements ActionListener {

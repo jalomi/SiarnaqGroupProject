@@ -16,7 +16,9 @@ import levelBuilderMoves.Move;
 
 /**
  * Model for the Level Builder Application
- * @author 
+ * @author Xuanzhe 
+ * @author Kevin
+ * @author Yuheng
  *
  */
 public class LevelBuilder {

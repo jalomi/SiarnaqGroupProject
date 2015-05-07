@@ -14,7 +14,6 @@ import levelBuilderEntity.LevelBuilder;
  * Controller that enters Preview application from Level Builder application
  * @author Kevin
  * @author Yuheng
->>>>>>> refs/remotes/origin/master
  *
  */
 public class PreviewController implements ActionListener {

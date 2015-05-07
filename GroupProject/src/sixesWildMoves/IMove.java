@@ -4,7 +4,7 @@ import sixesWildBoundary.SixesWildApplication;
 
 /**
  * Interface for moves
- * @author 
+ * @author Xuanzhe 
  *
  */
 public interface IMove {

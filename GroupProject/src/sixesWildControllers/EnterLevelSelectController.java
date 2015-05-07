@@ -8,7 +8,7 @@ import sixesWildBoundary.MainMenuApplication;
 
 /**
  * Controls movement from main menu to the level selection application
- * @author 
+ * @author Kyle
  *
  */
 public class EnterLevelSelectController implements ActionListener {

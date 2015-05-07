@@ -25,7 +25,7 @@ import sixesWildEntity.Release;
 
 /**
  * loads and saves levels using JSON
- * @author 
+ * @author Xuanzhe 
  *
  */
 public class LevelJSONSerializer {

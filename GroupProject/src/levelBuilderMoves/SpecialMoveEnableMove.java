@@ -4,13 +4,34 @@ import javax.swing.JCheckBox;
 
 import levelBuilderEntity.LevelBuilder;
 
+/**
+ * enables or disables special moves
+ * @author Kevin
+ *
+ */
 public class SpecialMoveEnableMove extends Move{
+	/** model */
 	LevelBuilder model;
+	
+	/** state of the special move */
 	boolean state;
+	
+	/** checkbox element */
 	JCheckBox ch;
+	
+	/** the move ID */
 	int moveID;
+	
+	/** old state of the flag */
 	boolean oldState;
 	
+	/**
+	 * Constructor
+	 * @param m
+	 * @param e
+	 * @param ch
+	 * @param moveID
+	 */
 	public SpecialMoveEnableMove(LevelBuilder m, boolean e, JCheckBox ch, int moveID)
 	{
 		this.model=m;
@@ -21,12 +42,17 @@ public class SpecialMoveEnableMove extends Move{
 		
 	}
 
+	/**
+	 * checks to see if it is valid
+	 */
 	@Override
 	public boolean isValid() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
+	/**
+	 * does the move
+	 */
 	@Override
 	public boolean doMove() {
 		// TODO Auto-generated method stub
@@ -46,6 +72,9 @@ public class SpecialMoveEnableMove extends Move{
 		return true;
 	}
 
+	/**
+	 * undoes the move
+	 */
 	@Override
 	public boolean undo() {
 		// TODO Auto-generated method stub

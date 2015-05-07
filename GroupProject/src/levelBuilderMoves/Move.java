@@ -2,7 +2,7 @@ package levelBuilderMoves;
 
 /**
  * Abstract class which holds what methods each move needs to override.
- * @author 
+ * @author Kevin
  *
  */
 public abstract class Move {

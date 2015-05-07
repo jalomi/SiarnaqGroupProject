@@ -9,7 +9,7 @@ import sixesWildBoundary.MainMenuApplication;
 
 /**
  * Returns from current frame to the main menu application
- * @author 
+ * @author Kyle
  *
  */
 public class BacktoMainMenuController implements ActionListener {

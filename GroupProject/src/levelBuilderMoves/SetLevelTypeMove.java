@@ -7,7 +7,7 @@ import levelBuilderEntity.LevelBuilder;
 
 /** 
  * Sets the level type
- * @author 
+ * @author Kevin
  *
  */
 public class SetLevelTypeMove extends Move{

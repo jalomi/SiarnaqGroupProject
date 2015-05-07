@@ -12,6 +12,7 @@ import JSONSerializer.LevelJSONSerializer;
  * A controller that close the level builder frame and terminates the program,
  * and also saves the levels that have been made to a level list
  * @author Yuheng
+ * @author Xuanzhe 
  *
  */
 public class ExitController implements ActionListener{

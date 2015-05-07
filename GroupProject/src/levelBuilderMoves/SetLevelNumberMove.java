@@ -6,7 +6,7 @@ import levelBuilderEntity.LevelBuilder;
 
 /**
  * Sets the level number
- * @author 
+ * @author Kevin
  *
  */
 public class SetLevelNumberMove extends Move{

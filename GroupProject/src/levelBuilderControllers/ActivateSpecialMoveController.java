@@ -9,7 +9,7 @@ import levelBuilderEntity.LevelBuilder;
 import levelBuilderMoves.SpecialMoveEnableMove;
 /**
  * The activeSpericalMoveController controls the check boxes for special moves
- * @author 
+ * @author Kevin
  *
  */
 public class ActivateSpecialMoveController implements ActionListener{

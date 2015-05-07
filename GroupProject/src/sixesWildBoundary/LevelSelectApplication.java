@@ -21,6 +21,7 @@ import java.awt.Font;
  * Will show high score of each level and the stars earned
  * @author John
  * @author Kyle
+ * @author Xuanzhe 
  *
  */
 @SuppressWarnings("serial")
@@ -66,6 +67,7 @@ public class LevelSelectApplication extends JFrame {
 			Level l = theGame.getLevels().get(i);
 			String levelName = l.getLevelType() + " " + l.getLevelNumber();
 			JButton b = new JButton(levelName);
+			b.setFont(new Font("Tahoma", Font.PLAIN, 11));
 			b.setBounds(35 + (i%4)*130, 55 + (i/4)*160, 100, 100);
 			levelButtons.add(b);
 			getContentPane().add(b);
